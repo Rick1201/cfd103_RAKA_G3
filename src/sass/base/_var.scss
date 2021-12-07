@@ -1,0 +1,43 @@
+//顏色zone
+
+//藍
+// $blue-primary:;
+// $blue-secondary:;
+// $blue-tertiary:;
+
+// //橘
+// $orange-primary:;
+// $orange-secondary:;
+// $orange-tertiary:;
+
+//灰
+
+
+//字體
+@font-face {
+    font-family:NotoSansTC; //黑體
+    src: url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+  }
+  @font-face {
+    font-family:NotoSerif; //明體
+    src: url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+  }
+
+$fontStyle-primary:"NotoSansTC";
+$fontStyle-decorate:"NotoSerif";
+//字體大小
+$fontSize-SpecialTitle : 60px; 
+$fontSize-SpecialSubTitle : 55px; 
+$fontSize-Title : 28px;
+$fontSize-SubTitle : 24px;
+$fontSize-middle : 18px;
+$fontSize-Small : 14px;
+$fontSize : 16px; //預設值
+
+//layout
+$contaninerWidth:1300px;
+$sectionWidth:1440px;
+
+
+$btnColor-primary: linear-gradient(to bottom, rgba(224,225,228,.5) 0%,rgba(224,225,228,.5) 47%,rgba(93,101,114,.5) 52%,rgba(224,225,228,.5) 100%);
+$btnColor-secondary: linear-gradient(to bottom, rgba(214,137,79,.5) 1%,rgba(224,157,105,.5) 51%,rgba(198,102,24,.5) 52%,rgba(224,157,105,.5) 100%);

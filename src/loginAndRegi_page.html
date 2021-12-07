@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Login and Registration</title>
+		<link rel="stylesheet" href="../dist/css/style.css" />
+		<script
+			src="https://kit.fontawesome.com/8470264036.js"
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+		<div id="app">
+			<header>123</header>
+			<component :is="content" @update-content="updateSelf">
+				<!-- <template>
+					<button @click="content='regi-page'" type="submit" class="regi_btn">
+						註冊
+					</button>
+				</template> -->
+			</component>
+			<!-- <login-page>
+				<template>
+					<button @click="content='regi-page'" class="regi_btn">註冊</button>
+				</template>
+			</login-page> -->
+
+			<!-- <regi-page></regi-page> -->
+
+			<!-- <section class="component_section">
+				<div class="container">
+					<div class="component_zone">
+						<div class="img_area">
+							<img src="../asset/picLib/regiAndLogin/loginPage.jpg" alt="" />
+						</div>
+						<div class="form_area">
+							<div class="title_dist">
+								<h2>會員登入</h2>
+							</div>
+							<div class="form_dist">
+								<form action="POST" >
+									<div class="form_region">
+										<div class="form_group">
+											<label for="account"><p>信箱</p></label>
+											<input type="email" id="account" v-model="user.email" />
+										</div>
+										<div class="form_group">
+											<label for="psw"><p>密碼</p></label>
+											<input type="password" id="psw" v-model="user.password" />
+										</div>
+									</div>
+									
+									<div class="btn_region">
+										<button type="submit" class="submit_btn">登入</button>
+										<button @click="updateContent"  class="regi_btn">
+						註冊
+					</button>
+									</div>
+								</form>
+									
+								<div class="subTitle_dist">
+								<h2>第三方登入</h2>
+								</div>
+								<div class="thirdLogin_dist">
+								<div class="icon">
+									<a href="##"><i class="fab fa-facebook-square"></i></a>
+								</div>
+								<div class="icon">
+									<a href="##"><i class="fab fa-google"></i></a>
+								</div>
+								<div class="icon">
+									<a href="##"><i><i class="fab fa-line"></i></i></a>
+								</div>
+								</div>	
+							</div>	
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</section> -->
+			<!-- <section class="component_section">
+				<div class="container">
+					<div class="component_zone">
+						<div class="img_area">
+							<img src="https://picsum.photos/id/110/375/500" alt="" />
+						</div>
+						<div class="form_area">
+							<div class="title_dist">
+								<h2>會員註冊</h2>
+							</div>
+							<div class="form_dist">
+								<form action="POST">
+									<div class="form_region">
+										<div class="form_group">
+											<label for="account"><p>信箱</p></label>
+											<input type="email" name="account" />
+										</div>
+										<div class="form_group">
+											<label for="psw"><p>密碼</p></label>
+											<input type="password" name="psw" id="" />
+										</div>
+										<div class="form_group">
+											<label for="psw"><p>密碼確認</p></label>
+											<input type="password" name="psw" id="" />
+										</div>
+										<div class="form_group">
+											<label for="psw"><p>姓名</p></label>
+											<input type="password" name="psw" id="" />
+										</div>
+									</div>
+									<div class="btn_region">
+										<input type="submit" class="submit_btn" value="送出" />
+										<input type="submit"
+										class="regi_btn" value="註冊">
+									</div>
+								</form>
+								
+							</div>	
+						</div>
+							
+						</div>
+					</div>
+				</div>
+			</section> -->
+
+			<footer></footer>
+		</div>
+
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"
+			integrity="sha512-PyKhbAWS+VlTWXjk/36s5hJmUJBxcGY/1hlxg6woHD/EONP2fawZRKmvHdTGOWPKTqk3CPSUPh7+2boIBklbvw=="
+			crossorigin="anonymous"
+		></script>
+		<script>
+			Vue.component("login-page", {
+				template: `
+				<section class="component_section">
+				<div class="container">
+					<div class="component_zone">
+						<div class="img_area">
+							<img src="../asset/picLib/regiAndLogin/loginPage.jpg" alt="" />
+						</div>
+						<div class="form_area">
+							<div class="title_dist">
+								<h2>會員登入</h2>
+							</div>
+							<div class="form_dist">
+								<form action="POST" >
+									<div class="form_region">
+										<div class="form_group">
+											<label for="account"><p>信箱</p></label>
+											<input type="email" id="account" v-model="user.email" />
+										</div>
+										<div class="form_group">
+											<label for="psw"><p>密碼</p></label>
+											<input type="password" id="psw" v-model="user.password" />
+										</div>
+									</div>
+									
+									<div class="btn_region">
+										<button type="submit" class="submit_btn">登入</button>
+										<button @click="updateContent"  class="regi_btn">
+											
+						註冊
+					</button>
+									</div>
+								</form>
+									
+								<div class="subTitle_dist">
+								<h2>第三方登入</h2>
+								</div>
+								<div class="thirdLogin_dist">
+								<div class="icon">
+									<a href="##"><i class="fab fa-facebook-square"></i></a>
+								</div>
+								<div class="icon">
+									<a href="##"><i class="fab fa-google"></i></a>
+								</div>
+								<div class="icon">
+									<a href="##"><i><i class="fab fa-line"></i></i></a>
+								</div>
+								</div>	
+							</div>	
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</section>`,
+				data() {
+					return {
+						user: {
+							email: "",
+							password: "",
+							content: "",
+						},
+					};
+				},
+				methods: {
+					userLogin() {
+						alert("you are not done yet");
+					},
+					updateContent() {
+						this.content = "regi-page";
+						this.$emit("update-content", this.content);
+					},
+				},
+			});
+			Vue.component("regi-page", {
+				template: `
+				<section class="component_section">
+				<div class="container">
+					<div class="component_zone">
+						<div class="img_area">
+							<img src="../asset/picLib/regiAndLogin/registrationPage.jpg" alt="" />
+						</div>
+						<div class="form_area">
+							<div class="title_dist">
+								<h2>會員註冊</h2>
+							</div>
+							<div class="form_dist">
+								<form action="POST">
+									<div class="form_region">
+										<div class="form_group">
+											<label for="account"><p>信箱</p></label>
+											<input type="email" name="account" id="email" v-model="user.email" />
+										</div>
+										<div class="form_group">
+											<label for="psw"><p>密碼</p></label>
+											<input type="password" name="psw" id="psw" v-model="user.password"  />
+										</div>
+										<div class="form_group">
+											<label for="psw"><p>密碼確認</p></label>
+											<input type="password" name="psw" id="repsw" v-model="user.reenterPwd" />
+										</div>
+										<div class="form_group">
+											<label for="psw"><p>姓名</p></label>
+											<input type="password" name="psw" id="userName" v-model="user.name" />
+										</div>
+									</div>
+									<div class="btn_region">
+										<button @click="updateContent"  class="submit_btn">
+						返回登入
+					</button>
+										<input type="submit"
+										class="regi_btn" value="註冊">
+									</div>
+								</form>
+								
+							</div>	
+						</div>
+							
+						</div>
+					</div>
+				</div>
+			</section>
+				`,
+				data() {
+					return {
+						content: "",
+						user: {
+							email: "",
+							password: "",
+							reenterPwd: "",
+							name: "",
+						},
+					};
+				},
+				methods: {
+					userLogin() {
+						alert("you are not done yet");
+					},
+					updateContent() {
+						this.content = "login-page";
+						this.$emit("update-content", this.content);
+					},
+				},
+			});
+			new Vue({
+				el: "#app",
+				data() {
+					return {
+						content: "login-page",
+					};
+				},
+				methods: {
+					updateSelf(val) {
+						this.content = val;
+					},
+				},
+			});
+		</script>
+	</body>
+</html>
