@@ -6,10 +6,10 @@
     display: flex;
 }
 .sidebarBtn{
-    display: none;
+    opacity: 0;
 }
 .product_banner img{
-   max-width: 100%;
+   width: 100%;
 }
 ul.breadcrumb {
     padding: 10px 16px;

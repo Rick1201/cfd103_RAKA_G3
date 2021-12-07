@@ -138,6 +138,7 @@ button {
     background: #f5f5f5;
     border: none;
     outline: none;
+    opacity: 1;
   }
   .sidebarBtn span {
     width: 35px;
@@ -274,6 +275,7 @@ button {
     background: #f5f5f5;
     border: none;
     outline: none;
+    opacity: 1;
   }
   .sidebarBtn span {
     width: 35px;
