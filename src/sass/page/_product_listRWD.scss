@@ -10,98 +10,101 @@
     ul.breadcrumb{
         display: none;
     }
-    .list img{
-        left:0;
+    .entzu{
+        .list img{
+            left:0;
+        }
+        .list span{
+            margin-left: 92px;
+        }
+        .list>.heart{
+            width:30px;
+            height: 30px;
+            position: relative;
+            bottom: 0px;
+            left:184px;
+        }
+        .filter{
+            position: fixed;
+            top: 0px;
+            left: -250px;
+            background: #092755;
+            width: 240px;
+            height: 100%;
+            transition: .3s;
+            z-index: 3;
+        }
+        .box h4{
+            color:white;
+        }
+        .active{
+            left: 0;
+        }
+        .box{
+            margin: 0;
+            padding: 10px 0px;
+            position: relative;
+            top: 320px;
+        }
+        .box .type{
+            padding: 10px 20px;
+            color:#fff;    
+        }
+        .sidebarBtn{
+            position: absolute;
+            top: 340px;
+            right: -50px;
+            width: 50px;
+            height: 50px;
+            box-sizing: border-box;
+            cursor: pointer;
+            background: #f5f5f5;
+            border:none;
+            outline: none;
+            opacity: 1;
+        }
+        .sidebarBtn span{
+            width: 35px;
+            height: 0px;
+            display: block;
+            background: #1700e6;
+            position: absolute;
+            top:24px;
+            transition: .3s;
+        }
+        .sidebarBtn span::after{
+            content: '';
+            position: absolute;
+            top:10px;
+            left: 0px;
+            width: 100%;
+            height: 5px;
+            background: #1700e6;
+            transition: .3s;
+        }
+        .sidebarBtn span::before{
+            content: '';
+            position: absolute;
+            top:-10px;
+            left: 0px;
+            width: 100%;
+            height: 5px;
+            background: #1700e6;
+            transition: .3s;
+        }
+        .sidebarBtn .toggle span{
+            background: transparent;
+        }
+        .sidebarBtn.toggle span:before{
+            top:0px;
+            transform: rotate(45deg);
+        }
+        .sidebarBtn.toggle span:after{
+            top:0px;
+            transform: rotate(-45deg);
+        }
     }
-    .list span{
-        margin-left: 92px;
-    }
-    .list>.heart{
-        width:30px;
-        height: 30px;
-        position: relative;
-        bottom: 0px;
-        left:184px;
-    }
-    .filter{
-        position: fixed;
-        top: 0px;
-        left: -250px;
-        background: #092755;
-        width: 240px;
-        height: 100%;
-        transition: .3s;
-        z-index: 3;
-    }
-    .box h4{
-        color:white;
-    }
-    .active{
-        left: 0;
-    }
-    .box{
-        margin: 0;
-        padding: 10px 0px;
-        position: relative;
-        top: 320px;
-    }
-    .box .type{
-        padding: 10px 20px;
-        color:#fff;    
-    }
-    .sidebarBtn{
-        position: absolute;
-        top: 340px;
-        right: -50px;
-        width: 50px;
-        height: 50px;
-        box-sizing: border-box;
-        cursor: pointer;
-        background: #f5f5f5;
-        border:none;
-        outline: none;
-        opacity: 1;
-    }
-    .sidebarBtn span{
-        width: 35px;
-        height: 0px;
-        display: block;
-        background: #1700e6;
-        position: absolute;
-        top:24px;
-        transition: .3s;
-    }
-    .sidebarBtn span::after{
-        content: '';
-        position: absolute;
-        top:10px;
-        left: 0px;
-        width: 100%;
-        height: 5px;
-        background: #1700e6;
-        transition: .3s;
-    }
-    .sidebarBtn span::before{
-        content: '';
-        position: absolute;
-        top:-10px;
-        left: 0px;
-        width: 100%;
-        height: 5px;
-        background: #1700e6;
-        transition: .3s;
-    }
-    .sidebarBtn .toggle span{
-        background: transparent;
-    }
-    .sidebarBtn.toggle span:before{
-        top:0px;
-        transform: rotate(45deg);
-    }
-    .sidebarBtn.toggle span:after{
-        top:0px;
-        transform: rotate(-45deg);
-    }
+    
 }
 // iphone版
 @media screen and (max-width: 767px){
@@ -113,113 +116,116 @@
     ul.breadcrumb{
        display: none;
     }
-    .box h4{
-        color:white;
+    .entzu{
+        .box h4{
+            color:white;
+        }
+        .list>.heart{
+            width:30px;
+            height: 30px;
+            position: relative;
+            bottom: 190px;
+            left:230px;
+        }
+        .list_page{
+            display: grid;
+            justify-content: unset;
+        }
+        .list p{
+            text-align: none;
+        }
+        .list_page2{
+            display: grid;
+            justify-content: unset;
+        }
+        .list_page3{
+            display: grid;
+            justify-content: unset;
+        }
+        .list_page4{
+            display: grid;
+            justify-content: unset;
+        }
+        .filter{
+            position: fixed;
+            top: 0px;
+            left: -250px;
+            background: #092755;
+            width: 240px;
+            height: 100%;
+            transition: .3s;
+            z-index: 3;
+        }
+        .active{
+            left: 0;
+        }
+        .box{
+            margin: 0;
+            padding: 10px 0px;
+            position: relative;
+            top: 170px;
+        }
+        .box .type{
+            padding: 10px 20px;
+            color:#fff;    
+        }
+        .sidebarBtn{
+            position: absolute;
+            top: 150px;
+            right: -50px;
+            width: 50px;
+            height: 50px;
+            box-sizing: border-box;
+            cursor: pointer;
+            background: #f5f5f5;
+            border:none;
+            outline: none;
+            opacity: 1;
+        }
+        .sidebarBtn span{
+            width: 35px;
+            height: 0px;
+            display: block;
+            background: #262626;
+            position: absolute;
+            top:24px;
+            transition: .3s;
+        }
+        .sidebarBtn span::after{
+            content: '';
+            position: absolute;
+            top:10px;
+            left: 0px;
+            width: 100%;
+            height: 3px;
+            background: #1700e6;
+            transition: .3s;
+        }
+        .sidebarBtn span::before{
+            content: '';
+            position: absolute;
+            top:-10px;
+            left: 0px;
+            width: 100%;
+            height: 3px;
+            background: #1700e6;
+            transition: .3s;
+        }
+        .sidebarBtn .toggle span{
+            background: transparent;
+        }
+        .sidebarBtn.toggle span:before{
+            top:0px;
+            transform: rotate(45deg);
+        }
+        .sidebarBtn.toggle span:after{
+            top:0px;
+            transform: rotate(-45deg);
+        }
     }
-    .list>.heart{
-        width:30px;
-        height: 30px;
-        position: relative;
-        bottom: 190px;
-        left:230px;
-    }
-    .list_page{
-        display: grid;
-        justify-content: unset;
-    }
-    .list p{
-        text-align: none;
-    }
-    .list_page2{
-        display: grid;
-        justify-content: unset;
-    }
-    .list_page3{
-        display: grid;
-        justify-content: unset;
-    }
-    .list_page4{
-        display: grid;
-        justify-content: unset;
-    }
+  
     .pagination{
         margin-left: 0px;
-        margin-top: 50px;
-    }
-    .filter{
-        position: fixed;
-        top: 0px;
-        left: -250px;
-        background: #092755;
-        width: 240px;
-        height: 100%;
-        transition: .3s;
-        z-index: 3;
-    }
-    .active{
-        left: 0;
-    }
-    .box{
-        margin: 0;
-        padding: 10px 0px;
-        position: relative;
-        top: 170px;
-    }
-    .box .type{
-        padding: 10px 20px;
-        color:#fff;    
-    }
-    .sidebarBtn{
-        position: absolute;
-        top: 150px;
-        right: -50px;
-        width: 50px;
-        height: 50px;
-        box-sizing: border-box;
-        cursor: pointer;
-        background: #f5f5f5;
-        border:none;
-        outline: none;
-        opacity: 1;
-    }
-    .sidebarBtn span{
-        width: 35px;
-        height: 0px;
-        display: block;
-        background: #262626;
-        position: absolute;
-        top:24px;
-        transition: .3s;
-    }
-    .sidebarBtn span::after{
-        content: '';
-        position: absolute;
-        top:10px;
-        left: 0px;
-        width: 100%;
-        height: 3px;
-        background: #1700e6;
-        transition: .3s;
-    }
-    .sidebarBtn span::before{
-        content: '';
-        position: absolute;
-        top:-10px;
-        left: 0px;
-        width: 100%;
-        height: 3px;
-        background: #1700e6;
-        transition: .3s;
-    }
-    .sidebarBtn .toggle span{
-        background: transparent;
-    }
-    .sidebarBtn.toggle span:before{
-        top:0px;
-        transform: rotate(45deg);
-    }
-    .sidebarBtn.toggle span:after{
-        top:0px;
-        transform: rotate(-45deg);
+        margin-top: 20px;
     }
 }
