@@ -1,4 +1,4 @@
-@import "../base/base";
+
 
 
 .backStageLogin{
@@ -69,6 +69,9 @@
                     }
                     .btn_group{
                         align-self: end;
+                        .login_btn{
+                            @include btnStyle($btnColor-primary,100px)
+                        }
                     }
                 }
             }
@@ -76,21 +79,8 @@
            
             
         }
-        .subTitle_dist{
-            margin: 20px;
-            h3{
-                font-size: $fontSize-middle;
-            }
-        }
-        .thirdLogin_dist{
-            display: flex;
-            margin-bottom: 30px;
-            .icon{
-                margin: 0 10px;
-                font-size: $fontSize-SubTitle +10;
-                color: black;
-            }
-        }
+        
+        
     }
 }   
     }
