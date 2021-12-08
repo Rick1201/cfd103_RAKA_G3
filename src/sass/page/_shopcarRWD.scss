@@ -1,0 +1,143 @@
+@import "../mixin/mixin";
+@import "../base/var";
+@import "../base/base";
+
+@media screen and(min-width:768px)and (max-width:1023px){
+    .item .item_detail{
+        width: 338px;
+        height: 172px;
+        margin-top: 43px;
+    }
+    .money{
+        width:409px;
+        height: 50px;
+    }
+    .money01{
+        width:409px;
+    }
+    .money02{
+        width: 409px;
+    }
+    .money03{
+        width: 409px;
+    }
+    .money_detail{
+        width:411px;
+        height: 645px;
+    }
+    .information{
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+        margin-top: 30px;
+    }
+    .qty{
+        width: 20px;
+    }
+    dt{
+        left:-125px;
+    }
+    .m01 h2{
+        margin-right: 0px;
+    }
+    .m02{
+       width: 409px;
+    }
+    .m03{
+       width: 409px;
+    }
+    .m05{
+        width: 409px;
+        display: unset;
+    }
+    .m03 p3{
+        left:285px;
+    }
+    .m02 p2{
+        margin-left: 210px;
+    }
+    .m05 p2{
+       position: relative;
+       margin-left: 310px;
+    }
+    .m06{
+        width: 409px;
+    }
+    .m06 p3{
+        position: relative;
+        left: 285px;
+    }
+    .money_detail button{
+        left:310px;
+    }
+}
+@media screen and (max-width: 767px){
+    .shoppage{
+        display: grid;
+    }
+    .money_detail{
+        margin-left: 3px;
+        margin-top:60px;
+        width:280px;
+    }
+    .item .item_detail{
+        width: 280px;
+        margin-top: 20px;
+    }
+    .item img{
+        width: 15%;
+    }
+    .item{
+        display: grid;
+    }
+    dt{
+        left:0;
+        bottom: -15px;
+    }
+    .information span{
+        position: relative;
+        top:20px;
+    }
+    .money{
+        width: 280px;
+    }
+    .m01 h2{
+        margin-right: 0px;
+    }
+    .m02{
+        width: 280px;
+    }
+    .m02 p2{
+        margin-left: 0px;
+    }
+    .money01{
+        width: 280px;
+    }
+    .m03 p3{
+        left:160px;
+    }
+    .m03{
+        width: 280px;
+    }
+    .money02{
+        width: 280px;
+    }
+    .m05{
+        width: 280px;
+    }
+    .m06{
+        width: 280px;
+    }
+    .money03{
+        width: 280px;
+    }
+    .m05 p2{
+        margin-left: 0px;
+    }
+    .m06 p3{
+        left:160px;
+    }
+    .money_detail button{
+        left: 180px;
+    }
+}

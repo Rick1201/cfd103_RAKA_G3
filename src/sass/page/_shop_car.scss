@@ -72,10 +72,15 @@ input.qtyminus {
 .money{
     display: flex;
     flex-direction: column;
-    width: 533px;
-    height: 127px;
+    width: 530px;
+    height: 50px;
     align-items: center;
-    justify-content: space-between;
+}
+.money01{
+    width: 533px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .money02{
     width: 533px;
@@ -107,6 +112,7 @@ input.qtyminus {
     display: flex;
     border-bottom: 1px solid black;
     width:525px;
+    margin-top: 30px;
 }
 .m03 p3{
     position: relative;
