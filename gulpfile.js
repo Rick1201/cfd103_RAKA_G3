@@ -95,7 +95,7 @@ exports.clearall = clear;
 
 const imagemin = require('gulp-imagemin');
 function imgmin() {
-    return src('src/images/*.*')
+    return src('src/images/**/*.*')
         .pipe(imagemin([
             imagemin.mozjpeg({ quality: 10, progressive: true }) // 壓縮品質      quality越低 -> 壓縮越大 -> 品質越差 
         ]))

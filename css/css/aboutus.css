@@ -1,0 +1,426 @@
+@charset "UTF-8";
+@font-face {
+  font-family: NotoSansTC;
+  src: url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+}
+
+@font-face {
+  font-family: NotoSerif;
+  src: url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+}
+
+@font-face {
+  font-family: NotoSansTC;
+  src: url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+}
+
+@font-face {
+  font-family: NotoSerif;
+  src: url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 微軟正黑體;
+}
+
+button {
+  cursor: pointer;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.about_us {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.about_us h3 {
+  font-size: 60px;
+}
+
+.about_us p {
+  font-size: 28px;
+}
+
+.about_word {
+  margin: auto;
+  position: relative;
+  right: -140px;
+}
+
+.about_word::before {
+  content: "";
+  min-height: 200px;
+  position: absolute;
+  left: 0;
+  border-left: 1px solid #AFB6C6;
+  margin-left: -10px;
+}
+
+.about_pic img {
+  margin-left: 70px;
+  max-width: 100%;
+}
+
+.secret_page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 66px;
+}
+
+.secret_word {
+  margin: auto;
+}
+
+.secret_word h2 {
+  font-size: 28px;
+  color: gold;
+}
+
+.secret_word p {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.secret_pic {
+  margin-left: 100px;
+  position: relative;
+}
+
+.secret_pic::after {
+  position: absolute;
+  content: '';
+  width: 550px;
+  height: 400px;
+  right: -30px;
+  bottom: -30px;
+  background-color: #AFB6C6;
+}
+
+.secret_pic img {
+  z-index: 3;
+  max-width: 100%;
+  position: relative;
+}
+
+.banner img {
+  max-width: 100%;
+}
+
+.pservice {
+  margin-left: 70%;
+  bottom: 400px;
+  position: relative;
+}
+
+.pservice h2 {
+  font-size: 28px;
+  color: ghostwhite;
+  font-weight: 800;
+}
+
+.pservice p {
+  color: ghostwhite;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.customize {
+  width: 200px;
+  height: 64px;
+}
+
+.personal {
+  margin-top: 201px;
+}
+
+.our_mission {
+  position: relative;
+  top: 150px;
+  left: 60px;
+  z-index: 2;
+}
+
+.our_vision {
+  position: relative;
+  top: 100px;
+  left: 10px;
+}
+
+.mission_pic img {
+  width: 25%;
+  height: 15%;
+  position: relative;
+  left: 110px;
+}
+
+.mission_word h4 {
+  font-size: 28px;
+  color: gold;
+  text-align: center;
+}
+
+.mission_word p {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.vision_pic img {
+  width: 25%;
+  height: 15%;
+  position: relative;
+  left: 110px;
+}
+
+.vision_word h4 {
+  font-size: 28px;
+  color: gold;
+  text-align: center;
+}
+
+.vision_word p {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.our_values {
+  position: relative;
+  top: 140px;
+  left: -40px;
+}
+
+.values_pic img {
+  width: 25%;
+  height: 15%;
+  position: relative;
+  left: 120px;
+}
+
+.values_word h4 {
+  font-size: 28px;
+  color: gold;
+  text-align: center;
+}
+
+.values_word p {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.watch_pic {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.watch_pic img {
+  position: relative;
+  top: 150px;
+}
+
+.ourtwo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+}
+
+.contact_us img {
+  width: 100%;
+  position: relative;
+}
+
+.word h2 {
+  font-size: 60px;
+  color: azure;
+}
+
+.word p {
+  font-size: 28px;
+  color: azure;
+}
+
+.word {
+  position: relative;
+  bottom: 200px;
+  margin-left: 100px;
+  padding-left: 15px;
+}
+
+.word::before {
+  content: "";
+  min-height: 250px;
+  position: absolute;
+  left: 0;
+  border-left: 1px solid #AFB6C6;
+}
+
+.contact-1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 60px;
+}
+
+.customize {
+  width: 100px;
+  height: 30px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(224, 225, 228, 0.5)), color-stop(47%, rgba(224, 225, 228, 0.5)), color-stop(52%, rgba(93, 101, 114, 0.5)), to(rgba(224, 225, 228, 0.5)));
+  background: linear-gradient(to bottom, rgba(224, 225, 228, 0.5) 0%, rgba(224, 225, 228, 0.5) 47%, rgba(93, 101, 114, 0.5) 52%, rgba(224, 225, 228, 0.5) 100%);
+  border-radius: 80px;
+  border: 1px solid #ffffff;
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(224, 225, 228, 0.5) inset;
+          box-shadow: 0px 0px 3px 1px rgba(224, 225, 228, 0.5) inset;
+}
+
+.customize h3 {
+  background: unset;
+}
+
+.form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  left: -130px;
+  top: 50px;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+
+.contact-img img {
+  width: 100%;
+  position: relative;
+  left: 100px;
+}
+
+.map {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 50%;
+  background-color: #F8F2F2;
+  margin: auto;
+}
+
+.map_word {
+  margin: auto;
+}
+
+.map_word h3 {
+  font-size: 24px;
+  padding-bottom: 10px;
+}
+
+.map_word p {
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+
+.map_word p2 {
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+
+.map_word span {
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+/*# sourceMappingURL=aboutus.css.map */

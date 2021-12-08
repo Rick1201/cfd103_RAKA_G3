@@ -1,0 +1,192 @@
+@import "../mixin/mixin";
+@import "../base/var";
+@import "../base/base";
+
+// 平板
+@media screen and(min-width:768px)and (max-width:1023px){
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    // 關於我們圖文區
+    .about_word{
+        right:-130px;
+    }
+    .about_pic img{
+        width:100%;
+    }
+    // 工藝的秘密
+    .secret_page{
+        margin-top: 200px;
+    }
+    .secret_pic::after{
+        position: absolute;
+        content: '';
+        width: 420px;
+        height: 270px;
+        right:-2px;
+        bottom:-20px;
+        background-color: #AFB6C6;
+    }
+    .secret_pic{
+        margin-left: 20px;
+    }
+    // 客製化banner
+    .pservice{
+        bottom:200px;
+    }
+    .form_zone{
+        margin-left: 250px;
+    }
+    .banner img{
+        width:100%;
+    }
+    // 聯絡我們
+    .word{
+        bottom:150px;
+    }
+    // 地圖
+    .map{
+        width: 65%;
+    }
+    
+}
+// iphone版
+@media screen and (max-width: 767px){
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+  
+    // 關於我們圖文區
+    .about_us{
+        display: grid;
+
+    }
+    .about_pic img{
+        width:100%;
+        margin-left: unset;
+    }
+    .about_word{
+        right:0;
+        top:25px;
+    }
+    .about_word p{
+        color:azure;
+    }
+    .container{
+        width:100%;
+    }
+    // 工藝的秘密
+    .secret_page{
+        display: grid;
+        margin-top: 130px;
+    }
+    .secret_pic::after{
+        position: absolute;
+        content: '';
+        width: 320px;
+        height: 200px;
+        right:0px;
+        bottom:-20px;
+        background-color: #AFB6C6;
+    }
+    .secret_pic{
+        margin-left: 0px;
+        position: relative;   
+    }
+    .secret_word{
+        margin-top: 60px;
+    }
+    .secret_word p{
+        font-size: 18px;
+    }
+    // 客製化banner
+    .personal{
+        margin-top: 65px;
+    }
+    .pservice{
+        margin-left: 0%;
+        bottom: 110px;
+        position: relative;
+    }
+    .pservice h2{
+        font-size: 18px;
+    }
+    .pservice p{
+        font-size: 14px;      
+    }
+    .customize{
+        margin-top:5px;
+    }
+    .banner img{
+        max-width:100%;
+    }
+    // 我們的願景
+    .contact-img img{
+        display: none;
+    }
+    .ourtwo{
+        display: grid;
+        justify-content: center;
+        margin: auto;
+    }
+    .our_mission{
+        top:0;
+        left:0;
+    }
+    .our_vision{
+        top:0;
+        left:0;
+    }
+    .our_values{
+        top:0;
+        left: 0;
+    }
+    // 聯絡我們
+    .contact{
+        margin-top: 50px;
+    }
+    .word{
+        margin-left: 10px;
+        bottom:100px;
+    }
+    .word h2{
+        font-size: 50px;
+    }
+    .word::before {
+        content: "";
+        min-height: 170px;
+        position: absolute;
+        left: 10;
+        border-left: 1px solid black;
+    }
+    .form{
+        left:10px;
+        top:0px;
+        background-color: #E1DBDB;
+    }
+    .watch_pic img{
+        display: none;
+    }
+    // 地圖區
+    .map{
+        display: grid;
+        margin: auto;
+    }
+    .map_word p2{
+        font-size: 14px;
+    }
+    .map_word span{
+        font-size: 14px;
+    }
+    iframe{
+        width: 200px;
+        height: 200px;
+    }
+    .form_zone{
+        display: grid;
+    }
+}
