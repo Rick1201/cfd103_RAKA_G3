@@ -1,0 +1,124 @@
+.finshpage{
+    .center{
+        // border: 1px solid red;
+        // background-color: royalblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .pic-gift{
+        max-width: 475px;
+        max-height: 440px;
+    }
+    .pic-watch{
+        box-sizing: border-box;
+        max-width: 286px;
+        max-height: 500px;
+    }
+    img{
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    .arr-set{
+        display: flex;
+        align-items: flex-end;
+    }
+    .arr{
+        max-width: 98px;
+        height: auto;
+        position: relative;
+        cursor: pointer;
+        // .arr-txt{
+        //     top: 0px;
+        //     right: 0px;
+        //     left: 0px;
+        //     bottom: 0px;
+        //     display: flex;
+        //     justify-content: center;
+        //     align-items: center;
+        //     position: absolute;
+        //     z-index: 2;
+        //     // background-color: red;
+        //     border-radius: 50%;
+        // }
+        img{
+            width: 100%;
+        }
+    }
+
+}
+.formsec{
+    font-size:$fontSize-middle;
+    .mainform{
+        background-color: $blue-secondary;
+        width: 80%;
+        padding: 30px;
+        // border: 1px solid red;
+        // height: 700px;
+        // background-color: royalblue;
+        margin: auto;
+        .formtitle h2{
+            text-align: center;
+        }
+        .item{
+            display: flex;
+            justify-content: space-evenly;
+            padding: 0px 30px;
+            // border: springgreen 1px solid;
+            img{
+                width: 50%;
+            }
+        }
+        .itemsettxt{
+            text-align: center;
+            padding: 0px 30px;
+            // border: springgreen 1px solid;
+        }
+    }
+    .featurepic{
+        display: flex;
+        max-width: 160px;
+        img{
+            width: 100%;
+        }
+    }
+    .featureitem{
+        padding-top: 10px;
+        margin-bottom: -30px;
+        justify-content: center;
+        align-items: center;
+    }
+    .featuretxt{
+        padding: 0px;
+    }
+    .textcon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        textarea{
+            resize: none;
+        }
+    }
+    
+}
+.buttonarea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0px;
+    button{
+        font-size:$fontSize-middle;
+        @include btnStyle($btnColor-primary,210px);
+    }
+}
+
+@media screen and (min-width:375px){
+    .formsec{
+        .mainform{
+            background-color: $blue-secondary;
+            width: 90%;
+        }
+    }
+}
