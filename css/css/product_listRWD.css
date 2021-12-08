@@ -106,12 +106,15 @@ button {
     position: fixed;
     top: 0px;
     left: -250px;
-    background: royalblue;
+    background: #092755;
     width: 240px;
     height: 100%;
     -webkit-transition: .3s;
     transition: .3s;
     z-index: 3;
+  }
+  h3 {
+    color: white;
   }
   .active {
     left: 0;
@@ -197,6 +200,9 @@ button {
   ul.breadcrumb {
     display: none;
   }
+  h3 {
+    color: white;
+  }
   .list > .heart {
     width: 30px;
     height: 30px;
@@ -243,7 +249,7 @@ button {
     position: fixed;
     top: 0px;
     left: -250px;
-    background: royalblue;
+    background: #092755;
     width: 240px;
     height: 100%;
     -webkit-transition: .3s;
