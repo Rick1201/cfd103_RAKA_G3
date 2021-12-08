@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Login and Registration</title>
-		<link rel="stylesheet" href="../dist/css/style.css" />
+		<link rel="stylesheet" href="/css/style.css" />
 		<script
 			src="https://kit.fontawesome.com/8470264036.js"
 			crossorigin="anonymous"
@@ -13,7 +13,7 @@
 	</head>
 	<body>
 		<div id="app">
-			<header>123</header>
+			<header></header>
 			<component :is="content" @update-content="updateSelf">
 				<!-- <template>
 					<button @click="content='regi-page'" type="submit" class="regi_btn">
@@ -137,7 +137,7 @@
 		<script>
 			Vue.component("login-page", {
 				template: `
-				<section class="component_section">
+				<section class="loginAndRegiPage">
 				<div class="container">
 					<div class="component_zone">
 						<div class="img_area">
@@ -211,7 +211,7 @@
 			});
 			Vue.component("regi-page", {
 				template: `
-				<section class="component_section">
+				<section class="loginAndRegiPage">
 				<div class="container">
 					<div class="component_zone">
 						<div class="img_area">
