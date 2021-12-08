@@ -40,6 +40,7 @@ ul.breadcrumb li a:hover {
 .filter{
     display: flex;
     flex-direction: column;
+    
 }
 .shop_list{
     margin: auto;
@@ -129,10 +130,10 @@ ul.breadcrumb li a:hover {
     background: #07284e;
     border-radius: 50%;
 }
-h3{
+.box h4{
     text-align: center;
 }
-h3::before{
+.box h4::before{
     content: '';
     border-left: 3px solid #07284e;
 }

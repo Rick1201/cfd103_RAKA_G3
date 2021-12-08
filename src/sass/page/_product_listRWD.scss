@@ -33,7 +33,7 @@
         transition: .3s;
         z-index: 3;
     }
-    h3{
+    .box h4{
         color:white;
     }
     .active{
@@ -45,7 +45,7 @@
         position: relative;
         top: 320px;
     }
-    .box .form{
+    .box .type{
         padding: 10px 20px;
         color:#fff;    
     }
@@ -113,7 +113,7 @@
     ul.breadcrumb{
        display: none;
     }
-    h3{
+    .box h4{
         color:white;
     }
     .list>.heart{
@@ -165,7 +165,7 @@
         position: relative;
         top: 170px;
     }
-    .box .form{
+    .box .type{
         padding: 10px 20px;
         color:#fff;    
     }
