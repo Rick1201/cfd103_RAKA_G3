@@ -6,7 +6,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 460px;
+        width: 30%;
         background-color: $blue-tertiary;
         padding: 30px;
         .member-header{
@@ -101,4 +101,7 @@
     .member-content{
 
     }
+}
+.member-comp{
+    width: 70%;
 }
