@@ -1,6 +1,7 @@
 @import 'base/var';
 @import 'mixin/mixin';
 @import 'layout/header';
+@import 'layout/footer';
 @import 'base/base';
 
 
@@ -16,12 +17,10 @@
 @import './page/shop_car';
 @import './page/finish_page';
 @import './page/shopcarRWD';
-<<<<<<< HEAD
 @import './page/checklist';
 @import './page/checklistRWD';
-=======
 @import './page/shopcar_page_2';
+@import './page/customize-outer';
 
->>>>>>> Alice
 
 // @import 'page/newpage';
