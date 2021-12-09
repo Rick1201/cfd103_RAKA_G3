@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="/css/style.css"/>
+
+
 </head>
 <body>
     <section class="member-select">
@@ -15,8 +17,8 @@
                     <img src="https://fakeimg.pl/50x50/#aaa">
                 </div>
                 <div class="member-name">
-                    Hello ,emma!
-                    <button>編輯個人檔案</button>
+                    <h1>Hello ,emma!</h1>
+                    <button class="member-edit-btn">編輯個人檔案</button>
                 </div>
             </header>
             <div class="data-box">
@@ -34,8 +36,38 @@
             <div class="member-card">
                 <img src="https://fakeimg.pl/340x200/#aaa">
             </div>
+            <div class="member-side-bar-btn">
+                <ul>
+                    <li><a href="#" class="main-a" onclick="showBox1()">我的訂單<span class="tri-icon"></span></a>
+                        <ul id="box01">
+                            <li><a href="#" class="sub-a">商品訂單</a></li>
+                            <li><a href="#" class="sub-a">客製化訂單</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="main-a" onclick="showBox2()">我的收藏<span class="tri-icon"></span></a>
+                        <ul id="box02">
+                            <li><a href="#" class="sub-a">商品收藏</a></li>
+                            <li><a href="#" class="sub-a">客製化收藏</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="main-a">我的客製化暫存</a></li>
+                    <li><a href="#" class="main-a">紅利查詢</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="member-content"></div>
+        <div class="member-content">
+
+        </div>
     </section>
+    <script>
+        function showBox1(){
+            let box1 = document.getElementById("box01");
+            box1.classList.toggle("show");
+        }
+        function showBox2(){
+            let box2 = document.getElementById("box02");
+            box2.classList.toggle("show");
+        }
+    </script>
 </body>
 </html>
