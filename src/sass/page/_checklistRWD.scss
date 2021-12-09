@@ -4,87 +4,128 @@
 
 
 @media screen and(min-width:768px)and (max-width:1023px){
-    .clifor01{
-        width:268px;
-        height: 565px;
-    }
-    .phone{
-        right:0px;
-        bottom:0px;
-    }
-    .name{
-        margin-left: 0px;
-    }
-    .address{
-        margin-left: 0px;
-        bottom:0px;
-    }
-    input[name="address"]{
-        width:250px;
-    }
-    .ps{
-        margin-left: 0px;
-        bottom:0px;
-    }
-    input[name="ps"]{
-        width: 250px;
-    }
-    .clifor01 .member01{
-        margin-left: 0px;
-    }
-    .cinfor h3{
-        margin-left: 0px;
-    }
-    .client{
-        justify-content: unset;
+    .checklist01{
+        .clifor01{
+            width:268px;
+            height: 565px;
+        }
+        .phone{
+            right:0px;
+            bottom:0px;
+        }
+        .name{
+            margin-left: 0px;
+        }
+        .address{
+            margin-left: 0px;
+            bottom:0px;
+        }
+        input[name="address"]{
+            width:250px;
+        }
+        .ps{
+            margin-left: 0px;
+            bottom:0px;
+        }
+        input[name="ps"]{
+            width: 250px;
+        }
+        .clifor01 .member01{
+            margin-left: 0px;
+        }
+        .cinfor h3{
+            margin-left: 0px;
+        }
+        .client{
+            justify-content: unset;
+        }
     }
 }
+   
 @media screen and (max-width: 767px){
-    .client{
-        display: grid;
-        justify-content: unset;
-    }
-    .clifor01{
-        width: 370px;
-    }
-    .phone{
-        right:0;
-        bottom:0;
-        margin-left: 20px;
-    }
-    .address{
-        bottom:0px;
-    }
-    .ps{
-        bottom:0px;
-    }
-    input[name="address"]{
-        width: 250px;
-    }
-    input[name="ps"]{
-        width: 250px;
-    }
-    .money_detail01{
-        margin-left: 3px;
-        margin-top:60px;
-        width:370px;
-    }
-    .money_detail01 button{
-        left: 180px;
-    }
-    .buttonlist .all{
-        width: 315px;
-    }
-    .bt01 p{
-        margin-right: 10px;
-    }
-    .bt02 p{
-        margin-right: 10px;
-    }
-    .ship{
-        margin-left: 0px;
-    }
-    .buttonplace{
-        margin-left: -20px;
+    .checklist01{
+        .client{
+            display: grid;
+            justify-content: unset;
+        }
+        .clifor01{
+            width: 370px;
+        }
+        .phone{
+            right:0;
+            bottom:0;
+            margin-left: 20px;
+        }
+        .address{
+            bottom:0px;
+        }
+        .ps{
+            bottom:0px;
+        }
+        input[name="address"]{
+            width: 250px;
+        }
+        input[name="ps"]{
+            width: 250px;
+        }
+        .money_detail01{
+            margin-left: 3px;
+            margin-top:60px;
+            width:370px;
+        }
+        .money_detail01 button{
+            left: 180px;
+        }
+        .buttonlist .all{
+            width: 315px;
+        }
+        .bt01 p{
+            margin-right: 10px;
+        }
+        .bt02 p{
+            margin-right: 10px;
+        }
+        .ship{
+            margin-left: 0px;
+        }
+        .buttonplace{
+            margin-left: -20px;
+        }
+        .m01 h2{
+            margin-right: 440px;
+        }
+        .m02{
+            width: 280px;
+        }
+        .m02 p2{
+            margin-left: 0px;
+        }
+        .money01{
+            width: 280px;
+        }
+        .m03 p3{
+            left:160px;
+        }
+        .m03{
+            width: 280px;
+        }
+        .money02{
+            width: 280px;
+        }
+        .m05{
+            width: 280px;
+        }
+        .m06{
+            width: 280px;
+        }
+        .money03{
+            width: 280px;
+        }
+        .m05 p2{
+            margin-left: 0px;
+        }
+        .m06 p3{
+            left:160px;
+        }
     }
 }
