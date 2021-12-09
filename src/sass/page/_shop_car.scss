@@ -28,6 +28,7 @@
 .item h4{
     color:#163257;
     padding-bottom: 10px;
+    font-weight: 900;
 }
 .qty{
     width:50px;
@@ -96,6 +97,10 @@ input.qtyminus {
     border-top: 1px solid black;
     width:525px;
 }
+.m02 p{
+    color:#163257;
+    font-weight: 900;
+}
 .m01 h2{
     margin-right: 455px;
     position: relative;
@@ -107,12 +112,15 @@ input.qtyminus {
 .m02 p2{
     margin-left: 340px;
     color:#163257;
+    font-weight: 900;
 }
 .m03{
     display: flex;
     border-bottom: 1px solid black;
     width:525px;
     margin-top: 30px;
+    color:#163257;
+    font-weight: 900;
 }
 .m03 p3{
     position: relative;
@@ -122,15 +130,22 @@ input.qtyminus {
 .m05{
     display: flex;
 }
+.m05 p{
+    color:#163257;
+    font-weight: 900;
+}
 .m05 p2{
     margin-left: 340px;
     color:#163257;
+    font-weight: 900;
 }
 .m06{
     display: flex;
     border-bottom: 1px solid black;
     width:525px;
     margin-top: 30px;
+    color:#163257;
+    font-weight: 900;
 }
 .m06 p3{
     position: relative;
@@ -154,4 +169,8 @@ input.qtyminus {
     left: 430px;
     bottom: -10px;
     @include btnStyle($btnColor-primary,100px);
+}
+.shoppage span{
+    color:#163257;
+    font-weight: 900;
 }
