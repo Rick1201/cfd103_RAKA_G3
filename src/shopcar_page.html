@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopCar</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+    <section class="shoppage">
+        <div class="item">
+            
+            <div class="item_detail">
+              <input type="checkbox" name="star" value="2">
+              <img src="images/product-list06.png" alt="">
+              <h4>海洋飛行PCB-01</h4>  
+                 <div class="information">
+                    <form id='myform' method='POST' action='#'>
+                        <label for=""> </label><input type='button' value='-' class='qtyminus' field='quantity' /><!--
+                -->         <input type='text' name='quantity' value='0' class='qty' /><!--
+            -->             <input type='button' value='+' class='qtyplus' field='quantity' />
+                    </form>
+                    <span>$75,000</span>
+                    <dt>刪除</dt>
+                 </div> 
+            </div>
+            <div class="item_detail">
+                <input type="checkbox" name="star" value="1">
+                <img src="images/product-list06.png" alt="">
+                <h4>海洋飛行PCB-01</h4>
+                    <div class="information">
+                        <form id='myform' method='POST' action='#'>
+                        <label for=""> </label><input type='button' value='-' class='qtyminus' field='quantity' /><!--
+                    -->     <input type='text' name='quantity' value='0' class='qty' /><!--
+                -->         <input type='button' value='+' class='qtyplus' field='quantity' />
+                        </form>
+                    <span>$75,000</span>
+                    <dt>刪除</dt>
+                    </div> 
+            </div>
+            <div class="item_detail">
+                <input type="checkbox" name="star" value="1">
+                <img src="images/product-list06.png" alt="">
+                <h4>海洋飛行PCB-01</h4>
+                <div class="information">
+                    <form id='myform' method='POST' action='#'>
+                        <label for=""> </label><input type='button' value='-' class='qtyminus' field='quantity' /><!--
+                    -->     <input type='text' name='quantity' value='0' class='qty' /><!--
+                -->         <input type='button' value='+' class='qtyplus' field='quantity' />
+                    </form>
+                    <span>$75,000</span>
+                    <dt>刪除</dt>
+               </div> 
+            </div>
+        </div>
+            <div class="money_detail">
+                <div class="money">
+                    <div class="m01">
+                        <h2>訂單金額</h2>
+                    </div>
+                </div>
+                <div class="money01">    
+                    <div class="m02">
+                        <p>海洋飛行PCB-01</p>
+                        <p2>$75,000</p2>
+                    </div> 
+                    <div class="m03">
+                        <p>1個</p>
+                        <p3>小計$75,000</p3>
+                    </div>
+                </div>
+                <div class="money02">
+                    <div class="m05">
+                        <p>海洋飛行PCB-01</p>
+                        <p2>$75,000</p2>
+                    </div>
+                    <div class="m06">
+                        <p>1個</p>
+                        <p3>小計$75,000</p3>
+                    </div>
+                </div>
+                <div class="money03">
+                    <div class="m05">
+                        <p>海洋飛行PCB-01</p>
+                        <p2>$75,000</p2>
+                    </div>
+                    <div class="m06">
+                        <p>1個</p>
+                        <p3>小計$75,000</p3>
+                    </div>
+                </div>                 
+            <span>總計13,0000</span>
+            <button>結帳</button>
+    </section>
+    
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(function() {
+  
+  $('.qtyplus').click(function(e) {
+    
+    e.preventDefault();
+    
+    fieldName = $(this).attr('field');
+   
+    var currentVal = parseInt($('input[name=' + fieldName + ']').val());
+    
+    if (!isNaN(currentVal)) {
+     
+      $('input[name=' + fieldName + ']').val(currentVal + 1);
+    } else {
+     
+      $('input[name=' + fieldName + ']').val(0);
+    }
+  });
+
+  $(".qtyminus").click(function(e) {
+  
+    e.preventDefault();
+    
+    fieldName = $(this).attr('field');
+    
+    var currentVal = parseInt($('input[name=' + fieldName + ']').val());
+  
+    if (!isNaN(currentVal) && currentVal > 0) {
+
+      $('input[name=' + fieldName + ']').val(currentVal - 1);
+    } else {
+      
+      $('input[name=' + fieldName + ']').val(0);
+    }
+  });
+});
+</script>    
+</body>
+</html>

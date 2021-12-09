@@ -1,4 +1,4 @@
-@import "../base/base";
+
 
 
 .backStageLogin{
@@ -6,6 +6,7 @@
     max-width: 1440px;
     margin: 0 auto;
     display: flex;
+    background-image: url(/images/backStageLogin-01.jpeg);
     .container{
         margin: 20px auto;
      .component_zone{
@@ -13,14 +14,17 @@
         margin: 0 auto;
         display: flex;
         border: 1px solid #888;
-        border-radius: 20px;
+        border-radius: 20px; 
+        background-size: cover;
+        background-color: rgba(255, 255, 255, .4);
+        background-blend-mode: multiply;
         .form_area{
             width: 600px;
+            height: 400px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 400px;
+            justify-content: center;   
             .title_dist{
             margin: 20px;
                 h2{
@@ -69,6 +73,9 @@
                     }
                     .btn_group{
                         align-self: end;
+                        .login_btn{
+                            @include btnStyle($btnColor-primary,100px)
+                        }
                     }
                 }
             }
@@ -76,21 +83,8 @@
            
             
         }
-        .subTitle_dist{
-            margin: 20px;
-            h3{
-                font-size: $fontSize-middle;
-            }
-        }
-        .thirdLogin_dist{
-            display: flex;
-            margin-bottom: 30px;
-            .icon{
-                margin: 0 10px;
-                font-size: $fontSize-SubTitle +10;
-                color: black;
-            }
-        }
+        
+        
     }
 }   
     }
