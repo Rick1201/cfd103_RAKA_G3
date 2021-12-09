@@ -32,7 +32,7 @@
 .product{
     position: relative;
 }
-.customize{
+.customize01{
     position: relative;
 }
 .aboutus{
@@ -51,7 +51,7 @@
     left: 0;
     transform: translateY(-100%);
 }
-.customize::after{
+.customize01::after{
     content: 'Customize';
     position: absolute;
     top: 0;

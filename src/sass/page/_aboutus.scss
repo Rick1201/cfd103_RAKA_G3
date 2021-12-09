@@ -227,7 +227,9 @@
    position: relative;
    left: -130px;
    top: 50px;
-   backdrop-filter: blur(5px);
+   background-size: cover;
+   background-color: rgba(255,255,255,.4);
+   background-blend-mode: multiply;
 }
 .contact-img img{
     width: 100%;
