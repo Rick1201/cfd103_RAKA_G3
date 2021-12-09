@@ -1,0 +1,46 @@
+
+    .container{
+        align-items: center;
+        display: flex;
+        margin: 10px;
+
+        }
+        /* 左邊禮物區 */
+    .mixpicture{
+
+    }    
+        /* 右邊選色區 */
+    .colorselectarea{
+        width: 50%;
+    }
+         
+    .gifts{
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    .gifts img{
+        width: 30px;
+    }
+    .ribbons{
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    .ribbons img{
+        width: 30px;
+    }
+
+        /* 錄音區 */
+
+
+
+    .playerbutton{
+        display: flex;
+        gap: 10px;
+    }
+    .playerbutton img{
+        width: 30px;
+    }
