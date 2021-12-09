@@ -1,9 +1,10 @@
 .main-footer{
+    background-color: $blue-tertiary;
     .container{
         display: flex;
         flex-wrap: wrap;
         max-width: 1440px;
-        background-color: $blue-tertiary;
+        margin: auto;
         .main-footer-logo{
             width: 30%;
             img{
