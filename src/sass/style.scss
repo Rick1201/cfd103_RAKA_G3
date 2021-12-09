@@ -1,6 +1,7 @@
 @import 'base/var';
 @import 'mixin/mixin';
 @import 'layout/header';
+@import 'layout/footer';
 @import 'base/base';
 
 
@@ -17,8 +18,7 @@
 @import './page/finish_page';
 @import './page/shopcarRWD';
 @import './page/hot_design';
-
-
+@import './page/customize-outer';
 @import './page/checklist';
 @import './page/checklistRWD';
 @import './page/shopcar_page_2';
