@@ -1,0 +1,402 @@
+@charset "UTF-8";
+@font-face {
+  font-family: NotoSansTC;
+  src: url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+}
+
+@font-face {
+  font-family: NotoSerif;
+  src: url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+}
+
+@font-face {
+  font-family: NotoSansTC;
+  src: url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+}
+
+@font-face {
+  font-family: NotoSerif;
+  src: url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 微軟正黑體;
+}
+
+button {
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: NotoSansTC;
+  src: url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+}
+
+@font-face {
+  font-family: NotoSerif;
+  src: url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 微軟正黑體;
+}
+
+button {
+  cursor: pointer;
+}
+
+.component_section {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.component_section .container {
+  margin: 20px auto;
+}
+
+.component_zone {
+  width: 750px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.component_zone .img_area {
+  width: 375px;
+}
+
+.component_zone .img_area img {
+  width: 375px;
+  height: 450px;
+  vertical-align: middle;
+}
+
+.component_zone .form_area {
+  width: 375px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: 1px solid #888;
+  border-right: 1px solid #888;
+  border-bottom: 1px solid #888;
+  border-radius: 0px 20px 20px 0;
+}
+
+.component_zone .form_area .title_dist {
+  margin: 20px;
+}
+
+.component_zone .form_area .title_dist h2 {
+  font-size: 24px;
+}
+
+.component_zone .form_area .form_dist {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.component_zone .form_area .form_dist form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.component_zone .form_area .form_dist form .form_region {
+  width: 100%;
+}
+
+.component_zone .form_area .form_dist form .form_group {
+  width: 80%;
+  margin: 20px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.component_zone .form_area .form_dist form .form_group label {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.component_zone .form_area .form_dist form .form_group input {
+  width: 100%;
+  margin: 5px;
+}
+
+.component_zone .form_area .form_dist form .btn_region {
+  width: 100%;
+  margin-bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.component_zone .form_area .form_dist .submit_btn {
+  width: 100px;
+  height: 30px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(224, 225, 228, 0.5)), color-stop(47%, rgba(224, 225, 228, 0.5)), color-stop(52%, rgba(93, 101, 114, 0.5)), to(rgba(224, 225, 228, 0.5)));
+  background: linear-gradient(to bottom, rgba(224, 225, 228, 0.5) 0%, rgba(224, 225, 228, 0.5) 47%, rgba(93, 101, 114, 0.5) 52%, rgba(224, 225, 228, 0.5) 100%);
+  border-radius: 80px;
+  border: 1px solid #ffffff;
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(224, 225, 228, 0.5) inset;
+          box-shadow: 0px 0px 3px 1px rgba(224, 225, 228, 0.5) inset;
+}
+
+.component_zone .form_area .form_dist .regi_btn {
+  width: 100px;
+  height: 30px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, rgba(214, 137, 79, 0.5)), color-stop(51%, rgba(224, 157, 105, 0.5)), color-stop(52%, rgba(198, 102, 24, 0.5)), to(rgba(224, 157, 105, 0.5)));
+  background: linear-gradient(to bottom, rgba(214, 137, 79, 0.5) 1%, rgba(224, 157, 105, 0.5) 51%, rgba(198, 102, 24, 0.5) 52%, rgba(224, 157, 105, 0.5) 100%);
+  border-radius: 80px;
+  border: 1px solid #ffffff;
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(224, 225, 228, 0.5) inset;
+          box-shadow: 0px 0px 3px 1px rgba(224, 225, 228, 0.5) inset;
+}
+
+.component_zone .form_area .subTitle_dist {
+  margin: 20px;
+}
+
+.component_zone .form_area .subTitle_dist h3 {
+  font-size: 18px;
+}
+
+.component_zone .form_area .thirdLogin_dist {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.component_zone .form_area .thirdLogin_dist .icon {
+  margin: 0 10px;
+  font-size: 34px;
+  color: black;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px;
+}
+
+/* 左邊禮物區 */
+.giftarea {
+  width: 500px;
+  height: 500px;
+  background-color: #07073d;
+}
+
+/* 右邊選色區 */
+.colorselectarea {
+  background-color: #ebe9e9;
+  margin-right: auto;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  gap: 40px;
+}
+
+.colorlist {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 60px;
+}
+
+.colorselect {
+  background: #797979;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+
+.progressbar {
+  background-color: #5a5a5a;
+  width: 300px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.playerbuttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
+.playerbuttons .button {
+  background: #747474;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  margin: auto;
+}
+
+.playerbuttons .button p {
+  width: 50px;
+}
+/*# sourceMappingURL=style.css.map */

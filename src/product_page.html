@@ -20,7 +20,7 @@
 			<div class="product-pic">
 				<div class="switch-pics">
 					<div class="switch-pic">
-						<img class="clicked" src="./images/product_page_02.png" alt="">
+						<img class="clicked" src="./images/product_page_01.png" alt="">
 					</div>
 					<div class="switch-pic">
 						<img src="./images/product_page_02.png" alt="">
@@ -67,7 +67,7 @@
 				<div class="item">
 					<div class="product-card">
 						<div class="product-pic">
-							<img src="https://picsum.photos/id/237/100/100" alt="">
+							<img src="./images/product_page_01.png" alt="">
 						</div>
 						<div class="product-txt">
 							<h4>RAKA-1001</h4>
@@ -78,7 +78,7 @@
 				<div class="item">
 					<div class="product-card">
 						<div class="product-pic">
-							<img src="https://picsum.photos/id/237/100/100" alt="">
+							<img src="./images/product_page_01.png" alt="">
 						</div>
 						<div class="product-txt">
 							<h4>RAKA-1002</h4>
@@ -89,7 +89,7 @@
 				<div class="item">
 					<div class="product-card">
 						<div class="product-pic">
-							<img src="https://picsum.photos/id/237/100/100" alt="">
+							<img src="./images/product_page_01.png" alt="">
 						</div>
 						<div class="product-txt">
 							<h4>RAKA-1003</h4>
@@ -100,7 +100,7 @@
 				<div class="item">
 					<div class="product-card">
 						<div class="product-pic">
-							<img src="https://picsum.photos/id/237/100/100" alt="">
+							<img src="./images/product_page_01.png" alt="">
 						</div>
 						<div class="product-txt">
 							<h4>RAKA-1004</h4>
@@ -164,9 +164,15 @@
 		Vue.component("specification",{
 			template:`
 				<div class="specification-pic">
-					<img src="https://picsum.photos/id/217/600/600">
+					<img :src="imageURL">
 				</div>
 			`,
+
+			data(){
+				return{
+					imageURL:"./images/product_page_specification.jpg",
+				}
+			}
 		});
 
 		Vue.component("comment-item",{
