@@ -1,0 +1,35 @@
+.final .container{
+    margin: auto;
+}
+.word1{
+    margin: auto;
+}
+.final{
+    display: flex;
+    justify-content: center;
+    height: 785px;
+    width: 1000px;
+    margin: auto;
+    border: 1px solid black;
+    background-image: url('/images/bg.jpeg');
+    background-repeat: no-repeat;
+    background-size:2560px 985px;
+}
+.thanks h2{
+    color:#163257;
+    font-weight: 800;
+    font-size: 24px;
+}
+.thanks{
+    margin-bottom: 172px;
+}
+.checklist p{
+    color:#163257;
+    font-weight: 400;
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+button{
+    @include btnStyle($btnColor-primary,100px);
+   
+}
