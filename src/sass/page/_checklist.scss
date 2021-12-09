@@ -18,13 +18,9 @@
 .client{
     display: flex;
     justify-content: space-around;
-  
 }
 .bt01 p{
     margin-right: 95px;
-}
-.bt01{
-
 }
 .bt02 p{
     margin-right: 95px;
@@ -59,6 +55,40 @@
     margin-left: 20px;
     margin-bottom: 60px;
 }
-.clifor01 .member{
+.clifor01 .member01{
     margin-left: 20px;
+}
+input[name="name"]{
+    width: 250px;
+    height: 25px;
+}
+input[name="tel"]{
+    width: 250px;
+    height: 25px;
+}
+input[name="address"]{
+    width: 600px;
+    height: 25px;
+}
+input[name="ps"]{
+    width: 700px;
+    height: 205px;
+}
+.money_detail01{
+    width: 529px;
+    height: 700px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    background-image: url('/images/bg.jpeg');
+    background-repeat: no-repeat;
+    background-size: 529px 700px;
+}
+.money_detail01 button{    
+        width:100px;
+        position: relative;
+        left: 430px;
+        bottom: -10px;
+        @include btnStyle($btnColor-primary,100px);
 }
