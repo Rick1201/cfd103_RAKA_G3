@@ -1,0 +1,64 @@
+@import "../mixin/mixin";
+@import "../base/var";
+@import "../base/base";
+
+.buttonlist{
+    width: 100%;
+    margin-bottom: 65px;
+}
+.buttonlist .all{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 50%;
+    margin:auto;
+    border:1px solid black;
+    border-radius: 50px;
+}
+.client{
+    display: flex;
+    justify-content: space-around;
+  
+}
+.bt01 p{
+    margin-right: 95px;
+}
+.bt01{
+
+}
+.bt02 p{
+    margin-right: 95px;
+}
+.clifor01{
+    width: 836px;
+    height: 655px;
+    border: 1px solid black;
+    background-image: url('/images/bg.jpeg');
+    background-repeat: no-repeat;
+    background-size: 836px 655px;
+}
+.phone{
+    position: relative;
+    right:-350px;
+    bottom:40px;
+}
+.name{
+    margin-left: 20px;
+}
+.address{
+    position: relative;
+    bottom:40px;
+    margin-left: 20px;
+}
+.ps{
+   margin-left: 20px;
+   position: relative;
+   bottom:40px;
+}
+.cinfor h3{
+    margin-left: 20px;
+    margin-bottom: 60px;
+}
+.clifor01 .member{
+    margin-left: 20px;
+}
