@@ -2,11 +2,15 @@
 @import "../base/var";
 @import "../base/base";
 .shop_container{
-    width: 100%;
+    
     display: flex;
+    margin: auto;
 }
 .sidebarBtn{
     opacity: 0;
+}
+.product_banner{
+    display: contents;
 }
 .product_banner img{
    width: 100%;

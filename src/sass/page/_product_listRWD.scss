@@ -5,7 +5,7 @@
 // 平板
 @media screen and(min-width:768px)and (max-width:1023px){
     .product_banner img{
-        width: 112%;
+        width: 100%;
     }
     ul.breadcrumb{
         display: none;
@@ -221,6 +221,9 @@
         .sidebarBtn.toggle span:after{
             top:0px;
             transform: rotate(-45deg);
+        }
+        .product_banner{
+            display: none;
         }
     }
   
