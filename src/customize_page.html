@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="./css/style.css"/>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+	</head>
+	<body>
+		@@include('./layout/header.html')
+		<section>
+			<div class="customize-outer">
+				<div class="outer-img">
+					<img src="./images/5ea99562449ad232325522e0f07f4331.jpg" alt="">
+				</div>
+				<div class="outer-box">
+					<div class="box box-frame">
+						<img src="./images/CS-PN-38-RG_a5f775039ae215f83fb7382eb5d91a2b.jpg" alt="">
+					</div>
+					<div class="box box-face">
+						<img src="./images/ST-BR-CL-20-BL_fc0db9b0bf330686acb6bbfe461767d9.jpg" alt="">
+					</div>
+					<div class="box box-band">
+						<img src="./images/navy.jpg" alt="">
+					</div>
+					<div class="box box-pointer">
+						<img src="./images/HM-PSB-42_ff9917aa34896716fb017ed64ee2b58d.jpg" alt="">
+					</div>
+				</div>
+			</div>
+			<div class="customize-selectBox" id="selectBox">
+				<div class="select-tab">
+					<div class="tab" @click="content='frame'">
+						<img src="./images/icon-frame.png" alt="">
+					</div>
+					<div class="tab" @click="content='face'">
+						<img src="./images/watch-face.png" alt="">
+					</div>
+					<div class="tab" @click="content='band'">
+						<img src="./images/watch-strap.png" alt="">
+					</div>
+					<div class="tab" @click="content='pointer'">
+						<img src="./images/clock.png" alt="">
+					</div>
+				</div>
+				<div class="select-content-box">
+					<component :is="content"></component>
+				</div>
+			</div>
+		</section>
+		<script>
+			Vue.component("frame",{
+				template:`
+				<div class="select-content">
+					<div class="item">
+						<img src="./images/CS-PN-42-IB_bfc47d6f8445398e6fcd2de785bbd2f7.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/CS-PN-38-RG_a5f775039ae215f83fb7382eb5d91a2b.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/CS-PN-42-RG_928ef5e2b03993a1932e1c9dff506d2c.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/CS-PN-42-SS_7a764e8a31a563fd9c5273a9cae59da6.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/CS-PN-42-IB_bfc47d6f8445398e6fcd2de785bbd2f7.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/CS-PN-38-RG_a5f775039ae215f83fb7382eb5d91a2b.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/CS-PN-42-RG_928ef5e2b03993a1932e1c9dff506d2c.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/CS-PN-42-SS_7a764e8a31a563fd9c5273a9cae59da6.jpg" alt="">
+					</div>
+				</div>
+				`,
+			});
+			Vue.component("face",{
+				template:`
+				<div class="select-content">
+					<div class="item">
+						<img src="./images/ST-BR-CL-20-BL_fc0db9b0bf330686acb6bbfe461767d9.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/ST-BT-MD-20-DG_9a1a26de4c2aa31c335bf140ebb1cd05.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/ST-ML-MS-20-RG-SL_6664776b0d052bfba9429f2f07da5ecc.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/ST-ML-WSB-20-SS_74615bd4666c4cf4492ac596e9560628.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/ST-ML-WSB-20-SS_74615bd4666c4cf4492ac596e9560628.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/ST-ML-WSB-20-SS_74615bd4666c4cf4492ac596e9560628.jpg" alt="">
+					</div>
+				</div>
+				`,
+			});
+			Vue.component("band",{
+				template:`
+				<div class="select-content">
+					<div class="item">
+						<img src="./images/HM-PSB-42_ff9917aa34896716fb017ed64ee2b58d.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/CS-PN-38-RG_a5f775039ae215f83fb7382eb5d91a2b.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/CS-PN-42-RG_928ef5e2b03993a1932e1c9dff506d2c.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/CS-PN-42-SS_7a764e8a31a563fd9c5273a9cae59da6.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/CS-PN-42-IB_bfc47d6f8445398e6fcd2de785bbd2f7.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/CS-PN-38-RG_a5f775039ae215f83fb7382eb5d91a2b.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/CS-PN-42-RG_928ef5e2b03993a1932e1c9dff506d2c.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/CS-PN-42-SS_7a764e8a31a563fd9c5273a9cae59da6.jpg" alt="">
+					</div>
+				</div>
+				`,
+			});
+			Vue.component("pointer",{
+				template:`
+				<div class="select-content">
+					<div class="item">
+						<img src="./images/CS-PN-42-IB_bfc47d6f8445398e6fcd2de785bbd2f7.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/CS-PN-38-RG_a5f775039ae215f83fb7382eb5d91a2b.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/CS-PN-42-RG_928ef5e2b03993a1932e1c9dff506d2c.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/CS-PN-42-SS_7a764e8a31a563fd9c5273a9cae59da6.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/CS-PN-42-IB_bfc47d6f8445398e6fcd2de785bbd2f7.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/CS-PN-38-RG_a5f775039ae215f83fb7382eb5d91a2b.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/CS-PN-42-RG_928ef5e2b03993a1932e1c9dff506d2c.jpg" alt="">
+					</div>
+					<div class="item">
+						<img src="./images/CS-PN-42-SS_7a764e8a31a563fd9c5273a9cae59da6.jpg" alt="">
+					</div>
+				</div>
+				`,
+			});
+			new Vue({
+				el: '#selectBox',
+				data:{
+					content:'frame',
+				},
+			});
+		</script>
+		@@include('./layout/footer.html')
+	</body>
+</html>
