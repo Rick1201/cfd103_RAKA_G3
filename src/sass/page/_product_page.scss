@@ -159,7 +159,7 @@ section#product-detail {
                     width: 10%;
                     height: 10%;
                     border-radius: 50%;
-                    background-color: #eee;
+                    background-color: $gray-primary;
 
                     img {
                         width: 100%;
@@ -176,7 +176,7 @@ section#product-detail {
                         padding: 5px 0;
 
                         .fa-star {
-                            color: rgb(15, 15, 71);
+                            color: $blue-tertiary;
                         }
                     }
 
@@ -199,7 +199,7 @@ section#product-detail {
                     justify-content: center;
 
                     .fa-exclamation-triangle {
-                        color: rgb(15, 15, 71);
+                        color: $blue-tertiary;
                         border: none;
                         font-size: $fontSize;
                         cursor: pointer;
@@ -239,7 +239,7 @@ section.relative-product {
         content: "";
         width: 100%;
         height: 50%;
-        background-color: rgb(20, 20, 94);
+        background-color: $blue-tertiary;
         position: absolute;
         top: 50%;
         left: 0;
@@ -252,7 +252,7 @@ section.relative-product {
         h3 {
             text-align: center;
             font-size: $fontSize-Title;
-            color: rgb(20, 20, 94);
+            color: $blue-tertiary;
             padding: 50px 0;
         }
 
@@ -268,14 +268,15 @@ section.relative-product {
 
                     .product-txt {
                         padding: 10px;
+                        text-align: center;
 
-                        h3 {
-                            font-size: 18px;
+                        h4 {
+                            font-size: $fontSize-middle;
                             padding: 5px 0;
                         }
 
                         p {
-                            font-size: 16px;
+                            font-size:$fontSize-middle;
                             padding: 5px 0;
                         }
                     }
@@ -309,7 +310,7 @@ section.relative-product {
 
         .owl-theme .owl-nav [class*='owl-']:hover {
             background: transparent;
-            color: #eee;
+            color: $gray-primary;
             text-decoration: none;
         }
     }
