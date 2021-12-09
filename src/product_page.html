@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://kit.fontawesome.com/2c95395281.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"></link>
+	<link rel="stylesheet" href="./css/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+	<title>Document</title>
+</head>
+<body>
+	<!-- 商品圖與價格 -->
+	<section class="product">
+		<div class="container">
+			<div class="product-pic">
+				<div class="switch-pics">
+					<div class="switch-pic">
+						<img class="clicked" src="./images/product_page_01.png" alt="">
+					</div>
+					<div class="switch-pic">
+						<img src="./images/product_page_02.png" alt="">
+					</div>
+					<div class="switch-pic">
+						<img src="./images/product_page_03.png" alt="">
+					</div>
+					<div class="switch-pic">
+						<img src="./images/product_page_04.png" alt="">
+					</div>
+				</div>
+				<div class="main-pic">
+					<img src="./images/product_page_01.png" alt="">
+				</div>
+			</div>
+			<div class="product-title">
+				<h2>海洋飛行PCB-01</h2>
+				<p>NT$ <span>6000</span></p>
+				<button>加入購物車</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- 商品詳細內容 -->
+	<section id="product-detail">
+		<ul class="section-select">
+			<li class="product-info detail-tab active-tab" @click="content='info';tabActive">商品資訊</ㄠ>
+			<li class="product-specification detail-tab" @click="content='specification',tabActive">規格</li>
+			<li class="product-comment detail-tab" @click="content='comment',tabActive">評論</li>
+		</ul>
+		<div class="container">
+			<keep-alive>
+				<component :is="content"></component>
+			</keep-alive>
+		</div>
+	</section>
+
+
+	<!-- 相關商品 -->
+	<section class="relative-product">
+		<div class="container">
+			<h3>相關商品</h3>
+			<div class="owl-carousel owl-theme">
+				<div class="item">
+					<div class="product-card">
+						<div class="product-pic">
+							<img src="./images/product_page_01.png" alt="">
+						</div>
+						<div class="product-txt">
+							<h4>RAKA-1001</h4>
+							<P>NT$ 1200</P>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="product-card">
+						<div class="product-pic">
+							<img src="./images/product_page_01.png" alt="">
+						</div>
+						<div class="product-txt">
+							<h4>RAKA-1002</h4>
+							<P>NT$ 1200</P>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="product-card">
+						<div class="product-pic">
+							<img src="./images/product_page_01.png" alt="">
+						</div>
+						<div class="product-txt">
+							<h4>RAKA-1003</h4>
+							<P>NT$ 1200</P>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="product-card">
+						<div class="product-pic">
+							<img src="./images/product_page_01.png" alt="">
+						</div>
+						<div class="product-txt">
+							<h4>RAKA-1004</h4>
+							<P>NT$ 1200</P>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<script>
+		function showLarge(e){
+			let small = e.target;
+			document.querySelector(".main-pic img").src = small.src;
+			let smalls = document.querySelectorAll(".switch-pic img");
+			for(let i =0; i<smalls.length;i++){
+				smalls[i].classList.remove("clicked");
+			}
+			small.classList.add("clicked");
+		}
+
+		function tabActive(e){
+			let tab = e.target;
+			let tabs = document.querySelectorAll(".detail-tab");
+			for(let i = 0; i < tabs.length; i++){
+				tabs[i].classList.remove("active-tab");
+			}
+			tab.classList.add("active-tab");
+		}
+
+		function init(){
+			let imgs = document.querySelectorAll(".switch-pic img");
+			for(let i=0; i<imgs.length; i++){
+				imgs[i].onclick = showLarge;
+			}
+
+			let tabs = document.querySelectorAll(".detail-tab");
+			for(let i = 0; i < tabs.length; i++){
+				tabs[i].onclick = tabActive;
+			}
+
+
+		}
+		window.addEventListener("load",init,false);
+	</script>
+
+	<script>
+		Vue.component("info",{
+			template:`
+				<div class="info-content">
+					<p class="info-txt">
+						體的怎當的童論因？還府而……比公解我。重的小了名……的考下有手任那化工牛權。言流放……錢銷開用了大言場公突能多。媽是利？出輕企道大色家此同時媽月負是吸定色寫為受其軍？外要當手全成排只功回就火到；生中講供車所畫所對果：想自及車，賽前習頭對時人，德月生在。……錢銷開用了大言場公突能多。媽是利？出輕企道大色家此同時媽月負是吸定色寫為受其軍？外要當手全成……錢銷開用了大言場公突能多。媽是利？出輕企道大色家此同時媽月負是吸定色寫為受其軍？外要當手全成。。言流放……錢銷開用了大言場公突能多。媽是利？出輕企道大色家此同時媽月負是吸定色寫為受其軍？外要。
+					</p>
+					<p class="info-txt">
+						體的怎當的童論因？還府而……比公解我。重的小了名……的考下有手任那化工牛權。言流放……錢銷開用了大言場公突能多。媽是利？出輕企道大色家此同時媽月負是吸定色寫為受其軍？外要當手全成排只功回就火到；生中講供車所畫所對果：想自及車，賽前習頭對時人，德月生在。？外要當手全成排只功回就火到；生中講供車所畫所對果：想自及車，賽前習頭對時人，德？外要當手全成排只功回就火到；生中講供車所畫所對果：想自及車，賽前習頭對時人，德？外要當手全成排只功回就火到；生中講供車所畫所對果：想自
+				</div>
+			`,
+		});
+		Vue.component("specification",{
+			template:`
+				<div class="specification-pic">
+					<img :src="imageURL">
+				</div>
+			`,
+
+			data(){
+				return{
+					imageURL:"./images/product_page_specification.jpg",
+				}
+			}
+		});
+
+		Vue.component("comment-item",{
+			template:`
+				<div>
+					<div class="comment-item">
+						<div class="mem-pic">
+							<img src="https://picsum.photos/id/217/600/600" alt="">
+						</div>
+						<div class="comment-content">
+							<div class="comment-score">
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+							</div>
+							<div class="comment-txt">
+								<span class="mem-Id">Alice0531</span>
+								<span> : </span>
+								<span class="mem-comment">超美的手錶!!超美的手錶!!超美的手錶!!超美的手錶!!</span>
+							</div>
+						</div>
+						<div class="report-btn">
+							<i class="fas fa-exclamation-triangle"></i>	
+						</div>
+					</div>
+					<hr>
+				<div>
+			`,
+		});
+
+		Vue.component("comment",{
+			template:`
+				<div class="comment-list">
+					<comment-item></comment-item>
+					<comment-item></comment-item>
+					<comment-item></comment-item>
+					<comment-item></comment-item>
+					<comment-item></comment-item>
+				</div>
+			`,
+		});
+		new Vue({
+            el: '#product-detail',
+            data:{
+                content: 'info',
+				tabs:["商品資訊","規格","評論"],
+            },
+        });
+	</script>
+
+	<script>
+		$(".owl-carousel").owlCarousel({
+			loop: true, 
+			margin: 60, 
+			nav: true, 
+			dots: false,
+			responsive: {
+				0: {
+				items: 1
+				},
+				376: {
+				items: 3
+				},
+
+			}
+		});
+	</script>
+</body>
+</html>

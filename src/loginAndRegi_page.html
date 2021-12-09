@@ -13,7 +13,7 @@
 	</head>
 	<body>
 		<div id="app">
-			<header>123</header>
+			<header></header>
 			<component :is="content" @update-content="updateSelf">
 				<!-- <template>
 					<button @click="content='regi-page'" type="submit" class="regi_btn">
@@ -137,11 +137,11 @@
 		<script>
 			Vue.component("login-page", {
 				template: `
-				<section class="component_section">
+				<section class="loginAndRegiPage">
 				<div class="container">
 					<div class="component_zone">
 						<div class="img_area">
-							<img src="../asset/picLib/regiAndLogin/loginPage.jpg" alt="" />
+							<img src="./images/loginAndRegi_page-01.jpg" alt="" />
 						</div>
 						<div class="form_area">
 							<div class="title_dist">
@@ -211,11 +211,11 @@
 			});
 			Vue.component("regi-page", {
 				template: `
-				<section class="component_section">
+				<section class="loginAndRegiPage">
 				<div class="container">
 					<div class="component_zone">
 						<div class="img_area">
-							<img src="../asset/picLib/regiAndLogin/registrationPage.jpg" alt="" />
+							<img src="./images/loginAndRegi_page-02.jpg" alt="" />
 						</div>
 						<div class="form_area">
 							<div class="title_dist">

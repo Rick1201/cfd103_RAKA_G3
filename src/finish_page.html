@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template -->
+        <section class="finshpage">
+            <div class="containerGrid">
+                <div class="row center">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-6 center">
+                                <div class="pic-gift">
+                                    <img :src="giftbox">
+                                </div>
+                            </div>
+                            <div class="col-4 center">
+                                <div class="pic-watch">
+                                    <img :src="watchpic">
+                                </div>
+                            </div>
+                            <div class="col-2 arr-set">
+                                <div class="arr">
+                                    <img src="./images/finisharrbottom.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </section>
+       <section class="formsec">
+           <div class="containerGrid">
+               <div class="row">
+                   <div class="col-12 mainform">
+                       <div class="row">
+                           <div class="col-12">
+                               <div class="formtitle">
+                                   <h2>
+                                       客製化品項明細
+                                   </h2>
+                               </div>
+                           </div>
+                           <div class="col-12">
+                               <div class="featuretitle">
+                                   <h2>外觀</h2>
+                               </div>
+                           </div>
+                           <div class="col-6 item">
+                               <div>錶框</div>
+                               <div>{{Bezel.color}}</div>
+                           </div>
+                           <div class="col-6 item">
+                               <div>錶面</div>
+                               <div>{{surface.color}}</div>
+                           </div>
+                           <div class="col-6 item">
+                               <div>錶帶</div>
+                               <div>{{watchBand.color}}</div>
+                           </div>
+                           <div class="col-6 item">
+                               <div>指針</div>
+                               <div>{{watchPointer.color}}</div>
+                           </div>
+                           <div class="col-6">
+                             <div class="featuretitle">
+                                 <h2>功能表盤</h2>
+                                 <div class="row featureitem">
+                                     <div class="col-6 featurepic">
+                                         <img :src="feature">
+                                     </div>
+                                     <div class="col-6 featuretxt">
+                                         <ul>
+                                             <li v-for="(text,index) in featureTxts">{{index+1}} {{text}}</li>
+                                             <!-- <li>2 指北針</li>
+                                             <li>3 錶面</li> -->
+                                         </ul>
+                                     </div>
+                                 </div>
+                             </div>
+                           </div>
+                           <div class="col-6">
+                             <div class="featuretitle">
+                                 <h2>潛水規格需求</h2>
+                                 <div class="row featureitem">
+                                     <div class="col-12 ">
+                                         <ul>
+                                             <li v-for="diving in divings">{{diving}}</li>
+                                         </ul>
+                                     </div>
+                                 </div>
+                             </div>
+                           </div> 
+                           <div class="col-12">
+                             <div class="featuretitle">
+                                 <h2>刻字服務</h2>
+                             </div>
+                           </div>
+                             <div class="col-6 itemsettxt">
+                                 <div>字體</div>
+                                 <div>{{fontFamily}}</div>
+                             </div>
+                             <div class="col-6 itemsettxt">
+                                 <div>字體大小</div>
+                                 <div>{{fontSize}}</div>
+                             </div>
+                             <div class="col-6">
+                                 <div>刻字內容</div>
+                             </div>
+                             <div class="col-12 textcon">
+                                 <textarea name="" id="" cols="100" rows="5"></textarea>
+                             </div>
+                             <div class="col-12">
+                                 <div class="featuretitle">
+                                     <h2>包裝</h2>
+                                 </div>
+                               </div>
+                             <div class="col-12 item">
+                                 <div>外盒顏色</div>
+                                 <div><img :src="orange"></div>
+                                 <div>緞帶顏色</div>
+                                 <div><img :src="gray"></div>
+                             </div>
+                             <div class="col-12 item">
+                                 <div>是否有錄製QRcode</div>
+                                 <div v-if="QRcode">是</div>
+                                 <div v-else>否</div>
+                                 
+                             </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </section>
+       <section class="finishbutton">
+             <div class="containerGrid">
+                 <div class="row">
+                     <div class="col-12 buttonarea">
+                         <button>下訂單</button>
+                     </div>
+                 </div>
+             </div>
+       </section>
+       
+     </div>
+     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js' integrity='sha512-PyKhbAWS+VlTWXjk/36s5hJmUJBxcGY/1hlxg6woHD/EONP2fawZRKmvHdTGOWPKTqk3CPSUPh7+2boIBklbvw==' crossorigin='anonymous'></script>
+     <script>
+         
+        new Vue({
+            el: '#app',  
+            data: {  // 變數放這裡
+                message: 'Hello',
+                giftbox: './images/finishboxpict.png',
+                watchpic: './images/finishwatchpic01.png',
+                feature: './images/finishfunpic.png',
+                gray:'./images/finishcircle-g.png',
+                orange:'./images/finishcircle-o.png',
+                fontFamily:'Playfair_Display',
+                fontSize:'12pt',
+                featureTxts:['月相','指北針','錶面'],
+                QRcode:false,
+                divings:['ATM20'],
+                watchPointer:{
+                    color:'玫瑰金'
+                },
+                watchBand:{
+                    color:'玫瑰黑'
+                },
+                surface:{
+                    color:'玫瑰黃'
+                },
+                Bezel:{
+                    color:'玫瑰銀'
+                },
+            },
+            methods: {  // 大部分的函數(方法)放這裡
+               
+            },
+            computed: { // 函數(方法)也可以放這裡，但是放在這裡的函數，不能傳參數，一定要有傳回值
+               
+            },
+        });
+    </script>
+</body>
+</html>

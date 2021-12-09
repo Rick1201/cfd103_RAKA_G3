@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>About us</title>
+		<link rel="stylesheet" href="/css/style.css">
+	</head>
+	<body>
+		<!-- 關於我們圖文區 -->
+		@@include('./layout/header.html')
+		<div class="container01">
+			<div class="about_us">
+				<div class="about_word">
+					<h3>About us</h3>
+					<p>關於我們</p>
+				</div>
+				<div class="about_pic">
+					<img src="images/aboutus-04.jpg">
+				</div>
+			</div>
+		</div>
+		<!-- 工藝的秘密 -->
+		<div class="secret_page">
+			<div class="secret_pic">
+				<img src="images/aboutus-02.jpg" alt="">
+			</div>
+			<div class="secret_word">
+				<h2>我們工藝的秘密</h2>
+				<p>我們的工作室是由深諳鐘錶工藝的工匠組成，<br/>這些工藝萃取自傳統鐘錶知識以及嶄新科技，<br/>為你的手錶添上毋庸自疑的精緻工藝。
+				</p>
+			</div>
+		</div>
+		<!-- 客製化banner -->
+		<div class="personal">
+			<div class="service">
+				<div class="banner">
+					<img src="images/aboutus-03.png" alt="" />
+				</div>
+			</div>
+			<div class="pservice">
+				<h2>客製化服務</h2>
+				<p>
+					RAKA深信一隻手錶的靈魂<br />
+					是來自於鐘錶匠的一雙巧手
+				</p>
+				<button class="customize" style="background-color: burlywood">
+					<span>立即訂製</span>
+				</button>
+			</div>
+		</div>
+		<!-- 我們的願景 -->
+		<div class="our">
+			<div class="ourtwo">
+			<div class="our_mission">
+				<div class="mission_pic">
+					<img src="images/aboutus-mission.svg" alt="" />
+				</div>
+				<div class="mission_word">
+					<h4>OUR MISSION</h4>
+					<p>
+						我們的使命是成為一個<br>永續經營的公司；在汽<br>車、航空、航海、戶外<Br>休閒以及運動各領域，<Br>提供客戶生活中不可<Br>或缺的卓越產品。
+					</p>
+				</div>
+			</div>
+			<div class="our_vision">
+				<div class="vision_pic">
+					<img src="images/aboutus-vision.svg" alt="" />
+				</div>
+				<div class="vision_word">
+					<h4>OUR VISION</h4>
+					<p>
+						我們的願景是要在每一<br>個市場領域都成為全球<Br>的領導者;以驚艷的設<br>計，卓越的質量以及<br>超越的價值廣受顧客喜愛。
+					</p>
+				</div>
+			</div>
+			<div class="our_values">
+				<div class="values_pic">
+					<img src="images/aboutus-value.svg" alt="" />
+				</div>
+				<div class="values_word">
+					<h4>OUR VALUES</h4>
+					<p>
+						我們的企業文化是建立<br>在誠實、廉正與尊重的<br>基礎上;抱持決心全力<br>以赴的精神，以實踐對<br>同仁、客戶與合作夥伴<br>的承諾。
+					</p>
+				</div>
+			</div>
+		</div>
+			<div class="watch_pic">
+				<img src="images/aboutus-01.jpg"
+					alt=""/>
+			</div>
+		</div>
+		<!-- 聯絡我們大圖 -->
+		<div class="contact">
+			<div class="contact_us">
+				<img src="images/aboutus-05.jpg" alt="">
+			</div>     
+			<div class="word">
+				<h2>Contact us</h2>
+				<p>聯絡我們</p>
+			</div>
+		</div>    	
+		<!-- 聯絡我們 -->
+		<div class="contact-1">
+			<div class="contact-img">
+				<img src="images/aboutus-02.jpg" alt="">
+			</div>
+				<div class="form">
+					<h3>聯絡表單</h3>   
+					<input type="text" placeholder="Name"  style="width: 200px;height: 30px; font-size: 18px; margin-bottom: 10px;">
+				   <input type="text" placeholder="E-mail" style="width: 200px;height: 30px;font-size: 18px;margin-bottom: 10px;"" >
+				   <input type="text" placeholder="Title"  style="width: 200px;height: 30px;font-size: 18px;margin-bottom: 10px;"">
+				   <input type="text" placeholder="Content" style="width: 200px;height: 80px;font-size: 18px;margin-bottom: 10px;"" >
+				   <button class="customize" style="background-color: burlywood">
+					   <span>送出</span>
+				   </button>
+			</div>
+		</div>
+		<!-- 店家資訊 -->
+		<div class="map">
+			<div class="map_word">
+				<h3>店家資訊</h3>
+				<p>台灣國際航電股份有限公司</p>
+				<p2>新北市汐止區新台五路一段97號37樓</p2>
+				<br>
+				<span>桃園市中壢區北園路24號</span>
+			</div>
+			<iframe
+				src="https://maps.google.com?output=embed&q=新北市汐止區新台五路一段97號37樓"
+				width="500"
+				height="500"
+				frameborder="0"
+			></iframe>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+    		$("span").click(function(){
+        	$("iframe").attr("src", "https://maps.google.com?output=embed&q=桃園市中壢區北園路24號");
+    	});    
+	});
+			$(document).ready(function(){
+    		$("p2").click(function(){
+        	$("iframe").attr("src", "https://maps.google.com?output=embed&q=新北市汐止區新台五路一段97號37樓");
+    	});    
+	});
+		</script>	
+	</body>
+</html>

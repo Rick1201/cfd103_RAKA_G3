@@ -1,0 +1,104 @@
+
+.member-select{
+    color: $gray-secondary;
+    .member-side-bar{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 460px;
+        background-color: $blue-tertiary;
+        padding: 30px;
+        .member-header{
+            display: flex;
+            margin-bottom: 20px;
+            .member-img{
+
+                margin-right: 10px;
+                img{
+
+                }
+            }
+            .member-name{
+                h1{
+                    line-height: 30px;
+                }
+                .member-edit-btn{
+                    display: block;
+                    background: $btnColor-primary;
+                    border-radius: 20px;
+                    box-sizing: border-box;
+                    padding: 5px;
+                    border: none;
+                    color: $gray-secondary;
+                }
+            }
+        }
+        .data-box{
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: $fontSize-middle;
+            table{
+                border-radius: 16px;
+                background: $btnColor-primary;
+                line-height: 40px;
+                width: 200px;
+                text-align: center;
+            }
+        }
+        .member-card{
+
+        }
+        .member-side-bar-btn{
+            ul {
+                li {
+                    margin-top: 10px;
+                    border-radius: 20px;
+                    width: 360px;
+                    font-size: $fontSize-SubTitle;
+                    ul{
+                        width: 360px;
+                        background-color: #aaa;
+                        display: none;
+                        li{
+                            a{
+                                text-decoration: none; 
+                                color: $gray-secondary;
+                                font-size: $fontSize-SubTitle;
+                            }
+                        }
+                    }
+                    ul.show{
+                        display: block;
+                    }
+                    .main-a{
+                        background: $btnColor-primary;
+                        color: $gray-secondary;
+                        text-decoration: none;
+                        border-radius: 20px;
+                        box-sizing: border-box;
+                        padding: 5px;
+                        display: inline-block;
+                        width: 360px;
+                        .tri-icon{
+                            width: 0px;
+                            height: 0px;
+                            border: 10px solid transparent;
+                            border-bottom:10px solid #F7F2EC;
+                            display: inline-block;
+                            transform: translateY(-25%);
+                        }
+                        .tri-icon.turn{
+                            transform: translateY(-25%) rotate(180deg);
+                        }
+                    }
+                    
+                }
+            }
+            
+        }
+    }
+    .member-content{
+
+    }
+}

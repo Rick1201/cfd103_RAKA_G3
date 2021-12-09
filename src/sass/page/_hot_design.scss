@@ -1,0 +1,90 @@
+.hot-design-banner{
+    width: 100%;
+    position: relative;
+    img{
+        width: 100%;
+        height: 40vh;
+        object-fit: cover;
+        vertical-align: middle;
+    }
+    .customization-link{
+        position: absolute;
+        bottom: 50px;
+        right: 10%;
+        h2{
+            font-size: $fontSize-SpecialSubTitle;
+            color: white;
+            padding: 0 0 15px;
+        }
+        p{
+            font-size: $fontSize-SubTitle;
+            color: white;
+            padding: 0 0 15px;
+        }
+        button{
+            @include btnStyle($btnColor-secondary, 50%);
+            color: white;
+            font-size: 18px;
+        }
+        
+    }
+}
+
+.hot-design{
+    h2{
+        text-align: center;
+        font-size: $fontSize-SpecialSubTitle;
+        color: $blue-tertiary;
+        padding: 50px 0;
+    }
+    .container{
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        .hot-design-filter{
+            width: 30%;
+            h3{
+                font-size: $fontSize-Title;
+                text-align: center;
+                position: relative;
+                border-bottom:1px solid $blue-tertiary ;
+                padding: 0 0 15px;
+            }
+            .first-sort{
+                >li{
+                    padding: 10px;
+                }
+                &:li + li {
+                    border-top: 1px solid $blue-tertiary ;
+                }
+            }
+        }
+        .hot-design-list{
+            width: 70%;
+            .hot-design-item{
+                display: flex;
+                border: 1px solid  red;
+                .hot-design-pic{
+                    width: 20%;
+                    img{
+                        width: 100%;
+                    }
+                }
+                .hot-design-content{
+                    width: 80%;
+                    table{
+                        width: 100%;
+                        tr{
+
+                            td{
+                                padding:10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+}
