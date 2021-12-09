@@ -1,163 +1,164 @@
-@import "../base/base";
-.container{
-
-    margin: auto;
-    display: flex;
-    text-align: center;
-    align-items: center;
-}
-.logo{
-    width: 200px;
-    padding: 10px;
-}
-.logo img{
-    width: 100%;
-}
-.main-nav a{ 
-
-    font-family: $fontStyle-decorate;
-    text-decoration: none;
-    color: #4e5766;
-}
-.main-nav ul li{
-    margin: 10px;
-}
-.main-nav ul li:after{
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 30px;
-    background:linear-gradient(-65deg, transparent 49.5%, #4e5766 49.5%, #4e5766 50.5%, transparent 50.5%);
-}
-.product{
-    position: relative;
-}
-.customize01{
-    position: relative;
-}
-.aboutus{
-    position: relative;
-}
-.game{
-    position: relative;
-}
-.member{
-    position: relative;
-}
-.product::after{
-    content: 'Product';
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateY(-100%);
-}
-.customize01::after{
-    content: 'Customize';
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateY(-100%);
-}
-.aboutus::after{
-    content: 'About Us';
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateY(-100%);
-}
-.game::after{
-    content: 'Game';
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateY(-100%);
-}
-.member::after{
-    content: 'Member';
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateY(-100%);
-}
-.cart{
-    width: 30px;
-    margin: 10px;
-}
-.cart img{
-    width: 100%;
-}
-.memBtn{
-    margin: 10px;
-}
-.memBtn span{
-    display: block;
-    text-align: center;
-}
-@media screen and (max-width:1024px){
-    
+.main-header{
+    .container{
+        margin: auto;
+        display: flex;
+        text-align: center;
+        align-items: center;
+    }
     .logo{
-        margin-right: auto;
+        width: 200px;
+        padding: 10px;
     }
-    .hb{
-        width: 40px;
-        height: 40px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+    .logo img{
+        width: 100%;
     }
-    .hb span:first-child{
-        display: block;
-        width: 24px;
-        height: 2px;
-        background-color: #4e5766;
-        margin-bottom: 5px;
+    .main-nav a{ 
+    
+        font-family: $fontStyle-decorate;
+        text-decoration: none;
+        color: #4e5766;
     }
-    .hb span:last-child{
-        display: block;
+    .main-nav ul li{
+        margin: 10px;
+    }
+    .main-nav ul li:after{
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 30px;
+        background:linear-gradient(-65deg, transparent 49.5%, #4e5766 49.5%, #4e5766 50.5%, transparent 50.5%);
+    }
+    .product{
+        position: relative;
+    }
+    .customize01{
+        position: relative;
+    }
+    .aboutus{
+        position: relative;
+    }
+    .game{
+        position: relative;
+    }
+    .member{
+        position: relative;
+    }
+    .product::after{
+        content: 'Product';
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+    }
+    .customize01::after{
+        content: 'Customize';
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+    }
+    .aboutus::after{
+        content: 'About Us';
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+    }
+    .game::after{
+        content: 'Game';
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+    }
+    .member::after{
+        content: 'Member';
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+    }
+    .cart{
         width: 30px;
-        height: 2px;
-        background-color: #4e5766;
-        margin-bottom: 5px;
+        margin: 10px;
     }
-    #main-nav{
-        position: absolute;
-        width: 200px;
-        right: -200px;
-        top: 80px;
-        background-color: whitesmoke;
-        height: calc(100vh - 80px);
-        transition: right .5s;
-    }
-    #main-nav.hidden{
-        position: absolute;
-        width: 200px;
-        right: 0px;
-        top: 80px;
-        background-color: whitesmoke;
-        height: calc(100vh - 80px);
-        transition: right .5s;
-    }
-    
-    .main-nav ul{
-        display: flex;
-        justify-content: flex-end;
-        flex-direction: column;
-    }
-    
-}
-@media screen and (min-width:1025px){
-    .main-nav ul{
-        display: flex;
-        justify-content: flex-end;
-        flex-direction: row;
-        margin-left: auto;
-    }
-    
-    .main-nav{
-        display: flex;
-        flex-grow: 1;
+    .cart img{
+        width: 100%;
     }
     .memBtn{
-        display: inline-block;
+        margin: 10px;
+    }
+    .memBtn span{
+        display: block;
+        text-align: center;
+    }
+    @media screen and (max-width:1024px){
+        
+        .logo{
+            margin-right: auto;
+        }
+        .hb{
+            width: 40px;
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .hb span:first-child{
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: #4e5766;
+            margin-bottom: 5px;
+        }
+        .hb span:last-child{
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: #4e5766;
+            margin-bottom: 5px;
+        }
+        #main-nav{
+            position: absolute;
+            width: 200px;
+            right: -200px;
+            top: 80px;
+            background-color: whitesmoke;
+            height: calc(100vh - 80px);
+            transition: right .5s;
+        }
+        #main-nav.hidden{
+            position: absolute;
+            z-index: 100;
+            width: 200px;
+            right: 0px;
+            top: 80px;
+            background-color: whitesmoke;
+            height: calc(100vh - 80px);
+            transition: right .5s;
+        }
+        
+        .main-nav ul{
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: column;
+        }
+        
+    }
+    @media screen and (min-width:1025px){
+        .main-nav ul{
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: row;
+            margin-left: auto;
+        }
+        
+        .main-nav{
+            display: flex;
+            flex-grow: 1;
+        }
+        .memBtn{
+            display: inline-block;
+        }
     }
 }

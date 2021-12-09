@@ -1,0 +1,142 @@
+
+.payment-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1440px;
+    // background-color: bisque;
+    .receiver-box{
+        border: 1px solid #aaa;
+        padding: 10px;
+        background-image: url('/images/bg.jpeg');
+        margin-bottom: 30px;
+        .receiver-tb{
+            margin: auto;
+            margin-bottom: 30px;
+            width: 1000px;
+            padding: 10px;
+            font-size: $fontSize-middle;
+            font-weight: 600;
+            th{
+                text-align: start;
+            }
+            tr{
+                border-bottom: 1px solid #1f396e;
+                line-height: 50px;
+                padding: 5px;
+                padding-left: 10px;
+                td{
+                    padding: 20px;
+                }
+                .receiver-title{
+                    width: 160px;
+                }
+            }
+        }
+    }
+    .order-box{
+        border: 1px solid #aaa;
+        padding: 10px;
+        background-image: url('/images/bg.jpeg');
+        margin-bottom: 30px;
+        .order-tb{
+            margin-bottom: 30px;
+            width: 1000px;
+            padding: 10px;
+            font-size: $fontSize-middle;
+            background-image: url('/images/bg.jpeg');
+            font-weight: 600;
+            th{
+                text-align: start;
+            }
+            tr{
+                border-bottom: 1px solid #293B5F;
+                line-height: 50px;
+                padding: 5px;
+                padding-left: 10px;
+                td{
+                    padding: 20px;
+                }
+                .order-title{
+                    width: 160px;
+                }
+            }
+        }
+    }
+    .payment-box{
+        border: 1px solid #aaa;
+        padding: 10px;
+        background-image: url('/images/bg.jpeg');
+        margin-bottom: 30px;
+        .payment-tb{
+            margin-bottom: 30px;
+            width: 1000px;
+            padding: 10px;
+            font-size: $fontSize-middle;
+            background-image: url('/images/bg.jpeg');
+            font-weight: 600;
+            th{
+                text-align: start;
+            }
+            tr{
+                border-bottom: 1px solid $blue-primary;
+                line-height: 50px;
+                padding: 5px;
+                td{
+                    padding: 20px;
+                    select{
+                        height: 50px;
+                        background-color: $blue-secondary;
+                        color: $gray-secondary;
+                    }
+                    input[type=text]{
+                        font-size: $fontSize-middle;
+                        background-color: $blue-secondary;
+                        height: 50px;
+                    }
+                }
+                .payment-title{
+                    width: 180px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:375px){
+    .payment-page{
+        max-width: 90%;
+        .receiver-box{
+            .receiver-tb{
+                width: 100%;
+                tr{
+                    .receiver-title{
+                        width: 100px; 
+                    }
+
+                }
+            }
+        }
+        .order-box{
+            width: 100%;
+            .order-tb{
+                width: 100%;
+            }
+        }
+        .payment-box{
+            .payment-tb{
+                width: 100%;
+                tr{
+                    td{
+                        input[type=text]{
+                            width: 90px;
+                        }
+                        .payment-title{
+                            width: 80px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
