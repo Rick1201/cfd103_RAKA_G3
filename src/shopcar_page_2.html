@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+    @@include('./layout/header.html')
+    <div class="payment-page-step">
+
+    </div>
+    <section class="payment-page">
+        <div class="receiver-box">
+            <table class="receiver-tb">
+                <th>收件人訊息</th>
+                <tr>
+                    <td class="receiver-title
+                    ">姓名:</td>
+                    <td>張三</td>
+                </tr>
+                <tr>
+                    <td class="receiver-title
+                    ">地址:</td>
+                    <td>台北區大安區忠孝東路三段</td>
+                </tr>
+                <tr>
+                    <td class="receiver-title
+                    ">電話:</td>
+                    <td>0900-111-222</td>
+                </tr>
+                <tr>
+                    <td class="receiver-title
+                    ">備註:</td>
+                    <td>仔細檢查鏡面有無刮痕</td>
+                </tr>
+            </table>
+        </div>
+        <div class="order-box">
+            <table class="order-tb">
+                <th>訂單資料</th>
+                <tr>
+                    <td class="order-title">商品金額</td>
+                    <td>$1200</td>
+                </tr>
+                <tr>
+                    <td class="order-title">運費</td>
+                    <td>$60</td>
+                </tr>
+                <tr>
+                    <td class="order-title">紅利折抵</td>
+                    <td>-50</td>
+                </tr>
+                <tr>
+                    <td class="order-title">總金額</td>
+                    <td>$1210</td>
+                </tr>
+            </table>
+        </div>
+        <div class="payment-box">
+            <table class="payment-tb">
+                <th>付款資訊</th>
+                <tr class="payment-title">
+                    <td>付款方式</td>
+                    <td>
+                        <select>
+                            <option value="">信用卡</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="payment-title">信用卡號碼</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td class="payment-title">效期</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td class="payment-title">檢查碼</td>
+                    <td><input type="text"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="payment-page-btn-box">
+            <button class="payment-page-btn">
+                修改訂單資訊
+            </button>
+            <button class="payment-page-btn">
+                確認付款
+            </button>
+        </div>
+    </section>
+</body>
+</html>
