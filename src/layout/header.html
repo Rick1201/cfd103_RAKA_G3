@@ -1,12 +1,59 @@
-<header>
-    <div class="logo">@@logo</div>
-    <nav>
-        <ul>
-            <li><a href="index.html">首頁</a></li>
-            <li><a href="product.html">產品頁</a></li>
-            <li><a href="">item3</a></li>
-            <li><a href="">item4</a></li>
-            <li><a href="">item5</a></li>
-        </ul>
-    </nav>
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/css/style.css">
+</head>
+<body>
+    
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="../images/logo.png" alt="">
+            </div>
+            <div class="hb" id="hbBtn">
+                <span></span>
+                <span></span>
+            </div>
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li>
+                        <a href="#" class="product">商品瀏覽</a>
+                    </li>
+                    <li>
+                        <a href="#" class="customize">客製化專區</a>
+                    </li>
+                    <li>
+                        <a href="#" class="aboutus">關於我們</a>
+                    </li>
+                    <li>
+                        <a href="#" class="game">小遊戲</a>
+                    </li>
+                    <li>
+                        <a href="#" class="member">會員專區</a>
+                    </li>
+                </ul>
+                <div class="memBtn">
+                    <span class="login">登入</span>
+                    <span class="sighup">註冊</span>
+                </div>
+            </nav>
+            <div class="cart">
+                <img src="../images/bag.png" alt="">
+            </div>
+        </div>
+    </header>
+    <script>
+        function slide(){
+            document.getElementById("main-nav").classList.toggle("hidden");
+        }
+        function init(){
+            document.getElementById("hbBtn").onclick = slide;
+        }
+        window.addEventListener("load", init, false)
+    </script>
+</body>
+</html>
