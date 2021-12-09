@@ -1,24 +1,307 @@
-.index {
-    // code
-
-
-    @include t() {
-        background-color: rgb(115, 255, 0);
-
-    }
-
-    @include rwd(820px) {
-
-        background-color: rgb(28, 221, 255);
-
-    }
-
-    @include m() {
-        width: 100%;
-        background-color: rgb(255, 247, 0);
-    }
-
-
-
-
+body{
+    overflow-x: hidden;
 }
+.raka-index-main{
+    width: 100%;
+    height: 100vh;
+    .raka-index-pic{
+        width: 100%;
+        height: 100%;
+        background-image: url(../images/index/indexbg01.png);
+        background-position: 80% 0;
+        background-repeat: no-repeat;
+        background-size:40%;          
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        .raka-index-pic_watch{
+            width: 100%;
+            height: 85%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 30%;
+                position: fixed;
+                z-index: 1;
+            } 
+            .bubbleWathch{
+                position: relative;
+                top: 910px;
+                // transform: translateX(-9px);
+                
+            }
+        }
+        .raka-index-pic_watch::after{
+            width: 55%;
+            height: 150px;
+            content: '';
+            background-image: url(../images/index/WATER.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            position: absolute;
+            top: 20%;
+            left: -4%;
+        }
+        .raka-index-pic_watch::before{
+            width: 48%;
+            height: 180px;
+            content: '';
+            background-image: url(../images/index/UNDER.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            position: absolute;
+            top: 60%;
+            right: 2%;
+            z-index: 2;
+        }    
+    }
+}
+.raka-index-detail{
+    .wave-container{
+        .wave{
+            width: 100%;
+        }
+    }
+}
+.raka-index-detail-midllew{
+    width: 100%;
+    height: 1800px;
+    background:radial-gradient(circle farthest-side at center,#27516c,
+    #081838);
+    margin-top: -5px;
+    box-shadow: radial-gradient(circle 
+    closest-side at center,#27516c,
+    #081838) 1.95px 1.95px 2.6px;
+    .raka-index-detail-pic{
+        width: 30%;
+        margin: auto;
+        position: relative; 
+        img{
+            width: 100%; 
+        }
+        .raka-index-detail_pic{
+            position: absolute;
+            &.pic1{
+                width: 70%;
+                top: -35%;
+                left: -47%;
+                z-index: 1;
+                clip-path: circle(0% at 100% 100%);
+                transition: clip-path 3s;
+                img{
+                    width: 100%;
+                }
+                &.active{
+                    clip-path: circle(140.7% at 100% 100%);
+                }
+            }
+            // pic1 text
+            &.pic1::after{
+                content: '精選藍寶石錶面\Awith blue silicone';
+                white-space: pre;
+                color: white;
+                position: absolute;
+                line-height: 1.2rem;
+                font-size: 18px;
+                top: 36%;
+                left: 81%;
+            }
+            &.pic2{
+                width: 80%;
+                top: 44%;
+                left: -59%;
+                z-index: 1;
+                clip-path: circle(0% at 100% 0);
+                transition: clip-path 3s 1s;
+                img{
+                    width: 100%;
+                }
+                &.active{
+                    clip-path: circle(140.8% at 100% 0);
+                }
+            }
+            //pic2 text
+            &.pic2::after{
+                content: '耐銹錶框\Awith blue frame';
+                color: white;
+                white-space: pre;
+                position: absolute;
+                top: 20%;
+                right: 89%;
+                line-height: 1.2rem;
+                font-size: 18px;
+            }
+            &.pic3{
+                width: 80%;
+                top: 11%;
+                left: 79%;
+                z-index: 1;
+                clip-path: circle(0% at 0 0);
+                transition: clip-path 3s 2s;
+                img{
+                    width: 100%;
+                }
+                &.active{
+                    clip-path: circle(140.9% at 0 0);
+                }
+            }
+            &.pic3::after{
+                content: '防水錶帶\Awith water proof';
+                white-space: pre;
+                color: white;
+                top: -2%;
+                right: 1%;
+                position: absolute;
+                font-size: 18px;
+                line-height: 1.2rem;
+            }
+        }
+    }
+    .raka-index-product{
+        font-family: $fontStyle-primary;
+        margin-top: 200px;
+        a button{
+            margin: 80px;
+            color: white;
+            font-size: $fontSize-middle;
+            @include btnStyle($btnColor-primary,100px);
+        }
+    }
+    .raka-index-product-item-list{
+        width: 1200px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: auto;
+    }
+    .raka-index-product-item{
+        margin-top: 80px;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .raka-index-product-item-pic{
+            width: 70%;
+            margin: auto;
+            img{
+                width: 100%;
+                
+            }
+        }
+    }
+    h3{
+        font-size: $fontSize-SubTitle;
+        color: white;
+        text-align: center;
+        margin: 30px;
+    }
+    .raka-index-product-name{
+        font-size: $fontSize-middle;
+        color: white;
+        margin: 20px;
+    }
+}
+   
+[class*="col-"]{
+    // padding-left: var(--col-gap);
+    // padding-right: var(--col-gap);
+    box-sizing: border-box;
+    margin-bottom: calc( var(--col-gap)*2);
+}
+.col-4{ width: calc(100% / 12 * 4);
+        // padding-left: var(--col-gap);
+        // padding-right: var(--col-gap);
+        box-sizing: border-box;
+        margin-bottom: calc( var(--col-gap)*2); 
+}
+.raka-index-special-watch{
+    display: flex;
+    font-family: $fontStyle-primary;
+    .raka-index-special-watch-text{
+        width: 30%;
+        background-color: #000;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;    
+        h1{
+            font-size: $fontSize-SpecialTitle;
+            margin-top: 60px;
+            margin-bottom: 80px;
+        }
+        h2{
+            font-size: $fontSize-SpecialSubTitle;
+        }
+        a{  
+            text-decoration: none;
+            text-align: center;
+            line-height: 30px;
+            @include btnStyle($btnColor-primary,100px);
+            color: white;
+        }
+    }
+    .raka-index-night-watch_pic{
+        width: 70%;
+        img{
+            vertical-align: middle;
+            width: 100%;
+            height: auto;   
+        }
+    }
+}
+.raka-index-customize{
+    display: flex;
+    font-family: $fontStyle-primary;
+    .raka-index-customize_pic{
+        width: 50%;
+        background-color: #081838;
+        display: flex;
+        justify-content: center;
+        img{
+            margin: 0 auto;
+            vertical-align: middle;
+            width: 60%;
+            height: auto;   
+        }
+    }
+    .raka-index-customize-text{
+        width: 50%;
+        background-color: #081838;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        h1{
+            font-size: $fontSize-SpecialTitle;
+            margin-top: 60px;
+            margin-bottom: 80px;
+        }
+        h2{
+            font-size: $fontSize-SpecialSubTitle;
+        }
+        a{  
+            text-decoration: none;
+            text-align: center;
+            line-height: 30px;
+            @include btnStyle($btnColor-primary,100px);
+            color: white;
+        }
+    }
+}
+.raka-index-dec-watch_pic{
+    width: 100%;
+    height: 350px;
+    img{
+        width: 100%;
+    }
+}
+
+
+
+
