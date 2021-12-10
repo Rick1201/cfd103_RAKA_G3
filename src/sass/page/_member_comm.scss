@@ -44,26 +44,32 @@
                     text-align: center;
                 }
             }
-            // .member-card{
-    
-            // }
+            .member-card{
+                width: 90%;
+                img{
+                    width: 100%;
+                }
+            }
             .member-side-bar-btn{
+                width: 100%;
                 ul {
+                    width: 100%;
                     li {
                         margin: auto;
                         margin-top: 10px;
                         border-radius: 20px;
                         width: 90%;
-                        font-size: $fontSize-SubTitle;
+                        font-size: $fontSize-middle;
                         ul{
-                            width: 360px;
-                            background-color: #aaa;
+                           
+                            background-color: $btnColor-primary;
                             display: none;
+                            
                             li{
                                 a{
                                     text-decoration: none; 
                                     color: $gray-secondary;
-                                    font-size: $fontSize-SubTitle;
+                                    font-size: $fontSize-Small;
                                 }
                             }
                         }
@@ -78,7 +84,7 @@
                             box-sizing: border-box;
                             padding: 5px;
                             display: inline-block;
-                            width: 360px;
+                            width: 90%;
                             .tri-icon{
                                 width: 0px;
                                 height: 0px;
