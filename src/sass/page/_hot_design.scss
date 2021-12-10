@@ -27,9 +27,27 @@
             button{
                 @include btnStyle($btnColor-secondary, 50%);
                 color: white;
-                font-size: 18px;
+                font-size: $fontSize-SubTitle;
+                height: 40px;
+
             }
             
+        }
+    }
+}
+
+@media screen and (max-width:375px){
+    .hot-design-banner{
+        position: relative;
+        .container{
+            position: static;
+            .customization-link{
+                text-align: center;
+                bottom: 50%;
+                right: 50%;
+                transform: translate(50%,50%);
+                width: 100%;
+            }
         }
     }
 }
@@ -39,6 +57,7 @@
         text-align: center;
         font-size: $fontSize-SpecialSubTitle;
         color: $blue-tertiary;
+        color: $blue-tertiary;
         padding: 50px 0;
     }
     .container{
@@ -46,12 +65,13 @@
         margin: auto;
         display: flex;
         .hot-design-filter{
-            padding: 0 15px;
+            padding: 0 20px;
             width: 30%;
             h3{
                 font-size: $fontSize-Title;
                 text-align: center;
                 position: relative;
+                color: $blue-tertiary;
                 border-bottom:1px solid $blue-tertiary ;
                 padding: 0 0 15px;
             }
@@ -60,6 +80,7 @@
                     padding: 10px;
                     h4{
                         font-size: $fontSize-SubTitle ;
+                        color: $blue-tertiary;
                         padding: 10px 0;
                     }
 
@@ -100,12 +121,14 @@
                     left: 0;
                     img{
                         width: 100%;
+                        vertical-align: middle;
                     }
                 }
                 .hot-design-pic{
                     width: 20%;
                     img{
                         width: 100%;
+                        vertical-align: middle;
                     }
                 }
                 .hot-design-content{
@@ -122,7 +145,6 @@
                         }
                     }
                 }
-
                 .collect{
                     position: absolute;
                     bottom: 10px;
@@ -145,5 +167,41 @@
 
         }
     }
+}
 
+@media screen and (max-width:375px) {
+    .hot-design{
+        .container{
+            flex-direction: column;
+            .hot-design-filter{
+                display: none;
+            }
+            .hot-design-list{
+                width: 90%;
+                margin: auto;
+                .hot-design-item{
+                    flex-direction: column;
+                    .hot-design-pic{
+                        width: 50%;
+                        margin:auto;
+                    }
+                    .hot-design-content{
+                        width: 100%;
+                        padding: 0;
+                        .content-item{
+                            width: 100%;
+                            margin-bottom: 10px;
+                        }
+                    }
+                    .collect{
+                        position: relative;
+                        bottom: 0;
+                         right: 0;
+                         justify-content: flex-end;
+                    }
+                }
+            }
+        }
+
+    }
 }

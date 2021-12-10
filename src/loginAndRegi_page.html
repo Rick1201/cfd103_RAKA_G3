@@ -13,7 +13,7 @@
 	</head>
 	<body>
 		<div id="app">
-			<header></header>
+			@@include('./layout/header.html')
 			<component :is="content" @update-content="updateSelf">
 				<!-- <template>
 					<button @click="content='regi-page'" type="submit" class="regi_btn">
@@ -126,7 +126,7 @@
 				</div>
 			</section> -->
 
-			<footer></footer>
+			@@include('./layout/footer.html')
 		</div>
 
 		<script
