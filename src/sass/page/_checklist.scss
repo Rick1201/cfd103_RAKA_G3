@@ -1,122 +1,243 @@
 @import "../mixin/mixin";
 @import "../base/var";
 @import "../base/base";
-
-.buttonlist{
-    width: 100%;
-    margin-bottom: 65px;
-}
-.buttonlist .all{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    width: 50%;
-    margin:auto;
-    border:1px solid black;
-    border-radius: 50px;
-}
-.client{
-    display: flex;
-    justify-content: space-around;
-}
-.bt01 p{
-    margin-right: 95px;
-}
-.bt02 p{
-    margin-right: 95px;
-}
-.clifor01{
-    width: 836px;
-    height: 655px;
-    border: 1px solid black;
-    background-image: url('/images/bg.jpeg');
-    background-repeat: no-repeat;
-    background-size: 836px 655px;
-}
-.phone{
-    position: relative;
-    right:-350px;
-    bottom:40px;
-    color:#163257;
-    font-weight: 800;
-}
-.name{
-    margin-left: 20px;
-    color:#163257;
-    font-weight: 800;
-}
-.address{
-    position: relative;
-    bottom:40px;
-    margin-left: 20px;
-    color:#163257;
-    font-weight: 800;
-}
-.ps{
-   margin-left: 20px;
-   position: relative;
-   bottom:40px;
-   color:#163257;
-   font-weight: 800;
-}
-.cinfor h3{
-    margin-left: 20px;
-    margin-bottom: 40px;
-    color:#163257;
-    font-weight: 900;
-    font-size: 24px;
-    
-}
-.clifor01 .member01{
-    margin-left: 20px;
-    color:#163257;
-    font-weight: 800;
-}
-input[name="name"]{
-    width: 250px;
-    height: 25px;
-}
-input[name="tel"]{
-    width: 250px;
-    height: 25px;
-}
-input[name="address"]{
-    width: 600px;
-    height: 25px;
-}
-input[name="ps"]{
-    width: 700px;
-    height: 205px;
-}
-.money_detail01{
-    width: 529px;
-    height: 650px;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    margin-left: 3px;
-    background-image: url('/images/bg.jpeg');
-    background-repeat: no-repeat;
-    background-size: 529px 700px;
-}
-.money_detail01 button{    
+.checklist01{
+    .check{
+        display: flex;
+        margin-bottom: 30px;
+    }
+    :nth-child(1).payment-page-step-btn{
+        width: 33.33333%;
+        height: 40px;
+        border-radius: 30px;
+        background-color: $blue-tertiary;
+        color: $gray-secondary;
+        border: 1px solid $blue-tertiary;
+        p{
+            line-height: 40px;
+            text-align: center;
+        }
+    }
+    :nth-child(2).payment-page-step-btn{
+        width: 33.33333%;
+        height: 40px;    
+        border-radius: 30px;
+        p{
+            line-height: 40px;
+            text-align: center;
+        }
+    }
+    :nth-child(3).payment-page-step-btn{
+        width: 33.33333%;
+        height: 40px;
+        p{
+            line-height: 40px;
+            text-align: center;
+        }
+    }
+    .client{
+        display: flex;
+        justify-content: space-around;
+    }
+    .bt01 p{
+        margin-right: 95px;
+    }
+    .bt02 p{
+        margin-right: 95px;
+    }
+    .clifor01{
+        width: 836px;
+        height: 655px;
+        border: 1px solid black;
+        background-image: url('/images/bg.jpeg');
+        background-repeat: no-repeat;
+        background-size: 836px 655px;
+    }
+    .phone{
+        position: relative;
+        right:-350px;
+        bottom:40px;
+        color:#163257;
+        font-weight: 800;
+    }
+    .name{
+        margin-left: 20px;
+        color:#163257;
+        font-weight: 800;
+    }
+    .address{
+        position: relative;
+        bottom:40px;
+        margin-left: 20px;
+        color:#163257;
+        font-weight: 800;
+    }
+    .ps{
+       margin-left: 20px;
+       position: relative;
+       bottom:40px;
+       color:#163257;
+       font-weight: 800;
+    }
+    .cinfor h3{
+        margin-left: 20px;
+        margin-bottom: 40px;
+        color:#163257;
+        font-weight: 900;
+        font-size: 24px;
+        
+    }
+    .clifor01 .member01{
+        margin-left: 20px;
+        color:#163257;
+        font-weight: 800;
+    }
+    input[name="name"]{
+        width: 250px;
+        height: 25px;
+    }
+    input[name="tel"]{
+        width: 250px;
+        height: 25px;
+    }
+    input[name="address"]{
+        width: 600px;
+        height: 25px;
+    }
+    input[name="ps"]{
+        width: 700px;
+        height: 205px;
+    }
+    .money_detail01{
+        width: 529px;
+        height: 650px;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        margin-left: 3px;
+        background-image: url('/images/bg.jpeg');
+        background-repeat: no-repeat;
+        background-size: 529px 700px;
+    }
+    .money_detail01 button{    
+            width:100px;
+            position: relative;
+            left: 430px;
+            bottom: -10px;
+            @include btnStyle($btnColor-primary,100px);
+    }
+    .buttonplace{
+        margin-left: -110px;
+    }
+    .ship{
+        margin-left: 400px;
+    }
+    .ship p{
+        color:#163257;
+        font-weight: 900;
+    }
+    .ship span{
+        color:#163257;
+        font-weight: 900;
+    }
+    .money{
+        display: flex;
+        flex-direction: column;
+        width: 530px;
+        height: 50px;
+        align-items: center;
+    }
+    .money01{
+        width: 533px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .money02{
+        width: 533px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .m01{
+        display: flex;
+    }
+    .m02{
+        display: flex;
+        border-top: 1px solid black;
+        width:525px;
+    }
+    .m02 p{
+        color:#163257;
+        font-weight: 900;
+    }
+    .m01 h2{
+        margin-right: 455px;
+        position: relative;
+        top: 30px;
+        color:#163257;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .m02 p2{
+        margin-left: 340px;
+        color:#163257;
+        font-weight: 900;
+    }
+    .m03{
+        display: flex;
+        border-bottom: 1px solid black;
+        width:525px;
+       
+        color:#163257;
+        font-weight: 900;
+    }
+    .m03 p3{
+        position: relative;
+        left:405px;
+        color:#163257;
+    }
+    .m05{
+        display: flex;
+    }
+    .m05 p{
+        color:#163257;
+        font-weight: 900;
+    }
+    .m05 p2{
+        margin-left: 340px;
+        color:#163257;
+        font-weight: 900;
+    }
+    .m06{
+        display: flex;
+        border-bottom: 1px solid black;
+        width:525px;
+       
+        color:#163257;
+        font-weight: 900;
+    }
+    .m06 p3{
+        position: relative;
+        left:405px;
+        color:#163257;
+    }
+    .money03{
+        width: 533px;
+        height: 127px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .money_detail01 span{
+        text-align: end;
+        color:#163257;
+    }
+    .money_detail01 button{
         width:100px;
         position: relative;
         left: 430px;
         bottom: -10px;
         @include btnStyle($btnColor-primary,100px);
-}
-.buttonplace{
-    margin-left: -110px;
-}
-.ship{
-    margin-left: 400px;
-}
-.ship p{
-    color:#163257;
-    font-weight: 900;
-}
-.ship span{
-    color:#163257;
-    font-weight: 900;
+    }
 }

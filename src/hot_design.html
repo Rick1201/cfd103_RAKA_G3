@@ -5,15 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Document</title>
 </head>
 <body>
     <div class="hot-design-banner">
         <img src="./images/aboutus-02.jpg" alt="">
+<<<<<<< HEAD
         <div class="customization-link">
             <h2>客製化專區</h2>
             <p>訂製您的專屬潛水錶</p>
             <button>開始設計</button>
+=======
+        <div class="container">
+            <div class="customization-link">
+                <h2>客製化專區</h2>
+                <p>訂製您的專屬潛水錶</p>
+                <button onclick="javascript:location.href='./customize_page.html'">開始設計</button>
+            </div>
+>>>>>>> dev
         </div>
     </div>
 
@@ -64,6 +74,7 @@
                         <img src="./images/finishwatchpic01.png" alt="">
                     </div>
                     <div class="hot-design-content">
+<<<<<<< HEAD
                         <table>
                             <tr>
                                 <td>設計者</td>
@@ -90,11 +101,118 @@
                                 <td>防水3ATM</td>
                             </tr>
                         </table>
+=======
+                        <div class="content-item">
+                            <div class="item-title">設計者</div>
+                            <div>Teddy</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="item-title">作品名稱</div>
+                            <div>48763</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="item-title">外框</div>
+                            <div>玫瑰金鋼鐵</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="item-title">錶面</div>
+                            <div>航海家-黑</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="item-title">錶帶</div>
+                            <div>銀色鋼鐵</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="item-title">指針</div>
+                            <div>簡單黑色指針</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="item-title">功能錶盤</div>
+                            <div>無</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="item-title">潛水深度需求</div>
+                            <div>防水3ATM</div>
+                        </div>
+                    </div>
+                    <div class="collect">
+                        <div class="collect-item">
+                            <div class="collect-times">收藏次數</div>
+                            <div class="times">65</div>
+                        </div>
+                        <button>查看詳細規格</button>
+                    </div>
+                </div>
+                <div class="hot-design-item">
+                    <div class="heart">
+                        <img src="./images/product-list-heart .png">
+                    </div>
+                    <div class="hot-design-pic">
+                        <img src="./images/finishwatchpic01.png" alt="">
+                    </div>
+                    <div class="hot-design-content">
+                        <div class="content-item">
+                            <div class="item-title">設計者</div>
+                            <div>Roger</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="item-title">作品名稱</div>
+                            <div>哈哈哈</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="item-title">外框</div>
+                            <div>玫瑰金鋼鐵</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="item-title">錶面</div>
+                            <div>航海家-灰</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="item-title">錶帶</div>
+                            <div>銀色鋼鐵</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="item-title">指針</div>
+                            <div>簡單黑色指針</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="item-title">功能錶盤</div>
+                            <div>無</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="item-title">潛水深度需求</div>
+                            <div>防水3ATM</div>
+                        </div>
+                    </div>
+                    <div class="collect">
+                        <div class="collect-item">
+                            <div class="collect-times">收藏次數</div>
+                            <div class="times">89</div>
+                        </div>
+                        <button>查看詳細規格</button>
+>>>>>>> dev
                     </div>
                 </div>
             </div>
         </div>
         
     </section>
+<<<<<<< HEAD
+=======
+    @@include('./layout/footer.html')
+
+
+    <script>
+        var img=true;
+        $(".heart img").click(function(){
+          if(img){
+            $(this).attr("src","./images/product-list-redheart.svg")
+          }else{
+            $(this).attr("src","./images/product-list-heart .png")
+          }
+          img=!img;
+        });
+    </script>
+>>>>>>> dev
 </body>
 </html>

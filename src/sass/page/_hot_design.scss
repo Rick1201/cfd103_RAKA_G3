@@ -7,6 +7,7 @@
         object-fit: cover;
         vertical-align: middle;
     }
+<<<<<<< HEAD
     .customization-link{
         position: absolute;
         bottom: 50px;
@@ -20,6 +21,34 @@
             font-size: $fontSize-SubTitle;
             color: white;
             padding: 0 0 15px;
+=======
+    .container{
+        max-width: 1200px;
+        margin: auto;
+        position: relative;
+        .customization-link{
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            h2{
+                font-size: $fontSize-SpecialSubTitle;
+                color: white;
+                padding: 0 0 15px;
+            }
+            p{
+                font-size: $fontSize-SubTitle;
+                color: white;
+                padding: 0 0 15px;
+            }
+            button{
+                @include btnStyle($btnColor-secondary, 50%);
+                color: white;
+                font-size: $fontSize-SubTitle;
+                height: 40px;
+
+            }
+            
+>>>>>>> dev
         }
         button{
             @include btnStyle($btnColor-secondary, 50%);
@@ -30,10 +59,27 @@
     }
 }
 
+@media screen and (max-width:375px){
+    .hot-design-banner{
+        position: relative;
+        .container{
+            position: static;
+            .customization-link{
+                text-align: center;
+                bottom: 50%;
+                right: 50%;
+                transform: translate(50%,50%);
+                width: 100%;
+            }
+        }
+    }
+}
+
 .hot-design{
     h2{
         text-align: center;
         font-size: $fontSize-SpecialSubTitle;
+        color: $blue-tertiary;
         color: $blue-tertiary;
         padding: 50px 0;
     }
@@ -42,17 +88,46 @@
         margin: auto;
         display: flex;
         .hot-design-filter{
+<<<<<<< HEAD
+=======
+            padding: 0 20px;
+>>>>>>> dev
             width: 30%;
             h3{
                 font-size: $fontSize-Title;
                 text-align: center;
                 position: relative;
+                color: $blue-tertiary;
                 border-bottom:1px solid $blue-tertiary ;
                 padding: 0 0 15px;
             }
             .first-sort{
                 >li{
                     padding: 10px;
+<<<<<<< HEAD
+=======
+                    h4{
+                        font-size: $fontSize-SubTitle ;
+                        color: $blue-tertiary;
+                        padding: 10px 0;
+                    }
+
+                    .second-sort{
+                        li{
+                            padding: 10px;
+                            display: flex;
+                            align-items: center;
+                            input[type=checkbox]{
+                                width:  $fontSize-middle;
+                                height:  $fontSize-middle;
+                            }
+                            label{
+                                font-size: $fontSize-middle;
+                                margin-left: 10px;
+                            }
+                        }
+                    }
+>>>>>>> dev
                 }
                 &:li + li {
                     border-top: 1px solid $blue-tertiary ;
@@ -63,15 +138,35 @@
             width: 70%;
             .hot-design-item{
                 display: flex;
+<<<<<<< HEAD
                 border: 1px solid  red;
+=======
+                color: white;
+                padding: 20px;
+                margin: 0 0 50px;
+                position: relative;
+                background: linear-gradient(-75deg,$blue-tertiary 84.9999999%,#fff 85% ,#fff 100%);
+                .heart{
+                    width: 30px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    img{
+                        width: 100%;
+                        vertical-align: middle;
+                    }
+                }
+>>>>>>> dev
                 .hot-design-pic{
                     width: 20%;
                     img{
                         width: 100%;
+                        vertical-align: middle;
                     }
                 }
                 .hot-design-content{
                     width: 80%;
+<<<<<<< HEAD
                     table{
                         width: 100%;
                         tr{
@@ -79,6 +174,31 @@
                             td{
                                 padding:10px;
                             }
+=======
+                    display: flex;
+                    flex-wrap: wrap;
+                    padding: 0 10px;
+                    .content-item{
+                        display: flex;
+                        width: 50%;
+                        font-size: $fontSize-middle;
+                        .item-title{
+                            margin: 0 20px 0 0;
+                        }
+                    }
+                }
+                .collect{
+                    position: absolute;
+                    bottom: 10px;
+                    right: 10px;
+                    display: flex;
+                    .collect-item{
+                        display: flex;
+                        align-items: center;
+                        margin-right: 30px;
+                        .collect-times{
+                            margin-right: 10px;
+>>>>>>> dev
                         }
                     }
                 }
@@ -86,5 +206,41 @@
 
         }
     }
+}
 
+@media screen and (max-width:375px) {
+    .hot-design{
+        .container{
+            flex-direction: column;
+            .hot-design-filter{
+                display: none;
+            }
+            .hot-design-list{
+                width: 90%;
+                margin: auto;
+                .hot-design-item{
+                    flex-direction: column;
+                    .hot-design-pic{
+                        width: 50%;
+                        margin:auto;
+                    }
+                    .hot-design-content{
+                        width: 100%;
+                        padding: 0;
+                        .content-item{
+                            width: 100%;
+                            margin-bottom: 10px;
+                        }
+                    }
+                    .collect{
+                        position: relative;
+                        bottom: 0;
+                         right: 0;
+                         justify-content: flex-end;
+                    }
+                }
+            }
+        }
+
+    }
 }
