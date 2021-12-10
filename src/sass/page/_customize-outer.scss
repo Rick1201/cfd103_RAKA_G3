@@ -90,6 +90,15 @@
         display: none;
     }
 }
+.customize-page-btn{
+    display: flex;
+    width: 40%;
+    margin: auto;
+    button{
+        display: block;
+        background: $btnColor-primary;
+    }
+}
 @media screen and (max-width:375px){
     .customize-page{
         display: flex;
