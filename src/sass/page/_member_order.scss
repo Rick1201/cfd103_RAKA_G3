@@ -1,0 +1,71 @@
+
+.memberorder{
+    display: flex;
+}
+.member_order{
+
+.selectbar{
+    display: flex;
+    width: 900px;
+    height: 80px;
+    background-color: rgb(20, 21, 77);
+}
+.selectbarbtn button{
+    height: 80px;
+    width: 200px;
+}
+.members {
+    display: flex;
+    width: 900px;   
+    height: 100px;
+    background-color: rgb(205, 247, 233);
+    
+}
+.numbertime{
+    width: 30%;
+}
+.stateprice{
+    width: 30%;
+}
+.button{
+    width: 30%;
+    margin: auto;
+}
+.number{
+    display: flex;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.time{
+    display: flex;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.state{
+    display: flex;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.price{
+    display: flex;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.button{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.button button{
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100px;
+    height: 30px;
+    
+}
+
+}

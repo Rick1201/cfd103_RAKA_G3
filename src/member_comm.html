@@ -8,58 +8,60 @@
     <link rel="stylesheet" href="./css/style.css"/>
 </head>
 <body>
-    <section class="member-select">
-        <div class="member-side-bar">
-            <header class="member-header">
-                <div class="member-img">
-                    <img src="https://fakeimg.pl/50x50/#aaa">
+    <div class="member-section">
+        <section class="member-select">
+            <div class="member-side-bar">
+                <header class="member-header">
+                    <div class="member-img">
+                        <img src="https://fakeimg.pl/50x50/#aaa">
+                    </div>
+                    <div class="member-name">
+                        <h1>Hello ,emma!</h1>
+                        <button class="member-edit-btn">編輯個人檔案</button>
+                    </div>
+                </header>
+                <div class="data-box">
+                    <table>
+                        <tr>
+                            <td>紅利點數</td>
+                            <td>累積消費</td>
+                        </tr>
+                        <tr>
+                            <td>1234點</td>
+                            <td>$1234元</td>
+                        </tr>
+                    </table>
                 </div>
-                <div class="member-name">
-                    <h1>Hello ,emma!</h1>
-                    <button class="member-edit-btn">編輯個人檔案</button>
+                <div class="member-card">
+                    <img src="https://fakeimg.pl/340x200/#aaa">
                 </div>
-            </header>
-            <div class="data-box">
-                <table>
-                    <tr>
-                        <td>紅利點數</td>
-                        <td>累積消費</td>
-                    </tr>
-                    <tr>
-                        <td>1234點</td>
-                        <td>$1234元</td>
-                    </tr>
-                </table>
+                <div class="member-side-bar-btn">
+                    <ul>
+                        <li><a href="#" class="main-a" onclick="showBox1()">我的訂單<span class="tri-icon"></span></a>
+                            <ul id="box01">
+                                <li><a href="#" class="sub-a">商品訂單</a></li>
+                                <li><a href="#" class="sub-a">客製化訂單</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="main-a" onclick="showBox2()">我的收藏<span class="tri-icon"></span></a>
+                            <ul id="box02">
+                                <li><a href="#" class="sub-a">商品收藏</a></li>
+                                <li><a href="#" class="sub-a">客製化收藏</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="main-a">我的客製化暫存</a></li>
+                        <li><a href="#" class="main-a">紅利查詢</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="member-card">
-                <img src="https://fakeimg.pl/340x200/#aaa">
+            <div class="member-content">
+    
             </div>
-            <div class="member-side-bar-btn">
-                <ul>
-                    <li><a href="#" class="main-a" onclick="showBox1()">我的訂單<span class="tri-icon"></span></a>
-                        <ul id="box01">
-                            <li><a href="#" class="sub-a">商品訂單</a></li>
-                            <li><a href="#" class="sub-a">客製化訂單</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#" class="main-a" onclick="showBox2()">我的收藏<span class="tri-icon"></span></a>
-                        <ul id="box02">
-                            <li><a href="#" class="sub-a">商品收藏</a></li>
-                            <li><a href="#" class="sub-a">客製化收藏</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#" class="main-a">我的客製化暫存</a></li>
-                    <li><a href="#" class="main-a">紅利查詢</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="member-content">
-
-        </div>
-    </section>
-    <section class="member-comp">
-        @@include('./member_ order.html')
-    </section>
+        </section>
+        <section class="member-comp">
+            @@include('./redpoint.html')
+        </section>
+    </div>
     <script>
         function showBox1(){
             let box1 = document.getElementById("box01");
