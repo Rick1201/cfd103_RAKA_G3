@@ -1,13 +1,16 @@
 .main-footer{
-    background-color: $blue-tertiary;
+    background-color: $blue-primary;
     .container{
         display: flex;
         flex-wrap: wrap;
         max-width: 1440px;
         margin: auto;
+        padding: 20px;
         .main-footer-logo{
             width: 30%;
             img{
+                display: block;
+                margin: auto;
                 width: 200px;
             }
         }
@@ -28,9 +31,25 @@
         .searchAndIcon{
             width: 30%;
             .search-box{
+                height: 35px;
                 width: 100%;
+                border-radius: 30px;
+                background-color: whitesmoke;
+                input[type=text]{
+                    border: none;
+                    background-color: transparent;
+                    width: 80%;
+                    margin: 0 auto;
+                }
+                img{
+                    display: inline-block;
+                    width: 25px;
+                    margin: 5px;
+                    margin-left: auto;
+                }
             }
             .icon-box{
+                margin-top: 10px;
                 width: 50%;
                 img{
                     width: 30%;
@@ -53,6 +72,7 @@
                 }
             }
             .searchAndIcon{
+                width: 53%;
                 .search-box{
                 }
                 .icon-box{
