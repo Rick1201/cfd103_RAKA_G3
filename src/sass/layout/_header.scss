@@ -13,7 +13,6 @@
         width: 100%;
     }
     .main-nav a{ 
-    
         font-family: $fontStyle-decorate;
         text-decoration: none;
         color: #4e5766;
@@ -126,6 +125,7 @@
             background-color: whitesmoke;
             height: calc(100vh - 80px);
             transition: right .5s;
+            display: none;
         }
         #main-nav.hidden{
             position: absolute;
@@ -136,6 +136,7 @@
             background-color: whitesmoke;
             height: calc(100vh - 80px);
             transition: right .5s;
+            display: block;
         }
         
         .main-nav ul{

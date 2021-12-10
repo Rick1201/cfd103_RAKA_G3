@@ -25,31 +25,14 @@
 	</head>
 	<body>
 		<div id="app">
-			<header></header>
-
+			<header class="main-header">
+				<div class="container">
+					<div class="logo">
+						<img src="../images/logo.png" alt="" />
+					</div>
+				</div>
+			</header>
 			<section class="backStage">
-				<!-- <div class="sideMenu_zone">
-                    <div class="list_area">
-                        <div class="title_dist">
-                            <h2>訂單列表管理</h2>
-                        </div>
-                    </div>
-                    <div class="list_area">
-                        <div class="title_dist">
-                            <h2>商品項目管理</h2>
-                        </div>
-                    </div>
-                    <div class="list_area">
-                        <div class="title_dist">
-                            <h2>會員管理</h2>
-                        </div>
-                    </div>
-                    <div class="list_area">
-                        <div class="title_dist">
-                            <h2>管理員管理</h2>
-                        </div>
-                    </div>
-                </div> -->
 				<div class="accordion accordion-flush" id="accordionFlushExample">
 					<div class="accordion-item">
 						<h2 class="accordion-header" id="flush-headingOne">
@@ -153,21 +136,22 @@
 					</div>
 				</div>
 				<div class="component_area">
+					<!-- <light-box></light-box> -->
 					<div class="title_area">
 						<h3>title</h3>
 					</div>
 					<div class="container">
 						<div class="btn_dist">
-							<button class="btn btn-outline-primary">新增</button>
+							<button class="btn btn-outline-primary add_btn">新增</button>
 							<div class="search_group">
 								<input type="search" />
 								<button>搜尋</button>
 							</div>
 							<div class="tab_dist">
 								<div class="btn-group" role="group" aria-label="Basic example">
-									<button type="button" class="btn btn-primary">Left</button>
-									<button type="button" class="btn btn-primary">Middle</button>
-									<button type="button" class="btn btn-primary">Right</button>
+									<button type="button" class="btn btn-primary">所有</button>
+									<button type="button" class="btn btn-primary">已完成</button>
+									<button type="button" class="btn btn-primary">未完成</button>
 								</div>
 							</div>
 							<div class="table_dist">
@@ -175,6 +159,24 @@
 									<table class="table">
 										<tr>
 											<th v-for="num of 7">{{num}}</th>
+										</tr>
+										<tr>
+											<td v-for="index of 7">{{index}}</td>
+										</tr>
+										<tr>
+											<td v-for="index of 7">{{index}}</td>
+										</tr>
+										<tr>
+											<td v-for="index of 7">{{index}}</td>
+										</tr>
+										<tr>
+											<td v-for="index of 7">{{index}}</td>
+										</tr>
+										<tr>
+											<td v-for="index of 7">{{index}}</td>
+										</tr>
+										<tr>
+											<td v-for="index of 7">{{index}}</td>
 										</tr>
 										<tr>
 											<td v-for="index of 7">{{index}}</td>
@@ -201,6 +203,48 @@
 			crossorigin="anonymous"
 		></script>
 		<script>
+			Vue.component("light-box", {
+				template: `
+					<div class="lightbox">
+						<div class="modal-mask" :style="modalStyle">
+						<div class="modal-container"  @click.self="toggleModal">
+
+							<div class="modal-body">
+							<header>
+								<slot name="header">Default Header</slot>
+							</header>
+							<hr>
+							<main>
+								<slot>Default Body</slot>
+							</main>
+							<hr>
+							<footer>
+								<slot name="footer">Default Footer</slot>
+							</footer>
+							</div>
+
+						</div>
+						</div>
+
+						<button @click="isShow = true">Click Me</button>
+					</div>`,
+				data: () => ({
+					isShow: false,
+				}),
+				computed: {
+					modalStyle() {
+						return {
+							display: this.isShow ? "" : "none",
+						};
+					},
+				},
+				methods: {
+					toggleModal() {
+						console.log("click");
+						this.isShow = !this.isShow;
+					},
+				},
+			});
 			new Vue({
 				el: "#app",
 				data() {

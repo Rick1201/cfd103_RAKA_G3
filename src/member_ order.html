@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Document</title>
+</head>
+
+<div id="app">
+    <section class="member_ order">
+
+        <!-- 頁籤 -->
+        <div class="selectbar">
+            <div class="selectbarbtn"><button>所有訂單</button></div>
+            <div class="selectbarbtn"><button>已付款</button></div>
+            <div class="selectbarbtn"><button>已出貨</button></div>
+
+        </div>
+        <!-- 會員資料 -->
+        <div class="memberlist">
+            <div  class="member">
+                <div class="numbertime">
+                    
+                    <div class="number">
+                        <p>訂單編號</p>
+                        <p>{{members.numberdata}}</p>
+                    </div>
+                    <div class="time">
+                        <p>下單時間</p>
+                        <p>{{members.timedata}}</p>
+                    </div>
+                </div>    
+                <div class="stateprice">
+                    <div class="state">
+                        <p>訂單狀態</p>
+                        <p>{{members.statedata}}</p>
+                    </div>
+                    <div class="price">
+                        <p>總計</p>
+                        {{members.pricedata}}
+                    </div>
+
+                </div>
+                <div class="button">
+                    <button> </button>
+                    <button> </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+</div>
+
+
+
+
+
+
+
+
+<body>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js' integrity='sha512-PyKhbAWS+VlTWXjk/36s5hJmUJBxcGY/1hlxg6woHD/EONP2fawZRKmvHdTGOWPKTqk3CPSUPh7+2boIBklbvw==' crossorigin='anonymous'></script>
+<script>
+    new Vue({
+        el:"#app",
+        data() {
+        
+            return {
+                members:
+                {
+                    numberdata:"RA000001",
+                    timedata:"2021/01/02",
+                    statedata:"已出貨",
+                    pricedata:"$1440"
+
+                },
+
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

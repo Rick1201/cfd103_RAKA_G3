@@ -3,7 +3,7 @@
 
 .backStageLogin{
     width: 100%;
-    max-width: 1440px;
+    height: 80vh;
     margin: 0 auto;
     display: flex;
     background-image: url(/images/backStageLogin-01.jpeg);
@@ -11,6 +11,7 @@
         margin: 20px auto;
      .component_zone{
         width: 400px;
+        
         margin: 0 auto;
         display: flex;
         border: 1px solid #888;
