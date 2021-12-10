@@ -7,21 +7,6 @@
         object-fit: cover;
         vertical-align: middle;
     }
-<<<<<<< HEAD
-    .customization-link{
-        position: absolute;
-        bottom: 50px;
-        right: 10%;
-        h2{
-            font-size: $fontSize-SpecialSubTitle;
-            color: white;
-            padding: 0 0 15px;
-        }
-        p{
-            font-size: $fontSize-SubTitle;
-            color: white;
-            padding: 0 0 15px;
-=======
     .container{
         max-width: 1200px;
         margin: auto;
@@ -48,7 +33,6 @@
 
             }
             
->>>>>>> dev
         }
         button{
             @include btnStyle($btnColor-secondary, 50%);
@@ -88,10 +72,7 @@
         margin: auto;
         display: flex;
         .hot-design-filter{
-<<<<<<< HEAD
-=======
             padding: 0 20px;
->>>>>>> dev
             width: 30%;
             h3{
                 font-size: $fontSize-Title;
@@ -104,8 +85,6 @@
             .first-sort{
                 >li{
                     padding: 10px;
-<<<<<<< HEAD
-=======
                     h4{
                         font-size: $fontSize-SubTitle ;
                         color: $blue-tertiary;
@@ -127,7 +106,6 @@
                             }
                         }
                     }
->>>>>>> dev
                 }
                 &:li + li {
                     border-top: 1px solid $blue-tertiary ;
@@ -138,9 +116,6 @@
             width: 70%;
             .hot-design-item{
                 display: flex;
-<<<<<<< HEAD
-                border: 1px solid  red;
-=======
                 color: white;
                 padding: 20px;
                 margin: 0 0 50px;
@@ -156,7 +131,6 @@
                         vertical-align: middle;
                     }
                 }
->>>>>>> dev
                 .hot-design-pic{
                     width: 20%;
                     img{
@@ -166,15 +140,6 @@
                 }
                 .hot-design-content{
                     width: 80%;
-<<<<<<< HEAD
-                    table{
-                        width: 100%;
-                        tr{
-
-                            td{
-                                padding:10px;
-                            }
-=======
                     display: flex;
                     flex-wrap: wrap;
                     padding: 0 10px;
@@ -198,7 +163,6 @@
                         margin-right: 30px;
                         .collect-times{
                             margin-right: 10px;
->>>>>>> dev
                         }
                     }
                 }
