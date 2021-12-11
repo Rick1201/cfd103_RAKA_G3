@@ -49,7 +49,8 @@
             justify-content: unset;
         }
         .clifor01{
-            width: 370px;
+            max-width: 100%;
+            margin:10px;
         }
         .phone{
             right:0;
@@ -69,9 +70,10 @@
             width: 250px;
         }
         .money_detail01{
-            margin-left: 3px;
+            margin-left:10px;
             margin-top:60px;
-            width:370px;
+            max-width:95%;
+            background-size: unset;
         }
         .money_detail01 button{
             left: 180px;
@@ -128,7 +130,7 @@
             left:160px;
         }
         .check{
-            width: 100%;
+            width: 80%;
         }
     }
 }
