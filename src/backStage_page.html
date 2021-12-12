@@ -362,27 +362,7 @@ Taste like shit.</textarea
 						// 			</div>
 						// 			</div>
 
-			<<<<<<< HEAD
-									<button @click="isShow = true">Click Me</button>
-								</div>`,
-							data: () => ({
-								isShow: false
-							}),
-							computed: {
-								modalStyle() {
-									return {
-										display: this.isShow ? "" : "none",
-									};
-								},
-							},
-							methods: {
-								toggleModal() {
-									console.log("click");
-									this.isShow = !this.isShow;
-								},
-							},
-						});
-			=======
+
 						// 			<button @click="isShow = true">Click Me</button>
 						// 		</div>`,
 						// 	data: () => ({
@@ -402,23 +382,11 @@ Taste like shit.</textarea
 						// 		},
 						// 	},
 						// });
-			>>>>>>> local
 						new Vue({
 							el: "#app",
 							data() {
 								return {
-			<<<<<<< HEAD
 									table_head: ['ID', 'Main IMG', 'Name', 'Description', 'Price', 'Created Time', 'Status', 'Remark', 'Action']
-			=======
-									orders: [
-										{
-											orderNum: 00001,
-											memNum: 0001,
-											orderDate: "2021-12-01 17:35",
-											orderPrice: 4100,
-										},
-									],
-			>>>>>>> local
 								};
 							},
 							methods: {
