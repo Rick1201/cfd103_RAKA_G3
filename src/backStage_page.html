@@ -251,29 +251,30 @@
 			crossorigin="anonymous"
 		></script>
 		<script>
-			Vue.component("light-box", {
-				template: `
-					<div class="lightbox">
-						<div class="modal-mask" :style="modalStyle">
-						<div class="modal-container"  @click.self="toggleModal">
+			// Vue.component("light-box", {
+			// 	template: `
+			// 		<div class="lightbox">
+			// 			<div class="modal-mask" :style="modalStyle">
+			// 			<div class="modal-container"  @click.self="toggleModal">
 
-							<div class="modal-body">
-							<header>
-								<slot name="header">Default Header</slot>
-							</header>
-							<hr>
-							<main>
-								<slot>Default Body</slot>
-							</main>
-							<hr>
-							<footer>
-								<slot name="footer">Default Footer</slot>
-							</footer>
-							</div>
+			// 				<div class="modal-body">
+			// 				<header>
+			// 					<slot name="header">Default Header</slot>
+			// 				</header>
+			// 				<hr>
+			// 				<main>
+			// 					<slot>Default Body</slot>
+			// 				</main>
+			// 				<hr>
+			// 				<footer>
+			// 					<slot name="footer">Default Footer</slot>
+			// 				</footer>
+			// 				</div>
 
-						</div>
-						</div>
+			// 			</div>
+			// 			</div>
 
+<<<<<<< HEAD
 						<button @click="isShow = true">Click Me</button>
 					</div>`,
 				data: () => ({
@@ -293,11 +294,43 @@
 					},
 				},
 			});
+=======
+			// 			<button @click="isShow = true">Click Me</button>
+			// 		</div>`,
+			// 	data: () => ({
+			// 		isShow: false,
+			// 	}),
+			// 	computed: {
+			// 		modalStyle() {
+			// 			return {
+			// 				display: this.isShow ? "" : "none",
+			// 			};
+			// 		},
+			// 	},
+			// 	methods: {
+			// 		toggleModal() {
+			// 			console.log("click");
+			// 			this.isShow = !this.isShow;
+			// 		},
+			// 	},
+			// });
+>>>>>>> local
 			new Vue({
 				el: "#app",
 				data() {
 					return {
+<<<<<<< HEAD
 						table_head: ['ID', 'Main IMG', 'Name', 'Description', 'Price', 'Created Time', 'Status', 'Remark', 'Action']
+=======
+						orders: [
+							{
+								orderNum: 00001,
+								memNum: 0001,
+								orderDate: "2021-12-01 17:35",
+								orderPrice: 4100,
+							},
+						],
+>>>>>>> local
 					};
 				},
 				methods: {
