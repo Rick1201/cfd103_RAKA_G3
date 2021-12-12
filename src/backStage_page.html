@@ -173,19 +173,38 @@
 												<td>Active</td>
 												<td>Taste like shit.</td>
 												<td>
-													<button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#product_edit_1">Edit</button>
+													<button
+														class="btn btn-outline-primary"
+														data-bs-toggle="modal"
+														data-bs-target="#product_edit_1"
+													>
+														Edit
+													</button>
 												</td>
 											</tr>
 										</tbody>
 									</table>
 
 									<!-- product edit modal -->
-									<div class="modal fade" id="product_edit_1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div
+										class="modal fade"
+										id="product_edit_1"
+										tabindex="-1"
+										aria-labelledby="exampleModalLabel"
+										aria-hidden="true"
+									>
 										<div class="modal-dialog">
 											<div class="modal-content">
 												<div class="modal-header">
-													<h5 class="modal-title" id="exampleModalLabel">Edit Product ID 1 Bubble Tea</h5>
-													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+													<h5 class="modal-title" id="exampleModalLabel">
+														Edit Product ID 1 Bubble Tea
+													</h5>
+													<button
+														type="button"
+														class="btn-close"
+														data-bs-dismiss="modal"
+														aria-label="Close"
+													></button>
 												</div>
 												<form>
 													<div class="modal-body">
@@ -194,43 +213,112 @@
 														</div>
 
 														<div class="mb-3">
-															<label for="product_edit_1_name" class="form-label">Name</label>
-															<input type="text" class="form-control" id="product_edit_1_name" name="name" value="Bubble Tea">
+															<label
+																for="product_edit_1_name"
+																class="form-label"
+																>Name</label
+															>
+															<input
+																type="text"
+																class="form-control"
+																id="product_edit_1_name"
+																name="name"
+																value="Bubble Tea"
+															/>
 														</div>
 
 														<div class="mb-3">
-															<label for="product_edit_1_description" class="form-label">Description</label>
-															<textarea name="description" id="product_edit_1_description" rows="3" class="form-control">喝完吐泡泡</textarea>
+															<label
+																for="product_edit_1_description"
+																class="form-label"
+																>Description</label
+															>
+															<textarea
+																name="description"
+																id="product_edit_1_description"
+																rows="3"
+																class="form-control"
+															>
+喝完吐泡泡</textarea
+															>
 														</div>
 
 														<div class="mb-3">
-															<label for="product_edit_1_price" class="form-label">Price</label>
-															<input type="number" class="form-control" id="product_edit_1_name" name="price" value="100.00"
-															onchange="this.value = Number(Math.abs(this.value)).toFixed(2)" required>
+															<label
+																for="product_edit_1_price"
+																class="form-label"
+																>Price</label
+															>
+															<input
+																type="number"
+																class="form-control"
+																id="product_edit_1_name"
+																name="price"
+																value="100.00"
+																onchange="this.value = Number(Math.abs(this.value)).toFixed(2)"
+																required
+															/>
 														</div>
 
 														<div class="form-check mb-3">
-															<input class="form-check-input" type="checkbox" checked id="product_edit_1_status" name="status">
-															<label class="form-check-label" for="product_edit_1_status">
-																Status</label>
+															<input
+																class="form-check-input"
+																type="checkbox"
+																checked
+																id="product_edit_1_status"
+																name="status"
+															/>
+															<label
+																class="form-check-label"
+																for="product_edit_1_status"
+															>
+																Status</label
+															>
 														</div>
 
 														<div class="mb-3">
-															<label for="product_edit_1_remark" class="form-label">Remark</label>
-															<textarea name="remark" id="product_edit_1_remark" rows="3" class="form-control">Taste like shit.</textarea>
+															<label
+																for="product_edit_1_remark"
+																class="form-label"
+																>Remark</label
+															>
+															<textarea
+																name="remark"
+																id="product_edit_1_remark"
+																rows="3"
+																class="form-control"
+															>
+Taste like shit.</textarea
+															>
 														</div>
 
 														<div class="file_upload">
-															<input type="file" id="files" name="files" id="product_edit_1_files" accept=".jpg,.png,.svg" multiple @change="preview_img($event, 1)">
-															<div class="preview" id="product_edit_1_files_preview">
-
-															</div>
+															<input
+																type="file"
+																id="files"
+																name="files"
+																id="product_edit_1_files"
+																accept=".jpg,.png,.svg"
+																multiple
+																@change="preview_img($event, 1)"
+															/>
+															<div
+																class="preview"
+																id="product_edit_1_files_preview"
+															></div>
 														</div>
-
 													</div>
 													<div class="modal-footer">
-														<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-														<button type="button" class="btn btn-primary">Submit</button>
+														<button
+															type="button"
+															class="btn btn-secondary"
+															data-dismiss="modal"
+														>
+															Close
+														</button>
+														<button type="button" class="btn btn-primary">
+															Submit
+														</button>
 													</div>
 												</form>
 											</div>
@@ -251,101 +339,101 @@
 			crossorigin="anonymous"
 		></script>
 		<script>
-			// Vue.component("light-box", {
-			// 	template: `
-			// 		<div class="lightbox">
-			// 			<div class="modal-mask" :style="modalStyle">
-			// 			<div class="modal-container"  @click.self="toggleModal">
+						// Vue.component("light-box", {
+						// 	template: `
+						// 		<div class="lightbox">
+						// 			<div class="modal-mask" :style="modalStyle">
+						// 			<div class="modal-container"  @click.self="toggleModal">
 
-			// 				<div class="modal-body">
-			// 				<header>
-			// 					<slot name="header">Default Header</slot>
-			// 				</header>
-			// 				<hr>
-			// 				<main>
-			// 					<slot>Default Body</slot>
-			// 				</main>
-			// 				<hr>
-			// 				<footer>
-			// 					<slot name="footer">Default Footer</slot>
-			// 				</footer>
-			// 				</div>
+						// 				<div class="modal-body">
+						// 				<header>
+						// 					<slot name="header">Default Header</slot>
+						// 				</header>
+						// 				<hr>
+						// 				<main>
+						// 					<slot>Default Body</slot>
+						// 				</main>
+						// 				<hr>
+						// 				<footer>
+						// 					<slot name="footer">Default Footer</slot>
+						// 				</footer>
+						// 				</div>
 
-			// 			</div>
-			// 			</div>
+						// 			</div>
+						// 			</div>
 
-<<<<<<< HEAD
-						<button @click="isShow = true">Click Me</button>
-					</div>`,
-				data: () => ({
-					isShow: false
-				}),
-				computed: {
-					modalStyle() {
-						return {
-							display: this.isShow ? "" : "none",
-						};
-					},
-				},
-				methods: {
-					toggleModal() {
-						console.log("click");
-						this.isShow = !this.isShow;
-					},
-				},
-			});
-=======
-			// 			<button @click="isShow = true">Click Me</button>
-			// 		</div>`,
-			// 	data: () => ({
-			// 		isShow: false,
-			// 	}),
-			// 	computed: {
-			// 		modalStyle() {
-			// 			return {
-			// 				display: this.isShow ? "" : "none",
-			// 			};
-			// 		},
-			// 	},
-			// 	methods: {
-			// 		toggleModal() {
-			// 			console.log("click");
-			// 			this.isShow = !this.isShow;
-			// 		},
-			// 	},
-			// });
->>>>>>> local
-			new Vue({
-				el: "#app",
-				data() {
-					return {
-<<<<<<< HEAD
-						table_head: ['ID', 'Main IMG', 'Name', 'Description', 'Price', 'Created Time', 'Status', 'Remark', 'Action']
-=======
-						orders: [
-							{
-								orderNum: 00001,
-								memNum: 0001,
-								orderDate: "2021-12-01 17:35",
-								orderPrice: 4100,
+			<<<<<<< HEAD
+									<button @click="isShow = true">Click Me</button>
+								</div>`,
+							data: () => ({
+								isShow: false
+							}),
+							computed: {
+								modalStyle() {
+									return {
+										display: this.isShow ? "" : "none",
+									};
+								},
 							},
-						],
->>>>>>> local
-					};
-				},
-				methods: {
-					preview_img(e, id) {
-						console.log(e.target.files)
-						const dom = document.querySelector(`#product_edit_${id}_files_preview`)
-						dom.innerHTML = ''
-						const files = e.target.files
-						Object.entries(e.target.files).forEach(([k, v]) => {
-							console.log(k, v)
-							dom.innerHTML += `<img src="${window.URL.createObjectURL(v)}" class="mw-100">`
-						})
-					}
-				}
-			});
+							methods: {
+								toggleModal() {
+									console.log("click");
+									this.isShow = !this.isShow;
+								},
+							},
+						});
+			=======
+						// 			<button @click="isShow = true">Click Me</button>
+						// 		</div>`,
+						// 	data: () => ({
+						// 		isShow: false,
+						// 	}),
+						// 	computed: {
+						// 		modalStyle() {
+						// 			return {
+						// 				display: this.isShow ? "" : "none",
+						// 			};
+						// 		},
+						// 	},
+						// 	methods: {
+						// 		toggleModal() {
+						// 			console.log("click");
+						// 			this.isShow = !this.isShow;
+						// 		},
+						// 	},
+						// });
+			>>>>>>> local
+						new Vue({
+							el: "#app",
+							data() {
+								return {
+			<<<<<<< HEAD
+									table_head: ['ID', 'Main IMG', 'Name', 'Description', 'Price', 'Created Time', 'Status', 'Remark', 'Action']
+			=======
+									orders: [
+										{
+											orderNum: 00001,
+											memNum: 0001,
+											orderDate: "2021-12-01 17:35",
+											orderPrice: 4100,
+										},
+									],
+			>>>>>>> local
+								};
+							},
+							methods: {
+								preview_img(e, id) {
+									console.log(e.target.files)
+									const dom = document.querySelector(`#product_edit_${id}_files_preview`)
+									dom.innerHTML = ''
+									const files = e.target.files
+									Object.entries(e.target.files).forEach(([k, v]) => {
+										console.log(k, v)
+										dom.innerHTML += `<img src="${window.URL.createObjectURL(v)}" class="mw-100">`
+									})
+								}
+							}
+						});
 		</script>
 	</body>
 </html>
