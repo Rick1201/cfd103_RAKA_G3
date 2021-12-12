@@ -157,37 +157,85 @@
 							<div class="table_dist">
 								<div class="table-responsive">
 									<table class="table">
-										<tr>
-											<th v-for="num of 7">{{num}}</th>
-										</tr>
-										<tr>
-											<td v-for="index of 7">{{index}}</td>
-										</tr>
-										<tr>
-											<td v-for="index of 7">{{index}}</td>
-										</tr>
-										<tr>
-											<td v-for="index of 7">{{index}}</td>
-										</tr>
-										<tr>
-											<td v-for="index of 7">{{index}}</td>
-										</tr>
-										<tr>
-											<td v-for="index of 7">{{index}}</td>
-										</tr>
-										<tr>
-											<td v-for="index of 7">{{index}}</td>
-										</tr>
-										<tr>
-											<td v-for="index of 7">{{index}}</td>
-										</tr>
-										<tr>
-											<td v-for="index of 7">{{index}}</td>
-										</tr>
-										<tr>
-											<td v-for="index of 7">{{index}}</td>
-										</tr>
+										<thead>
+											<tr>
+												<th v-for="v in table_head">{{ v }}</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>1</td>
+												<td></td>
+												<td>Bubble Tea</td>
+												<td>喝完吐泡泡</td>
+												<td>$ 100</td>
+												<td>{{ (new Date).toDateString() }}</td>
+												<td>Active</td>
+												<td>Taste like shit.</td>
+												<td>
+													<button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#product_edit_1">Edit</button>
+												</td>
+											</tr>
+										</tbody>
 									</table>
+
+									<!-- product edit modal -->
+									<div class="modal fade" id="product_edit_1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="exampleModalLabel">Edit Product ID 1 Bubble Tea</h5>
+													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+												</div>
+												<form>
+													<div class="modal-body">
+														<div class="mb-3">
+															<label class="form-label">ID 1</label>
+														</div>
+
+														<div class="mb-3">
+															<label for="product_edit_1_name" class="form-label">Name</label>
+															<input type="text" class="form-control" id="product_edit_1_name" name="name" value="Bubble Tea">
+														</div>
+
+														<div class="mb-3">
+															<label for="product_edit_1_description" class="form-label">Description</label>
+															<textarea name="description" id="product_edit_1_description" rows="3" class="form-control">喝完吐泡泡</textarea>
+														</div>
+
+														<div class="mb-3">
+															<label for="product_edit_1_price" class="form-label">Price</label>
+															<input type="number" class="form-control" id="product_edit_1_name" name="price" value="100.00"
+															onchange="this.value = Number(Math.abs(this.value)).toFixed(2)" required>
+														</div>
+
+														<div class="form-check mb-3">
+															<input class="form-check-input" type="checkbox" checked id="product_edit_1_status" name="status">
+															<label class="form-check-label" for="product_edit_1_status">
+																Status</label>
+														</div>
+
+														<div class="mb-3">
+															<label for="product_edit_1_remark" class="form-label">Remark</label>
+															<textarea name="remark" id="product_edit_1_remark" rows="3" class="form-control">Taste like shit.</textarea>
+														</div>
+
+														<div class="file_upload">
+															<input type="file" id="files" name="files" id="product_edit_1_files" accept=".jpg,.png,.svg" multiple @change="preview_img($event, 1)">
+															<div class="preview" id="product_edit_1_files_preview">
+
+															</div>
+														</div>
+
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+														<button type="button" class="btn btn-primary">Submit</button>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -229,7 +277,7 @@
 						<button @click="isShow = true">Click Me</button>
 					</div>`,
 				data: () => ({
-					isShow: false,
+					isShow: false
 				}),
 				computed: {
 					modalStyle() {
@@ -248,8 +296,22 @@
 			new Vue({
 				el: "#app",
 				data() {
-					return {};
+					return {
+						table_head: ['ID', 'Main IMG', 'Name', 'Description', 'Price', 'Created Time', 'Status', 'Remark', 'Action']
+					};
 				},
+				methods: {
+					preview_img(e, id) {
+						console.log(e.target.files)
+						const dom = document.querySelector(`#product_edit_${id}_files_preview`)
+						dom.innerHTML = ''
+						const files = e.target.files
+						Object.entries(e.target.files).forEach(([k, v]) => {
+							console.log(k, v)
+							dom.innerHTML += `<img src="${window.URL.createObjectURL(v)}" class="mw-100">`
+						})
+					}
+				}
 			});
 		</script>
 	</body>
