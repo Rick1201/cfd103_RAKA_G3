@@ -55,7 +55,7 @@
 						>
 							<div class="accordion-body d-grid gap-2">
 								<button class="btn btn-primary">商品訂單</button>
-								<button class="btn btn-primary">商品訂單</button>
+								<button class="btn btn-primary">客製化訂單</button>
 							</div>
 						</div>
 					</div>
@@ -79,8 +79,9 @@
 							data-bs-parent="#accordionFlushExample"
 						>
 							<div class="accordion-body d-grid gap-2">
-								<button class="btn btn-primary">商品訂單</button>
-								<button class="btn btn-primary">商品訂單</button>
+								<button class="btn btn-primary">商品管理</button>
+								<button class="btn btn-primary">熱門設計管理</button>
+								<button class="btn btn-primary">客製化元件管理</button>
 							</div>
 						</div>
 					</div>
@@ -104,8 +105,8 @@
 							data-bs-parent="#accordionFlushExample"
 						>
 							<div class="accordion-body d-grid gap-2">
-								<button class="btn btn-primary">商品訂單</button>
-								<button class="btn btn-primary">商品訂單</button>
+								<button class="btn btn-primary">會員管理</button>
+								<button class="btn btn-primary">評論管理</button>
 							</div>
 						</div>
 					</div>
@@ -129,8 +130,7 @@
 							data-bs-parent="#accordionFlushExample"
 						>
 							<div class="accordion-body d-grid gap-2">
-								<button class="btn btn-primary">商品訂單</button>
-								<button class="btn btn-primary">商品訂單</button>
+								<button class="btn btn-primary">管理員管理</button>
 							</div>
 						</div>
 					</div>
@@ -182,7 +182,7 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr v-for="product of filters ">
+											<tr v-for="(product,index) of filters ">
 												<td>{{product.Product_ID}}</td>
 												<td>{{product.Product_Name}}</td>
 												<td>{{product.Product_Price}}</td>
@@ -213,12 +213,13 @@
 										tabindex="-1"
 										aria-labelledby="exampleModalLabel"
 										aria-hidden="true"
+										v-for="(product,index) of filters"
 									>
 										<div class="modal-dialog">
 											<div class="modal-content">
 												<div class="modal-header">
 													<h5 class="modal-title" id="exampleModalLabel">
-														Edit Product ID 1 Bubble Tea
+														Edit Product
 													</h5>
 													<button
 														type="button"
@@ -230,22 +231,87 @@
 												<form>
 													<div class="modal-body">
 														<div class="mb-3">
-															<label class="form-label">ID 1</label>
+															<label class="form-label"
+																>{{product.Product_ID}}</label
+															>
 														</div>
 
 														<div class="mb-3">
 															<label
 																for="product_edit_1_name"
 																class="form-label"
-																>Name</label
+																>商品名稱</label
 															>
 															<input
 																type="text"
 																class="form-control"
 																id="product_edit_1_name"
 																name="name"
-																value="Bubble Tea"
+																:value="product.Product_Name"
 															/>
+														</div>
+
+														<div class="mb-3">
+															<label
+																for="product_edit_1_name"
+																class="form-label"
+																>商品價格</label
+															>
+															<input
+																type="text"
+																class="form-control"
+																id="product_edit_1_name"
+																name="name"
+																:value="product.Product_Price"
+															/>
+														</div>
+
+														<div class="mb-3">
+															<label
+																for="product_edit_1_name"
+																class="form-label"
+																>商品材質類別</label
+															>
+															<input
+																type="text"
+																class="form-control"
+																id="product_edit_1_name"
+																name="name"
+																:value="product.Product_MType"
+															/>
+														</div>
+
+														<div class="mb-3">
+															<label
+																for="product_edit_1_name"
+																class="form-label"
+																>商品錶帶類別</label
+															>
+															<input
+																type="text"
+																class="form-control"
+																id="product_edit_1_name"
+																name="name"
+																:value="product.Product_BType"
+															/>
+														</div>
+
+														<div class="mb-3">
+															<label
+																for="product_edit_1_name"
+																class="form-label"
+																>商品主題類別</label
+															>
+															<select
+																type="text"
+																class="form-control"
+																id="product_edit_1_name"
+																name="name"
+																:value="product.Product_CType"
+															>
+																<option value="海洋">海洋</option>
+																<option value="探險">探險</option>
+															</select>
 														</div>
 
 														<div class="mb-3">
@@ -260,25 +326,8 @@
 																rows="3"
 																class="form-control"
 															>
-																喝完吐泡泡</textarea
+																{{product.Product_Info}}</textarea
 															>
-														</div>
-
-														<div class="mb-3">
-															<label
-																for="product_edit_1_price"
-																class="form-label"
-																>Price</label
-															>
-															<input
-																type="number"
-																class="form-control"
-																id="product_edit_1_name"
-																name="price"
-																value="100.00"
-																onchange="this.value = Number(Math.abs(this.value)).toFixed(2)"
-																required
-															/>
 														</div>
 
 														<div class="form-check mb-3">
@@ -288,37 +337,46 @@
 																checked
 																id="product_edit_1_status"
 																name="status"
+																v-model="product.Product_Status"
 															/>
 															<label
 																class="form-check-label"
 																for="product_edit_1_status"
 															>
-																Status</label
-															>
-														</div>
-
-														<div class="mb-3">
-															<label
-																for="product_edit_1_remark"
-																class="form-label"
-																>Remark</label
-															>
-															<textarea
-																name="remark"
-																id="product_edit_1_remark"
-																rows="3"
-																class="form-control"
-															>
-Taste like shit.</textarea
+																上架</label
 															>
 														</div>
 
 														<div class="file_upload">
+															<label for="product_edit_1_files"
+																>規格圖上傳</label
+															>
+															<br />
 															<input
 																type="file"
 																id="files"
 																name="files"
 																id="product_edit_1_files"
+																accept=".jpg,.png,.svg"
+																multiple
+																@change="preview_img($event, 1)"
+															/>
+															<div
+																class="preview"
+																id="product_edit_1_files_preview"
+															></div>
+														</div>
+
+														<div class="file_upload">
+															<label for="product_edit_2_files"
+																>商品圖上傳</label
+															>
+															<br />
+															<input
+																type="file"
+																id="files"
+																name="files"
+																id="product_edit_2_files"
 																accept=".jpg,.png,.svg"
 																multiple
 																@change="preview_img($event, 1)"
