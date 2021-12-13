@@ -137,8 +137,9 @@
 				</div>
 				<div class="component_area">
 					<!-- <light-box></light-box> -->
+					<!-- component -->
 					<div class="title_area">
-						<h3>title</h3>
+						<h3>商品管理</h3>
 					</div>
 					<div class="container">
 						<div class="btn_dist">
@@ -149,9 +150,27 @@
 							</div>
 							<div class="tab_dist">
 								<div class="btn-group" role="group" aria-label="Basic example">
-									<button type="button" class="btn btn-primary">所有</button>
-									<button type="button" class="btn btn-primary">已完成</button>
-									<button type="button" class="btn btn-primary">未完成</button>
+									<button
+										type="button"
+										class="btn btn-primary"
+										@click="visibility='all'"
+									>
+										所有
+									</button>
+									<button
+										type="button"
+										class="btn btn-primary"
+										@click="visibility='active'"
+									>
+										上架中
+									</button>
+									<button
+										type="button"
+										class="btn btn-primary"
+										@click="visibility='completed'"
+									>
+										未上架
+									</button>
 								</div>
 							</div>
 							<div class="table_dist">
@@ -159,19 +178,21 @@
 									<table class="table">
 										<thead>
 											<tr>
-												<th v-for="v in table_head">{{ v }}</th>
+												<th v-for="head in table_head">{{ head }}</th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td>1</td>
-												<td></td>
-												<td>Bubble Tea</td>
-												<td>喝完吐泡泡</td>
-												<td>$ 100</td>
-												<td>{{ (new Date).toDateString() }}</td>
-												<td>Active</td>
-												<td>Taste like shit.</td>
+											<tr v-for="product of filters ">
+												<td>{{product.Product_ID}}</td>
+												<td>{{product.Product_Name}}</td>
+												<td>{{product.Product_Price}}</td>
+												<td>{{product.Product_MType}}</td>
+												<td>{{product.Product_BType}}</td>
+												<td>{{product.Product_CType}}</td>
+												<td>{{product.Product_Info}}</td>
+												<td>{{product.Product_Spec}}</td>
+												<td>{{product.Product_PIC}}</td>
+												<td>{{product.Product_Status}}</td>
 												<td>
 													<button
 														class="btn btn-outline-primary"
@@ -239,7 +260,7 @@
 																rows="3"
 																class="form-control"
 															>
-喝完吐泡泡</textarea
+																喝完吐泡泡</textarea
 															>
 														</div>
 
@@ -339,69 +360,134 @@ Taste like shit.</textarea
 			crossorigin="anonymous"
 		></script>
 		<script>
-						// Vue.component("light-box", {
-						// 	template: `
-						// 		<div class="lightbox">
-						// 			<div class="modal-mask" :style="modalStyle">
-						// 			<div class="modal-container"  @click.self="toggleModal">
+			// Vue.component("light-box", {
+			// 	template: `
+			// 		<div class="lightbox">
+			// 			<div class="modal-mask" :style="modalStyle">
+			// 			<div class="modal-container"  @click.self="toggleModal">
 
-						// 				<div class="modal-body">
-						// 				<header>
-						// 					<slot name="header">Default Header</slot>
-						// 				</header>
-						// 				<hr>
-						// 				<main>
-						// 					<slot>Default Body</slot>
-						// 				</main>
-						// 				<hr>
-						// 				<footer>
-						// 					<slot name="footer">Default Footer</slot>
-						// 				</footer>
-						// 				</div>
+			// 				<div class="modal-body">
+			// 				<header>
+			// 					<slot name="header">Default Header</slot>
+			// 				</header>
+			// 				<hr>
+			// 				<main>
+			// 					<slot>Default Body</slot>
+			// 				</main>
+			// 				<hr>
+			// 				<footer>
+			// 					<slot name="footer">Default Footer</slot>
+			// 				</footer>
+			// 				</div>
 
-						// 			</div>
-						// 			</div>
+			// 			</div>
+			// 			</div>
 
-
-						// 			<button @click="isShow = true">Click Me</button>
-						// 		</div>`,
-						// 	data: () => ({
-						// 		isShow: false,
-						// 	}),
-						// 	computed: {
-						// 		modalStyle() {
-						// 			return {
-						// 				display: this.isShow ? "" : "none",
-						// 			};
-						// 		},
-						// 	},
-						// 	methods: {
-						// 		toggleModal() {
-						// 			console.log("click");
-						// 			this.isShow = !this.isShow;
-						// 		},
-						// 	},
-						// });
-						new Vue({
-							el: "#app",
-							data() {
-								return {
-									table_head: ['ID', 'Main IMG', 'Name', 'Description', 'Price', 'Created Time', 'Status', 'Remark', 'Action']
-								};
+			// 			<button @click="isShow = true">Click Me</button>
+			// 		</div>`,
+			// 	data: () => ({
+			// 		isShow: false,
+			// 	}),
+			// 	computed: {
+			// 		modalStyle() {
+			// 			return {
+			// 				display: this.isShow ? "" : "none",
+			// 			};
+			// 		},
+			// 	},
+			// 	methods: {
+			// 		toggleModal() {
+			// 			console.log("click");
+			// 			this.isShow = !this.isShow;
+			// 		},
+			// 	},
+			// });
+			new Vue({
+				el: "#app",
+				data() {
+					return {
+						table_head: [
+							"商品編號",
+							"商品名稱",
+							"商品價格",
+							"商品材質類別",
+							"商品錶帶類別",
+							"商品主題類別",
+							"商品介紹",
+							"商品規格",
+							"商品圖片",
+							"商品狀態",
+						],
+						products: [
+							{
+								Product_ID: 001,
+								Product_Name: "1潛水表",
+								Product_Price: 4100,
+								Product_MType: "鋼",
+								Product_BType: "尼龍",
+								Product_CType: "海洋探索",
+								Product_Info: "我可以潛水",
+								Product_Spec: "img",
+								Product_PIC: ["img1", "img2", "img3", "img4"],
+								Product_Status: true,
 							},
-							methods: {
-								preview_img(e, id) {
-									console.log(e.target.files)
-									const dom = document.querySelector(`#product_edit_${id}_files_preview`)
-									dom.innerHTML = ''
-									const files = e.target.files
-									Object.entries(e.target.files).forEach(([k, v]) => {
-										console.log(k, v)
-										dom.innerHTML += `<img src="${window.URL.createObjectURL(v)}" class="mw-100">`
-									})
+							{
+								Product_ID: 002,
+								Product_Name: "2潛水表",
+								Product_Price: 3900,
+								Product_MType: "陶瓷",
+								Product_BType: "尼龍",
+								Product_CType: "叢林探索",
+								Product_Info: "我可以潛水",
+								Product_Spec: "img",
+								Product_PIC: ["img1", "img2", "img3", "img4"],
+								Product_Status: false,
+							},
+						],
+						visibility: "all",
+					};
+				},
+				computed: {
+					filters: function () {
+						if (this.visibility == "all") {
+							return this.products;
+						} else if (this.visibility == "active") {
+							let newProducts = [];
+							this.products.forEach(function (item) {
+								if (!item.Product_Status) {
+									newProducts.push(item);
 								}
-							}
+							});
+							return newProducts;
+						} else if (this.visibility == "completed") {
+							let newProducts = [];
+							this.products.forEach(function (item) {
+								if (item.Product_Status) {
+									newProducts.push(item);
+								}
+							});
+							return newProducts;
+						}
+						return [];
+					},
+				},
+				methods: {
+					preview_img(e, id) {
+						console.log(e.target.files);
+						const dom = document.querySelector(
+							`#product_edit_${id}_files_preview`
+						);
+						dom.innerHTML = "";
+						const files = e.target.files;
+						Object.entries(e.target.files).forEach(([k, v]) => {
+							console.log(k, v);
+							dom.innerHTML += `<img src="${window.URL.createObjectURL(
+								v
+							)}" class="mw-100">`;
 						});
+					},
+				},
+			});
 		</script>
 	</body>
 </html>
