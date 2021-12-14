@@ -135,15 +135,15 @@
 						</div>
 					</div>
 				</div>
+				<!-- <product-manage></product-manage> -->
 				<div class="component_area">
-					<!-- <light-box></light-box> -->
-					<!-- component -->
 					<div class="title_area">
-						<h3>商品管理</h3>
+						<h3>商品訂單</h3>
 					</div>
 					<div class="container">
-						<div class="btn_dist">
-							<button class="btn btn-outline-primary add_btn">新增</button>
+						
+
+							
 							<div class="search_group">
 								<input type="search" />
 								<button>搜尋</button>
@@ -162,14 +162,485 @@
 										class="btn btn-primary"
 										@click="visibility='active'"
 									>
-										上架中
+										未完成
 									</button>
 									<button
 										type="button"
 										class="btn btn-primary"
 										@click="visibility='completed'"
 									>
+										已完成
+									</button>
+								</div>
+							</div>
+							<div class="table_dist">
+								<div class="table-responsive">
+									<table class="table">
+										<thead>
+											<tr>
+												<th v-for="head in table_head">{{ head }}</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr v-for="(product,index) of filters ">
+												<td>{{product.Order_ID}}</td>
+												<td>{{product.Member_ID}}</td>
+												<td>{{product.Order_Date}}</td>
+												<td>{{product.Order_SUM}}</td>
+												<td>{{product.Order_Total}}</td>
+												<td>{{product.Order_Shipping}}</td>
+												<td>{{product.Order_Name}}</td>
+												<td>{{product.Order_Phone}}</td>
+												<td>{{product.Order_Address}}</td>
+												<td>{{product.Order_Notes}}</td>
+												<td>
+													{{product.Member_Card}}
+												</td>
+												<td>
+													{{product.Order_Status}}
+												</td>
+												<td>
+													<button
+														class="btn btn-outline-primary"
+														data-bs-toggle="modal"
+														data-bs-target="#order_item_1"
+													>
+														查看訂單項目
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+
+									<div
+										class="modal fade"
+										id="order_item_1"
+										tabindex="-1"
+										aria-labelledby="exampleModalLabel"
+										aria-hidden="true"
+										v-for="(product,index) of filters"
+									>
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="exampleModalLabel">
+														訂單明細
+													</h5>
+													<button
+														type="button"
+														class="btn-close"
+														data-bs-dismiss="modal"
+														aria-label="Close"
+													></button>
+												</div>
+												<form>
+													<div class="modal-body">
+														<div class="mb-3">
+															<label class="form-label"
+																>{{product.Product_ID}}</label
+															>
+														</div>
+
+														<div class="mb-3">
+															<label
+																for="product_edit_1_name"
+																class="form-label"
+																>商品名稱</label
+															>
+															<input
+																type="text"
+																class="form-control"
+																id="product_edit_1_name"
+																name="name"
+																:value="product.Product_Name"
+															/>
+														</div>
+
+														<div class="mb-3">
+															<label
+																for="product_edit_1_name"
+																class="form-label"
+																>商品價格</label
+															>
+															<input
+																type="text"
+																class="form-control"
+																id="product_edit_1_name"
+																name="name"
+																:value="product.Product_Price"
+															/>
+														</div>
+
+														<div class="mb-3">
+															<label
+																for="product_edit_1_name"
+																class="form-label"
+																>商品材質類別</label
+															>
+															<input
+																type="text"
+																class="form-control"
+																id="product_edit_1_name"
+																name="name"
+																:value="product.Product_MType"
+															/>
+														</div>
+
+														<div class="mb-3">
+															<label
+																for="product_edit_1_name"
+																class="form-label"
+																>商品錶帶類別</label
+															>
+															<input
+																type="text"
+																class="form-control"
+																id="product_edit_1_name"
+																name="name"
+																:value="product.Product_BType"
+															/>
+														</div>
+
+														<div class="mb-3">
+															<label
+																for="product_edit_1_name"
+																class="form-label"
+																>商品主題類別</label
+															>
+															<select
+																type="text"
+																class="form-control"
+																id="product_edit_1_name"
+																name="name"
+																:value="product.Product_CType"
+															>
+																<option value="海洋">海洋</option>
+																<option value="探險">探險</option>
+															</select>
+														</div>
+
+														<div class="mb-3">
+															<label
+																for="product_edit_1_description"
+																class="form-label"
+																>Description</label
+															>
+															<textarea
+																name="description"
+																id="product_edit_1_description"
+																rows="3"
+																class="form-control"
+															>
+																{{product.Product_Info}}</textarea
+															>
+														</div>
+
+														<div class="form-check mb-3">
+															<input
+																class="form-check-input"
+																type="checkbox"
+																checked
+																id="product_edit_1_status"
+																name="status"
+																v-model="product.Product_Status"
+															/>
+															<label
+																class="form-check-label"
+																for="product_edit_1_status"
+															>
+																上架</label
+															>
+														</div>
+
+														<div class="file_upload">
+															<label for="product_edit_1_files"
+																>規格圖上傳</label
+															>
+															<br />
+															<input
+																type="file"
+																id="files"
+																name="files"
+																id="product_edit_1_files"
+																accept=".jpg,.png,.svg"
+																multiple
+																@change="preview_img($event, 1)"
+															/>
+															<div
+																class="preview"
+																id="product_edit_1_files_preview"
+															></div>
+														</div>
+
+														<div class="file_upload">
+															<label for="product_edit_2_files"
+																>商品圖上傳</label
+															>
+															<br />
+															<input
+																type="file"
+																id="files"
+																name="files"
+																id="product_edit_2_files"
+																accept=".jpg,.png,.svg"
+																multiple
+																@change="preview_img($event, 1)"
+															/>
+															<div
+																class="preview"
+																id="product_edit_1_files_preview"
+															></div>
+														</div>
+													</div>
+													<div class="modal-footer">
+														<button
+															type="button"
+															class="btn btn-secondary"
+															data-dismiss="modal"
+														>
+															Close
+														</button>
+														<button type="button" class="btn btn-primary">
+															Submit
+														</button>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="component_dist"></div>
+					</div>
+				</div>
+				
+			</section>
+			<footer></footer>
+		</div>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"
+			integrity="sha512-PyKhbAWS+VlTWXjk/36s5hJmUJBxcGY/1hlxg6woHD/EONP2fawZRKmvHdTGOWPKTqk3CPSUPh7+2boIBklbvw=="
+			crossorigin="anonymous"
+		></script>
+		<script>
+			Vue.component("product-manage", {
+				template: `
+				<div class="component_area">
+					<!-- <light-box></light-box> -->
+					<!-- component -->
+					<div class="title_area">
+						<h3>商品管理</h3>
+					</div>
+					<div class="container">
+						<div class="btn_dist">
+							<button
+								class="btn btn-outline-primary"
+								data-bs-toggle="modal"
+								data-bs-target="#product_add"
+							>
+								Add+
+							</button>
+							<!-- product add modal -->
+							<div
+								class="modal fade"
+								id="product_add"
+								tabindex="-1"
+								aria-labelledby="exampleModalLabel"
+								aria-hidden="true"
+							>
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">
+												add Product
+											</h5>
+											<button
+												type="button"
+												class="btn-close"
+												data-bs-dismiss="modal"
+												aria-label="Close"
+											></button>
+										</div>
+										<form>
+											<div class="modal-body">
+												<div class="mb-3">
+													<label class="form-label">商品ID</label>
+												</div>
+
+												<div class="mb-3">
+													<label for="product_edit_1_name" class="form-label"
+														>商品名稱</label
+													>
+													<input
+														type="text"
+														class="form-control"
+														id="product_edit_1_name"
+														name="name"
+													/>
+												</div>
+
+												<div class="mb-3">
+													<label for="product_edit_1_name" class="form-label"
+														>商品價格</label
+													>
+													<input
+														type="text"
+														class="form-control"
+														id="product_edit_1_name"
+														name="name"
+													/>
+												</div>
+
+												<div class="mb-3">
+													<label for="product_edit_1_name" class="form-label"
+														>商品材質類別</label
+													>
+													<input
+														type="text"
+														class="form-control"
+														id="product_edit_1_name"
+														name="name"
+													/>
+												</div>
+
+												<div class="mb-3">
+													<label for="product_edit_1_name" class="form-label"
+														>商品錶帶類別</label
+													>
+													<input
+														type="text"
+														class="form-control"
+														id="product_edit_1_name"
+														name="name"
+													/>
+												</div>
+
+												<div class="mb-3">
+													<label for="product_edit_1_name" class="form-label"
+														>商品主題類別</label
+													>
+													<select
+														type="text"
+														class="form-control"
+														id="product_edit_1_name"
+														name="name"
+													>
+														<option value="海洋">海洋</option>
+														<option value="探險">探險</option>
+													</select>
+												</div>
+
+												<div class="mb-3">
+													<label
+														for="product_edit_1_description"
+														class="form-label"
+														>Description</label
+													>
+													<textarea
+														name="description"
+														id="product_edit_1_description"
+														rows="3"
+														class="form-control"
+													>
+													</textarea>
+												</div>
+
+												<div class="form-check mb-3">
+													<input
+														class="form-check-input"
+														type="checkbox"
+														checked
+														id="product_edit_1_status"
+														name="status"
+													/>
+													<label
+														class="form-check-label"
+														for="product_edit_1_status"
+													>
+														上架</label
+													>
+												</div>
+
+												<div class="file_upload">
+													<label for="product_edit_1_files">規格圖上傳</label>
+													<br />
+													<input
+														type="file"
+														id="files"
+														name="files"
+														id="product_edit_1_files"
+														accept=".jpg,.png,.svg"
+														multiple
+														@change="preview_img($event, 1)"
+													/>
+													<div
+														class="preview"
+														id="product_edit_1_files_preview"
+													></div>
+												</div>
+
+												<div class="file_upload">
+													<label for="product_edit_2_files">商品圖上傳</label>
+													<br />
+													<input
+														type="file"
+														id="files"
+														name="files"
+														id="product_edit_2_files"
+														accept=".jpg,.png,.svg"
+														multiple
+														@change="preview_img($event, 1)"
+													/>
+													<div
+														class="preview"
+														id="product_edit_1_files_preview"
+													></div>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button
+													type="button"
+													class="btn btn-secondary"
+													data-dismiss="modal"
+												>
+													Close
+												</button>
+												<button type="button" class="btn btn-primary">
+													Submit
+												</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+
+							<div class="search_group">
+								<input type="search" />
+								<button>搜尋</button>
+							</div>
+							<div class="tab_dist">
+								<div class="btn-group" role="group" aria-label="Basic example">
+									<button
+										type="button"
+										class="btn btn-primary"
+										@click="visibility='all'"
+									>
+										所有
+									</button>
+									<button
+										type="button"
+										class="btn btn-primary"
+										@click="visibility='active'"
+									>
 										未上架
+									</button>
+									<button
+										type="button"
+										class="btn btn-primary"
+										@click="visibility='completed'"
+									>
+										上架中
 									</button>
 								</div>
 							</div>
@@ -409,59 +880,7 @@
 						<div class="component_dist"></div>
 					</div>
 				</div>
-			</section>
-			<footer></footer>
-		</div>
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"
-			integrity="sha512-PyKhbAWS+VlTWXjk/36s5hJmUJBxcGY/1hlxg6woHD/EONP2fawZRKmvHdTGOWPKTqk3CPSUPh7+2boIBklbvw=="
-			crossorigin="anonymous"
-		></script>
-		<script>
-			// Vue.component("light-box", {
-			// 	template: `
-			// 		<div class="lightbox">
-			// 			<div class="modal-mask" :style="modalStyle">
-			// 			<div class="modal-container"  @click.self="toggleModal">
-
-			// 				<div class="modal-body">
-			// 				<header>
-			// 					<slot name="header">Default Header</slot>
-			// 				</header>
-			// 				<hr>
-			// 				<main>
-			// 					<slot>Default Body</slot>
-			// 				</main>
-			// 				<hr>
-			// 				<footer>
-			// 					<slot name="footer">Default Footer</slot>
-			// 				</footer>
-			// 				</div>
-
-			// 			</div>
-			// 			</div>
-
-			// 			<button @click="isShow = true">Click Me</button>
-			// 		</div>`,
-			// 	data: () => ({
-			// 		isShow: false,
-			// 	}),
-			// 	computed: {
-			// 		modalStyle() {
-			// 			return {
-			// 				display: this.isShow ? "" : "none",
-			// 			};
-			// 		},
-			// 	},
-			// 	methods: {
-			// 		toggleModal() {
-			// 			console.log("click");
-			// 			this.isShow = !this.isShow;
-			// 		},
-			// 	},
-			// });
-			new Vue({
-				el: "#app",
+				`,
 				data() {
 					return {
 						table_head: [
@@ -521,6 +940,100 @@
 							let newProducts = [];
 							this.products.forEach(function (item) {
 								if (item.Product_Status) {
+									newProducts.push(item);
+								}
+							});
+							return newProducts;
+						}
+						return [];
+					},
+				},
+				methods: {
+					preview_img(e, id) {
+						console.log(e.target.files);
+						const dom = document.querySelector(
+							`#product_edit_${id}_files_preview`
+						);
+						dom.innerHTML = "";
+						const files = e.target.files;
+						Object.entries(e.target.files).forEach(([k, v]) => {
+							console.log(k, v);
+							dom.innerHTML += `<img src="${window.URL.createObjectURL(
+								v
+							)}" class="mw-100">`;
+						});
+					},
+				},
+			});
+			new Vue({
+				el: "#app",
+				data: {
+					table_head: [
+							"訂單編號",
+							"會員編號",
+							"下單時間",
+							"商品總額",
+							"訂單總額(加運費)",
+							"運費",
+							"收件人姓名",
+							"收件人電話",
+							"收件人地址",
+							"收件備註",
+							"會員信用卡資訊",
+							"訂單狀態"
+						],
+						orders: [
+							{
+								Order_ID: "RA001",
+								Member_ID: 001,
+								Order_Date: "2021-12-14 05:24",
+								Order_SUM: 4100,
+								Order_Total: 4200,
+								Order_Shipping:100,
+								Order_Name: "Alex Lin",
+								Order_Phone: "0912345678",
+								Order_Address: "台北市信義區忠孝東路211號七巷八樓",
+								Order_Notes: "無",
+								Member_Card:"0123-4567-8910-1112",
+								Order_Status:"已完成"
+							},
+							{
+								Order_ID: "RA002",
+								Member_ID: 011,
+								Order_Date: "2021-12-14 05:26",
+								Order_SUM: 4100,
+								Order_Total: 4200,
+								Order_Shipping:100,
+								Order_Name: "Anna Lin",
+								Order_Phone: "0912345678",
+								Order_Address: "台北市信義區忠孝東路211號七巷九樓",
+								Order_Notes: "無",
+								Member_Card:"0123-4567-8910-1112",
+								Order_Status:"未完成",
+							},
+						],
+						OrderDetail:[{
+							Order_ID: "RA001",
+							// {Product_ID:"IT001"}
+						}],
+						visibility: "all",
+				},
+				computed: {
+					filters: function () {
+						if (this.visibility == "all") {
+							return this.orders;
+						} else if (this.visibility == "active") {
+							let newProducts = [];
+							this.orders.forEach(function (item) {
+								if (item.Order_Status==="未完成") {
+									newProducts.push(item);
+								}
+							});
+							return newProducts;
+						} else if (this.visibility == "completed") {
+							let newProducts = [];
+							this.orders.forEach(function (item) {
+								if (item.Order_Status==="已完成") {
 									newProducts.push(item);
 								}
 							});
