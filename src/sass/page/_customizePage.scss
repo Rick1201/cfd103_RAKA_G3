@@ -1,0 +1,72 @@
+.customize-page{
+    width: 1440px;
+    height: 600px;
+    border: 1px solid red;
+    .step-tab-area{
+        width: 10%;
+        border: 1px solid blue;
+        .tab{
+            height: 25%;
+        }
+    }
+    .show-box{
+        width: 35%;
+        border: 1px solid yellowgreen;
+        .image-box{
+            height: 450px;
+            background-color: grey;
+        }
+    }
+    .select-area{
+        width: 40%;
+        border: 1px solid grey;
+        .frame{
+            height: 20%;
+            border: 1px solid grey;
+            .item{
+               .item-box{
+                   width: 80px;
+                   img{
+                    width: 100%;
+                   }
+               } 
+            }
+        }
+        .face{
+            height: 20%;
+            border: 1px solid grey;
+            .item{
+                .item-box{
+                    width: 80px;
+                    img{
+                     width: 100%;
+                    }
+                } 
+             }
+        }
+        .strap{
+            height: 20%;
+            border: 1px solid grey;
+            .item{
+                .item-box{
+                    width: 80px;
+                    img{
+                     width: 100%;
+                    }
+                } 
+             }
+        }
+        .pointer{
+            height: 20%;
+            border: 1px solid grey;
+            .item{
+                .item-box{
+                    width: 80px;
+                    img{
+                     width: 100%;
+                    }
+                } 
+             }
+        }
+    }
+}

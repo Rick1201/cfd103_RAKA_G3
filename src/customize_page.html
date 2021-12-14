@@ -11,6 +11,9 @@
 	<body>
 		@@include('./layout/header.html')
 		<section class="customize-page">
+			<div class="page-tab">
+				<div class="tab"></div>
+			</div>
 			<div class="customize-outer">
 				<div class="outer-img">
 					<img src="./images/5ea99562449ad232325522e0f07f4331.jpg" alt="">
@@ -31,22 +34,12 @@
 				</div>
 			</div>
 			<div class="customize-selectBox" id="selectBox">
-				<div class="select-tab">
-					<div class="tab" @click="content='frame'">
-						<img src="./images/icon-frame.png" alt="">
-					</div>
-					<div class="tab" @click="content='face'">
-						<img src="./images/watch-face.png" alt="">
-					</div>
-					<div class="tab" @click="content='band'">
-						<img src="./images/watch-strap.png" alt="">
-					</div>
-					<div class="tab" @click="content='pointer'">
-						<img src="./images/clock.png" alt="">
-					</div>
-				</div>
+				<!-- <div class="select-tab">
+				</div> -->
 				<div class="select-content-box">
-					<component :is="content"></component>
+					<keep-alive>
+						<component :is="content"></component>
+					</keep-alive>
 				</div>
 			</div>
 		</section>
@@ -55,125 +48,137 @@
 			<button>確認成品</button>
 		</div>
 		<script>
-			Vue.component("frame",{
+			Vue.component("outer",{
+				data(){
+					return{
+						outerTabs:[
+							{
+								id:0,
+								title:'錶框',
+								icon:"./images/icon-frame.png",
+								images:[
+									"./images/CS-PN-42-IB_bfc47d6f8445398e6fcd2de785bbd2f7.jpg",
+									"./images/CS-PN-38-RG_a5f775039ae215f83fb7382eb5d91a2b.jpg",
+									"./images/CS-PN-42-RG_928ef5e2b03993a1932e1c9dff506d2c.jpg",
+									"./images/CS-PN-42-SS_7a764e8a31a563fd9c5273a9cae59da6.jpg",
+									"./images/CS-PN-42-IB_bfc47d6f8445398e6fcd2de785bbd2f7.jpg",
+									"./images/CS-PN-38-RG_a5f775039ae215f83fb7382eb5d91a2b.jpg",
+									"./images/CS-PN-42-RG_928ef5e2b03993a1932e1c9dff506d2c.jpg",
+									"./images/CS-PN-42-SS_7a764e8a31a563fd9c5273a9cae59da6.jpg",
+
+								]
+							},
+							{
+								id:1,
+								title:'錶面',
+								icon:"./images/watch-face.png",
+								images:[
+									"./images/ST-BR-CL-20-BL_fc0db9b0bf330686acb6bbfe461767d9.jpg",
+									"./images/ST-BT-MD-20-DG_9a1a26de4c2aa31c335bf140ebb1cd05.jpg",
+									"./images/ST-ML-MS-20-RG-SL_6664776b0d052bfba9429f2f07da5ecc.jpg",
+									"./images/ST-ML-WSB-20-SS_74615bd4666c4cf4492ac596e9560628.jpg",
+									"./images/ST-BR-CL-20-BL_fc0db9b0bf330686acb6bbfe461767d9.jpg",
+									"./images/ST-BT-MD-20-DG_9a1a26de4c2aa31c335bf140ebb1cd05.jpg",
+									"./images/ST-ML-MS-20-RG-SL_6664776b0d052bfba9429f2f07da5ecc.jpg",
+									"./images/ST-ML-WSB-20-SS_74615bd4666c4cf4492ac596e9560628.jpg",
+
+								]
+							},
+							{
+								id:2,
+								title:'錶帶',
+								icon:"./images/watch-strap.png",
+								images:[
+									"./images/HM-PSB-42_ff9917aa34896716fb017ed64ee2b58d.jpg",
+									"./images/CS-PN-38-RG_a5f775039ae215f83fb7382eb5d91a2b.jpg",
+									"./images/CS-PN-42-RG_928ef5e2b03993a1932e1c9dff506d2c.jpg",
+									"./images/CS-PN-42-SS_7a764e8a31a563fd9c5273a9cae59da6.jpg",
+									"./images/HM-PSB-42_ff9917aa34896716fb017ed64ee2b58d.jpg",
+									"./images/CS-PN-38-RG_a5f775039ae215f83fb7382eb5d91a2b.jpg",
+									"./images/CS-PN-42-RG_928ef5e2b03993a1932e1c9dff506d2c.jpg",
+									"./images/CS-PN-42-SS_7a764e8a31a563fd9c5273a9cae59da6.jpg",
+								]
+							},
+							{
+								id:3,
+								title:'指針',
+								icon:"./images/clock.png",
+								images:[
+									"./images/CS-PN-42-IB_bfc47d6f8445398e6fcd2de785bbd2f7.jpg",
+									"./images/CS-PN-38-RG_a5f775039ae215f83fb7382eb5d91a2b.jpg",
+									"./images/CS-PN-42-RG_928ef5e2b03993a1932e1c9dff506d2c.jpg",
+									"./images/CS-PN-42-SS_7a764e8a31a563fd9c5273a9cae59da6.jpg",
+									"./images/HM-PSB-42_ff9917aa34896716fb017ed64ee2b58d.jpg",
+									"./images/CS-PN-38-RG_a5f775039ae215f83fb7382eb5d91a2b.jpg",
+									"./images/CS-PN-42-RG_928ef5e2b03993a1932e1c9dff506d2c.jpg",
+									"./images/CS-PN-42-SS_7a764e8a31a563fd9c5273a9cae59da6.jpg",
+								]
+							},
+						],
+						selectedOuter:{
+								id:0,
+								title:'錶框',
+								icon:"./images/icon-frame.png",
+								images:[
+									"./images/CS-PN-42-IB_bfc47d6f8445398e6fcd2de785bbd2f7.jpg",
+									"./images/CS-PN-38-RG_a5f775039ae215f83fb7382eb5d91a2b.jpg",
+									"./images/CS-PN-42-RG_928ef5e2b03993a1932e1c9dff506d2c.jpg",
+									"./images/CS-PN-42-SS_7a764e8a31a563fd9c5273a9cae59da6.jpg",
+									"./images/CS-PN-42-IB_bfc47d6f8445398e6fcd2de785bbd2f7.jpg",
+									"./images/CS-PN-38-RG_a5f775039ae215f83fb7382eb5d91a2b.jpg",
+									"./images/CS-PN-42-RG_928ef5e2b03993a1932e1c9dff506d2c.jpg",
+									"./images/CS-PN-42-SS_7a764e8a31a563fd9c5273a9cae59da6.jpg",
+
+								],}
+					}
+				},
 				template:`
-				<div class="select-content">
-					<div class="item">
-						<img src="./images/CS-PN-42-IB_bfc47d6f8445398e6fcd2de785bbd2f7.jpg" alt="">
+				<div class="customize-selectBox" id="selectBox">
+					<div class="select-tab">
+						<div class="tab" v-for="(outerTab,index) in outerTabs"
+						:key="index"
+						@click="selectedOuter = outerTab"
+						>
+							<img :src="outerTab.icon">
+						</div>
 					</div>
-					<div class="item">
-						<img src="./images/CS-PN-38-RG_a5f775039ae215f83fb7382eb5d91a2b.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/CS-PN-42-RG_928ef5e2b03993a1932e1c9dff506d2c.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/CS-PN-42-SS_7a764e8a31a563fd9c5273a9cae59da6.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/CS-PN-42-IB_bfc47d6f8445398e6fcd2de785bbd2f7.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/CS-PN-38-RG_a5f775039ae215f83fb7382eb5d91a2b.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/CS-PN-42-RG_928ef5e2b03993a1932e1c9dff506d2c.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/CS-PN-42-SS_7a764e8a31a563fd9c5273a9cae59da6.jpg" alt="">
+					<div class="select-content-box">
+						<div class="select-content">
+							<div class="item" v-for="(selected, index) in selectedOuter.images" :key="index">
+								<img :src="selected">
+							</div>
+						</div>
 					</div>
 				</div>
-				`,
-			});
-			Vue.component("face",{
-				template:`
-				<div class="select-content">
-					<div class="item">
-						<img src="./images/ST-BR-CL-20-BL_fc0db9b0bf330686acb6bbfe461767d9.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/ST-BT-MD-20-DG_9a1a26de4c2aa31c335bf140ebb1cd05.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/ST-ML-MS-20-RG-SL_6664776b0d052bfba9429f2f07da5ecc.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/ST-ML-WSB-20-SS_74615bd4666c4cf4492ac596e9560628.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/ST-ML-WSB-20-SS_74615bd4666c4cf4492ac596e9560628.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/ST-ML-WSB-20-SS_74615bd4666c4cf4492ac596e9560628.jpg" alt="">
-					</div>
-				</div>
-				`,
-			});
-			Vue.component("band",{
-				template:`
-				<div class="select-content">
-					<div class="item">
-						<img src="./images/HM-PSB-42_ff9917aa34896716fb017ed64ee2b58d.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/CS-PN-38-RG_a5f775039ae215f83fb7382eb5d91a2b.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/CS-PN-42-RG_928ef5e2b03993a1932e1c9dff506d2c.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/CS-PN-42-SS_7a764e8a31a563fd9c5273a9cae59da6.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/CS-PN-42-IB_bfc47d6f8445398e6fcd2de785bbd2f7.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/CS-PN-38-RG_a5f775039ae215f83fb7382eb5d91a2b.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/CS-PN-42-RG_928ef5e2b03993a1932e1c9dff506d2c.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/CS-PN-42-SS_7a764e8a31a563fd9c5273a9cae59da6.jpg" alt="">
-					</div>
-				</div>
-				`,
-			});
-			Vue.component("pointer",{
-				template:`
-				<div class="select-content">
-					<div class="item">
-						<img src="./images/CS-PN-42-IB_bfc47d6f8445398e6fcd2de785bbd2f7.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/CS-PN-38-RG_a5f775039ae215f83fb7382eb5d91a2b.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/CS-PN-42-RG_928ef5e2b03993a1932e1c9dff506d2c.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/CS-PN-42-SS_7a764e8a31a563fd9c5273a9cae59da6.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/CS-PN-42-IB_bfc47d6f8445398e6fcd2de785bbd2f7.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/CS-PN-38-RG_a5f775039ae215f83fb7382eb5d91a2b.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/CS-PN-42-RG_928ef5e2b03993a1932e1c9dff506d2c.jpg" alt="">
-					</div>
-					<div class="item">
-						<img src="./images/CS-PN-42-SS_7a764e8a31a563fd9c5273a9cae59da6.jpg" alt="">
-					</div>
-				</div>
-				`,
+				`
+				
 			});
 			new Vue({
-				el: '#selectBox',
+				el: '#stepTab',
 				data:{
-					content:'frame',
+					content:'outer',
+					stepButton:[
+						{
+							page:'outer',
+							name:'外觀',
+						},
+						{
+							page:'function',
+							name:'功能',
+						},
+						{
+							page:'font',
+							name:'刻字',
+						},
+						{
+							page:'package',
+							name:'包裝',
+						}
+					]
 				},
+				computed:{
+					
+				}
 			});
 		</script>
 		@@include('./layout/footer.html')
