@@ -34,8 +34,10 @@ button{
    
 }
 .check{
+    width: 500px;
+    margin: auto;
     display: flex;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 :nth-child(1).payment-page-step-btn{
     width: 33.33333%;
@@ -43,6 +45,10 @@ button{
     p{
         line-height: 40px;
         text-align: center;
+        color: black;
+    }
+    a{
+        text-decoration: none;
     }
 }
 :nth-child(2).payment-page-step-btn{
@@ -52,6 +58,10 @@ button{
     p{
         line-height: 40px;
         text-align: center;
+        color: black;
+    }
+    a{
+        text-decoration: none;
     }
 }
 :nth-child(3).payment-page-step-btn{

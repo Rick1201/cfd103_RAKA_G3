@@ -1,5 +1,6 @@
 .hot-design-banner{
     width: 100%;
+    position: relative;
     img{
         width: 100%;
         height: 40vh;
@@ -33,6 +34,12 @@
             }
             
         }
+        button{
+            @include btnStyle($btnColor-secondary, 50%);
+            color: white;
+            font-size: 18px;
+        }
+        
     }
 }
 
@@ -100,7 +107,7 @@
                         }
                     }
                 }
-                > li + li {
+                &:li + li {
                     border-top: 1px solid $blue-tertiary ;
                 }
             }
@@ -157,10 +164,6 @@
                         .collect-times{
                             margin-right: 10px;
                         }
-                    }
-                    button{
-                        @include btnStyle($btnColor-primary, 150px);
-                        color: white;
                     }
                 }
             }

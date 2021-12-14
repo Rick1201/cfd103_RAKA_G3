@@ -1,155 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css" />
-    <title>Document</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/css/style.css" />
+		<title>Document</title>
+	</head>
+	@@include('./layout/header.html')
 
-    
+	<div id="app">
+		<div class="memberorder">
+			<section class="member-select">
+				<div class="member-side-bar">
+					<header class="member-header">
+						<div class="member-img">
+							<img src="https://fakeimg.pl/50x50/#aaa" />
+						</div>
+						<div class="member-name">
+							<h1>Hello ,emma!</h1>
+							<button class="member-edit-btn">編輯個人檔案</button>
+						</div>
+					</header>
+					<div class="data-box">
+						<table>
+							<tr>
+								<td>紅利點數</td>
+								<td>累積消費</td>
+							</tr>
+							<tr>
+								<td>1234點</td>
+								<td>$1234元</td>
+							</tr>
+						</table>
+					</div>
+					<div class="member-card">
+						<img src="https://fakeimg.pl/340x200/#aaa" />
+					</div>
+					<div class="member-side-bar-btn">
+						<ul>
+							<li>
+								<a href="#" class="main-a" onclick="showBox1()"
+									>我的訂單<span class="tri-icon"></span
+								></a>
+								<ul id="box01">
+									<li><a href="#" class="sub-a">商品訂單</a></li>
+									<li><a href="#" class="sub-a">客製化訂單</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#" class="main-a" onclick="showBox2()"
+									>我的收藏<span class="tri-icon"></span
+								></a>
+								<ul id="box02">
+									<li><a href="#" class="sub-a">商品收藏</a></li>
+									<li><a href="#" class="sub-a">客製化收藏</a></li>
+								</ul>
+							</li>
+							<li><a href="#" class="main-a">我的客製化暫存</a></li>
+							<li><a href="#" class="main-a">紅利查詢</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="member-content"></div>
+			</section>
+			<section class="member_order">
+				<!-- 頁籤 -->
+				<div class="selectbar">
+					<div class="selectbarbtn"><button>所有訂單</button></div>
+					<div class="selectbarbtn"><button>已付款</button></div>
+					<div class="selectbarbtn"><button>已出貨</button></div>
+				</div>
+				<!-- 會員資料 -->
+				<div class="memberlist">
+					<div class="members">
+						<div class="numbertime" v-for="member in members">
+							<div class="number">
+								<p>訂單編號</p>
+								<p>{{member.number}}</p>
+							</div>
+							<div class="time">
+								<p>下單時間</p>
+								<p>{{member.time}}</p>
+							</div>
+							<div class="state">
+								<p>訂單狀態</p>
+								<p>{{member.state}}</p>
+							</div>
+							<div class="price">
+								<p>總計</p>
+								{{member.price}}
+							</div>
+						</div>
+						<div class="stateprice"></div>
+						<div class="button">
+							<button></button>
+							<button></button>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
 
-</head>
-@@include('./layout/header.html')
-
-
-<div id="app">
-    <div class="memberorder">
-        <section class="member-select">
-            <div class="member-side-bar">
-                <header class="member-header">
-                    <div class="member-img">
-                        <img src="https://fakeimg.pl/50x50/#aaa">
-                    </div>
-                    <div class="member-name">
-                        <h1>Hello ,emma!</h1>
-                        <button class="member-edit-btn">編輯個人檔案</button>
-                    </div>
-                </header>
-                <div class="data-box">
-                    <table>
-                        <tr>
-                            <td>紅利點數</td>
-                            <td>累積消費</td>
-                        </tr>
-                        <tr>
-                            <td>1234點</td>
-                            <td>$1234元</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="member-card">
-                    <img src="https://fakeimg.pl/340x200/#aaa">
-                </div>
-                <div class="member-side-bar-btn">
-                    <ul>
-                        <li><a href="#" class="main-a" onclick="showBox1()">我的訂單<span class="tri-icon"></span></a>
-                            <ul id="box01">
-                                <li><a href="#" class="sub-a">商品訂單</a></li>
-                                <li><a href="#" class="sub-a">客製化訂單</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#" class="main-a" onclick="showBox2()">我的收藏<span class="tri-icon"></span></a>
-                            <ul id="box02">
-                                <li><a href="#" class="sub-a">商品收藏</a></li>
-                                <li><a href="#" class="sub-a">客製化收藏</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#" class="main-a">我的客製化暫存</a></li>
-                        <li><a href="#" class="main-a">紅利查詢</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="member-content">
-
-            </div>
-        </section>
-        <section class="member_order">
-
-            <!-- 頁籤 -->
-            <div class="selectbar">
-                <div class="selectbarbtn"><button>所有訂單</button></div>
-                <div class="selectbarbtn"><button>已付款</button></div>
-                <div class="selectbarbtn"><button>已出貨</button></div>
-
-            </div>
-            <!-- 會員資料 -->
-            <div class="memberlist">
-                <div  class="members">
-                    <div class="numbertime">
-                        
-                        <div class="number">
-                            <p>訂單編號</p>
-                            <p>{{members.numberdata}}</p>
-                        </div>
-                        <div class="time">
-                            <p>下單時間</p>
-                            <p>{{members.timedata}}</p>
-                        </div>
-                    </div>    
-                    <div class="stateprice">
-                        <div class="state">
-                            <p>訂單狀態</p>
-                            <p>{{members.statedata}}</p>
-                        </div>
-                        <div class="price">
-                            <p>總計</p>
-                            {{members.pricedata}}
-                        </div>
-
-                    </div>
-                    <div class="button">
-                        <button> </button>
-                        <button> </button>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-<body>
-
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js' integrity='sha512-PyKhbAWS+VlTWXjk/36s5hJmUJBxcGY/1hlxg6woHD/EONP2fawZRKmvHdTGOWPKTqk3CPSUPh7+2boIBklbvw==' crossorigin='anonymous'></script>
-<script>
-    new Vue({
-        el:"#app",
-        data() {
-        
-            return {
-                members:
-                {
-                    numberdata:"RA000001",
-                    timedata:"2021/01/02",
-                    statedata:"已出貨",
-                    pricedata:"$1440"
-
-                },
-
-            }
-        }
-    });
-
-</script>
-<script>
-    function showBox1(){
-        let box1 = document.getElementById("box01");
-        box1.classList.toggle("show");
-    }
-    function showBox2(){
-        let box2 = document.getElementById("box02");
-        box2.classList.toggle("show");
-    }
-</script>
-</body>
+	<body>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"
+			integrity="sha512-PyKhbAWS+VlTWXjk/36s5hJmUJBxcGY/1hlxg6woHD/EONP2fawZRKmvHdTGOWPKTqk3CPSUPh7+2boIBklbvw=="
+			crossorigin="anonymous"
+		></script>
+		<script>
+			new Vue({
+				el: "#app",
+				data() {
+					return {
+						members: [
+							{
+								number: "RA000001",
+								time: "2021/01/02",
+								state: "已出貨",
+								price: "$1440",
+							},
+							{
+								number: "RA000001",
+								time: "2021/01/02",
+								state: "已出貨",
+								price: "$1440",
+							},
+						],
+					};
+				},
+			});
+		</script>
+		<script>
+			function showBox1() {
+				let box1 = document.getElementById("box01");
+				box1.classList.toggle("show");
+			}
+			function showBox2() {
+				let box2 = document.getElementById("box02");
+				box2.classList.toggle("show");
+			}
+		</script>
+	</body>
 </html>

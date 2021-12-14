@@ -138,7 +138,7 @@
         left:0;
     }
     .our_vision{
-        top:0;
+        top:15px;
         left:0;
     }
     .our_values{
@@ -188,5 +188,11 @@
     }
     .form_zone{
         display: grid;
+    }
+    .vision_pic img{
+        top:10px;
+    }
+    .values_pic img{
+        top:10px;
     }
 }

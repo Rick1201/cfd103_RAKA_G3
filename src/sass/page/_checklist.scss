@@ -3,6 +3,8 @@
 @import "../base/base";
 .checklist01{
     .check{
+        width: 500px;
+        margin: auto;
         display: flex;
         margin-bottom: 30px;
     }
@@ -11,11 +13,12 @@
         height: 40px;
         border-radius: 30px;
         background-color: $blue-tertiary;
-        color: $gray-secondary;
+        color:#f7f2ec;
         border: 1px solid $blue-tertiary;
         p{
             line-height: 40px;
             text-align: center;
+            color:#f7f2ec;
         }
     }
     :nth-child(2).payment-page-step-btn{
@@ -25,14 +28,22 @@
         p{
             line-height: 40px;
             text-align: center;
+            color:black;
+        }
+        a{
+            text-decoration: none;
         }
     }
-    :nth-child(3).payment-page-step-btn{
+    .payment-page-step-btn3{
         width: 33.33333%;
         height: 40px;
         p{
             line-height: 40px;
             text-align: center;
+            color:black;
+        }
+        a{
+            text-decoration: none;
         }
     }
     .client{

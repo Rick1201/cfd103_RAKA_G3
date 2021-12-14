@@ -1,8 +1,6 @@
 .payment-page-step{
     width: 500px;
-    height: 40px;
     display: flex;
-    border: 1px solid $blue-tertiary;
     border-radius: 30px;
     margin: 16px auto;
     :nth-child(1).payment-page-step-btn{
@@ -12,29 +10,38 @@
         p{
             line-height: 40px;
             text-align: center;
+            color:black;
+        }
+        a{
+            text-decoration: none;
         }
     }
     :nth-child(2).payment-page-step-btn{
         width: 33.33333%;
-        height: 40px;
-        border: 1px solid $blue-tertiary;
-        background-color: $blue-tertiary;
+        height: 40px;    
         border-radius: 30px;
-        color: $gray-secondary;
+        border:1px solid $blue-tertiary;
+        background-color:$blue-tertiary;
+        color:#f7f2ec;
         p{
             line-height: 40px;
             text-align: center;
+            color:#f7f2ec;
         }
+     
     }
-    :nth-child(3).payment-page-step-btn{
+  .payment-page-step-btn5{
         width: 33.33333%;
         height: 40px;
         p{
             line-height: 40px;
             text-align: center;
+            color: black;
+        }
+        a{
+            text-decoration: none;
         }
     }
-
 }
 .payment-page{
     display: flex;
@@ -138,15 +145,16 @@
                 }
             }
         }
+        
     }
 }
+.payment-page-btn-box .payment-page-btn a{
+    text-decoration: none;
+    color:black;
+}
 @media screen and (max-width:375px){
-    .payment-page-step{
-        width: 350px;
-    }
     .payment-page{
         max-width: 90%;
-        margin: auto;
         .receiver-box{
             .receiver-tb{
                 width: 100%;
@@ -154,6 +162,7 @@
                     .receiver-title{
                         width: 100px; 
                     }
+
                 }
             }
         }
