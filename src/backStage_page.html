@@ -414,7 +414,6 @@
 						<div class="component_dist"></div>
 					</div>
 				</div>
-				
 			</section>
 			<footer></footer>
 		</div>
@@ -969,54 +968,56 @@
 				el: "#app",
 				data: {
 					table_head: [
-							"訂單編號",
-							"會員編號",
-							"下單時間",
-							"商品總額",
-							"訂單總額(加運費)",
-							"運費",
-							"收件人姓名",
-							"收件人電話",
-							"收件人地址",
-							"收件備註",
-							"會員信用卡資訊",
-							"訂單狀態"
-						],
-						orders: [
-							{
-								Order_ID: "RA001",
-								Member_ID: 001,
-								Order_Date: "2021-12-14 05:24",
-								Order_SUM: 4100,
-								Order_Total: 4200,
-								Order_Shipping:100,
-								Order_Name: "Alex Lin",
-								Order_Phone: "0912345678",
-								Order_Address: "台北市信義區忠孝東路211號七巷八樓",
-								Order_Notes: "無",
-								Member_Card:"0123-4567-8910-1112",
-								Order_Status:"已完成"
-							},
-							{
-								Order_ID: "RA002",
-								Member_ID: 011,
-								Order_Date: "2021-12-14 05:26",
-								Order_SUM: 4100,
-								Order_Total: 4200,
-								Order_Shipping:100,
-								Order_Name: "Anna Lin",
-								Order_Phone: "0912345678",
-								Order_Address: "台北市信義區忠孝東路211號七巷九樓",
-								Order_Notes: "無",
-								Member_Card:"0123-4567-8910-1112",
-								Order_Status:"未完成",
-							},
-						],
-						OrderDetail:[{
+						"訂單編號",
+						"會員編號",
+						"下單時間",
+						"商品總額",
+						"訂單總額(加運費)",
+						"運費",
+						"收件人姓名",
+						"收件人電話",
+						"收件人地址",
+						"收件備註",
+						"會員信用卡資訊",
+						"訂單狀態",
+					],
+					orders: [
+						{
+							Order_ID: "RA001",
+							Member_ID: 001,
+							Order_Date: "2021-12-14 05:24",
+							Order_SUM: 4100,
+							Order_Total: 4200,
+							Order_Shipping: 100,
+							Order_Name: "Alex Lin",
+							Order_Phone: "0912345678",
+							Order_Address: "台北市信義區忠孝東路211號七巷八樓",
+							Order_Notes: "無",
+							Member_Card: "0123-4567-8910-1112",
+							Order_Status: "已完成",
+						},
+						{
+							Order_ID: "RA002",
+							Member_ID: 011,
+							Order_Date: "2021-12-14 05:26",
+							Order_SUM: 4100,
+							Order_Total: 4200,
+							Order_Shipping: 100,
+							Order_Name: "Anna Lin",
+							Order_Phone: "0912345678",
+							Order_Address: "台北市信義區忠孝東路211號七巷九樓",
+							Order_Notes: "無",
+							Member_Card: "0123-4567-8910-1112",
+							Order_Status: "未完成",
+						},
+					],
+					OrderDetail: [
+						{
 							Order_ID: "RA001",
 							// {Product_ID:"IT001"}
-						}],
-						visibility: "all",
+						},
+					],
+					visibility: "all",
 				},
 				computed: {
 					filters: function () {
@@ -1025,7 +1026,7 @@
 						} else if (this.visibility == "active") {
 							let newProducts = [];
 							this.orders.forEach(function (item) {
-								if (item.Order_Status==="未完成") {
+								if (item.Order_Status === "未完成") {
 									newProducts.push(item);
 								}
 							});
@@ -1033,7 +1034,7 @@
 						} else if (this.visibility == "completed") {
 							let newProducts = [];
 							this.orders.forEach(function (item) {
-								if (item.Order_Status==="已完成") {
+								if (item.Order_Status === "已完成") {
 									newProducts.push(item);
 								}
 							});
