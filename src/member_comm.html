@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
-		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="./css/style.css" />
 	</head>
 	<body>
 		@@include('./layout/header.html')
@@ -18,17 +18,15 @@
 						</div>
 						<div class="member-name">
 							<h1>Hello ,emma!</h1>
-							<button class="member-edit-btn">編輯個人檔案</button>
+							<button class="member-edit-btn" id="editBox">編輯個人檔案</button>
 						</div>
 					</header>
 					<div class="data-box">
 						<table>
 							<tr>
-								<td>紅利點數</td>
 								<td>累積消費</td>
 							</tr>
 							<tr>
-								<td>1234點</td>
 								<td>$1234元</td>
 							</tr>
 						</table>
@@ -39,41 +37,83 @@
 					<div class="member-side-bar-btn">
 						<ul>
 							<li>
-								<a href="#" class="main-a" onclick="showBox1()"
-									>我的訂單<span class="tri-icon"></span
-								></a>
-								<ul id="box01">
+								<p class="main-a">我的訂單</p>
+								<ul>
 									<li><a href="#" class="sub-a">商品訂單</a></li>
 									<li><a href="#" class="sub-a">客製化訂單</a></li>
 								</ul>
 							</li>
 							<li>
-								<a href="#" class="main-a" onclick="showBox2()"
-									>我的收藏<span class="tri-icon"></span
-								></a>
-								<ul id="box02">
+								<p class="main-a">我的收藏</p>
+								<ul>
 									<li><a href="#" class="sub-a">商品收藏</a></li>
 									<li><a href="#" class="sub-a">客製化收藏</a></li>
 								</ul>
 							</li>
-							<li><a href="#" class="main-a">我的客製化暫存</a></li>
-							<li><a href="#" class="main-a">紅利查詢</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="member-content"></div>
 			</section>
+			<div class="lightbox" id="lightbox">
+				<div class="container">
+					<span id="closeBox">X</span>
+					<div class="lightbox-header">
+						<div class="lightbox-member-img">
+							<img src="https://fakeimg.pl/50">
+						</div>
+						<div class="lightbox-member-name">
+							<h1>Emma Li</h1>
+							<input type="file">
+						</div>
+					</div>
+					<hr>
+					<div class="lightbox-txt">
+						<h2>我的地址</h2>
+						<input class="txt-box" type="text" value="桃園市中壢區復興路46號" id="address">
+					</div>
+					<hr>
+					<div class="lightbox-txt">
+						<h2>Email</h2>
+						<input class="txt-box" type="text" value="123@abc.mail.tw" id="email">
+					</div>
+					<hr>
+					<div class="lightbox-txt">
+						<h2>電話</h2>
+						<input class="txt-box" type="text" value="0955-123-456" id="phone">
+					</div>
+					<hr>
+					<div class="lightbox-txt">
+						<h2>我的信用卡</h2>
+						<input class="txt-box" type="text" value="0000-1234-2222-2333" id="card">
+					</div>
+					<button>取消</button>
+					<button>儲存</button>
+				</div>
+			</div>
 			@@include('./layout/footer.html')
+			<script>
+				function showBox(){
+					// document.getElementById('lightbox').style.display = "block";
+					let lightBox = document.getElementById('lightbox').style.display = "block";
+					let txtBox = document.querySelectorAll('.txt-box');
+					let address = document.getElementById('address').value;
+					for(let i=0;i<=txtBox.length;i++){
+						console.log(txtBox);
+					}
+					console.log(address);
+
+					
+				}
+				function closeBox(){
+					document.getElementById('lightbox').style.display = "none";
+				}
+				function init(){
+					document.getElementById("editBox").onclick=showBox;
+					document.getElementById("closeBox").onclick=closeBox;
+				}
+				window.addEventListener("load", init, false);
+			</script>
 		</div>
-		<script>
-			function showBox1() {
-				let box1 = document.getElementById("box01");
-				box1.classList.toggle("show");
-			}
-			function showBox2() {
-				let box2 = document.getElementById("box02");
-				box2.classList.toggle("show");
-			}
-		</script>
 	</body>
 </html>
