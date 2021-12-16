@@ -1,0 +1,41 @@
+.mem_cus_main{
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    font-family: $fontStyle-primary;
+    .mem_cus_body{
+        width: 35%;
+        border: 1px solid gray;
+        background-color: whitesmoke;
+        margin: 20px;
+        padding: 25px;
+        border-radius: 2%;
+        .c_pic{
+            width: 100%;
+            a{
+                text-decoration: none;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+        h3{
+            font-size: $fontSize-SubTitle;
+            text-align: center;
+            margin: 20px;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
