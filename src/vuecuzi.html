@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="./css/gird.css"> -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <section id="cuz-section"><!-- HTML DOM template -->         
+        <div class="container">
+            <input type="text" class="cuzname" v-model="cuzName" maxlength="6">
+            <i class="fas fa-pen"></i>
+        </div>
+        <div class="container">
+            <div class="cuz-bar">
+                <div v-for="(cuzTab, index) in cuzTabs" :key="index" @click="currentTab = cuzTab.page">
+                    <p>{{cuzTab.tab}}</p>
+                </div>
+            </div>
+            <div class="show-box">
+                <div class="watch-box">
+                    <div v-show="currentTab =='outer'" class="showpic">
+                        <img :src="currentBand" class="bottom-img">
+                        <img :src="currentBezel" class="float-img">
+                        <img :src="currentFace" class="float-img">
+                        <img :src="currentFun1" class="fun1">
+                        <img :src="currentFun2" class="fun2">
+                        <img :src="currentFun3" class="fun3">
+                        <img :src="currentPoint" class="float-img">
+                        <div class="watch-item">
+                            <div class="selected-item" v-for="(currentItem,index) in currentItems" :key="currentItem"
+                            @click="changeOuterTab(index)">
+                                <img :src="currentItem" class="selected-img">
+                            </div>
+                        </div>
+                    </div>
+                    <div v-show="currentTab=='function'" class="showpic">
+                        <img :src="currentBand" class="bottom-img">
+                        <img :src="currentBezel" class="float-img">
+                        <img :src="currentFace" class="float-img">
+                        <img :src="currentFun1" class="fun1">
+                        <img :src="currentFun2" class="fun2">
+                        <img :src="currentFun3" class="fun3">
+                        <img :src="currentPoint" class="float-img">
+                        <div class="watch-item">
+                            <div class="selected-item" v-for="(currentItem,index) in currentItems" :key="currentItem"
+                            @click="changeOuterTab(index)">
+                                <img :src="currentItem" class="selected-img">
+                            </div>
+                        </div>
+                    </div>
+                    <div v-show="currentTab =='word'" class="showpic">
+                        <img class="bottom-img" src="./images/face01.png">
+                        <img class="plugin" :src="currentWord" >
+                        <div class="watch-item">
+                            <div class="selected-item" v-for="(currentItem,index) in currentItems" :key="currentItem"
+                            @click="changeOuterTab(index)">
+                                <img :src="currentItem" class="selected-img">
+                            </div>
+                        </div>
+                    </div>
+                    <div v-show="currentTab == 'package'"  class="showpic">
+                        <img :src="currentBoxImg" class="bottom-img">
+                        <img :src="currentRibbonImg" class="float-img">
+                        <div class="watch-item">
+                            <div class="selected-item" v-for="(currentItem,index) in currentItems" :key="currentItem"
+                            @click="changeOuterTab(index)">
+                                <img :src="currentItem" class="selected-img">
+                            </div>
+                        </div>
+                        <button @click="magicjson"><a href="finish_page.html">完成客製</a></button>
+                    </div>
+                </div>
+            </div>
+            <div class="cuz-zone">
+                <keep-alive>
+                    <component @emit-item="getItem" @emit-fun="getFun" :is="currentTabPage" @emit-dive="getDive" 
+                    @emit-word="getWord"
+                    @emit-boxcolor="getBoxColor"
+                    @emit-ribboncolor = "getRibbonColor"
+                    :props-tab ="currentOuterTab"
+                    ></component>
+                </keep-alive>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <script>
+        Vue.component("outer", {
+            props:["props-tab"],
+            data() {
+                return {
+                    outerpages: [
+                        {
+                            id: 0,
+                            title: "錶框",
+                            icon:"./images/icon-frame.png",
+                            content: [
+                                {
+                                    url: "./images/bezel01.png",
+                                    itemName: "低調銀",
+                                },
+                                {
+                                    url: "./images/bezel02.png",
+                                    itemName: "玫瑰金",
+                                },
+                                {
+                                    url: "./images/bezel03.png",
+                                    itemName: "古典銅",
+                                },
+                                {
+                                    url: "./images/bezel04.png",
+                                    itemName: "奢華黑",
+                                },
+                                {
+                                    url: "./images/bezel01.png",
+                                    itemName: "玫瑰金",
+                                },
+                                {
+                                    url: "./images/bezel02.png",
+                                    itemName: "綠色",
+                                },
+                                {
+                                    url: "./images/bezel03.png",
+                                    itemName: "黑色",
+                                },
+                            ],
+                        },
+                        {
+                            id: 1,
+                            title: "錶面",
+                            icon:"./images/watch-face.png",
+                            content: [
+                                {
+                                    url: "./images/face01.png",
+                                    itemName: "黑色",
+
+                                },
+                                {
+                                    url: "./images/face02.png",
+                                    itemName: "白色",
+
+                                },
+                                {
+                                    url: "./images/face03.png",
+                                    itemName: "綠色",
+
+                                },
+                                {
+                                    url: "./images/face04.png",
+                                    itemName: "灰色",
+
+                                },
+                            ],
+                        },
+                        {
+                            id: 2,
+                            title: "錶帶",
+                            icon:"./images/watch-strap.png",
+                            content: [
+                                {
+                                    url: "./images/band01.png",
+                                    itemName: "灰色",
+                                },
+                                {
+                                    url: "./images/band02.png",
+                                    itemName: "綠色",
+                                },
+                                {
+                                    url: "./images/band03.png",
+                                    itemName: "白色",
+                                },
+                                {
+                                    url: "./images/band04.png",
+                                    itemName: "黑色",
+                                },
+    
+                            ],
+                        },
+                        {
+                            id: 3,
+                            title: "指針",
+                            icon:"./images/clock.png",
+                            content: [
+                                {
+                                    url: "./images/point01.png",
+                                    itemName: "黑指針",
+                                },
+                                {
+                                    url: "./images/point02.png",
+                                    itemName: "白指針",
+                                },
+                                {
+                                    url: "./images/point03.png",
+                                    itemName: "灰指針",
+                                },
+                                {
+                                    url: "./images/point04.png",
+                                    itemName: "黃指針",
+                                },
+                                {
+                                    url: "./images/point03.png",
+                                    itemName: "灰指針",
+                                },
+                                {
+                                    url: "./images/point04.png",
+                                    itemName: "黃指針",
+                                },
+                                {
+                                    url: "./images/point03.png",
+                                    itemName: "灰指針",
+                                },
+                                {
+                                    url: "./images/point04.png",
+                                    itemName: "黃指針",
+                                },
+ 
+                            ],
+                        },
+
+                    ],
+                    selectedOuter:  {
+                            id: 0,
+                            title: "錶框",
+                            icon:"./images/icon-frame.png",
+                            content: [
+                                {
+                                    url: "./images/bezel01.png",
+                                    itemName: "玫瑰金",
+                                },
+                                {
+                                    url: "./images/bezel02.png",
+                                    itemName: "綠色",
+                                },
+                                {
+                                    url: "./images/bezel03.png",
+                                    itemName: "黑色",
+                                },
+                                {
+                                    url: "./images/bezel04.png",
+                                    itemName: "粉色",
+                                },
+                                {
+                                    url: "./images/bezel01.png",
+                                    itemName: "玫瑰金",
+                                },
+                                {
+                                    url: "./images/bezel02.png",
+                                    itemName: "綠色",
+                                },
+                                {
+                                    url: "./images/bezel03.png",
+                                    itemName: "黑色",
+                                },
+                            ],
+                        },
+
+                };
+            },
+            methods: {
+                selectCuzItem(item) {
+                    this.$emit('emit-item', item);
+                },
+            },
+
+            watch:{
+                propsTab(newobject,oldobject){
+                    this.selectedOuter = newobject;
+                }
+            },
+
+            template: `
+                <div class="outer-page">
+                    <div class="aside">
+                        <div v-for="(outerpage, index) in outerpages"
+                        :key="index"
+                        @click ="selectedOuter = outerpages[index]"
+                        >
+                        <img :src="outerpage.icon">
+                        </div>
+                    </div>
+                    <div class="cuz-item">    
+                        <div v-for="(outerItem, index) in selectedOuter.content"
+                            :key="index"
+                            class="pic"
+                            @click="selectCuzItem(outerItem)">
+                            <div>
+                                <img :src ="outerItem.url">
+                            </div>
+                            <p>{{outerItem.itemName}}</p>
+                        </div>
+                    </div>
+                </div>
+        `
+        });
+
+
+        Vue.component("function", {
+            data() {
+                return {
+                    currentfun1: "未選擇",
+                    currentfun2: "未選擇",
+                    currentfun3: "未選擇",
+                    dive:"防水3ATM",
+                    funitems: [
+                        {
+                            funName: '未選擇',
+                            url: "./images/fun01.png"
+                        },
+                        {
+                            funName: '計時器',
+                            url: "./images/fun02.png",
+                        },
+                        {
+                            funName: '指北針',
+                            url: "./images/fun03.png"
+                        },
+                        {
+                            funName: '深度表',
+                            url: "./images/fun04.png"
+                        },
+                    ],
+
+                    diveItem:[
+                        {
+                           diveName:"防水3ATM",
+                        },
+                        {
+                            diveName:"防水5ATM",
+                        },
+                        {
+                            diveName:"防水10ATM",
+                        },
+                        {
+                            diveName:"防水20ATM",
+                        },
+                    ],
+                };
+            },
+            methods: {
+                funitemchange(e, num) {
+                    console.log(e.target.value)
+                    console.log(num)
+                    // this.$emit('emit-fun',e.target.value); 
+                    // this.currentfun = e.target.value;
+                    // this.currentfun = e.target.value;
+                    // this.currentfun = e.target.value;
+                    if (num == 1) {
+                        this.currentfun1 = e.target.value;
+                    } else if (num == 2) {
+                        this.currentfun2 = e.target.value;
+                    } else if (num == 3) {
+                        this.currentfun3 = e.target.value;
+                    }
+                },
+                getUrl(funname) {
+                    let obj = this.funitems.find(item => {
+                        return item.funName == funname
+                    });
+                    if (obj && obj.url) return obj;
+                    return "";
+                },
+            },
+            computed: {
+                test1() {
+                    return {
+                        url1: this.getUrl(this.currentfun1),
+                        url2: this.getUrl(this.currentfun2),
+                        url3: this.getUrl(this.currentfun3),
+                    };
+
+                    // return [
+                    //     this.getUrl(this.currentfun1),
+                    //     this.getUrl(this.currentfun2),
+                    //     this.getUrl(this.currentfun3),
+                    // ];
+                },
+                funitems1() {
+                    return this.funitems.filter(item => {
+                        return ((item.funName !== this.currentfun2 && item.funName !== this.currentfun3) || item.funName == '未選擇')
+                    });
+                },
+                funitems2() {
+                    return this.funitems.filter(item => {
+                        return ((item.funName !== this.currentfun1 && item.funName !== this.currentfun3) || item.funName == '未選擇')
+                    });
+                },
+                funitems3() {
+                    return this.funitems.filter(item => {
+                        return ((item.funName !== this.currentfun1 && item.funName !== this.currentfun2) || item.funName == '未選擇')
+                    });
+                },
+
+            },
+            watch: {
+                test1(newValue, oldValue) {
+                    // console.log(newValue)
+                    this.$emit("emit-fun", newValue);
+                },
+
+                dive(newValue, oldValue){
+                    this.$emit("emit-dive",newValue);                
+                }
+            },
+
+            template: `
+            <div class="function-page">
+                <h3>功能表盤</h3>
+                <div class="fun-area">
+                    <div class = "fun-pic">
+                        <img src="./images/finishfunpic.png" alt="">
+                    </div>
+                    <div class="fun-select">
+                        <div class="select-item">
+                            <label for="">1</label>
+                            <select @change="funitemchange($event, 1)">
+                                <option v-for="(funitem,index) in funitems1" :key="funitem.funName">
+                                    {{funitem.funName}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="select-item">
+                            <label for="">2</label>
+                            <select @change="funitemchange($event, 2)">
+                                <option v-for="funitem in funitems2" :key="funitem.funName">{{funitem.funName}}</option>
+                            </select>
+                        </div>
+                        <div class="select-item">
+                            <label for="">3</label>
+                            <select @change="funitemchange($event, 3)">
+                                <option v-for="funitem in funitems3" :key="funitem.funName">{{funitem.funName}}</option>
+                            </select>
+                        </div>
+                    
+                    </div>
+                </div>
+                <div class="dive-area">
+                    <h3>潛水規格需求</h3>
+                    <input type="radio" id="3" v-model="dive" value="防水3ATM">
+                    <label for="3">防水3ATM</label><br>
+                    <input type="radio" id="5" v-model="dive" value="防水5ATM">
+                    <label for="5">防水5ATM</label><br>
+                    <input type="radio" id="10" v-model="dive" value="防水10ATM">
+                    <label for="10">防水10ATM</label><br>
+                    <input type="radio" id="20" v-model="dive" value="防水20ATM">
+                    <label for="20">防水20ATM</label>
+                </div>
+            </div>
+          `
+        });
+
+
+        Vue.component("word",{
+            data(){
+                return{
+                    msg: "RAKA",
+                    fonts: "Arial",
+                    fontStyles: ["Arial", "Calibri"],
+                    fontSize: 14,
+                    fontSizes: [14, 16, 18, 20],
+                    fontCor: "black",
+                    imgSrc: "",
+                }
+            },
+
+            methods:{
+                createImg() {
+						this.drawText(this.msg, this.fonts);
+					},
+                drawText(text, font) {
+                    let canvas = document.createElement("canvas");
+                    let context = canvas.getContext("2d");
+                    let width = context.measureText(text).width;
+                    if (width < 240) {
+                        width = 200;
+                    } else {
+                        width = width + 30;
+                    }
+                    canvas.width = width;
+                    canvas.height = 80;
+                    context.fillStyle = "transparent";
+                    context.fillRect(0, 0, canvas.width, canvas.height);
+                    context.font = `${this.fontSize}px ${font}`;
+                    context.textAlign = "center";
+                    context.textBaseline = "middle";
+                    context.fillStyle = this.fontCor;
+                    context.fillText(text, canvas.width / 2, canvas.height / 2);
+                    let dataUrl = canvas.toDataURL("image/png");
+                    this.imgSrc = dataUrl;
+                    this.$emit('emit-word',dataUrl,this.msg,this.fonts,this.fontSize);
+                    return dataUrl;
+                },
+
+            },
+
+            template:`
+                <div class="word-page">
+                    <div class="content_zone">
+                        <label for="">刻字內容(最多六個字)</label>
+                        <input name="" id="" v-model="msg" maxlength="6">
+                    </div>
+                    <div class="fontStyle_zone">
+                        <label>字體</label>
+                        <select name="" id="" v-model="fonts">
+                            <option v-for="font of fontStyles">{{font}}</option>
+                        </select>
+                    </div>
+                    <div class="fontWeight_zone">
+                        <label>文字大小</label>
+                        <select name="" id="" v-model="fontSize">
+                            <option v-for="size of fontSizes">{{size}}</option>
+                        </select>
+                    </div>
+                    <button @click="createImg">create</button>
+				</div>
+            `
+        });
+
+
+        Vue.component("package",{
+            data(){
+                return{
+                    boxColors:[
+                        {
+                            colorId: 01,
+                            colorBtn:"./images/color01.png",
+                            boxImg:"./images/box01.png",
+                        },
+                        {
+                            colorId:"02",
+                            colorBtn:"./images/color02.png",
+                            boxImg:"./images/box02.png",
+                        },
+                        {
+                            colorId:"03",
+                            colorBtn:"./images/color03.png",
+                            boxImg:"./images/box03.png",
+                        },
+                        {
+                            colorId:"04",
+                            colorBtn:"./images/color04.png",
+                            boxImg:"./images/box04.png",
+                        },
+                        {
+                            colorId:"05",
+                            colorBtn:"./images/color05.png",
+                            boxImg:"./images/box05.png",
+                        },
+                    ],
+
+                    ribbonColors:[
+                        {
+                            colorId:"01",
+                            colorBtn:"./images/color01.png",
+                            ribbonImg:"./images/ribbon01.png",
+                        },
+                        {
+                            colorId:"02",
+                            colorBtn:"./images/color02.png",
+                            ribbonImg:"./images/ribbon02.png",
+                        },
+                        {
+                            colorId:"03",
+                            colorBtn:"./images/color03.png",
+                            ribbonImg:"./images/ribbon03.png",
+                        },
+                        {
+                            colorId:"04",
+                            colorBtn:"./images/color04.png",
+                            ribbonImg:"./images/ribbon04.png",
+                        },
+                        {
+                            colorId:"05",
+                            colorBtn:"./images/color05.png",
+                            ribbonImg:"./images/ribbon05.png",
+                        },
+                    ],
+
+                }
+            },
+
+            methods:{
+                changeBoxColor(num){
+                    let box = this.boxColors[num];
+                    this.$emit("emit-boxcolor",box);
+                },
+                changeRibbonColor(num){
+                    let ribbon = this.ribbonColors[num];
+                    this.$emit("emit-ribboncolor",ribbon);
+                },
+            },
+
+            template:`
+            <div class="package-page">
+                <div class="box-color">
+                    <h3>包裝顏色</h3>
+                    <ul>
+                        <li v-for="(boxColor,index) in boxColors"
+                        :key="boxColor.colorId"
+                        @click="changeBoxColor(index)">
+                            <img :src="boxColor.colorBtn">
+                        </li>
+                    </ul>
+                </div>
+                <div class="ribbon-color">
+                    <h3>緞帶顏色</h3>
+                    <ul>
+                        <li v-for="(ribbonColor,index) in ribbonColors"
+                        :key="ribbonColor.colorId"
+                        @click="changeRibbonColor(index)">
+                            <img :src="ribbonColor.colorBtn">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            `
+        });
+
+        new Vue({
+            el: '#cuz-section',
+            data: {  // 變數放這裡
+                currentTab: "outer",
+                currentOuterTab:"",
+                currentBezel: "./images/bezel01.png",
+                currentBezelName:"低調銀",
+                currentFace: "./images/face01.png",
+                currentFaceName:"黑色",
+                currentBand: "./images/band01.png",
+                currentBandName:"灰色",
+                currentPoint: "./images/point01.png",
+                currentPointName:"黑指針",
+                currentFun1:"./images/fun01.png",
+                currentFun1Name:"未選擇",
+                currentFun2:"./images/fun01.png",
+                currentFun2Name:"未選擇",
+                currentFun3:"./images/fun01.png",
+                currentFun3Name:"未選擇",
+                diveFun:"防水3ATM",
+                currentBoxImg:"./images/box01.png",
+                currentBoxBtn:"./images/color01.png",
+                currentRibbonImg:"./images/ribbon01.png",
+                currentRibbonBtn:"./images/color01.png",
+                cuzName:"",
+                currentWord:"",
+                currentFontSize:"14",
+                currentFont:"Arial",
+                currentMsg:"RAKA",
+                cuzTabs: [
+                    {
+                        page: 'outer',
+                        tab: '外觀',
+                    },
+                    {
+                        page: 'function',
+                        tab: '功能',
+                    },
+                    {
+                        page: 'word',
+                        tab: '刻字',
+                    },
+                    {
+                        page: 'package',
+                        tab: '包裝',
+                    },
+                ],
+                outerPages: [
+                        {
+                            id: 0,
+                            title: "錶框",
+                            icon:"./images/icon-frame.png",
+                            content: [
+                                {
+                                    url: "./images/bezel01.png",
+                                    itemName: "玫瑰金",
+                                },
+                                {
+                                    url: "./images/bezel02.png",
+                                    itemName: "綠色",
+                                },
+                                {
+                                    url: "./images/bezel03.png",
+                                    itemName: "黑色",
+                                },
+                                {
+                                    url: "./images/bezel04.png",
+                                    itemName: "粉色",
+                                },
+                                {
+                                    url: "./images/bezel01.png",
+                                    itemName: "玫瑰金",
+                                },
+                                {
+                                    url: "./images/bezel02.png",
+                                    itemName: "綠色",
+                                },
+                                {
+                                    url: "./images/bezel03.png",
+                                    itemName: "黑色",
+                                },
+                            ],
+                        },
+                        {
+                            id: 1,
+                            title: "錶面",
+                            icon:"./images/watch-face.png",
+                            content: [
+                                {
+                                    url: "./images/face01.png",
+                                    itemName: "黑色",
+
+                                },
+                                {
+                                    url: "./images/face02.png",
+                                    itemName: "白色",
+
+                                },
+                                {
+                                    url: "./images/face03.png",
+                                    itemName: "綠色",
+
+                                },
+                                {
+                                    url: "./images/face04.png",
+                                    itemName: "灰色",
+
+                                },
+                            ],
+                        },
+                        {
+                            id: 2,
+                            title: "錶帶",
+                            icon:"./images/watch-strap.png",
+                            content: [
+                                {
+                                    url: "./images/band01.png",
+                                    itemName: "灰色",
+                                },
+                                {
+                                    url: "./images/band02.png",
+                                    itemName: "綠色",
+                                },
+                                {
+                                    url: "./images/band03.png",
+                                    itemName: "白色",
+                                },
+                                {
+                                    url: "./images/band04.png",
+                                    itemName: "黑色",
+                                },
+    
+                            ],
+                        },
+                        {
+                            id: 3,
+                            title: "指針",
+                            icon:"./images/clock.png",
+                            content: [
+                                {
+                                    url: "./images/point01.png",
+                                    itemName: "黑指針",
+                                },
+                                {
+                                    url: "./images/point02.png",
+                                    itemName: "白指針",
+                                },
+                                {
+                                    url: "./images/point03.png",
+                                    itemName: "灰指針",
+                                },
+                                {
+                                    url: "./images/point04.png",
+                                    itemName: "黃指針",
+                                },
+                                {
+                                    url: "./images/point03.png",
+                                    itemName: "灰指針",
+                                },
+                                {
+                                    url: "./images/point04.png",
+                                    itemName: "黃指針",
+                                },
+                                {
+                                    url: "./images/point03.png",
+                                    itemName: "灰指針",
+                                },
+                                {
+                                    url: "./images/point04.png",
+                                    itemName: "黃指針",
+                                },
+ 
+                            ],
+                        },
+
+                    ],
+            },
+            computed: { // 函數(方法)也可以放這裡，但是放在這裡的函數，不能傳參數，一定要有傳回值
+                currentTabPage: function () {
+                    return this.currentTab;
+                },
+                currentItems(){
+                    return [this.currentBezel,this.currentFace,this. currentBand,this.currentPoint];
+                },
+            },
+            methods: {
+                getItem(img) {
+                    if (img.url.includes("bezel")) {
+                        this.currentBezel = img.url;
+                        this.currentBezelName = img.itemName;
+                    } else if (img.url.includes("face")) {
+                        this.currentFace = img.url;
+                        this.currentFaceName = img.itemName;
+                    } else if (img.url.includes("band")) {
+                        this.currentBand = img.url;
+                        this.currentBandName = img.itemName;
+                    } else if (img.url.includes("point")) {
+                        this.currentPoint = img.url;
+                        this.currentPointName = img.itemName;
+                    }
+                },
+
+                changeOuterTab(index){
+                    this.currentOuterTab = this.outerPages[index];
+                },
+
+                getFun(funs) {
+                    this.currentFun1 = funs.url1.url;
+                    this.currentFun2 = funs.url2.url;
+                    this.currentFun3 = funs.url3.url;
+                    this.currentFun1Name = funs.url1.funName;
+                    this.currentFun2Name = funs.url2.funName;
+                    this.currentFun3Name = funs.url3.funName;                 
+                },
+
+                getDive(dive) {
+                    this.diveFun = dive; 
+                    console.log("dive",dive)         
+                },
+                getWord(word,wmsg,wfont,wfontsize){
+                    this.currentWord = word;
+                    this.currentFontSize = wfontsize;
+                    this.currentFont = wfont;
+                    this.currentMsg = wmsg;
+                },
+                getBoxColor(box){
+                    this.currentBoxImg = box.boxImg;
+                    this.currentBoxBtn = box.colorBtn;          
+                },
+
+                getRibbonColor(ribbon){
+                    this.currentRibbonImg = ribbon.ribbonImg;
+                    this.currentRibbonBtn = ribbon.colorBtn;          
+                },
+                magicjson(){
+                    localStorage.setItem("cuziwatch",JSON.stringify(this.$data))
+                }
+            },
+        });
+    </script>
+
+
+</body>
+
+</html>
