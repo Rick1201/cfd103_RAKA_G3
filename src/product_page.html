@@ -14,8 +14,8 @@
 	<title>Document</title>
 </head>
 <body>
-	@@include('./layout/header.html')
 	<!-- 商品圖與價格 -->
+	@@include('./layout/header.html')
 	<section class="product">
 		<div class="container">
 			<div class="product-pic">
@@ -40,7 +40,7 @@
 			<div class="product-title">
 				<h2>海洋飛行PCB-01</h2>
 				<p>NT$ <span>6000</span></p>
-				<button>加入購物車</button>
+				<button>加入購物車<input type="hidden" value="海洋飛行|product_page_01.png|6000"></button>
 			</div>
 		</div>
 	</section>
@@ -112,7 +112,7 @@
 			</div>
 		</div>
 	</section>
-	@@include('./layout/footer.html')
+
 
 	<script>
 		function showLarge(e){
@@ -238,9 +238,9 @@
 				376: {
 				items: 3
 				},
-
 			}
 		});
 	</script>
+ @@include('./layout/footer.html')
 </body>
 </html>

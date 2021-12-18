@@ -9,14 +9,13 @@
     <title>Document</title>
 </head>
 <body>
-    @@include('./layout/header.html')
     <div class="hot-design-banner">
         <img src="./images/aboutus-02.jpg" alt="">
         <div class="container">
             <div class="customization-link">
                 <h2>客製化專區</h2>
                 <p>訂製您的專屬潛水錶</p>
-                <button>開始設計</button>
+                <button onclick="javascript:location.href='./customize_page.html'">開始設計</button>
             </div>
         </div>
     </div>
@@ -27,15 +26,15 @@
             <aside class="hot-design-filter">
                 <h3>外觀</h3>
                 <ul class="first-sort">
-                    <li><h4>外框</h4>
+                    <li>外框
                         <ul class="second-sort">
                             <li><input type="checkbox"> <label>毫米玫瑰金錶殼</label></li>
                             <li><input type="checkbox"> <label>毫米黑色錶殼</label></li>
                             <li><input type="checkbox"> <label>毫米銀色錶殼</label></li>
-                            <li><input type="checkbox"> <label>毫米粉色錶殼</label></li>
+                            <li><input type="checkbox"> <label>毫米玫瑰金錶殼</label></li>
                         </ul>
                     </li>
-                    <li><h4>錶面</h4>
+                    <li>錶面
                         <ul class="second-sort">
                             <li><input type="checkbox"> <label>航海家-黑</label></li>
                             <li><input type="checkbox"> <label>航海家-灰</label></li>
@@ -45,14 +44,14 @@
                             <li><input type="checkbox"> <label>極簡-藍</label></li>
                         </ul>
                     </li>
-                    <li><h4>錶帶</h4>
+                    <li>錶帶
                         <ul class="second-sort">
                             <li><input type="checkbox"> <label>銀色鋼鐵</label></li>
                             <li><input type="checkbox"> <label>時尚深綠</label></li>
                             <li><input type="checkbox"> <label>玫瑰金鋼鐵</label></li>
                         </ul>
                     </li>
-                    <li><h4>指針</h4>
+                    <li>指針
                         <ul class="second-sort">
                             <li><input type="checkbox"> <label>飛行者風格指針</label></li>
                             <li><input type="checkbox"> <label>簡約銀色指針</label></li>
@@ -64,58 +63,6 @@
             </aside>
             <div class="hot-design-list">
                 <div class="hot-design-item">
-                    <div class="heart">
-                        <img src="./images/product-list-heart .png">
-                    </div>
-                    <div class="hot-design-pic">
-                        <img src="./images/finishwatchpic01.png">
-                    </div>
-                    <div class="hot-design-content">
-                        <div class="content-item">
-                            <div class="item-title">設計者</div>
-                            <div>David</div>
-                        </div>
-                        <div class="content-item">
-                            <div class="item-title">作品名稱</div>
-                            <div>星爆763</div>
-                        </div>
-                        <div class="content-item">
-                            <div class="item-title">外框</div>
-                            <div>玫瑰金鋼鐵</div>
-                        </div>
-                        <div class="content-item">
-                            <div class="item-title">錶面</div>
-                            <div>航海家-黑</div>
-                        </div>
-                        <div class="content-item">
-                            <div class="item-title">錶帶</div>
-                            <div>銀色鋼鐵</div>
-                        </div>
-                        <div class="content-item">
-                            <div class="item-title">指針</div>
-                            <div>簡單藍色指針</div>
-                        </div>
-                        <div class="content-item">
-                            <div class="item-title">功能錶盤</div>
-                            <div>無</div>
-                        </div>
-                        <div class="content-item">
-                            <div class="item-title">潛水深度需求</div>
-                            <div>防水3ATM</div>
-                        </div>
-                    </div>
-                    <div class="collect">
-                        <div class="collect-item">
-                            <div class="collect-times">收藏次數</div>
-                            <div class="times">258</div>
-                        </div>
-                        <button>查看詳細規格</button>
-                    </div>
-                </div>
-                <div class="hot-design-item">
-                    <div class="heart">
-                        <img src="./images/product-list-heart .png">
-                    </div>
                     <div class="hot-design-pic">
                         <img src="./images/finishwatchpic01.png" alt="">
                     </div>
@@ -212,6 +159,7 @@
                 </div>
             </div>
         </div>
+        
     </section>
     @@include('./layout/footer.html')
 

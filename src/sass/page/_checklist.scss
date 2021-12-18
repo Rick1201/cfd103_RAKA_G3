@@ -2,18 +2,49 @@
 @import "../base/var";
 @import "../base/base";
 .checklist01{
-    .buttonlist{
-        width: 100%;
-        margin-bottom: 65px;
-    }
-    .buttonlist .all{
+    .check{
+        width: 500px;
+        margin: auto;
         display: flex;
-        justify-content: center;
-        flex-direction: row;
-        width: 50%;
-        margin:auto;
-        border:1px solid black;
-        border-radius: 50px;
+        margin-bottom: 30px;
+    }
+    :nth-child(1).payment-page-step-btn{
+        width: 33.33333%;
+        height: 40px;
+        border-radius: 30px;
+        background-color: $blue-tertiary;
+        color:#f7f2ec;
+        border: 1px solid $blue-tertiary;
+        p{
+            line-height: 40px;
+            text-align: center;
+            color:#f7f2ec;
+        }
+    }
+    :nth-child(2).payment-page-step-btn{
+        width: 33.33333%;
+        height: 40px;    
+        border-radius: 30px;
+        p{
+            line-height: 40px;
+            text-align: center;
+            color:black;
+        }
+        a{
+            text-decoration: none;
+        }
+    }
+    .payment-page-step-btn3{
+        width: 33.33333%;
+        height: 40px;
+        p{
+            line-height: 40px;
+            text-align: center;
+            color:black;
+        }
+        a{
+            text-decoration: none;
+        }
     }
     .client{
         display: flex;

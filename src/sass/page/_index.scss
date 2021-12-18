@@ -1,24 +1,598 @@
-.index {
-    // code
-
-
-    @include t() {
-        background-color: rgb(115, 255, 0);
-
+.main-header{
+    .container{
+        margin: auto;
+        display: flex;
+        text-align: center;
+        align-items: center;
     }
-
-    @include rwd(820px) {
-
-        background-color: rgb(28, 221, 255);
-
+    .logo{
+        width: 200px;
+        padding: 10px;
     }
-
-    @include m() {
+    .logo img{
         width: 100%;
-        background-color: rgb(255, 247, 0);
     }
-
-
-
-
+    .main-nav a{ 
+        font-family: $fontStyle-decorate;
+        text-decoration: none;
+        color: #4e5766;
+    }
+    .main-nav ul li{
+        margin: 10px;
+    }
+    .main-nav ul li:after{
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 30px;
+        background:linear-gradient(-65deg, transparent 49.5%, #4e57
+5%, #4e5766 50.5%, transparent 50.5%);
+    }
+    .product{
+        position: relative;
+    }
+    .customize01{
+        position: relative;
+    }
+    .aboutus{
+        position: relative;
+    }
+    .game{
+        position: relative;
+    }
+    .member{
+        position: relative;
+    }
+    .product::after{
+        content: 'Product';
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+    }
+    .customize01::after{
+        content: 'Customize';
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+    }
+    .aboutus::after{
+        content: 'About Us';
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+    }
+    .game::after{
+        content: 'Game';
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+    }
+    .member::after{
+        content: 'Member';
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+    }
+    .cart{
+        width: 30px;
+        margin: 10px;
+    }
+    .cart img{
+        width: 100%;
+    }
+    .memBtn{
+        margin: 10px;
+    }
+    .memBtn span{
+        display: block;
+        text-align: center;
+    }
+    @media screen and (max-width:1024px){
+        
+        .logo{
+            margin-right: auto;
+        }
+        .hb{
+            width: 40px;
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .hb span:first-child{
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: #4e5766;
+            margin-bottom: 5px;
+        }
+        .hb span:last-child{
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: #4e5766;
+            margin-bottom: 5px;
+        }
+        #main-nav{
+            position: absolute;
+            width: 200px;
+            right: -200px;
+            top: 80px;
+            background-color: whitesmoke;
+            height: calc(100vh - 80px);
+            transition: right .5s;
+            display: none;
+        }
+        #main-nav.hidden{
+            position: absolute;
+            z-index: 100;
+            width: 200px;
+            right: 0px;
+            top: 80px;
+            background-color: whitesmoke;
+            height: calc(100vh - 80px);
+            transition: right .5s;
+            display: block;
+        }
+        .main-nav ul{
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: column;
+        }  
+    }
+    @media screen and (min-width:1025px){
+        .main-nav ul{
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: row;
+            margin-left: auto;
+        }
+        .main-nav{
+            display: flex;
+            flex-grow: 1;
+        }
+        .memBtn{
+            display: inline-block;
+        }
+    }
 }
+
+
+body{
+    overflow-x: hidden;
+}
+.raka-index-main{
+    width: 100%;
+    height: 100vh;
+    @include mobile{
+        height: 300px;
+    }
+    .raka-index-pic{
+        width: 100%;
+        height: 100%;
+        background-image: url(/images/indexbg01.png);
+        background-position: 80% 0;
+        background-repeat: no-repeat;
+        background-size:40%;          
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        .raka-index-pic_watch{
+            width: 100%;
+            height: 85%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 30%;
+                position: fixed;
+                z-index: 1;
+                @include mobile{
+                    width: 50%;
+                    top: 15%;
+                }
+            } 
+            .bubbleWathch{
+                position: relative;
+                top: 910px;
+                // transform: translateX(-9px);
+                @include mobile{
+                    width: 30%;
+                    top: 330.333333px;
+                }
+            }
+        }
+        .raka-index-pic_watch::after{
+            width: 55%;
+            height: 150px;
+            content: '';
+            background-image: url(/images/WATER.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            position: absolute;
+            top: 20%;
+            left: -4%;
+        }
+        .raka-index-pic_watch::before{
+            width: 48%;
+            height: 180px;
+            content: '';
+            background-image: url(/images/UNDER.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            position: absolute;
+            top: 60%;
+            right: 2%;
+            z-index: 2;
+            @include mobile{
+                height: 150px;
+                top: 68%;
+            }
+        }  
+         .raka-circle-text{
+            width: 100%;
+            height: 100px;
+            position: absolute;
+            top: 8%;
+            left: 38%;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include mobile{
+                display: none;
+            }
+             .logo{
+                 width: 100%;
+                 height: 100%;
+                 animation: rotateText 10s linear infinite;
+                 @keyframes rotateText {
+                     0% {
+                         transform: rotate(360deg);
+                     }
+                     100%{
+                        transform: rotate
+                        (0deg);
+                     }
+                 }
+                 span{
+                     position: absolute;
+                     left: 50%;
+                     font-size: 1em;
+                     transform-origin: 0 60px;
+                 }
+             }
+         } 
+    }
+}
+.raka-index-detail{
+    .wave-container{
+        .wave{
+            width: 100%;
+        }
+    }
+}
+.raka-index-detail-midllew{
+    width: 100%;
+    height: 1800px;
+    background:radial-gradient(circle farthest-side at center,#27516c,
+    #081838);
+    margin-top: -5px;
+    box-shadow: radial-gradient(circle 
+    closest-side at center,#27516c,
+    #081838) 1.95px 1.95px 2.6px;
+    @include mobile{
+        height: 1500px;
+    }
+    .raka-index-detail-pic{
+        width: 30%;
+        margin: auto;
+        position: relative; 
+        img{
+            width: 100%; 
+        }
+        .raka-index-detail_pic{
+            position: absolute;
+            &.pic1{
+                width: 70%;
+                top: -35%;
+                left: -47%;
+                z-index: 1;
+                clip-path: circle(0% at 100% 100%);
+                transition: clip-path 3s;
+                img{
+                    width: 100%;
+                }
+                &.active{
+                    clip-path: circle(140.7% at 100% 100%);
+                }
+            }
+            // pic1 text
+            &.pic1::after{
+                content: '精選藍寶石錶面\Awith blue silicone';
+                white-space: pre;
+                color: white;
+                position: absolute;
+                line-height: 1.2rem;
+                font-size: 18px;
+                top: 36%;
+                left: 81%;
+                @include mobile{
+                    line-height: 0.8rem;
+                    font-size: 10px;
+                    top: 13%;
+                    left: 83%;
+                }
+            }
+            &.pic2{
+                width: 80%;
+                top: 44%;
+                left: -59%;
+                z-index: 1;
+                clip-path: circle(0% at 100% 0);
+                transition: clip-path 3s 1s;
+                img{
+                    width: 100%;
+                }
+                &.active{
+                    clip-path: circle(140.8% at 100% 0);
+                    @include mobile{
+                        clip-path: circle(170% at 100% 0);
+                    }
+                }
+            }
+            //pic2 text
+            &.pic2::after{
+                content: '耐銹錶框\Awith blue frame';
+                color: white;
+                white-space: pre;
+                position: absolute;
+                top: 20%;
+                right: 89%;
+                line-height: 1.2rem;
+                font-size: 18px;
+                @include mobile{
+                    line-height: 0.8rem;    
+                    font-size: 10px;
+                    top: 110%;
+                    left: 21%;
+                }
+            }
+            &.pic3{
+                width: 80%;
+                top: 11%;
+                left: 79%;
+                z-index: 1;
+                clip-path: circle(0% at 0 0);
+                transition: clip-path 3s 2.5s;
+                img{
+                    width: 100%;
+                }
+                &.active{
+                    clip-path: circle(140.9% at 0 0);
+                    @include mobile{
+                        clip-path: circle(180% at 0 0);
+                    }
+                }
+            }
+            &.pic3::after{
+                content: '防水錶帶\Awith water proof';
+                white-space: pre;
+                color: white;
+                top: -2%;
+                right: 1%;
+                position: absolute;
+                font-size: 18px;
+                line-height: 1.2rem;
+                @include mobile{
+                    line-height: 0.8rem;
+                    font-size: 10px;
+                    top: 111%;
+                    right: -18%;
+                }
+            }
+        }
+    }
+    .raka-index-product{
+        font-family: $fontStyle-primary;
+        margin-top: 200px;
+        a button{
+            margin: 80px;
+            color: white;
+            font-size: $fontSize-middle;
+            @include btnStyle($btnColor-primary,100px);
+        }
+    }
+    .raka-index-product-item-list{
+        width: 1200px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: auto;
+        @include mobile{
+            width: 375px;
+            flex-wrap: wrap;
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+    .raka-index-product-item{
+        margin-top: 80px;
+        padding: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        @include mobile{
+            width: 50%;
+        }
+        .raka-index-product-item-pic{
+            width: 70%;
+            margin: auto;
+            @include mobile{
+                width: 75%;
+            }
+            img{
+                width: 100%;  
+            }
+        }
+    }
+    h3{
+        font-size: $fontSize-SubTitle;
+        color: white;
+        text-align: center;
+        margin: 30px;
+    }
+    .raka-index-product-name{
+        font-size: $fontSize-middle;
+        font-style: to-upper-case($string: "");
+        color: white;
+        margin: 20px;
+    }
+}
+   
+[class*="col-"]{
+    // padding-left: var(--col-gap);
+    // padding-right: var(--col-gap);
+    box-sizing: border-box;
+    margin-bottom: calc( var(--col-gap)*2);
+}
+.col-4{ width: calc(100% / 12 * 4);
+        // padding-left: var(--col-gap);
+        // padding-right: var(--col-gap);
+        box-sizing: border-box;
+        margin-bottom: calc( var(--col-gap)*2); 
+}
+.raka-index-special-watch{
+    display: flex;
+    font-family: $fontStyle-primary;
+    .raka-index-special-watch-text{
+        width: 30%;
+        background-color: #000;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;    
+        h1{
+            font-size: $fontSize-SpecialTitle;
+            margin-top: 60px;
+            margin-bottom: 80px;
+            @include mobile{
+                font-size: 25px;
+                margin-top: 5px;
+                margin-bottom: 10px;
+            }
+        }
+        h2{
+            font-size: $fontSize-SpecialSubTitle;
+            @include mobile{
+                font-size: 20px;
+            }
+        }
+        a{  
+            text-decoration: none;
+            text-align: center;
+            line-height: 30px;
+            @include btnStyle($btnColor-primary,100px);
+            color: white;
+            @include mobile{
+                line-height: 20px;
+                width: 90px;
+                height: 20px;
+            }
+        }
+    }
+    .raka-index-night-watch_pic{
+        width: 70%;
+        img{
+            vertical-align: middle;
+            width: 100%;
+            height: auto;   
+        }
+    }
+}
+.raka-index-customize{
+    display: flex;
+    font-family: $fontStyle-primary;
+    .raka-index-customize_pic{
+        width: 50%;
+        background-color: #081838;
+        display: flex;
+        justify-content: center;
+        // @include mobile{
+            // position: relative;
+            // width: 50%;
+            // height: 20%;
+            // z-index: 1;
+        // }
+        img{
+            margin: 0 auto;
+            vertical-align: middle;
+            width: 60%;
+            height: auto;   
+        }
+    }
+    .raka-index-customize-text{
+        width: 50%;
+        background-color: #081838;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        // @include mobile{
+            // box-sizing: border-box;
+            // border: 1px solid;
+        // }
+        h1{
+            font-size: $fontSize-SpecialTitle;
+            margin-top: 60px;
+            margin-bottom: 80px;
+            @include mobile{
+                font-size: 25px;
+                margin-top: 5px;
+                margin-bottom: 10px;
+            }
+        }
+        h2{
+            font-size: $fontSize-SpecialSubTitle;
+            @include mobile{
+                font-size: 20px;
+            }
+        }
+        a{  
+            text-decoration: none;
+            text-align: center;
+            line-height: 30px;
+            @include btnStyle($btnColor-primary,100px);
+            color: white;
+            @include mobile{
+                line-height: 20px;
+                width: 90px;
+                height: 20px;
+            }
+        }
+    }
+}
+.raka-index-dec-watch_pic{
+    width: 100%;
+    height: 350px;
+    @include mobile{
+        height: 0px;
+    }
+    img{
+        width: 100%;
+    }
+}
+
+
+
