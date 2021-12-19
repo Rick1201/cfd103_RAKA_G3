@@ -20,14 +20,9 @@
                                     <img :src="giftbox">
                                 </div>
                             </div>
-                            <div class="col-4 center">
+                            <div class="col-6 center">
                                 <div class="pic-watch">
                                     <img :src="watchpic">
-                                </div>
-                            </div>
-                            <div class="col-2 arr-set">
-                                <div class="arr">
-                                    <img src="./images/finisharrbottom.png">
                                 </div>
                             </div>
                         </div>
@@ -54,19 +49,19 @@
                            </div>
                            <div class="col-6 item">
                                <div>錶框</div>
-                               <div>{{Bezel.color}}</div>
+                               <div>{{getjsons.currentBezelName}}</div>
                            </div>
                            <div class="col-6 item">
                                <div>錶面</div>
-                               <div>{{surface.color}}</div>
+                               <div>{{getjsons.currentFaceName}}</div>
                            </div>
                            <div class="col-6 item">
                                <div>錶帶</div>
-                               <div>{{watchBand.color}}</div>
+                               <div>{{getjsons.currentBandName}}</div>
                            </div>
                            <div class="col-6 item">
                                <div>指針</div>
-                               <div>{{watchPointer.color}}</div>
+                               <div>{{getjsons.currentPointName}}</div>
                            </div>
                            <div class="col-6">
                              <div class="featuretitle">
@@ -76,11 +71,11 @@
                                          <img :src="feature">
                                      </div>
                                      <div class="col-6 featuretxt">
-                                         <ul>
-                                             <li v-for="(text,index) in featureTxts">{{index+1}} {{text}}</li>
-                                             <!-- <li>2 指北針</li>
-                                             <li>3 錶面</li> -->
-                                         </ul>
+                                         <ol>
+                                            <li>{{getjsons.currentFun1Name}}</li>
+                                            <li>{{getjsons.currentFun2Name}}</li>
+                                            <li>{{getjsons.currentFun3Name}}</li>
+                                         </ol>
                                      </div>
                                  </div>
                              </div>
@@ -90,9 +85,7 @@
                                  <h2>潛水規格需求</h2>
                                  <div class="row featureitem">
                                      <div class="col-12 ">
-                                         <ul>
-                                             <li v-for="diving in divings">{{diving}}</li>
-                                         </ul>
+                                         <p>{{getjsons.diveFun}}</p>
                                      </div>
                                  </div>
                              </div>
@@ -104,17 +97,17 @@
                            </div>
                              <div class="col-6 itemsettxt">
                                  <div>字體</div>
-                                 <div>{{fontFamily}}</div>
+                                 <div>{{getjsons.currentFont}}</div>
                              </div>
                              <div class="col-6 itemsettxt">
                                  <div>字體大小</div>
-                                 <div>{{fontSize}}</div>
+                                 <div>{{getjsons.currentFontSize}}</div>
                              </div>
                              <div class="col-6">
                                  <div>刻字內容</div>
                              </div>
                              <div class="col-12 textcon">
-                                 <textarea name="" id="" cols="100" rows="5"></textarea>
+                                 <textarea readonly="readonly" name="" id="" cols="100" rows="5">{{getjsons.currentMsg}}</textarea>
                              </div>
                              <div class="col-12">
                                  <div class="featuretitle">
@@ -123,16 +116,11 @@
                                </div>
                              <div class="col-12 item">
                                  <div>外盒顏色</div>
-                                 <div><img :src="orange"></div>
+                                 <div><img :src="getjsons.currentBoxBtn"></div>
                                  <div>緞帶顏色</div>
-                                 <div><img :src="gray"></div>
+                                 <div><img :src="getjsons.currentRibbonBtn"></div>
                              </div>
-                             <div class="col-12 item">
-                                 <div>是否有錄製QRcode</div>
-                                 <div v-if="QRcode">是</div>
-                                 <div v-else>否</div>
-                                 
-                             </div>
+                           
                        </div>
                    </div>
                </div>
@@ -156,6 +144,7 @@
         new Vue({
             el: '#app',  
             data: {  // 變數放這裡
+                getjsons:null,
                 message: 'Hello',
                 giftbox: './images/finishboxpict.png',
                 watchpic: './images/finishwatchpic01.png',
@@ -185,6 +174,10 @@
             },
             computed: { // 函數(方法)也可以放這裡，但是放在這裡的函數，不能傳參數，一定要有傳回值
                
+            },
+            mounted() {
+                let storageArray = JSON.parse(localStorage.getItem('cuziwatch'))
+                this.getjsons =storageArray
             },
         });
     </script>

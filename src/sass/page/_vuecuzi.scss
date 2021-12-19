@@ -1,0 +1,267 @@
+*{
+    // outline: 1px solid red;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+#cuz-section{
+    .container{
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        .cuzname{
+            border: none;
+            outline: none;
+            border-bottom: 1px solid black;
+            margin: 0 0 10px;
+            font-size: 24px;
+            width: 200px;
+        }
+        .cuz-bar{
+            width: 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            div p{
+                writing-mode: vertical-lr;
+                color: #293B5F;
+                font-size: 32px;
+            }
+        }
+        .show-box{
+            width: 45%;
+            .watch-box{
+                width: 100%;
+                .showpic{
+                    position: relative;
+                    z-index: 2;
+                    width: 100%;
+                    .float-img{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        vertical-align: bottom;
+                    }
+                    .bottom-img{
+                        position: relative;
+                        width: 100%;
+                        vertical-align: bottom;
+                    }
+                    .watch-item{
+                        display: flex;
+                        justify-content: space-evenly;
+                        padding: 10px 0;
+                        .selected-item{
+                            width: 105px;
+                            height: 105px;
+                            border: 2px solid #293B5F;
+                            border-radius: 30px;
+                            .selected-img{
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                vertical-align: bottom;
+                                border-radius: 30px;
+                            }
+                        }
+                    }
+                    .fun1{
+                        position: absolute;
+                        width: 9%;
+                        top: 37%;
+                        left: 45.5%;
+                    }
+                    .fun2{
+                        position: absolute;
+                        width: 9%;
+                        top: 43%;
+                        left: 37%;
+                    }
+                    .fun3{
+                        position: absolute;
+                        width: 9%;
+                        top: 43%;
+                        left: 54%;
+                    }
+
+                    .plugin{
+                        position: absolute;
+                        top :50%;
+                        left: 0;
+                    }
+                }
+            }
+        }
+        .cuz-zone{
+            width: 45%;
+            .outer-page{
+                display: flex;
+                height: 100%;
+                .aside{
+                    width: 20%;
+                    padding:0 15px ;
+                    border-radius: 30px 0 0 30px;
+                    background-color: #293B5F;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    height: 100%;
+                    div{
+                        img{
+                            width: 100%;
+                            vertical-align: bottom;
+                        }
+                    }
+                }
+                .cuz-item{
+                    background-color: #F8F2F2;
+                    width: 80%;
+                    max-height: 935px;
+                    border-radius: 0 30px 30px 0;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: flex-start;
+                    align-content: flex-start;
+                    overflow-y: scroll;
+                    .pic{
+                        width: 50%;
+                        padding: 20px;
+                        img{
+                            width: 100%;
+                            // height: 160px;
+                            object-fit: cover;
+                            vertical-align: bottom;
+                            background-color:white ;
+                            cursor: pointer;
+                        }
+                        p{
+                            text-align: center;
+                            color: #293B5F;
+                            font-size: 24px;
+                        }
+                    }
+                }
+            }
+            .function-page{
+                h3{
+                    font-size: 28px;
+                    color: #293B5F;
+                    margin-bottom: 20px;
+                }
+                .fun-area{
+                    margin:0 0 80px;
+                    display: flex;
+                    align-content: center;
+                    .fun-pic{
+                        width: 40%;
+                        margin-right: 20px;
+                        img{
+                            width: 100%;
+                            vertical-align: bottom;
+                        }
+                    }
+                    .fun-select{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        .select-item{
+                            display: flex;
+                            align-items: center;
+                            label{
+                                font-size: 24px;
+                                margin-right: 20px;
+                                color: #293B5F;
+                            }
+                            select{
+                                width: 150px;
+                                font-size: 24px;
+                                color: #293B5F;
+                                border-radius: 10px;
+                                padding: 5px 10px;
+                            }
+                        }
+                    }
+                }
+                .dive-area{
+                    input{
+                        font-size: 24px;
+                        margin:0 20px 20px 0;
+                    }
+                    label{
+                        font-size: 24px;
+                        color: #293B5F;
+                    }
+                }
+
+            }
+
+            .word-page{
+                margin: auto;
+                width: 90%;
+                .content_zone{
+                    margin-bottom: 30px;
+                    label{
+                        display: block;
+                        font-size: 24px;
+                        color: #293B5F;
+                        margin-bottom: 10px;
+                    }
+                    input{
+                        font-size: 24px;
+                        padding: 5px;
+                        color: #293B5F;
+                        width: 300px;
+                        background-color: #F8F2F2;
+                        border-radius: 10px;
+                    }
+                }
+                .fontStyle_zone{
+                    margin-bottom: 30px;
+                    label{
+                        display: block;
+                        font-size: 24px;
+                        color: #293B5F;
+                        border-radius: 10px;
+                        margin-bottom: 10px;
+                    }
+                    select{
+                        display: block;
+                        font-size: 24px;
+                        color: #293B5F;
+                        background-color: #F8F2F2;
+                        width: 300px;
+                        padding: 5px;
+                        border-radius: 10px;
+                    }
+                }
+                .fontWeight_zone{
+                    margin-bottom: 30px;
+                    label{
+                        display: block;
+                        font-size: 24px;
+                        color: #293B5F;
+                        margin-bottom: 10px;
+                    }
+                    select{
+                        display: block;
+                        font-size: 24px;
+                        color: #293B5F;
+                        width: 300px;
+                        padding: 5px;
+                        background-color: #F8F2F2;
+                        border-radius: 10px;
+                    }
+                }
+                button{
+                    font-size: 24px;
+                }
+
+            }
+
+        }
+    }
+}
+

@@ -58,12 +58,19 @@
         // height: 700px;
         // background-color: royalblue;
         margin: auto;
+        ol{
+        padding-left: 20px;
+            li{
+            list-style-type:lower-decimal;
+            padding: 10px 0px;
+            }
+        }
         .formtitle h2{
             text-align: center;
         }
         .item{
             display: flex;
-            justify-content: space-evenly;
+            justify-content: space-between;
             padding: 0px 30px;
             // border: springgreen 1px solid;
             img{
