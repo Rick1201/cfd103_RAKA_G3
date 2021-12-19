@@ -79,8 +79,21 @@
         transform: translateY(-100%);
     }
     .cart{
+        position: relative;
         width: 30px;
         margin: 10px;
+        .item-count{
+            position: absolute;
+            top: 0;
+            right: -10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 20px;
+            background-color: brown;
+            color: cornsilk;
+            font-size: 15px;
+            line-height: 20px;
+        }
     }
     .cart img{
         width: 100%;

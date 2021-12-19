@@ -16,102 +16,104 @@
 <body>
 	<!-- 商品圖與價格 -->
 	@@include('./layout/header.html')
-	<section class="product">
-		<div class="container">
-			<div class="product-pic">
-				<div class="switch-pics">
-					<div class="switch-pic">
-						<img class="clicked" src="./images/product_page_01.png" alt="">
-					</div>
-					<div class="switch-pic">
-						<img src="./images/product_page_02.png" alt="">
-					</div>
-					<div class="switch-pic">
-						<img src="./images/product_page_03.png" alt="">
-					</div>
-					<div class="switch-pic">
-						<img src="./images/product_page_04.png" alt="">
-					</div>
-				</div>
-				<div class="main-pic">
-					<img src="./images/product_page_01.png" alt="">
-				</div>
-			</div>
-			<div class="product-title">
-				<h2>海洋飛行PCB-01</h2>
-				<p>NT$ <span>6000</span></p>
-				<button>加入購物車<input type="hidden" value="海洋飛行|product_page_01.png|6000"></button>
-			</div>
-		</div>
-	</section>
-
-	<!-- 商品詳細內容 -->
-	<section id="product-detail">
-		<ul class="section-select">
-			<li class="product-info detail-tab active-tab" @click="content='info';tabActive">商品資訊</ㄠ>
-			<li class="product-specification detail-tab" @click="content='specification',tabActive">規格</li>
-			<li class="product-comment detail-tab" @click="content='comment',tabActive">評論</li>
-		</ul>
-		<div class="container">
-			<keep-alive>
-				<component :is="content"></component>
-			</keep-alive>
-		</div>
-	</section>
-
-
-	<!-- 相關商品 -->
-	<section class="relative-product">
-		<div class="container">
-			<h3>相關商品</h3>
-			<div class="owl-carousel owl-theme">
-				<div class="item">
-					<div class="product-card">
-						<div class="product-pic">
-							<img src="./images/product_page_01.png" alt="">
+	<div id="app">
+		<section class="product">
+			<div class="container">
+				<div class="product-pic">
+					<div class="switch-pics">
+						<div class="switch-pic">
+							<img class="clicked" src="./images/product_page_01.png" alt="">
 						</div>
-						<div class="product-txt">
-							<h4>RAKA-1001</h4>
-							<P>NT$ 1200</P>
+						<div class="switch-pic">
+							<img src="./images/product_page_02.png" alt="">
 						</div>
+						<div class="switch-pic">
+							<img src="./images/product_page_03.png" alt="">
+						</div>
+						<div class="switch-pic">
+							<img src="./images/product_page_04.png" alt="">
+						</div>
+					</div>
+					<div class="main-pic">
+						<img src="./images/product_page_01.png" alt="">
 					</div>
 				</div>
-				<div class="item">
-					<div class="product-card">
-						<div class="product-pic">
-							<img src="./images/product_page_01.png" alt="">
-						</div>
-						<div class="product-txt">
-							<h4>RAKA-1002</h4>
-							<P>NT$ 1200</P>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="product-card">
-						<div class="product-pic">
-							<img src="./images/product_page_01.png" alt="">
-						</div>
-						<div class="product-txt">
-							<h4>RAKA-1003</h4>
-							<P>NT$ 1200</P>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="product-card">
-						<div class="product-pic">
-							<img src="./images/product_page_01.png" alt="">
-						</div>
-						<div class="product-txt">
-							<h4>RAKA-1004</h4>
-							<P>NT$ 1200</P>
-						</div>
-					</div>
+				<div class="product-title">
+					<h2>海洋飛行PCB-01</h2>
+					<p>NT$ <span>6000</span></p>
+					<button @click="addLocal">加入購物車</button>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	
+		<!-- 商品詳細內容 -->
+		<section id="product-detail">
+			<ul class="section-select">
+				<li class="product-info detail-tab active-tab" @click="content='info';tabActive">商品資訊</ㄠ>
+				<li class="product-specification detail-tab" @click="content='specification',tabActive">規格</li>
+				<li class="product-comment detail-tab" @click="content='comment',tabActive">評論</li>
+			</ul>
+			<div class="container">
+				<keep-alive>
+					<component :is="content"></component>
+				</keep-alive>
+			</div>
+		</section>
+	
+	
+		<!-- 相關商品 -->
+		<section class="relative-product">
+			<div class="container">
+				<h3>相關商品</h3>
+				<div class="owl-carousel owl-theme">
+					<div class="item">
+						<div class="product-card">
+							<div class="product-pic">
+								<img src="./images/product_page_01.png" alt="">
+							</div>
+							<div class="product-txt">
+								<h4>RAKA-1001</h4>
+								<P>NT$ 1200</P>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="product-card">
+							<div class="product-pic">
+								<img src="./images/product_page_01.png" alt="">
+							</div>
+							<div class="product-txt">
+								<h4>RAKA-1002</h4>
+								<P>NT$ 1200</P>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="product-card">
+							<div class="product-pic">
+								<img src="./images/product_page_01.png" alt="">
+							</div>
+							<div class="product-txt">
+								<h4>RAKA-1003</h4>
+								<P>NT$ 1200</P>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="product-card">
+							<div class="product-pic">
+								<img src="./images/product_page_01.png" alt="">
+							</div>
+							<div class="product-txt">
+								<h4>RAKA-1004</h4>
+								<P>NT$ 1200</P>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
 
 
 	<script>
@@ -159,6 +161,7 @@
 					</p>
 					<p class="info-txt">
 						體的怎當的童論因？還府而……比公解我。重的小了名……的考下有手任那化工牛權。言流放……錢銷開用了大言場公突能多。媽是利？出輕企道大色家此同時媽月負是吸定色寫為受其軍？外要當手全成排只功回就火到；生中講供車所畫所對果：想自及車，賽前習頭對時人，德月生在。？外要當手全成排只功回就火到；生中講供車所畫所對果：想自及車，賽前習頭對時人，德？外要當手全成排只功回就火到；生中講供車所畫所對果：想自及車，賽前習頭對時人，德？外要當手全成排只功回就火到；生中講供車所畫所對果：想自
+					</p>
 				</div>
 			`,
 		});
@@ -217,11 +220,47 @@
 			`,
 		});
 		new Vue({
-            el: '#product-detail',
+            el: '#app',
             data:{
                 content: 'info',
 				tabs:["商品資訊","規格","評論"],
+				products:[
+						{
+						id:'6',
+						prodName:'海洋飛行PCB-01',
+						prodPrice:'6000',
+						prodImg:'./images/product_page_02.png',
+						count:1,
+					}
+				],
+				cart:[],
+				ooxx:null,
             },
+			methods: {
+				addLocal(){
+					if(this.cart == null){
+						this.cart = this.products;
+					}else{
+						for (let i = 0; i < this.cart.length; i++){
+							if(this.products[0].id === this.cart[i].id){
+								this.cart[i].count += 1;
+							}else if(this.products[0].id !== this.cart[i].id){
+								this.cart.push(this.products[0]);
+							}
+						}
+					}
+					localStorage.setItem("addList", JSON.stringify(this.cart));
+				},
+			},
+			mounted() {
+				let storageArray = JSON.parse(localStorage.getItem('addList'));
+				this.cart = storageArray;
+			},
+			// addLocal(){
+			// 	let prodCart = localStorage.setItem("addList", JSON.stringify(this.products));
+			// 	console.log(prodCart);
+			// 	this.ooxx =  prodCart;
+			// },
         });
 	</script>
 

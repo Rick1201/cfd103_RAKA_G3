@@ -9,7 +9,7 @@
 </head>
 <body>
     
-    <header class="main-header">
+    <header class="main-header" id="main-header">
         <div class="container">
             <div class="logo" onclick="javascript:location.href='../index.html'">
                 <img src="../images/logo.png" alt="">
@@ -30,9 +30,6 @@
                         <a href="../aboutUs_page.html" class="aboutus">關於我們</a>
                     </li>
                     <li>
-                        <a href="#" class="game">小遊戲</a>
-                    </li>
-                    <li>
                         <a href="../member_comm.html" class="member">會員專區</a>
                     </li>
                 </ul>
@@ -42,6 +39,7 @@
                 </div>
             </nav>
             <div class="cart">
+                <span class="item-count">{{itemCount}}</span>
                 <a href="../shopcar_page.html"><img src="../images/bag.png" alt=""></a>
             </div>
         </div>
@@ -55,5 +53,16 @@
         }
         window.addEventListener("load", init, false)
     </script>
+    <!-- <script>
+        new Vue({
+            el:'#main-header',
+            data:{
+                itemCount:[],
+            },
+            mounted() {
+                
+            },
+        })
+    </script> -->
 </body>
 </html>
