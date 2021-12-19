@@ -53,6 +53,7 @@ ul.breadcrumb li a:hover {
     .list img{
         width: 251px;
         left: -30px;
+        cursor: pointer;
     }
     .list>.heart{
         width:30px;
@@ -90,13 +91,13 @@ ul.breadcrumb li a:hover {
         gap:60px;
     }
     .list_page2{
-        margin-top: 20px;
+        margin-top: 90px;
     }
     .list_page3{
-        margin-top: 20px;
+        margin-top: 90px;
     }
     .list_page4{
-        margin-top: 20px;
+        margin-top: 90px;
     }
     .list span{
         margin-left:130px;
@@ -104,6 +105,7 @@ ul.breadcrumb li a:hover {
     }
     .list p{
        text-align: center;
+       padding-bottom: 15px;
     }
 }
 
