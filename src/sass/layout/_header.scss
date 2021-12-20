@@ -13,7 +13,6 @@
         width: 100%;
     }
     .main-nav a{ 
-    
         font-family: $fontStyle-decorate;
         text-decoration: none;
         color: #4e5766;
@@ -37,9 +36,6 @@
     .aboutus{
         position: relative;
     }
-    .game{
-        position: relative;
-    }
     .member{
         position: relative;
     }
@@ -59,13 +55,6 @@
     }
     .aboutus::after{
         content: 'About Us';
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform: translateY(-100%);
-    }
-    .game::after{
-        content: 'Game';
         position: absolute;
         top: 0;
         left: 0;
@@ -106,9 +95,9 @@
         text-align: center;
     }
     @media screen and (max-width:1024px){
-        
         .logo{
             margin-right: auto;
+            order: 2;
         }
         .hb{
             width: 40px;
@@ -116,6 +105,8 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            order: 1;
+            padding: 10px;
         }
         .hb span:first-child{
             display: block;
@@ -132,31 +123,30 @@
             margin-bottom: 5px;
         }
         #main-nav{
+            z-index: 50;
             position: absolute;
             width: 200px;
-            right: -200px;
+            left: -200px;
             top: 80px;
             background-color: whitesmoke;
-            height: calc(100vh - 80px);
-            transition: right .5s;
+            height: calc(100vh - 77px);
+            transition: left .5s;
         }
         #main-nav.hidden{
             position: absolute;
             z-index: 100;
             width: 200px;
-            right: 0px;
-            top: 80px;
-            background-color: whitesmoke;
-            height: calc(100vh - 80px);
-            transition: right .5s;
+            left: 0px;
+            transition: left .5s;
         }
-        
         .main-nav ul{
             display: flex;
             justify-content: flex-end;
             flex-direction: column;
         }
-        
+        .cart{
+            order: 3;
+        }
     }
     @media screen and (min-width:1025px){
         .main-nav ul{
