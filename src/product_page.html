@@ -222,11 +222,12 @@
 		new Vue({
             el: '#app',
             data:{
+				itemCount:'0',
                 content: 'info',
 				tabs:["商品資訊","規格","評論"],
 				products:[
 						{
-						id:'6',
+						id:'7',						
 						prodName:'海洋飛行PCB-01',
 						prodPrice:'6000',
 						prodImg:'./images/product_page_02.png',
@@ -237,15 +238,23 @@
 				ooxx:null,
             },
 			methods: {
+				updateCart(){
+                    let storageArray = JSON.parse(localStorage.getItem('addList'));
+                    this.cart = storageArray;
+                    this.itemCount = this.cart.length;
+                    console.log(this.itemCount)
+                },
 				addLocal(){
 					if(this.cart == null){
 						this.cart = this.products;
-					}else{
+					}else{                      
 						for (let i = 0; i < this.cart.length; i++){
 							if(this.products[0].id === this.cart[i].id){
-								this.cart[i].count += 1;
+							 	this.cart[i].count += 1;
+							
 							}else if(this.products[0].id !== this.cart[i].id){
 								this.cart.push(this.products[0]);
+								
 							}
 						}
 					}
@@ -255,6 +264,7 @@
 			mounted() {
 				let storageArray = JSON.parse(localStorage.getItem('addList'));
 				this.cart = storageArray;
+				this.updateCart();
 			},
 			// addLocal(){
 			// 	let prodCart = localStorage.setItem("addList", JSON.stringify(this.products));

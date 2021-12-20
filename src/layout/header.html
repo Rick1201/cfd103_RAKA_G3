@@ -53,16 +53,25 @@
         }
         window.addEventListener("load", init, false)
     </script>
-    <!-- <script>
+    <script>
         new Vue({
             el:'#main-header',
             data:{
-                itemCount:[],
+                itemCount:'0',
+                cart:[],
+            },
+            methods: {
+                updateCart(){
+                    let storageArray = JSON.parse(localStorage.getItem('addList'));
+                    this.cart = storageArray;
+                    this.itemCount = this.cart.length;
+                    console.log(this.itemCount)
+                }
             },
             mounted() {
-                
+               this.updateCart();
             },
         })
-    </script> -->
+    </script>
 </body>
 </html>
