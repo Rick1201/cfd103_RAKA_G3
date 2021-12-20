@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/style.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 </head>
 <body>
     <header class="main-header" id="main-header">
@@ -53,8 +54,7 @@
         window.addEventListener("load", init, false)
     </script>
     <script>
-        new Vue({
-            el:'#main-header',
+        let vmHeader = new Vue({
             data:{
                 itemCount:'0',
                 cart:[],
@@ -64,13 +64,12 @@
                     let storageArray = JSON.parse(localStorage.getItem('addList'));
                     this.cart = storageArray;
                     this.itemCount = this.cart.length;
-                    console.log(this.itemCount)
                 }
             },
             mounted() {
                this.updateCart();
             },
-        })
+        }).$mount('#main-header')
     </script>
 </body>
 </html>

@@ -102,7 +102,7 @@
     }
     .lightbox{
         display: none;
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         background-color: #5858584d;
@@ -110,8 +110,11 @@
         height: 100%;
         .container{
             width: 30%;
-            background-color: antiquewhite;
+            background-color: $blue-primary;
+            border: 2px solid $blue-tertiary;
+            border-radius: 10px;
             margin: auto;
+            transform: translateY(50%);
             #closeBox{
                 cursor: pointer;
             }

@@ -221,21 +221,21 @@
 		});
 		new Vue({
             el: '#app',
-            data:{
-				itemCount:'0',
-                content: 'info',
-				tabs:["商品資訊","規格","評論"],
-				products:[
-						{
-						id:'7',						
-						prodName:'海洋飛行PCB-01',
-						prodPrice:'6000',
-						prodImg:'./images/product_page_02.png',
-						count:1,
-					}
-				],
-				cart:[],
-				ooxx:null,
+            data(){
+				return {
+					itemCount:'0',
+					content: 'info',
+					tabs:["商品資訊","規格","評論"],
+					products:{
+							id:'30',						
+							prodName:'海洋飛行PCB-01',
+							prodPrice:'6000',
+							prodImg:'./images/product_page_02.png',
+							count:1,
+						},
+					cart:[],
+					ooxx:null,
+				}
             },
 			methods: {
 				updateCart(){
@@ -246,19 +246,28 @@
                 },
 				addLocal(){
 					if(this.cart == null){
-						this.cart = this.products;
+						// this.cart = this.products;
+						this.cart.push(this.products);
 					}else{                      
-						for (let i = 0; i < this.cart.length; i++){
-							if(this.products[0].id === this.cart[i].id){
-							 	this.cart[i].count += 1;
+						// for (let i = 0; i < this.cart.length; i++){
+						// 	console.log(this.cart)
+						// 	if(this.products[0].id === this.cart[i].id){
+						// 		console.log('aaa',this.cart[i].id)
+						// 	 	this.cart[i].count += 1;
 							
-							}else if(this.products[0].id !== this.cart[i].id){
-								this.cart.push(this.products[0]);
-								
-							}
-						}
+						// 	}else if(this.products[0].id !== this.cart[i].id){
+						// 		console.log(this.products[0].id)
+						// 		this.cart.push(this.products[0]);
+						// 	}
+						// }
+
+						let index = this.cart.findIndex(item => item.id == this.products.id);
+						if (index > -1) this.cart[index].count += 1;
+						else this.cart.push(this.products);
+				
 					}
 					localStorage.setItem("addList", JSON.stringify(this.cart));
+					vmHeader.updateCart();
 				},
 			},
 			mounted() {
