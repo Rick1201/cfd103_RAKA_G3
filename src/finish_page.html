@@ -17,12 +17,19 @@
                         <div class="row">
                             <div class="col-6 center">
                                 <div class="pic-gift">
-                                    <img :src="giftbox">
+                                    <img class="giftboxpic" :src="getjsons.currentBoxImg">
+                                    <img class="giftribbonpic" :src="getjsons.currentRibbonImg">
                                 </div>
                             </div>
                             <div class="col-6 center">
                                 <div class="pic-watch">
-                                    <img :src="watchpic">
+                                    <img class="currentBand" :src="getjsons.currentBand">
+                                    <img class="currentBezel" :src="getjsons.currentBezel">
+                                    <img class="currentFace" :src="getjsons.currentFace">
+                                    <img class="currentFun1" :src="getjsons.currentFun1">
+                                    <img class="currentFun2" :src="getjsons.currentFun2">
+                                    <img class="currentFun3" :src="getjsons.currentFun3">
+                                    <img class="currentPoint" :src="getjsons.currentPoint">
                                 </div>
                             </div>
                         </div>
