@@ -64,7 +64,7 @@
                         </div>
                     </div>
                     <div v-show="currentTab =='word'" class="showpic">
-                        <img class="bottom-img" src="./images/face01.png">
+                        <img class="bottom-img" src="./images/wordbackground.png">
                         <img class="plugin" :src="currentWord" >
                         <div class="watch-item">
                             <div class="selected-item" v-for="(currentItem,index) in currentItems" :key="currentItem"
@@ -454,7 +454,7 @@
                 return{
                     msg: "RAKA",
                     fonts: "Arial",
-                    fontStyles: ["Arial", "Calibri"],
+                    fontStyles: ["Arial","Arial Black","Calibri"],
                     fontSize: 14,
                     fontSizes: [14, 16, 18, 20],
                     fontCor: "black",
