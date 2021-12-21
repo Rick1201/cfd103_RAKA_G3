@@ -1,5 +1,7 @@
 .finshpage{
-    margin-top: 60px;
+    .fixmargin{
+        margin: 0;
+    }
     .center{
         // border: 1px solid red;
         // background-color: royalblue;
@@ -9,14 +11,12 @@
     }
     .pic-gift{
         position: relative;
-        height: auto;
         .giftboxpic{
-            height: 500px;
             object-fit: cover;
             width: 100%;
         }
         .giftribbonpic{
-            height: 500px;
+            // height: 500px;
             object-fit: cover;
             position: absolute;
             top: 0;
@@ -29,11 +29,13 @@
     .pic-watch{
         position: relative;
         box-sizing: border-box;
-        height: 500px;
+        width: 80%;
+        // height: 500px;
         .currentBand{
-            height: 500px;
+            // height: 500px;
             object-fit: cover;
             width: 100%;
+            height: 100%;
         }
         .currentBezel{
             position: absolute;
@@ -41,7 +43,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            height: 500px;
+            // height: 500px;
             object-fit: cover;
             width: 100%;
         }
@@ -51,24 +53,27 @@
             left: 0;
             right: 0;
             bottom: 0;
-            height: 500px;
+            // height: 500px;
             object-fit: cover;
             width: 100%;
         }
         .currentFun1{
             position: absolute;
-            top: 0;
-            left: 0;
+            top: 42%;
+            left: 45.5%;
+            width: 9%;
         }
         .currentFun2{
             position: absolute;
-            top: 0;
-            left: 0;
+            top: 50%;
+            left: 38%;
+            width: 9%;
         }
         .currentFun3{
             position: absolute;
-            top: 0;
-            left: 0;
+            top: 50%;
+            left: 53%;
+            width: 9%;
         }
         .currentPoint{
             position: absolute;
@@ -76,7 +81,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            height: 500px;
+            // height: 500px;
             object-fit: cover;
             width: 100%;
         }
@@ -114,7 +119,7 @@
     .mainform{
         background-color: $blue-secondary;
         width: 80%;
-        padding: 30px;
+        padding:30px;
         // border: 1px solid red;
         // height: 700px;
         // background-color: royalblue;

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
 </head>
 <body>
     @@include('./layout/header.html')
@@ -15,14 +16,14 @@
                 <div class="row center">
                     <div class="col-12">
                         <div class="row">
-                            <div class="col-6 center">
-                                <div class="pic-gift">
+                            <div class="col-6 center fixmargin">
+                                <div class="pic-gift" id="giftDiv">
                                     <img class="giftboxpic" :src="getjsons.currentBoxImg">
                                     <img class="giftribbonpic" :src="getjsons.currentRibbonImg">
                                 </div>
                             </div>
-                            <div class="col-6 center">
-                                <div class="pic-watch">
+                            <div class="col-6 center fixmargin">
+                                <div class="pic-watch" id="watchDiv">
                                     <img class="currentBand" :src="getjsons.currentBand">
                                     <img class="currentBezel" :src="getjsons.currentBezel">
                                     <img class="currentFace" :src="getjsons.currentFace">
@@ -75,7 +76,7 @@
                                  <h2>功能表盤</h2>
                                  <div class="row featureitem">
                                      <div class="col-6 featurepic">
-                                         <img :src="feature">
+                                         <img src="./images/finishfunpic.png">
                                      </div>
                                      <div class="col-6 featuretxt">
                                          <ol>
@@ -137,7 +138,7 @@
              <div class="containerGrid">
                  <div class="row">
                      <div class="col-12 buttonarea">
-                         <button>下訂單</button>
+                         <button @click="screenshot">下訂單</button>
                      </div>
                  </div>
              </div>
@@ -152,31 +153,24 @@
             el: '#app',  
             data: {  // 變數放這裡
                 getjsons:null,
-                message: 'Hello',
-                giftbox: './images/finishboxpict.png',
-                watchpic: './images/finishwatchpic01.png',
-                feature: './images/finishfunpic.png',
-                gray:'./images/finishcircle-g.png',
-                orange:'./images/finishcircle-o.png',
-                fontFamily:'Playfair_Display',
-                fontSize:'12pt',
-                featureTxts:['月相','指北針','錶面'],
-                QRcode:false,
-                divings:['ATM20'],
-                watchPointer:{
-                    color:'玫瑰金'
-                },
-                watchBand:{
-                    color:'玫瑰黑'
-                },
-                surface:{
-                    color:'玫瑰黃'
-                },
-                Bezel:{
-                    color:'玫瑰銀'
-                },
+                watchDivimg:"",
+                giftDivimg:"",
             },
-            methods: {  // 大部分的函數(方法)放這裡
+            methods: { 
+                screenshot(){
+                    const targetwatch = document.querySelector("#watchDiv")
+                    const targetgift = document.querySelector("#giftDiv")
+                    domtoimage.toPng(targetwatch).then((dataUrl) => {
+	            	this.watchDivimg = dataUrl;})
+                    domtoimage.toPng(targetgift).then((giftUrl) => {
+	            	this.giftDivimg = giftUrl;
+                    console.log(this.watchDivimg)
+                    console.log(giftUrl)
+	          	    })
+	          	    .catch(function (error) {
+	            	    console.error('失败===', error);
+	          	    });
+                    },
                
             },
             computed: { // 函數(方法)也可以放這裡，但是放在這裡的函數，不能傳參數，一定要有傳回值
