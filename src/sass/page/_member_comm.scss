@@ -114,18 +114,93 @@
             border: 2px solid $blue-tertiary;
             border-radius: 10px;
             margin: auto;
-            transform: translateY(50%);
+            padding: 10px;
+            transform: translateY(15%);
+            position: relative;
             #closeBox{
+                position: absolute;
                 cursor: pointer;
+                width: 40px;
+                height: 40px;
+                // background-color: $gray-tertiary;
+                display: block;
+                text-align: center;
+                border-radius: 20px;
+                margin-left: auto;
+                color: $gray-tertiary;
+                font-weight: 800;
+                line-height: 40px;
+                right: 0;
+                top: 0;
             }
             .lightbox-header{
                 display: flex;
                 margin: auto;
                 width: 80%;
+                .lightbox-member-img{
+                    width: 50%;
+                    margin-right: 10px;
+                    img{
+                        width: 100%;
+                        vertical-align: middle;
+                    }
+                }
+                .lightbox-member-name{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    h1{
+                        display: block;
+                        padding: 5px;
+                        color: $gray-tertiary;
+                    }
+                    .member-edit-btn{
+                        border-radius: 20px;
+                        padding: 5px;
+                        border: 1px solid $blue-primary;
+                        background-color: $gray-tertiary;
+                    }
+                    input{
+                        visibility:hidden;
+                        display: block;
+                        margin: 0 auto;
+                        width: 100px;
+                    }
+                }
             }
             .lightbox-txt{
                 margin: auto;
+                padding: 5px;
                 width: 70%;
+                h2{
+                    color: $gray-tertiary;
+                    line-height: 20px;
+                }
+                input{
+                    width: 100%;
+                    line-height: 30px;
+                    background-color: $gray-tertiary;
+                }
+                input[type="text"]{
+                    border: 1px solid $blue-primary;
+                    border-radius: 8px;
+                }
+            }
+            .lightbox-btn-check{
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                button{
+                    display: block;
+                    width: 80px;
+                    border-radius: 20px;
+                    padding: 5px;
+                    margin: 5px;
+                    border: 1px solid $blue-primary;
+                    background-color: $gray-tertiary;
+                }
             }
         }
     }

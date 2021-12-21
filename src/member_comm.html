@@ -60,35 +60,34 @@
 					<span id="closeBox">X</span>
 					<div class="lightbox-header">
 						<div class="lightbox-member-img">
-							<img src="https://fakeimg.pl/50">
+							<img src="https://fakeimg.pl/100">
 						</div>
 						<div class="lightbox-member-name">
 							<h1>Emma Li</h1>
-							<input type="file">
+							<label for="files" class="member-edit-btn">選擇大頭貼</label>
+							<input type="file" id="files">
 						</div>
 					</div>
-					<hr>
 					<div class="lightbox-txt">
 						<h2>我的地址</h2>
 						<input class="txt-box" type="text" value="桃園市中壢區復興路46號" id="address">
 					</div>
-					<hr>
 					<div class="lightbox-txt">
 						<h2>Email</h2>
 						<input class="txt-box" type="text" value="123@abc.mail.tw" id="email">
 					</div>
-					<hr>
 					<div class="lightbox-txt">
 						<h2>電話</h2>
 						<input class="txt-box" type="text" value="0955-123-456" id="phone">
 					</div>
-					<hr>
 					<div class="lightbox-txt">
 						<h2>我的信用卡</h2>
 						<input class="txt-box" type="text" value="0000-1234-2222-2333" id="card">
 					</div>
-					<button>取消</button>
-					<button>儲存</button>
+					<div class="lightbox-btn-check">
+						<button>取消</button>
+						<button>儲存</button>
+					</div>
 				</div>
 			</div>
 			@@include('./layout/footer.html')
