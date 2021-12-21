@@ -204,7 +204,7 @@
 						</div>
 					</div>
 					<hr>
-				<div>
+				</div>
 			`,
 		});
 
@@ -234,7 +234,6 @@
 							count:1,
 						},
 					cart:[],
-					ooxx:null,
 				}
             },
 			methods: {
@@ -242,12 +241,13 @@
                     let storageArray = JSON.parse(localStorage.getItem('addList'));
                     this.cart = storageArray;
                     this.itemCount = this.cart.length;
-                    console.log(this.itemCount)
                 },
 				addLocal(){
 					if(this.cart == null){
+						// alert()
 						// this.cart = this.products;
 						this.cart.push(this.products);
+						// this.cart.push(123);
 					}else{                      
 						// for (let i = 0; i < this.cart.length; i++){
 						// 	console.log(this.cart)
@@ -260,7 +260,6 @@
 						// 		this.cart.push(this.products[0]);
 						// 	}
 						// }
-
 						let index = this.cart.findIndex(item => item.id == this.products.id);
 						if (index > -1) this.cart[index].count += 1;
 						else this.cart.push(this.products);
@@ -271,9 +270,8 @@
 				},
 			},
 			mounted() {
-				let storageArray = JSON.parse(localStorage.getItem('addList'));
-				this.cart = storageArray;
 				this.updateCart();
+				
 			},
 			// addLocal(){
 			// 	let prodCart = localStorage.setItem("addList", JSON.stringify(this.products));
