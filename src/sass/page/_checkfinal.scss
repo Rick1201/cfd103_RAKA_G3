@@ -29,7 +29,7 @@
     font-size: 18px;
     padding-bottom: 10px;
 }
-button{
+.final button{
     @include btnStyle($btnColor-primary,100px);
    
 }
