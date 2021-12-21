@@ -62,7 +62,7 @@
             methods: {
                 updateCart(){
                     let storageArray = JSON.parse(localStorage.getItem('addList'));
-                    this.cart = storageArray;
+                    this.cart = storageArray||[];
                     this.itemCount = this.cart.length;
                 }
             },
