@@ -8,10 +8,13 @@
         .cuzname{
             border: none;
             outline: none;
-            border-bottom: 1px solid black;
+            border-bottom: 1px solid $blue-tertiary;
             margin: 0 0 20px;
             font-size: 24px;
             width: 200px;
+        }
+        .fa-pen{
+            color:$blue-tertiary;
         }
         .cuz-bar{
             width: 10%;
@@ -19,10 +22,18 @@
             flex-direction: column;
             justify-content: space-evenly;
             align-items: center;
-            div p{
-                writing-mode: vertical-lr;
-                color: #293B5F;
+            div {
+                color: $blue-tertiary;
                 font-size: 32px;
+                padding: 20px 10px;
+                border-radius: 10px;
+                p{
+                    writing-mode: vertical-lr;
+                }
+            }
+            .activetab{
+                background-color:$blue-tertiary;
+                color: white;
             }
         }
         .show-box{
@@ -54,7 +65,7 @@
                         .selected-item{
                             width: 23%;
                             // height: 105px;
-                            border: 2px solid #293B5F;
+                            border: 2px solid $blue-tertiary;
                             border-radius: 30px;
                             cursor: pointer;
                             .selected-img{
@@ -100,7 +111,7 @@
 
                         a{
                             text-decoration: none;
-                            color: #293B5F;
+                            color: $blue-tertiary;
                         }
                     }
                 }
@@ -130,7 +141,7 @@
                     width: 20%;
                     padding:0 15px ;
                     border-radius: 30px 0 0 30px;
-                    background-color: #293B5F;
+                    background-color: $blue-tertiary;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-evenly;
@@ -143,7 +154,7 @@
                     }
                 }
                 .cuz-item{
-                    background-color: #F8F2F2;
+                    background-color:$gray-tertiary;
                     width: 80%;
                     max-height: 850px;
                     border-radius: 0 30px 30px 0;
@@ -165,7 +176,7 @@
                         }
                         p{
                             text-align: center;
-                            color: #293B5F;
+                            color: $blue-tertiary;
                             font-size: 24px;
                         }
                     }
@@ -173,12 +184,12 @@
             }
             .function-page{
                 padding:20px;
-                border: 2px solid #293B5F;
+                border: 2px solid $blue-tertiary;
                 border-radius: 30px;
                 height: 100%;
                 h3{
                     font-size: 28px;
-                    color: #293B5F;
+                    color: $blue-tertiary;
                     margin-bottom: 20px;
                 }
                 .fun-area{
@@ -203,13 +214,13 @@
                             label{
                                 font-size: 24px;
                                 margin-right: 20px;
-                                color: #293B5F;
+                                color: $blue-tertiary;
                             }
                             select{
                                 width: 150px;
                                 font-size: 24px;
-                                color: #293B5F;
-                                background-color: #F8F2F2;
+                                color: $blue-tertiary;
+                                background-color: $gray-tertiary;
                                 border-radius: 10px;
                                 padding: 5px 10px;
                             }
@@ -223,7 +234,7 @@
                     }
                     label{
                         font-size: 24px;
-                        color: #293B5F;
+                        color: $blue-tertiary;
                     }
                 }
 
@@ -231,7 +242,7 @@
 
             .word-page{
                 width: 100%;
-                border: 2px solid #293B5F;
+                border: 2px solid $blue-tertiary;
                 border-radius: 30px;
                 height: 100%;
                 padding: 40px 20px;
@@ -240,15 +251,15 @@
                     label{
                         display: block;
                         font-size: 24px;
-                        color: #293B5F;
+                        color: $blue-tertiary;
                         margin-bottom: 10px;
                     }
                     input{
                         font-size: 24px;
                         padding: 5px;
-                        color: #293B5F;
+                        color: $blue-tertiary;
                         width: 100%;
-                        background-color: #F8F2F2;
+                        background-color: $gray-tertiary;
                         border-radius: 10px;
                     }
                 }
@@ -257,15 +268,15 @@
                     label{
                         display: block;
                         font-size: 24px;
-                        color: #293B5F;
+                        color: $blue-tertiary;
                         border-radius: 10px;
                         margin-bottom: 10px;
                     }
                     select{
                         display: block;
                         font-size: 24px;
-                        color: #293B5F;
-                        background-color: #F8F2F2;
+                        color: $blue-tertiary;
+                        background-color: $gray-tertiary;
                         width: 100%;
                         padding: 5px;
                         border-radius: 10px;
@@ -276,16 +287,16 @@
                     label{
                         display: block;
                         font-size: 24px;
-                        color: #293B5F;
+                        color: $blue-tertiary;
                         margin-bottom: 10px;
                     }
                     select{
                         display: block;
                         font-size: 24px;
-                        color: #293B5F;
+                        color: $blue-tertiary;
                         width: 100%;
                         padding: 5px;
-                        background-color: #F8F2F2;
+                        background-color: $gray-tertiary;
                         border-radius: 10px;
                     }
                 }
@@ -295,14 +306,14 @@
                     @include btnStyle($btnColor-primary,50%);
                     height: 30px;
                     display: block;
-                    color: #293B5F;
+                    color: $blue-tertiary;
                 }
 
             }
 
             .package-page{
                 width: 100%;
-                border: 2px solid #293B5F;
+                border: 2px solid $blue-tertiary;
                 border-radius: 30px;
                 height: 100%;
                 padding: 40px 20px;
@@ -310,7 +321,7 @@
                     margin-bottom: 60px;
                     h3{
                         font-size: 24px;
-                        color: #293b5f;
+                        color: $blue-tertiary;
                         margin-bottom: 20px;
                     }
                     ul{
@@ -327,7 +338,7 @@
                 .ribbon-color{
                     h3{
                         font-size: 24px;
-                        color: #293b5f;
+                        color: $blue-tertiary;
                         margin-bottom: 20px;
     
                     }
@@ -356,7 +367,7 @@
                 border: none;
                 outline: none;
                 border-bottom: 1px solid black;
-                margin: 0 0 20px 30px;
+                margin: 0 0 20px 20px;
                 font-size: 24px;
                 width: 150px;
             }
@@ -364,9 +375,14 @@
                 width: 100%;
                 flex-direction: row;
                 margin-bottom: 20px;
-                div p{
-                    writing-mode:unset;
-                }
+                div{
+                    font-size: $fontSize-Title;
+                    padding: 10px;
+                    border-radius: 10px;
+                    p{
+                        writing-mode: unset;
+                    }
+                } 
             }
             .show-box{
                 width: 100%;
@@ -374,7 +390,6 @@
                     width: 100%;
                     .showpic{
                         position: relative;
-                        z-index: 2;
                         width: 100%;
                         .float-img{
                             position: absolute;
@@ -394,19 +409,6 @@
                             top :50%;
                             left: 0;
                         }
-                        .finish-btn{
-                            @include btnStyle($btnColor-primary,50%);
-                            font-size:24px;
-                            position: absolute;
-                            bottom:10%;
-                            left: 50%;
-                            transform: translateX(-50%);
-    
-                            a{
-                                text-decoration: none;
-                                color: #293B5F;
-                            }
-                        }
                     }
                     .showpic:nth-child(2){
                         .watch-item{
@@ -415,12 +417,12 @@
                     }
                     .showpic:nth-child(3){
                         .watch-item{
-                            visibility: hidden;
+                            display: none;
                         }
                     }
                     .showpic:nth-child(4){
                         .watch-item{
-                            visibility: hidden;
+                            display: none;
                         }
                     }
                 }
@@ -435,7 +437,7 @@
                         width: 100%;
                         padding:0 15px ;
                         border-radius: 30px 30px 0 0;
-                        background-color: #293B5F;
+                        background-color: $blue-tertiary;
                         display: flex;
                         flex-direction: row;
                         justify-content: space-evenly;
@@ -459,39 +461,20 @@
                         overflow-y: unset;
                         overflow-x: scroll;
                         .pic{
-                            width: 80px;
+                            width: 33.333333%;
                             padding: 10px;
                             flex-shrink: 0;
                             p{
-                                text-align: center;
-                                color: #293B5F;
-                                font-size: 18px;
+                                font-size: $fontSize-middle;
                             }
                         }
                     }
                 }
                 .function-page{
-                    padding:20px;
-                    border: 2px solid #293B5F;
-                    border-radius: 30px;
-                    height: 100%;
                     h3{
-                        font-size: 28px;
-                        color: #293B5F;
-                        margin-bottom: 20px;
+                        font-size: $fontSize-SubTitle;
                     }
                     .fun-area{
-                        margin:0 0 80px;
-                        display: flex;
-                        align-content: center;
-                        .fun-pic{
-                            width: 40%;
-                            margin-right: 20px;
-                            img{
-                                width: 100%;
-                                vertical-align: bottom;
-                            }
-                        }
                         .fun-select{
                             display: flex;
                             flex-direction: column;
@@ -500,101 +483,54 @@
                                 display: flex;
                                 align-items: center;
                                 label{
-                                    font-size: 24px;
-                                    margin-right: 20px;
-                                    color: #293B5F;
+                                    font-size: $fontSize-middle;
+
                                 }
                                 select{
-                                    width: 150px;
-                                    font-size: 24px;
-                                    color: #293B5F;
-                                    background-color: #F8F2F2;
-                                    border-radius: 10px;
-                                    padding: 5px 10px;
+                                    font-size:$fontSize-middle;
                                 }
                             }
                         }
                     }
                     .dive-area{
                         input{
-                            font-size: 24px;
-                            margin:0 20px 20px 0;
+                            font-size: $fontSize-middle;
                         }
                         label{
-                            font-size: 24px;
-                            color: #293B5F;
+                            font-size: $fontSize-middle;
+                            color: $blue-tertiary;
                         }
                     }
     
                 }
     
                 .word-page{
-                    width: 100%;
-                    border: 2px solid #293B5F;
-                    border-radius: 30px;
-                    height: 100%;
-                    padding: 40px 20px;
                     .content_zone{
-                        margin-bottom: 30px;
                         label{
-                            display: block;
-                            font-size: 24px;
-                            color: #293B5F;
-                            margin-bottom: 10px;
+                            font-size: $fontSize-middle;
                         }
                         input{
-                            font-size: 24px;
-                            padding: 5px;
-                            color: #293B5F;
-                            width: 100%;
-                            background-color: #F8F2F2;
-                            border-radius: 10px;
+                            font-size: $fontSize-middle;
                         }
                     }
                     .fontStyle_zone{
-                        margin-bottom: 30px;
                         label{
-                            display: block;
-                            font-size: 24px;
-                            color: #293B5F;
-                            border-radius: 10px;
-                            margin-bottom: 10px;
+                            font-size: $fontSize-middle;
                         }
                         select{
-                            display: block;
-                            font-size: 24px;
-                            color: #293B5F;
-                            background-color: #F8F2F2;
-                            width: 100%;
-                            padding: 5px;
-                            border-radius: 10px;
+                            font-size: $fontSize-middle;
                         }
                     }
                     .fontWeight_zone{
-                        margin-bottom: 80px;
                         label{
-                            display: block;
-                            font-size: 24px;
-                            color: #293B5F;
-                            margin-bottom: 10px;
+                            font-size: $fontSize-middle;
                         }
                         select{
-                            display: block;
-                            font-size: 24px;
-                            color: #293B5F;
-                            width: 100%;
-                            padding: 5px;
-                            background-color: #F8F2F2;
-                            border-radius: 10px;
+                            font-size: $fontSize-middle;
                         }
                     }
                     .check-word{
-                        font-size: 24px;
-                        margin: auto;
-                        @include btnStyle($btnColor-primary,50%);
-                        height: 30px;
-                        display: block;
-                        color: #293B5F;
+                        font-size: $fontSize-middle;
                     }
     
                 } 

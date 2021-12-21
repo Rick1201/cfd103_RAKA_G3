@@ -22,7 +22,12 @@
         </div>
         <div class="container">
             <div class="cuz-bar">
-                <div v-for="(cuzTab, index) in cuzTabs" :key="index" @click="currentTab = cuzTab.page">
+                <div class="active-tab" 
+                v-for="(cuzTab, index) in cuzTabs" 
+                :key="index" 
+                @click="activeCuzTab(index) ,currentTab = cuzTab.page"
+                :class="{activetab:currentTabIndex == index}"
+                >
                     <p>{{cuzTab.tab}}</p>
                 </div>
             </div>
@@ -209,23 +214,6 @@
                                     url: "./images/point04.png",
                                     itemName: "黃指針",
                                 },
-                                {
-                                    url: "./images/point03.png",
-                                    itemName: "灰指針",
-                                },
-                                {
-                                    url: "./images/point04.png",
-                                    itemName: "黃指針",
-                                },
-                                {
-                                    url: "./images/point03.png",
-                                    itemName: "灰指針",
-                                },
-                                {
-                                    url: "./images/point04.png",
-                                    itemName: "黃指針",
-                                },
- 
                             ],
                         },
 
@@ -630,6 +618,7 @@
         new Vue({
             el: '#cuz-section',
             data: {  // 變數放這裡
+                currentTabIndex: 0,
                 currentTab: "outer",
                 currentOuterTab:"",
                 currentBezel: "./images/bezel01.png",
@@ -782,23 +771,6 @@
                                     url: "./images/point04.png",
                                     itemName: "黃指針",
                                 },
-                                {
-                                    url: "./images/point03.png",
-                                    itemName: "灰指針",
-                                },
-                                {
-                                    url: "./images/point04.png",
-                                    itemName: "黃指針",
-                                },
-                                {
-                                    url: "./images/point03.png",
-                                    itemName: "灰指針",
-                                },
-                                {
-                                    url: "./images/point04.png",
-                                    itemName: "黃指針",
-                                },
- 
                             ],
                         },
 
@@ -813,6 +785,11 @@
                 },
             },
             methods: {
+                activeCuzTab(index){
+                    this.currentTabIndex = index;
+                },
+
+
                 getItem(img) {
                     if (img.url.includes("bezel")) {
                         this.currentBezel = img.url;
