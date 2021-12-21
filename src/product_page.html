@@ -233,14 +233,15 @@
 							prodImg:'./images/product_page_02.png',
 							count:1,
 						},
-					cart:[],
+					cart:null,
 				}
             },
 			methods: {
 				updateCart(){
                     let storageArray = JSON.parse(localStorage.getItem('addList'));
-                    this.cart = storageArray;
+                    this.cart = storageArray||[];
                     this.itemCount = this.cart.length;
+					console.log(this.cart);
                 },
 				addLocal(){
 					if(this.cart == null){
