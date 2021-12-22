@@ -471,7 +471,7 @@
                     let context = canvas.getContext("2d");
                     let width = context.measureText(text).width;
                     if (width < 240) {
-                        width = 200;
+                        width = 400;
                     } else {
                         width = width + 30;
                     }
@@ -521,27 +521,27 @@
                 return{
                     boxColors:[
                         {
-                            colorId: 01,
+                            colorId: 1,
                             colorBtn:"./images/color01.png",
                             boxImg:"./images/box01.png",
                         },
                         {
-                            colorId:"02",
+                            colorId:2,
                             colorBtn:"./images/color02.png",
                             boxImg:"./images/box02.png",
                         },
                         {
-                            colorId:"03",
+                            colorId:3,
                             colorBtn:"./images/color03.png",
                             boxImg:"./images/box03.png",
                         },
                         {
-                            colorId:"04",
+                            colorId:4,
                             colorBtn:"./images/color04.png",
                             boxImg:"./images/box04.png",
                         },
                         {
-                            colorId:"05",
+                            colorId:5,
                             colorBtn:"./images/color05.png",
                             boxImg:"./images/box05.png",
                         },
@@ -549,27 +549,27 @@
 
                     ribbonColors:[
                         {
-                            colorId:"01",
+                            colorId:1,
                             colorBtn:"./images/color01.png",
                             ribbonImg:"./images/ribbon01.png",
                         },
                         {
-                            colorId:"02",
+                            colorId:2,
                             colorBtn:"./images/color02.png",
                             ribbonImg:"./images/ribbon02.png",
                         },
                         {
-                            colorId:"03",
+                            colorId:3,
                             colorBtn:"./images/color03.png",
                             ribbonImg:"./images/ribbon03.png",
                         },
                         {
-                            colorId:"04",
+                            colorId:4,
                             colorBtn:"./images/color04.png",
                             ribbonImg:"./images/ribbon04.png",
                         },
                         {
-                            colorId:"05",
+                            colorId:5,
                             colorBtn:"./images/color05.png",
                             ribbonImg:"./images/ribbon05.png",
                         },
@@ -808,6 +808,8 @@
 
                 changeOuterTab(index){
                     this.currentOuterTab = this.outerPages[index];
+                    this.currentTab = "outer";
+                    this.currentTabIndex = 0;
                 },
 
                 getFun(funs) {
