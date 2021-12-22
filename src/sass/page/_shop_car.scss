@@ -15,7 +15,7 @@
         align-items: center;
         margin-top: 63px;
         border: 1px solid black;
-        width: 838px;
+        width: 538px;
         height: 172px;
         justify-content: center;
         background-image: url('/images/bg.jpeg');
@@ -43,7 +43,7 @@
     }
     dt{
         position: relative;
-        left:150px;
+        left:60px;
         bottom:5px;
         color:#163257;
     }
@@ -61,7 +61,7 @@
         background: #f8f8f8;
     }
     .money_detail{
-        width: 529px;
+        width: 400px;
         height: 700px;
         border: 1px solid black;
         display: flex;
@@ -74,21 +74,20 @@
     .money{
         display: flex;
         flex-direction: column;
-        width: 530px;
+        width: 400px;
         height: 50px;
         align-items: center;
     }
     .money01{
-        width: 533px;
+        width: 400px;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
     .money02{
-        width: 533px;
+        width: 400px;
         display: flex;
         flex-direction: column;
-        align-items: center;
     }
     .m01{
         display: flex;
@@ -96,14 +95,13 @@
     .m02{
         display: flex;
         border-top: 1px solid black;
-        width:525px;
+        width:400px;
     }
     .m02 p{
         color:#163257;
         font-weight: 900;
     }
     .m01 h2{
-        margin-right: 455px;
         position: relative;
         top: 30px;
         color:#163257;
@@ -118,7 +116,7 @@
     .m03{
         display: flex;
         border-bottom: 1px solid black;
-        width:525px;
+        width:400px;
         margin-top: 30px;
         color:#163257;
         font-weight: 900;
@@ -143,7 +141,7 @@
     .m06{
         display: flex;
         border-bottom: 1px solid black;
-        width:525px;
+        width:400px;
         margin-top: 30px;
         color:#163257;
         font-weight: 900;
@@ -154,11 +152,10 @@
         color:#163257;
     }
     .money03{
-        width: 533px;
+        width: 400px;
         height: 127px;
         display: flex;
         flex-direction: column;
-        align-items: center;
     }
     .money_detail span{
         text-align: end;
@@ -167,7 +164,7 @@
     .money_detail button{
         width:100px;
         position: relative;
-        left: 430px;
+        left: 290px;
         bottom: -10px;
         @include btnStyle($btnColor-primary,100px);
     }
