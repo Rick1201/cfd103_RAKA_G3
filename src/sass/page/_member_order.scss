@@ -8,7 +8,6 @@
     }
     .selectbarbtn {    
     cursor: pointer;
-    
     width: 33.33333%;
     background-color: rgb(255, 255, 255);
     border-radius: 5px 5px 0 0 ;
@@ -22,6 +21,7 @@
     .selectbarbtn:active {
         background-color: #27316b;
         transform: translateY(4px);
+    }
     .member{
         display: flex;
         width: 70%;
@@ -41,13 +41,11 @@
         flex-wrap: wrap;
         min-height: 70px;
         padding: 10px;
-
     }
 
     .member_text div{
         width: 33.3333%;
         display: flex;
-
         margin: 10px;
         margin-left: 30px;
         margin-right: 30px;
