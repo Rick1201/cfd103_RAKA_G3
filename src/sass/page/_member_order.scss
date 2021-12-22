@@ -9,7 +9,7 @@
     .selectbarbtn {    
     cursor: pointer;
     width: 33.33333%;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(193, 195, 214);
     border-radius: 5px 5px 0 0 ;
     min-height: 50px;
     font-size: 18px;
@@ -20,7 +20,6 @@
     // .selectbarbtn:hover {background-color: #3e468e}
     .selectbarbtn:active {
         background-color: #27316b;
-        transform: translateY(4px);
     }
     .member{
         display: flex;
