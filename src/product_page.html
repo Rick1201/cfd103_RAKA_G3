@@ -22,20 +22,20 @@
 				<div class="product-pic">
 					<div class="switch-pics">
 						<div class="switch-pic">
-							<img class="clicked" src="./images/product_page_01.png" alt="">
+							<img class="clicked" :src="switchpic1" alt="">
 						</div>
 						<div class="switch-pic">
-							<img src="./images/product_page_02.png" alt="">
+							<img :src="switchpic2" alt="">
 						</div>
 						<div class="switch-pic">
-							<img src="./images/product_page_03.png" alt="">
+							<img :src="switchpic3" alt="">
 						</div>
 						<div class="switch-pic">
-							<img src="./images/product_page_04.png" alt="">
+							<img :src="switchpic4" alt="">
 						</div>
 					</div>
 					<div class="main-pic">
-						<img src="./images/product_page_01.png" alt="">
+						<img :src="pagepic" alt="">
 					</div>
 				</div>
 				<div class="product-title">
@@ -69,7 +69,7 @@
 					<div class="item">
 						<div class="product-card">
 							<div class="product-pic">
-								<img src="./images/product_page_01.png" alt="">
+								<img :src="suggestpic" alt="">
 							</div>
 							<div class="product-txt">
 								<h4>RAKA-1001</h4>
@@ -80,7 +80,7 @@
 					<div class="item">
 						<div class="product-card">
 							<div class="product-pic">
-								<img src="./images/product_page_01.png" alt="">
+								<img :src="suggestpic" alt="">
 							</div>
 							<div class="product-txt">
 								<h4>RAKA-1002</h4>
@@ -91,7 +91,7 @@
 					<div class="item">
 						<div class="product-card">
 							<div class="product-pic">
-								<img src="./images/product_page_01.png" alt="">
+								<img :src="suggestpic" alt="">
 							</div>
 							<div class="product-txt">
 								<h4>RAKA-1003</h4>
@@ -102,7 +102,7 @@
 					<div class="item">
 						<div class="product-card">
 							<div class="product-pic">
-								<img src="./images/product_page_01.png" alt="">
+								<img :src="suggestpic" alt="">
 							</div>
 							<div class="product-txt">
 								<h4>RAKA-1004</h4>
@@ -234,6 +234,12 @@
 							count:1,
 						},
 					cart:null,
+					switchpic1:'./images/product_page_01.png',
+					switchpic2:'./images/product_page_02.png',
+					switchpic3:'./images/product_page_03.png',
+					switchpic4:'./images/product_page_04.png',
+					pagepic:'./images/product_page_01.png',
+					suggestpic:'./images/product_page_01.png'
 				}
             },
 			methods: {
