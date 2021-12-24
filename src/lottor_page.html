@@ -9,9 +9,115 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js"></script>
     <title>Document</title>
+    <!-- <style>
+        /* #app{
+            max-height: 100vh;
+        } */
+        .container{
+            max-width: 1200px;
+            max-height: 100vh;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .backgroundlotter{
+            width: 40%;
+            position: relative;
+        }
+        .backgroundlotter img{
+            width: 100%;
+            object-fit: cover;
+        }
+        .circlearea{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+        }
+        .circlearea img{
+           width: 100%;
+           object-fit: cover;
+        }
+        .point{
+            position: absolute;
+            transform-origin:(-50%,-50%);
+            top: 16%;
+        }
+        .point img{
+           width: 100%;
+        }
+        rain{ 
+            position: absolute;
+            top: 0px;
+            animation: animate 5s linear infinite;
+            z-index: -1;
+            background-image: url(./img/bluebubble.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 40px;
+            height: 40px;
+        }
+        rain:nth-child(3n+1){
+            position: absolute;
+            top: 0px;
+            animation: animate 5s linear infinite;
+            z-index: -1;
+            background-image: url(./img/pinkbubble.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 40px;
+            height: 40px;
+        }
+        @keyframes animate {
+        100% {
+            transform: translateY(-120px);
+        }
+        0% {
+            transform: translateY(100vh);
+        }
+        }
+        .jumpbox{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .jumpbox .box{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .jumpbox .box .pic img{
+            width: 100%;
+        }
+        .jumpbox .box .txt{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+        }
+        .jumpbox .box .txt button{
+            display: inline-block;
+            margin: 0px 10px;
+        }
+        .startbtn{
+            position: absolute;
+            top: 55%;
+            left: 15%;
+        }
+        .startbtn h1{
+            border-bottom: 1px solid #aaa;
+        }
+    </style> -->
 </head>
 <body>
-    <div id="gameapp">
+    <div class="game" id="gameapp">
         <section class="game_page">
             <div class="container">
                 <div class="backgroundlotter">
@@ -28,16 +134,18 @@
                 <button @click="btn">旋轉你的優惠</button>
             </div>
         </section>
-        <div v-if="isShow" class="jumpcover">
-            <div class="ju-box">
+        <div v-if="isShow" class="jumpbox">
+            <div class="box">
                 <div class="pic">
                     <img src="./images/mailpapper.png" alt="">
                 </div>
                 <div class="txt">
                     <h2>恭喜您獲得</h2>
                     <h2>{{prizes[prizeindex]}}</h2>
-                    <button><a ref="##">商店逛逛</a></button>
-                    <button @click="restart">再玩一次</button>
+                    <div class="btn">
+                        <button><a ref="##">商店逛逛</a></button>
+                        <button @click="restart">再玩一次</button>
+                    </div>
                 </div>
             </div>
         </div>
