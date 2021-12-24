@@ -1,125 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="./css/gird.css"> -->
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js"></script>
-    <title>Document</title>
-    <!-- <style>
-        /* #app{
-            max-height: 100vh;
-        } */
-        .container{
-            max-width: 1200px;
-            max-height: 100vh;
-            margin: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .backgroundlotter{
-            width: 40%;
-            position: relative;
-        }
-        .backgroundlotter img{
-            width: 100%;
-            object-fit: cover;
-        }
-        .circlearea{
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            right: 0px;
-            bottom: 0px;
-        }
-        .circlearea img{
-           width: 100%;
-           object-fit: cover;
-        }
-        .point{
-            position: absolute;
-            transform-origin:(-50%,-50%);
-            top: 16%;
-        }
-        .point img{
-           width: 100%;
-        }
-        rain{ 
-            position: absolute;
-            top: 0px;
-            animation: animate 5s linear infinite;
-            z-index: -1;
-            background-image: url(./img/bluebubble.png);
-            background-repeat: no-repeat;
-            background-size: contain;
-            width: 40px;
-            height: 40px;
-        }
-        rain:nth-child(3n+1){
-            position: absolute;
-            top: 0px;
-            animation: animate 5s linear infinite;
-            z-index: -1;
-            background-image: url(./img/pinkbubble.png);
-            background-repeat: no-repeat;
-            background-size: contain;
-            width: 40px;
-            height: 40px;
-        }
-        @keyframes animate {
-        100% {
-            transform: translateY(-120px);
-        }
-        0% {
-            transform: translateY(100vh);
-        }
-        }
-        .jumpbox{
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-        .jumpbox .box{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-        }
-        .jumpbox .box .pic img{
-            width: 100%;
-        }
-        .jumpbox .box .txt{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            text-align: center;
-        }
-        .jumpbox .box .txt button{
-            display: inline-block;
-            margin: 0px 10px;
-        }
-        .startbtn{
-            position: absolute;
-            top: 55%;
-            left: 15%;
-        }
-        .startbtn h1{
-            border-bottom: 1px solid #aaa;
-        }
-    </style> -->
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <link rel="stylesheet" href="./css/gird.css"> -->
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js"></script>
+        <title>Document</title>
+    </head>
 <body>
+   
+
+    @@include('./layout/header.html')
     <div class="game" id="gameapp">
         <section class="game_page">
-            <div class="container">
+            <div class="containergame">
                 <div class="backgroundlotter">
                     <img src="./images/containerarea.png" alt="">
                     <div class="circlearea">
@@ -150,6 +47,7 @@
             </div>
         </div>
     </div>
+    @@include('./layout/footer.html') 
     <script>
         new Vue({
             el: '#gameapp',  
@@ -158,10 +56,10 @@
                 count:0,
                 prizes:['銘謝惠顧','7折優惠','3折優惠','5折優惠','9折優惠','1折優惠'],
                 prizeindex:0,
-                isShow:true,
+                isShow:false,
                 runsec:0,
                 rains:[],
-                raincount:30,
+                raincount:40,
                 screenWidth:document.body.clientWidth,
             },
             methods: {  // 大部分的函數(方法)放這裡
@@ -186,7 +84,7 @@
                },
                draw(){
 
-                   let area = document.querySelector('.container');
+                   let area = document.querySelector('.containergame');
                    for(let i=0;i<this.raincount;i++){
                     let bubble = document.createElement('rain');
                     let screen=this.screenWidth

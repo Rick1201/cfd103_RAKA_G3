@@ -2,7 +2,11 @@
 @import "../base/var";
 @import "../base/base";
 
-.game{
+.game{ 
+        margin-bottom: 60px;
+    .game_page{
+        margin-top: 60px;
+    }
     .startbtn{
         position: absolute;
         top: 55%;
@@ -44,7 +48,7 @@
         transform: translateY(-120px);
     }
     0% {
-        transform: translateY(100vh);
+        transform: translateY(900px);
     }
     }
     .jumpbox{
@@ -84,7 +88,7 @@
         line-height: 10px;
         @include btnStyle($btnColor-primary,100%);
     }
-    .container{
+    .containergame{
         max-width: 1200px;
         max-height: 100vh;
         margin: auto;
