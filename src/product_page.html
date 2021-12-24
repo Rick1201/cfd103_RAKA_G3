@@ -71,9 +71,9 @@
 							<div class="product-pic">
 								<img :src="suggestpic" alt="">
 							</div>
-							<div class="product-txt">
-								<h4>RAKA-1001</h4>
-								<P>NT$ 1200</P>
+							<div class="product-txt" v-for="(item, index) in title">
+								<h4>{{item.name}}</h4>
+								<P>{{item.price}}</P>
 							</div>
 						</div>
 					</div>
@@ -82,9 +82,9 @@
 							<div class="product-pic">
 								<img :src="suggestpic" alt="">
 							</div>
-							<div class="product-txt">
-								<h4>RAKA-1002</h4>
-								<P>NT$ 1200</P>
+							<div class="product-txt"  v-for="(item, index) in title">
+								<h4>{{item.name}}</h4>
+								<P>{{item.price}}</P>
 							</div>
 						</div>
 					</div>
@@ -93,9 +93,9 @@
 							<div class="product-pic">
 								<img :src="suggestpic" alt="">
 							</div>
-							<div class="product-txt">
-								<h4>RAKA-1003</h4>
-								<P>NT$ 1200</P>
+							<div class="product-txt"  v-for="(item, index) in title">
+								<h4>{{item.name}}</h4>
+								<P>{{item.price}}</P>
 							</div>
 						</div>
 					</div>
@@ -104,9 +104,9 @@
 							<div class="product-pic">
 								<img :src="suggestpic" alt="">
 							</div>
-							<div class="product-txt">
-								<h4>RAKA-1004</h4>
-								<P>NT$ 1200</P>
+							<div class="product-txt"  v-for="(item, index) in title">
+								<h4>{{item.name}}</h4>
+								<P>{{item.price}}</P>
 							</div>
 						</div>
 					</div>
@@ -239,7 +239,11 @@
 					switchpic3:'./images/product_page_03.png',
 					switchpic4:'./images/product_page_04.png',
 					pagepic:'./images/product_page_01.png',
-					suggestpic:'./images/product_page_01.png'
+					suggestpic:'./images/product_page_01.png',
+					title:[{
+						name:'RAKA-1001',
+						price:'NT$1200'
+					}]
 				}
             },
 			methods: {
