@@ -2,7 +2,11 @@
 @import "../base/var";
 @import "../base/base";
 
-.game{
+.game{ 
+        margin-bottom: 60px;
+    .game_page{
+        margin-top: 60px;
+    }
     .startbtn{
         position: absolute;
         top: 55%;
@@ -44,7 +48,7 @@
         transform: translateY(-120px);
     }
     0% {
-        transform: translateY(100vh);
+        transform: translateY(900px);
     }
     }
     .jumpbox{
@@ -84,7 +88,7 @@
         line-height: 10px;
         @include btnStyle($btnColor-primary,100%);
     }
-    .container{
+    .containergame{
         max-width: 1200px;
         max-height: 100vh;
         margin: auto;
@@ -119,4 +123,35 @@
         }
     }
 
+}
+@media screen and (max-width:375px){
+    .game{
+        margin-bottom: 200px;
+        .startbtn{
+            position: absolute;
+            top: 50%;
+            left: 30%;
+        }
+        .jumpbox{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .jumpbox .box{
+            width: 100%;
+            margin: 0px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            .txt{
+                .btn{
+                    width: 200px;
+                }
+            }
+        }
+    }
 }
