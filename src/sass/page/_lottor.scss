@@ -1,0 +1,157 @@
+@import "../mixin/mixin";
+@import "../base/var";
+@import "../base/base";
+
+.game{ 
+        margin-bottom: 60px;
+    .game_page{
+        margin-top: 60px;
+    }
+    .startbtn{
+        position: absolute;
+        top: 55%;
+        left: 15%;
+        h1{
+            border-bottom: 1px solid #aaa;
+        }
+        h2{
+            padding: 20px 0px;
+        }
+        button{
+            @include btnStyle($btnColor-primary,100%);
+        }
+    }
+    rain{ 
+        position: absolute;
+        top: 0px;
+        animation: animate 5s linear infinite;
+        z-index: -1;
+        background-image: url(../../images/bluebubble.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 40px;
+        height: 40px;
+    }
+    rain:nth-child(3n+1){
+        position: absolute;
+        top: 0px;
+        animation: animate 5s linear infinite;
+        z-index: -1;
+        background-image: url(../../images/pinkbubble.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 40px;
+        height: 40px;
+    }
+    @keyframes animate {
+    100% {
+        transform: translateY(-120px);
+    }
+    0% {
+        transform: translateY(900px);
+    }
+    }
+    .jumpbox{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .jumpbox .box{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .jumpbox .box .pic img{
+        width: 100%;
+    }
+    .jumpbox .box .txt{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+        h2{
+            padding: 10px 0px;
+        }
+        .btn{
+            display: flex;
+        }
+    }
+
+    .jumpbox .box .txt button{
+        margin: 10px 10px;
+        padding: 10px;
+        line-height: 10px;
+        @include btnStyle($btnColor-primary,100%);
+    }
+    .containergame{
+        max-width: 1200px;
+        max-height: 100vh;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .backgroundlotter{
+            width: 40%;
+            position: relative;
+            img{
+                width: 100%;
+            }
+            .circlearea{
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                img{
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+            .point{
+                position: absolute;
+                transform-origin:(-50%,-50%);
+                top: 16%;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+}
+@media screen and (max-width:375px){
+    .game{
+        margin-bottom: 200px;
+        .startbtn{
+            position: absolute;
+            top: 50%;
+            left: 30%;
+        }
+        .jumpbox{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .jumpbox .box{
+            width: 100%;
+            margin: 0px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            .txt{
+                .btn{
+                    width: 200px;
+                }
+            }
+        }
+    }
+}

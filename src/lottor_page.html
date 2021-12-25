@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <link rel="stylesheet" href="./css/gird.css"> -->
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js"></script>
+        <title>Document</title>
+    </head>
+<body>
+   
+
+    @@include('./layout/header.html')
+    <div class="game" id="gameapp">
+        <section class="game_page">
+            <div class="containergame">
+                <div class="backgroundlotter">
+                    <img src="./images/containerarea.png" alt="">
+                    <div class="circlearea">
+                        <img src="./images/circlearea.png" alt="">
+                    </div>
+                    <div class="point" :style="run"><img src="./images/point.png"></div>
+                </div>
+            </div>
+            <div class="startbtn">
+                <h1>Raka</h1>
+                <h2>無懼挑戰，成就非凡</h2>
+                <button @click="btn">旋轉你的優惠</button>
+            </div>
+        </section>
+        <div v-if="isShow" class="jumpbox">
+            <div class="box">
+                <div class="pic">
+                    <img src="./images/mailpapper.png" alt="">
+                </div>
+                <div class="txt">
+                    <h2>恭喜您獲得</h2>
+                    <h2>{{prizes[prizeindex]}}</h2>
+                    <div class="btn">
+                        <button><a ref="##">商店逛逛</a></button>
+                        <button @click="restart">再玩一次</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @@include('./layout/footer.html') 
+    <script>
+        new Vue({
+            el: '#gameapp',  
+            data: {  // 變數放這裡
+                currentrotate:60,
+                count:0,
+                prizes:['銘謝惠顧','7折優惠','3折優惠','5折優惠','9折優惠','1折優惠'],
+                prizeindex:0,
+                isShow:false,
+                runsec:0,
+                rains:[],
+                raincount:40,
+                screenWidth:document.body.clientWidth,
+            },
+            methods: {  // 大部分的函數(方法)放這裡
+                
+               btn(){
+                   this.runsec=parseInt(Math.random()*2+1)
+                   if(this.count<1){
+                   let rotateNum =this.currentrotate
+                   this.currentrotate =parseInt(rotateNum) + (parseInt(Math.random()*6)*60+(parseInt(Math.random())*2+2)*360);
+                   console.log(this.currentrotate);
+                   this.count+=1;}
+                   setTimeout(() => {
+                   this.isShow=true
+                },this.runsec*1500);
+                   
+               },
+               restart(){
+                    this.isShow=false;
+                    this.count = 0;
+                    this.currentrotate=60;
+                    
+               },
+               draw(){
+
+                   let area = document.querySelector('.containergame');
+                   for(let i=0;i<this.raincount;i++){
+                    let bubble = document.createElement('rain');
+                    let screen=this.screenWidth
+                    area.appendChild(bubble);
+                    let size = Math.random()*50;
+                    let speed = Math.random()*-1;
+                    let duration = Math.random()*10+4;
+
+                    let clix = Math.floor(Math.random()*screen);
+                    console.log(clix)
+                    bubble.style.width = size+'px';
+                    bubble.style.left = clix+'px';
+                    bubble.style.animationDelay = speed+'s';
+                    bubble.style.animationDuration = duration+'s';
+                   }
+               },
+            },
+            computed: { // 函數(方法)也可以放這裡，但是放在這裡的函數，不能傳參數，一定要有傳回值
+                
+               run(){
+                   if(this.currentrotate>100){
+                   return{
+                    transform:`rotate(${this.currentrotate}deg)`,
+                    transition:`transform ${this.runsec}s cubic-bezier(0.1, 0.3, 0.7, 1.4)`
+                   }
+                }
+               }
+            },
+            mounted() {
+                const that = this
+                window.onresize = () => {
+                return (() => {
+                window.screenWidth = document.body.clientWidth
+                that.screenWidth = window.screenWidth
+                })()
+                }
+                if(this.screenWidth>=1200){
+                    this.draw();
+                }
+            },
+               
+            watch:{
+                
+                screenWidth (n,o) {
+                this.screenWidth = n;
+                },
+
+                currentrotate(n,o){
+                    if(n%720==300){
+                        // console.log (this.prizeindex);
+                        return this.prizeindex=0;
+                    }else if(n%720==180){
+                        // console.log (this.prizeindex);
+                        return this.prizeindex=1;
+                    }else if(n%720==60){
+                        // console.log (this.prizeindex);
+                        return this.prizeindex=2;
+                    }else if(n%720==120){
+                        // console.log (this.prizeindex);
+                        return this.prizeindex=3;
+                    }else if(n%720==240){
+                        // console.log (this.prizeindex);
+                        return this.prizeindex=4;
+                    }else{
+                        // console.log (this.prizeindex);
+                        return this.prizeindex=5;
+                    }
+                    
+                }
+            },
+        });
+    </script>
+</body>
+</html>
