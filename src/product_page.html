@@ -233,7 +233,7 @@
 							prodImg:'./images/product_page_02.png',
 							count:1,
 						},
-					cart:null,
+					cart:null,//[]
 				}
             },
 			methods: {
@@ -244,7 +244,7 @@
 					console.log(this.cart);
                 },
 				addLocal(){
-					if(this.cart == null){
+					if(this.cart == []){
 						// alert()
 						// this.cart = this.products;
 						this.cart.push(this.products);
