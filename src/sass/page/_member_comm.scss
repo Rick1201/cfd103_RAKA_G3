@@ -59,9 +59,11 @@
                     font-size: $fontSize-Small;
                     background: $btnColor-primary;
                     display: block;
-                    width: 100px;
+                    width: 200px;
                     border-radius: 16px;
                     line-height: 40px;
+                    text-align: center;
+                    margin: 10px auto;
                 }
             }
         }
