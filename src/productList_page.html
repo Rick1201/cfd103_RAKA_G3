@@ -181,6 +181,19 @@
 				});
 			});
 		</script>
+		<script>
+			function fetchData(){
+				axios.post('productlist_page.php',{
+					action:'fetchall',
+				}).then(res=>{
+					console.log(res);
+				})
+			};
+			function init(){
+				fetchData();
+			}
+			window.addEventListener("load", init, false);
+		</script>
 		@@include('./layout/footer.html')
 	</body>
 </html>
