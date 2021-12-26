@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		@@include('./layout/header.html')
-		<div class="member-section">
+		<div class="member-section" id="app">
 			<section class="member-select">
 				<div class="member-side-bar">
 					<header class="member-header">
@@ -28,7 +28,7 @@
 								<td>累積消費</td>
 							</tr>
 							<tr>
-								<td>$1234元</td>
+								<td>${{memberTotal}}元</td>
 							</tr>
 						</table>
 					</div>
@@ -80,6 +80,21 @@
 			</div>
 			@@include('./layout/footer.html')
 			<script>
+				function showBox(){
+					// document.getElementById('lightbox').style.display = "block";
+					let lightBox = document.getElementById('lightbox').style.display = "block";
+					let txtBox = document.querySelectorAll('.txt-box');
+					let address = document.getElementById('address').value;
+					for(let i=0;i<=txtBox.length;i++){
+						console.log(txtBox);
+					}
+					console.log(address);
+
+					
+				}
+				function closeBox(){
+					document.getElementById('lightbox').style.display = "none";
+				}
 				function fetchData(memID){//
 					axios.post('php/member_comm.php',{
 					action:'fetchSingle',
@@ -98,11 +113,46 @@
 					})
 				};
 				function init(){
+					document.getElementById("editBox").onclick=showBox;
+					document.getElementById("closeBox").onclick=closeBox;
 					let memID = JSON.parse(localStorage.getItem('memberID'));
 					fetchData(memID);
 				}
 				window.addEventListener("load", init, false);
 			</script>
+			<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 		</div>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					memberTotal:0,
+				},
+				methods: {
+					fetchAllData(){
+						axios.post("./php/ajaxLogin.php",{
+						action:'fetchSingle',//資料參數丟過去ajaxLogin.php
+						memAcc:this.user.email,
+						memPsw:this.user.password
+						}
+						).then(res=>
+						{
+							console.log(res.data);
+							if(res.data.Member_ID > 0){
+								location.href="./member_comm.html";
+								localStorage.setItem("memberID", JSON.stringify(res.data));
+							}else{
+								alert();
+							}
+							
+						}
+						)
+					},
+				},
+				mounted() {
+					fetchAllData();
+				},
+			})
+		</script>
 	</body>
 </html>

@@ -34,8 +34,7 @@
                     </li>
                 </ul>
                 <div class="memBtn">
-                    <a class="login" href="./loginAndRegi_page.html"> 登入</a>
-                    <a class="sighup" href="./loginAndRegi_page.html">註冊</a>
+                    <a class="login" href="./loginAndRegi_page.html">{{loginLogout}}</a>
                 </div>
             </nav>
             <div class="cart">
@@ -58,12 +57,19 @@
             data:{
                 itemCount:'0',
                 cart:[],
+                loginLogout:'登入',
             },
             methods: {
                 updateCart(){
                     let storageArray = JSON.parse(localStorage.getItem('addList'));
                     this.cart = storageArray||[];
                     this.itemCount = this.cart.length;
+                },
+                login(){
+                    this.loginLogout = '登入';
+                },
+                logout(){
+                    this.loginLogout = '登出';
                 }
             },
             mounted() {

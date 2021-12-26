@@ -251,7 +251,6 @@
                     let storageArray = JSON.parse(localStorage.getItem('addList'));
                     this.cart = storageArray||[];
                     this.itemCount = this.cart.length;
-					console.log(this.cart);
                 },
 				addLocal(){
 					if(this.cart == []){
@@ -282,7 +281,6 @@
 			},
 			mounted() {
 				this.updateCart();
-				
 			},
 			// addLocal(){
 			// 	let prodCart = localStorage.setItem("addList", JSON.stringify(this.products));

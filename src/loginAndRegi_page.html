@@ -5,11 +5,12 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Login and Registration</title>
-		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="../dist/css/style.css" />
 		<script
 			src="https://kit.fontawesome.com/8470264036.js"
 			crossorigin="anonymous"
 		></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.8.1/axios.js' integrity='sha512-yQvhnV+bdDcAhyxTlmVUyNikQCtnIkfC9r7GesIjLg6IrJx2M92DSv58LpyobngV7WUeM1c3mpgP0971pIY98A==' crossorigin='anonymous'></script>
 	</head>
 	<body>
 		<div id="app">
@@ -148,27 +149,24 @@
 								<h2>會員登入</h2>
 							</div>
 							<div class="form_dist">
-								<form action="POST" >
+							
 									<div class="form_region">
 										<div class="form_group">
 											<label for="account"><p>信箱</p></label>
-											<input type="email" id="account" v-model="user.email" />
+											<input type="email" id="account"  v-model="user.email" name="uEmail"/>
 										</div>
 										<div class="form_group">
 											<label for="psw"><p>密碼</p></label>
-											<input type="password" id="psw" v-model="user.password" />
+											<input type="password" id="psw" v-model="user.password" name="uPsw"/>
 										</div>
 									</div>
 									
 									<div class="btn_region">
-										<button type="submit" class="submit_btn">登入</button>
-										<button @click="updateContent"  class="regi_btn">
-											
-						註冊
-					</button>
+										<button @click="fetchAllDate()" class="submit_btn">登入</button>
+										<button @click="updateContent"  class="regi_btn">註冊</button>
 									</div>
-								</form>
 									
+								
 								<div class="subTitle_dist">
 								<h2>第三方登入</h2>
 								</div>
@@ -207,6 +205,29 @@
 						this.content = "regi-page";
 						this.$emit("update-content", this.content);
 					},
+					fetchAllDate(){
+						axios.post("./php/ajaxLogin.php",{
+						action:'fetchSingle',//資料參數丟過去ajaxLogin.php
+						memAcc:this.user.email,
+						memPsw:this.user.password
+						}
+						).then(res=>
+						{
+							console.log(res.data);
+							if(res.data.Member_ID > 0){
+								location.href="./member_comm.html";
+								localStorage.setItem("memberID", JSON.stringify(res.data));
+								vmHeader.logout();
+							}else{
+								alert();
+							}
+							
+						}
+						)
+					},
+				},
+				mounted() {
+					// this.fetchAllDate();
 				},
 			});
 			Vue.component("regi-page", {
@@ -222,7 +243,6 @@
 								<h2>會員註冊</h2>
 							</div>
 							<div class="form_dist">
-								<form action="POST">
 									<div class="form_region">
 										<div class="form_group">
 											<label for="account"><p>信箱</p></label>
@@ -242,13 +262,9 @@
 										</div>
 									</div>
 									<div class="btn_region">
-										<button @click="updateContent"  class="submit_btn">
-						返回登入
-					</button>
-										<input type="submit"
-										class="regi_btn" value="註冊">
+										<button @click="updateContent" class="submit_btn">返回登入</button>
+										<input @click="fetchAllRegi()" type="submit" class="regi_btn" value="註冊">
 									</div>
-								</form>
 								
 							</div>	
 						</div>
@@ -277,6 +293,23 @@
 						this.content = "login-page";
 						this.$emit("update-content", this.content);
 					},
+					fetchAllRegi(){
+						axios.post("./php/ajaxRegi.php",{
+						action:'insert',//資料參數丟過去ajaxLogin.php
+						memAcc:this.user.email,
+						memPsw:this.user.password,
+						memName:this.user.name
+						}
+						).then(res=>
+						{
+							console.log(res.data);
+							alert(res.data.message);
+							if(res.data.message == '註冊成功,請重新登入'){
+								location.href="./loginAndRegi_page.html";
+							}
+						}
+						)
+					},
 				},
 			});
 			new Vue({
@@ -290,6 +323,7 @@
 					updateSelf(val) {
 						this.content = val;
 					},
+					
 				},
 			});
 		</script>

@@ -53,50 +53,14 @@
             }
             .member-side-bar-btn{
                 width: 100%;
-                ul {
-                    width: 100%;
-                    li {
-                        margin: auto;
-                        margin-top: 10px;
-                        border-radius: 20px;
-                        width: 90%;
-                        font-size: $fontSize-middle;
-                        ul{
-                            background-color: $btnColor-primary;
-                            li{
-                                display: block;
-                                background-color: $btnColor-primary;
-                                a{
-                                    text-decoration: none; 
-                                    color: white;
-                                    font-size: $fontSize-Small;
-                                }
-                            }
-                        }
-                        .main-a{
-                            color: $gray-secondary;
-                            text-decoration: none;
-                            border-radius: 20px;
-                            box-sizing: border-box;
-                            padding: 5px;
-                            display: inline-block;
-                            width: 90%;
-                            .tri-icon{
-                                width: 0px;
-                                height: 0px;
-                                border: 10px solid transparent;
-                                border-bottom:10px solid #F7F2EC;
-                                display: inline-block;
-                                transform: translateY(-25%);
-                            }
-                            .tri-icon.turn{
-                                transform: translateY(-25%) rotate(180deg);
-                            }
-                        }
-                        
-                    }
+                a{
+                    text-decoration: none; 
+                    color: white;
+                    font-size: $fontSize-Small;
+                    background-color: $btnColor-primary;
+                    display: block;
+                    width: 100px;
                 }
-                
             }
         }
     }
