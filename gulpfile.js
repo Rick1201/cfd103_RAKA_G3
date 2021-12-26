@@ -30,6 +30,24 @@ exports.a = series(taskA, taskB);  // 依序執行
 exports.b = parallel(taskA, taskB);// 同時執行
 
 
+// 壓圖 大小
+const imagemin = require('gulp-imagemin');
+function imgmin() {
+    return src('src/images/*.*')
+        .pipe(imagemin([
+            imagemin.mozjpeg({ quality: 10, progressive: true }) // 壓縮品質      quality越低 -> 壓縮越大 -> 品質越差 
+        ]))
+        .pipe(dest('dist/images'))
+}
+
+exports.img = imgmin;
+
+//  圖片搬家
+function moveimg() {
+    return src('src/images/*.*').pipe(dest('dist/images'));
+}
+
+
 //sass 編譯
 
 const sass = require('gulp-sass')(require('sass'));
@@ -50,6 +68,8 @@ function sassstyle() {
 
 //sass任務輸出
 exports.sass = sassstyle;
+
+
 
 // html template
 const fileinclude = require('gulp-file-include');
@@ -79,31 +99,13 @@ function ugjs() {
 exports.js = ugjs;
 
 
-// 清除舊檔案
 
-const clean = require('gulp-clean');
 
-function clear() {
-    return src('dist', { read: false, allowEmpty: true })//不去讀檔案結構，增加刪除效率  / allowEmpty : 允許刪除空的檔案
-        .pipe(clean({ force: true })); //強制刪除檔案 
+function php(){
+    return src('src/php/*.php').pipe(dest('dist/php'))
 }
 
-exports.clearall = clear;
-
-
-// 壓圖 大小
-
-const imagemin = require('gulp-imagemin');
-function imgmin() {
-    return src('src/images/**/*.*')
-        .pipe(imagemin([
-            imagemin.mozjpeg({ quality: 10, progressive: true }) // 壓縮品質      quality越低 -> 壓縮越大 -> 品質越差 
-        ]))
-        .pipe(dest('dist/images'))
-}
-
-exports.img = imgmin;
-
+exports.phpcopy = php;
 
 function php() {
     return src('src/php/*.php').pipe(dest('dist/php'))
@@ -124,12 +126,6 @@ function watchall() {
 
 exports.w = watchall;
 
-//  圖片搬家
-function moveimg() {
-    return src('src/images/*.*').pipe(dest('dist/images'))
-}
-
-
 
 const browserSync = require('browser-sync');
 const reload = browserSync.reload;
@@ -144,15 +140,26 @@ function browser(done) {
         port: 3000
     });
     watch(['src/sass/*.scss', 'src/sass/**/*.scss'], sassstyle).on('change', reload);
-    watch(['src/*.html', 'src/layout/*.html'], includeHTML).on('change', reload);;
+    watch(['src/*.html', 'src/layout/*.html'], includeHTML).on('change', reload);
     watch(['src/js/*.js', 'src/**/*.js'], ugjs).on('change', reload);
-    watch('src/images/*.*', moveimg)
+    watch(['src/images/*.*'], moveimg).on('change',reload);
     done();
 }
 
 exports.default = series(browser, parallel(moveimg, includeHTML, sassstyle, ugjs)); //dev 開發使用
 
-exports.packages = series(clear, parallel(includeHTML, sassstyle, ugjs), imgmin);
+
+// 清除舊檔案
+const clean = require('gulp-clean');
+
+function clear() {
+    return src('dist', { read: false, allowEmpty: true })//不去讀檔案結構，增加刪除效率  / allowEmpty : 允許刪除空的檔案
+        .pipe(clean({ force: true })); //強制刪除檔案 
+}
+
+exports.clearall = clear;
+
+exports.packages = series(clear, parallel(includeHTML, sassstyle, ugjs, php), imgmin ,moveimg);
 
 
 

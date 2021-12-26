@@ -266,20 +266,20 @@
                 },
 
                 fetchAllData(){
-                    axios.post("vuecuzi_bezel.php",{action:'fetchall'}).then(res=>
+                    axios.post("php/vuecuzi_bezel.php",{action:'fetchall'}).then(res=>
                     {
                     this.outerpages[0].content = res.data;
                     this.selectedOuter.content = res.data;
                     });
-                    axios.post("vuecuzi_face.php",{action:'fetchall'}).then(res=>
+                    axios.post("php/vuecuzi_face.php",{action:'fetchall'}).then(res=>
                     {
                     this.outerpages[1].content = res.data;
                     });
-                    axios.post("vuecuzi_band.php",{action:'fetchall'}).then(res=>
+                    axios.post("php/vuecuzi_band.php",{action:'fetchall'}).then(res=>
                     {
                     this.outerpages[2].content = res.data;
                     });
-                    axios.post("vuecuzi_pointer.php",{action:'fetchall'}).then(res=>
+                    axios.post("php/vuecuzi_pointer.php",{action:'fetchall'}).then(res=>
                     {
                     this.outerpages[3].content = res.data;
                     });
@@ -390,11 +390,11 @@
                 },
 
                 fetchAllData(){
-                    axios.post("vuecuzi_fun.php",{action:'fetchall'}).then(res=>
+                    axios.post("php/vuecuzi_fun.php",{action:'fetchall'}).then(res=>
                     {
                     this.funitems = res.data;
                     });
-                    axios.post("vuecuzi_dive.php",{action:'fetchall'}).then(res=>
+                    axios.post("php/vuecuzi_dive.php",{action:'fetchall'}).then(res=>
                     {
                     this.diveItem = res.data;
                     console.log(res.data);
@@ -635,12 +635,12 @@
                 },
 
                 fetchAllData(){
-                    axios.post("vuecuzi_pbox.php",{action:'fetchall'}).then(res=>
+                    axios.post("php/vuecuzi_pbox.php",{action:'fetchall'}).then(res=>
                     {
                     this.boxColors = res.data;
                     console.log(res.data);
                     });
-                    axios.post("vuecuzi_pband.php",{action:'fetchall'}).then(res=>
+                    axios.post("php/vuecuzi_pband.php",{action:'fetchall'}).then(res=>
                     {
                     this.ribbonColors = res.data;
                     console.log(res.data);
@@ -908,20 +908,21 @@
                 },
 
                 fetchAllData(){
-                    axios.post("vuecuzi_bezel.php",{action:'fetchall'}).then(res=>
+                    axios.post("php/vuecuzi_bezel.php",{action:'fetchall'}).then(res=>
                     {
                     this.outerpages[0].content = res.data;
+                    console.log(res.data);
                     }
                     );
-                    axios.post("vuecuzi_face.php",{action:'fetchall'}).then(res=>
+                    axios.post("php/vuecuzi_face.php",{action:'fetchall'}).then(res=>
                     {
                     this.outerpages[1].content = res.data;
                     });
-                    axios.post("vuecuzi_band.php",{action:'fetchall'}).then(res=>
+                    axios.post("php/vuecuzi_band.php",{action:'fetchall'}).then(res=>
                     {
                     this.outerpages[2].content = res.data;
                     });
-                    axios.post("vuecuzi_pointer.php",{action:'fetchall'}).then(res=>
+                    axios.post("php/vuecuzi_pointer.php",{action:'fetchall'}).then(res=>
                     {
                     this.outerpages[3].content = res.data;
                     });
