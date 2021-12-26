@@ -33,7 +33,7 @@
                         <a href="./member_comm.html" class="member">會員專區</a>
                     </li>
                 </ul>
-                <div class="memBtn">
+                <div class="memBtn" @click="logChange">
                     <a class="login" href="./loginAndRegi_page.html">{{loginLogout}}</a>
                 </div>
             </nav>
@@ -70,10 +70,28 @@
                 },
                 logout(){
                     this.loginLogout = '登出';
-                }
+                },
+
+                logChange(){
+                    if(this.loginLogout=="登出"){
+                        this.loginLogout="登入";
+                        localStorage.removeItem("memberID");
+                    }
+                        
+                },
+
             },
             mounted() {
                this.updateCart();
+
+               //確認是否LOCAL有存會員ID
+               let memlogin = JSON.parse(localStorage.getItem("memberID"));
+               console.log(memlogin);
+               if(memlogin){
+                   this.loginLogout="登出";
+               }else{
+                   this.loginLogout="登入";
+               }
             },
         }).$mount('#main-header')
     </script>

@@ -213,13 +213,11 @@
 						}
 						).then(res=>
 						{
-							console.log(res.data);
 							if(res.data.Member_ID > 0){
 								location.href="./member_comm.html";
 								localStorage.setItem("memberID", JSON.stringify(res.data));
-								vmHeader.logout();
 							}else{
-								alert();
+								alert("帳密錯誤，請重新輸入");
 							}
 							
 						}

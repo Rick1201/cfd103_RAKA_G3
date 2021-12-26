@@ -132,8 +132,8 @@
 					fetchAllData(){
 						axios.post("./php/ajaxLogin.php",{
 						action:'fetchSingle',//資料參數丟過去ajaxLogin.php
-						memAcc:this.user.email,
-						memPsw:this.user.password
+						// memAcc:this.user.email,
+						// memPsw:this.user.password
 						}
 						).then(res=>
 						{
@@ -150,7 +150,7 @@
 					},
 				},
 				mounted() {
-					fetchAllData();
+					this.fetchAllData();
 				},
 			})
 		</script>
