@@ -7,10 +7,11 @@
 		<title>Document</title>
 		<link rel="stylesheet" href="../dist/css/style.css"/>
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.8.1/axios.js' integrity='sha512-yQvhnV+bdDcAhyxTlmVUyNikQCtnIkfC9r7GesIjLg6IrJx2M92DSv58LpyobngV7WUeM1c3mpgP0971pIY98A==' crossorigin='anonymous'></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 	</head>
 	<body>
 		@@include('./layout/header.html')
-		<div class="member-section" id="app">
+		<div class="member-section">
 			<section class="member-select">
 				<div class="member-side-bar">
 					<header class="member-header">
@@ -22,7 +23,7 @@
 							<button class="member-edit-btn" id="editBox">編輯個人檔案</button>
 						</div>
 					</header>
-					<div class="data-box">
+					<div class="data-box" id="app">
 						<table>
 							<tr>
 								<td>累積消費</td>
@@ -120,39 +121,37 @@
 				}
 				window.addEventListener("load", init, false);
 			</script>
-			<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 		</div>
 		<script>
 			new Vue({
 				el:'#app',
 				data:{
-					memberTotal:0,
+					memberTotal:'0',
+					id:[],
 				},
 				methods: {
-					fetchAllData(){
-						axios.post("./php/ajaxLogin.php",{
+					getMemberId(){
+						let memberId = JSON.parse(localStorage.getItem('memberID'));
+						this.id = memberId;
+					},
+					fetchAllTotal(){
+						axios.post("./php/memberSum.php",{
 						action:'fetchSingle',//資料參數丟過去ajaxLogin.php
-						// memAcc:this.user.email,
-						// memPsw:this.user.password
+						memId:this.id.Member_ID,
 						}
 						).then(res=>
 						{
 							console.log(res.data);
-							if(res.data.Member_ID > 0){
-								location.href="./member_comm.html";
-								localStorage.setItem("memberID", JSON.stringify(res.data));
-							}else{
-								alert();
-							}
-							
+							this.memberTotal = res.data.Order_Total;
 						}
 						)
-					},
+					}
 				},
 				mounted() {
-					this.fetchAllData();
+					this.getMemberId();
+					this.fetchAllTotal();
 				},
-			})
+			});
 		</script>
 	</body>
 </html>
