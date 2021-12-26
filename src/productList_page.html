@@ -10,6 +10,7 @@
 	<body id="productList">
 		@@include('./layout/header.html')
 		<!-- 商品圖banner -->
+	<div class="uppage">
 		<div class="shop_container">
 			<div class="product_banner">
 				<img src="images/product-list-banner1.png" alt="" />
@@ -66,9 +67,6 @@
 						<span></span>
 					</button>
 				</div>
-				<!-- </div>
-        </section> -->
-
 				<div class="shop_list">
 					<div class="list_page">
 						<div class="list">
@@ -182,6 +180,19 @@
 					$(".sidebarBtn").toggleClass("toggle");
 				});
 			});
+		</script>
+		<script>
+			function fetchData(){
+				axios.post('productlist_page.php',{
+					action:'fetchall',
+				}).then(res=>{
+					console.log(res);
+				})
+			};
+			function init(){
+				fetchData();
+			}
+			window.addEventListener("load", init, false);
 		</script>
 		@@include('./layout/footer.html')
 	</body>

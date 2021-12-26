@@ -1,7 +1,7 @@
 <?php
-$dbname = "tibamefe_cfd103g3";
+$dbname = "rakawatch";
 $user = "root";
-$password = "alice1105";
+$password = "lamigo079032";
 
 $dsn = "mysql:host=localhost;port=3306;dbname=$dbname";
 $connect = new PDO($dsn, $user, $password);
@@ -9,9 +9,7 @@ $dba=file_get_contents("php://input");
 $received_data = json_decode($dba);
 $data= array();
 if($received_data->action =='fetchall'){
-    $query="
-    SELECT * FROM manager
-    ";
+    $query="SELECT * FROM product";
     $statement = $connect->prepare($query);
     $statement -> execute();
     while($row = $statement->fetch(PDO::FETCH_ASSOC))

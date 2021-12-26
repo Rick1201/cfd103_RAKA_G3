@@ -107,6 +107,11 @@ function php(){
 
 exports.phpcopy = php;
 
+function php() {
+    return src('src/php/*.php').pipe(dest('dist/php'))
+}
+
+exports.phpcopy = php;
 
 
 
@@ -116,12 +121,10 @@ function watchall() {
     watch(['src/sass/*.scss', 'src/sass/**/*.scss'], sassstyle); // 監看哪些檔案（檔案變動）並執行sassstyle
     watch(['src/*.html', 'src/layout/*.html'], includeHTML); // 監看哪些檔案（檔案變動）並執行includeHTML 
     watch(['src/js/*.js', 'src/**/*.js'], ugjs);
-    watch('src/php/*php',php);
+    watch(['src/php/*.php'], php);
 }
 
 exports.w = watchall;
-
-
 
 
 const browserSync = require('browser-sync');
