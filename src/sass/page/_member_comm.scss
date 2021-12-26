@@ -57,9 +57,11 @@
                     text-decoration: none; 
                     color: white;
                     font-size: $fontSize-Small;
-                    background-color: $btnColor-primary;
+                    background: $btnColor-primary;
                     display: block;
                     width: 100px;
+                    border-radius: 16px;
+                    line-height: 40px;
                 }
             }
         }
