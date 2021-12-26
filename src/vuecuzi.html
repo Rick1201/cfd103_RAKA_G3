@@ -390,11 +390,11 @@
                 },
 
                 fetchAllData(){
-                    axios.post("vuecuzi_fun.php",{action:'fetchall'}).then(res=>
+                    axios.post("php/vuecuzi_fun.php",{action:'fetchall'}).then(res=>
                     {
                     this.funitems = res.data;
                     });
-                    axios.post("vuecuzi_dive.php",{action:'fetchall'}).then(res=>
+                    axios.post("php/vuecuzi_dive.php",{action:'fetchall'}).then(res=>
                     {
                     this.diveItem = res.data;
                     console.log(res.data);
