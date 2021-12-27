@@ -241,8 +241,8 @@
    display: flex;
    flex-direction: column;
    position: relative;
-   left: -130px;
-   top: 50px;
+   left: -120px;
+   top: 42px;
    background-size: cover;
    background-color: rgba(255,255,255,.4);
    background-blend-mode: multiply;
@@ -266,23 +266,22 @@
 .map_word h3{
     font-size: $fontSize-SubTitle;
     padding-bottom: 10px;
-    padding-left: 10px;
+    padding-left: 13px;
 }
 .map_word p{
     font-size: $fontSize-middle;
     padding-bottom: 10px;
-    padding-left: 10px;
-    
+    padding-left: 13px; 
 }
 .map_word p2{
     font-size: $fontSize-middle;
     padding-bottom:20px;
-    padding-left: 10px;
+    padding-left: 13px;
     cursor: pointer;
 }
 .map_word span{
     font-size: $fontSize-middle;
     padding-bottom: 10px;
-    padding-left: 10px;
+    padding-left: 13px;
     cursor: pointer;
 }
