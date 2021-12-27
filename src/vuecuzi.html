@@ -88,7 +88,10 @@
             </div>
             <div class="cuz-zone">
                 <keep-alive>
-                    <component @emit-item="getItem" @emit-fun="getFun" :is="currentTabPage" @emit-dive="getDive" 
+                    <component @emit-item="getItem" 
+                    @emit-fun="getFun" 
+                    :is="currentTabPage" 
+                    @emit-dive="getDive" 
                     @emit-word="getWord"
                     @emit-boxcolor="getBoxColor"
                     @emit-ribboncolor = "getRibbonColor"
@@ -911,7 +914,6 @@
                     axios.post("php/vuecuzi_bezel.php",{action:'fetchall'}).then(res=>
                     {
                     this.outerpages[0].content = res.data;
-                    console.log(res.data);
                     }
                     );
                     axios.post("php/vuecuzi_face.php",{action:'fetchall'}).then(res=>
