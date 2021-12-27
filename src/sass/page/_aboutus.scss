@@ -237,12 +237,12 @@
 .customize h3{
     background: unset;
 }
-.form{
+.form_word{
    display: flex;
    flex-direction: column;
    position: relative;
-   left: -120px;
-   top: 42px;
+   left: -100px;
+   top: 45px;
    background-size: cover;
    background-color: rgba(255,255,255,.4);
    background-blend-mode: multiply;
@@ -251,7 +251,6 @@
     width: 100%;
     position: relative;
     left:100px;
-    
 }
 .map{
     display: flex;
@@ -265,23 +264,26 @@
 }
 .map_word h3{
     font-size: $fontSize-SubTitle;
-    padding-bottom: 10px;
-    padding-left: 13px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .map_word p{
     font-size: $fontSize-middle;
-    padding-bottom: 10px;
-    padding-left: 13px; 
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px; 
 }
 .map_word p2{
     font-size: $fontSize-middle;
-    padding-bottom:20px;
-    padding-left: 13px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px; 
     cursor: pointer;
 }
 .map_word span{
     font-size: $fontSize-middle;
-    padding-bottom: 10px;
-    padding-left: 13px;
+    padding-right: 20px;
+    padding-left: 20px;
     cursor: pointer;
 }
