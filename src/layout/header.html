@@ -30,7 +30,7 @@
                         <a href="./aboutUs_page.html" class="aboutus">關於我們</a>
                     </li>
                     <li>
-                        <a href="./member_comm.html" class="member">會員專區</a>
+                        <a :href="memberHref" class="member">會員專區</a>
                     </li>
                 </ul>
                 <div class="memBtn" @click="logChange">
@@ -58,6 +58,7 @@
                 itemCount:'0',
                 cart:[],
                 loginLogout:'登入',
+                memberHref:'',
             },
             methods: {
                 updateCart(){
@@ -65,13 +66,6 @@
                     this.cart = storageArray||[];
                     this.itemCount = this.cart.length;
                 },
-                login(){
-                    this.loginLogout = '登入';
-                },
-                logout(){
-                    this.loginLogout = '登出';
-                },
-
                 logChange(){
                     if(this.loginLogout=="登出"){
                         this.loginLogout="登入";
@@ -83,14 +77,14 @@
             },
             mounted() {
                this.updateCart();
-
                //確認是否LOCAL有存會員ID
                let memlogin = JSON.parse(localStorage.getItem("memberID"));
-               console.log(memlogin);
                if(memlogin){
-                   this.loginLogout="登出";
+                    this.loginLogout="登出";
+                    this.memberHref="./member_comm.html";
                }else{
                    this.loginLogout="登入";
+                   this.memberHref="./loginAndRegi_page.html";
                }
             },
         }).$mount('#main-header')

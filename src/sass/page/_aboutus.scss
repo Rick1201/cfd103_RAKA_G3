@@ -232,7 +232,7 @@
 }
 
 .customize{
-    @include btnStyle($btnColor-primary,100px);
+    @include btnStyle($btnColor-secondary,100px);
 }
 .customize h3{
     background: unset;
