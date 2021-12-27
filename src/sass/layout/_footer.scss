@@ -1,5 +1,6 @@
 .main-footer{
     background-color: $blue-primary;
+    width: 100%;
     .container{
         display: flex;
         flex-wrap: wrap;
@@ -59,9 +60,14 @@
     }
     .copy-right{
         width: 70%;
-        height: 100px;
         margin: auto;
         line-height: 30px;
+        color: aliceblue;
+        text-align: center;
+        a{
+            text-decoration: none;
+            color: aliceblue;
+        }
     }
 }
 @media screen and (max-width:375px){

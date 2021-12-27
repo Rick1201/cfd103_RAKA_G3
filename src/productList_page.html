@@ -5,150 +5,59 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>ProductList</title>
-		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="./css/style.css" />
 	</head>
 	<body id="productList">
 		@@include('./layout/header.html')
 		<!-- 商品圖banner -->
+	<div id="uppage">
 		<div class="shop_container">
 			<div class="product_banner">
-				<img src="images/product-list-banner1.png" alt="" />
+				<img :src="banner" alt="" />
 			</div>
 		</div>
 		<!-- 麵包屑 -->
 		<div class="breadcrumb">
 			<ul class="breadcrumb">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">ProductList</a></li>
-				<li>Watch</li>
+				<li v-for="li in items">
+					<a href="#">{{li.name}}</a>
+				{{li.nameoo}}
+				</li>
 			</ul>
 		</div>
 		<!-- 篩選器 -->
 		<section class="entzu">
 			<div class="container09">
 				<div class="filter">
-					<div class="box">
-						<h4>材質</h4>
+					<h4>材質</h4>
+					<div class="box"  v-for="label in type">
 						<input class="form-check-input" type="checkbox" />
-						<label class="type"> 陶瓷 </label>
+						<label class="type">{{label.name}}</label>
 					</div>
-					<div class="box">
+					<h4>錶帶</h4>
+					<div class="box" v-for="label in watch">
 						<input class="form-check-input" type="checkbox" />
-						<label class="type"> 鋼 </label>
+						<label class="type">{{label.watch}} </label>
 					</div>
-					<div class="box">
-						<h4>錶帶</h4>
+					<h4>主題系列</h4>
+					<div class="box" v-for="label in themes">
 						<input class="form-check-input" type="checkbox" />
-						<label class="type"> 皮革 </label>
-					</div>
-					<div class="box">
-						<input class="form-check-input" type="checkbox" />
-						<label class="type"> 金屬 </label>
-					</div>
-					<div class="box">
-						<input class="form-check-input" type="checkbox" />
-						<label class="type"> 尼龍 </label>
-					</div>
-					<div class="box">
-						<h4>主題系列</h4>
-						<input class="form-check-input" type="checkbox" />
-						<label class="type"> 極深潛系列 </label>
-					</div>
-					<div class="box">
-						<input class="form-check-input" type="checkbox" />
-						<label class="type"> 衝浪者系列 </label>
-					</div>
-					<div class="box">
-						<input class="form-check-input" type="checkbox" />
-						<label class="type"> 海洋飛行系列 </label>
+						<label class="type"> {{label.theme}}</label>
 					</div>
 					<button class="sidebarBtn">
 						<span></span>
 					</button>
 				</div>
-				<!-- </div>
-        </section> -->
-
 				<div class="shop_list">
-					<div class="list_page">
-						<div class="list">
-							<img src="./images/product-list-heart .png" class="heart" />
-							<img src="./images/product-list04.png" alt="" onclick="javascript:location.href='./product_page.html'"/>
-							<p>Formula 1X 500</p>
-							<span>$7,5000</span>
-						</div>
-						<div class="list">
-							<img src="./images/product-list-heart .png" class="heart" />
-							<img src="./images/product-list01.png" />
-							<p>Formula 1X 500</p>
-							<span>$7,5000</span>
-						</div>
-						<div class="list">
-							<img src="./images/product-list-heart .png" class="heart" />
-							<img src="./images/product-list03.png" />
-							<p>Formula 1X 500</p>
-							<span>$7,5000</span>
-						</div>
-					</div>
-					<div class="list_page2">
-						<div class="list">
-							<img src="./images/product-list-heart .png" class="heart" />
-							<img src="./images/product-list05.png" />
-							<p>Formula 1X 500</p>
-							<span>$7,5000</span>
-						</div>
-						<div class="list">
-							<img src="./images/product-list-heart .png" class="heart" />
-							<img src="./images/product-list02.png" />
-							<p>Formula 1X 500</p>
-							<span>$7,5000</span>
-						</div>
-						<div class="list">
-							<img src="./images/product-list-heart .png" class="heart" />
-							<img src="./images/product-list06.png" />
-							<p>Formula 1X 500</p>
-							<span>$7,5000</span>
-						</div>
-					</div>
-					<div class="list_page3">
-						<div class="list">
-							<img src="./images/product-list-heart .png" class="heart" />
-							<img src="./images/product-list04.png" />
-							<p>Formula 1X 500</p>
-							<span>$7,5000</span>
-						</div>
-						<div class="list">
-							<img src="./images/product-list-heart .png" class="heart" />
-							<img src="./images/product-list03.png" />
-							<p>Formula 1X 500</p>
-							<span>$7,5000</span>
-						</div>
-						<div class="list">
-							<img src="./images/product-list-heart .png" class="heart" />
-							<img src="./images/product-list05.png" />
-							<p>Formula 1X 500</p>
-							<span>$7,5000</span>
-						</div>
-					</div>
-					<div class="list_page4">
-						<div class="list">
-							<img src="./images/product-list-heart .png" class="heart" />
-							<img src="./images/product-list02.png" />
-							<p>Formula 1X 500</p>
-							<span>$7,5000</span>
-						</div>
-						<div class="list">
-							<img src="./images/product-list-heart .png" class="heart" />
-							<img src="./images/product-list04.png" />
-							<p>Formula 1X 500</p>
-							<span>$7,5000</span>
-						</div>
-						<div class="list">
-							<img src="./images/product-list-heart .png" class="heart" />
-							<img src="./images/product-list06.png" />
-							<p>Formula 1X 500</p>
-							<span>$7,5000</span>
-						</div>
+						<div class="list" v-for="(item, index) in products" :key="index" >
+							<a :href="`product_page.html?id=${index+1}`">
+							<img src="./images/product-list-heart .png" ref="heart" @click="changeHeart(index)" class="heart" />
+							<img :src="item.Product_PIC01" alt="" onclick="javascript:location.href='./product_page.html'"/>
+							<p>{{item.Product_Name}}</p>
+							<span>{{item.Product_Price}}</span>
+							</a>
+							
+						</div>		
 					</div>
 				</div>
 			</div>
@@ -162,18 +71,158 @@
 				<span></span>
 				<span></span>
 			</div>
+			@@include('./layout/footer.html')
 		</div>
+	</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.8.1/axios.js' integrity='sha512-yQvhnV+bdDcAhyxTlmVUyNikQCtnIkfC9r7GesIjLg6IrJx2M92DSv58LpyobngV7WUeM1c3mpgP0971pIY98A==' crossorigin='anonymous'></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 		<script>
-			var img = true;
-			$(".heart").click(function () {
-				if (img) {
-					$(this).attr("src", "./images/product-list-redheart.svg");
-				} else {
-					$(this).attr("src", "./images/product-list-heart .png");
-				}
-				img = !img;
-			});
+			new Vue({
+				el: '#uppage',
+				data: {
+						banner:"images/product-list-banner1.png",
+						items:[
+                          {name:'Home'},
+                          {name:'ProductList'},
+                          {nameoo:'Watch'}
+					],
+						type:[
+							{name:'陶瓷'}, 
+							{name:'鋼'},
+					],
+						watch:[
+							{watch:'皮革'},
+							{watch:'金屬'},
+							{watch:'尼龍'},
+					],
+					themes:[
+							{theme:'極深潛系列'},
+							{theme:'衝浪者系列'},
+							{theme:'海洋飛行系列'},
+					],
+					products:[
+                        //   {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+
+						// }
+					]	                      
+				},
+				methods: {
+					changeHeart:function(index){
+					img = this.$refs.heart[index].src
+					if (img.includes("product-list-heart")) {
+							this.$refs.heart[index].src= "images/product-list-redheart.svg";
+					} else {
+						this.$refs.heart[index].src= "images/product-list-heart .png";
+					}
+           		 },
+
+			},
+			mounted() {
+				axios.post('./php/productList_page.php',{
+					action:'fetchall',
+				}).then(res=>{
+					console.log(123)
+					this.products=res.data
+				})
+			},
+		})
 		</script>
 		<script>
 			$(document).ready(function () {
@@ -183,6 +232,19 @@
 				});
 			});
 		</script>
-		@@include('./layout/footer.html')
+		<!-- <script>
+			function fetchData(){
+				axios.post('productlist_page.php',{
+					action:'fetchall',
+				}).then(res=>{
+					console.log(res);
+				})
+			};
+			function init(){
+				fetchData();
+			}
+			window.addEventListener("load", init, false);
+		</script> -->
+		
 	</body>
 </html>

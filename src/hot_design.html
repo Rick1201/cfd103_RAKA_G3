@@ -6,156 +6,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js"></script>
     <title>Document</title>
 </head>
 <body>
     @@include('./layout/header.html')
-    <div class="hot-design-banner">
+    <div id="hot-design-banner">
         <img src="./images/aboutus-02.jpg" alt="">
         <div class="container">
             <div class="customization-link">
                 <h2>客製化專區</h2>
                 <p>訂製您的專屬潛水錶</p>
-                <button onclick="javascript:location.href='./vuecuzi.html'">開始設計</button>
+                <button @click="removeLocal"><a @click="checkLog":href="cuzWatchHref">開始設計</a></button>
             </div>
         </div>
     </div>
-
-    <section class="hot-design">
+    <section id="hot-design">
         <h2>熱門設計</h2>
         <div class="container">
             <aside class="hot-design-filter">
                 <h3>外觀</h3>
                 <ul class="first-sort">
-                    <li>外框
+                    <li v-for="(cuzSort,index) in cuzSorts"
+                    :key="index"
+                    >{{cuzSort.title}}
                         <ul class="second-sort">
-                            <li><input type="checkbox"> <label>毫米玫瑰金錶殼</label></li>
-                            <li><input type="checkbox"> <label>毫米黑色錶殼</label></li>
-                            <li><input type="checkbox"> <label>毫米銀色錶殼</label></li>
-                            <li><input type="checkbox"> <label>毫米玫瑰金錶殼</label></li>
-                        </ul>
-                    </li>
-                    <li>錶面
-                        <ul class="second-sort">
-                            <li><input type="checkbox"> <label>航海家-黑</label></li>
-                            <li><input type="checkbox"> <label>航海家-灰</label></li>
-                            <li><input type="checkbox"> <label>航海家-藍</label></li>
-                            <li><input type="checkbox"> <label>極簡-黑</label></li>
-                            <li><input type="checkbox"> <label>極簡-灰</label></li>
-                            <li><input type="checkbox"> <label>極簡-藍</label></li>
-                        </ul>
-                    </li>
-                    <li>錶帶
-                        <ul class="second-sort">
-                            <li><input type="checkbox"> <label>銀色鋼鐵</label></li>
-                            <li><input type="checkbox"> <label>時尚深綠</label></li>
-                            <li><input type="checkbox"> <label>玫瑰金鋼鐵</label></li>
-                        </ul>
-                    </li>
-                    <li>指針
-                        <ul class="second-sort">
-                            <li><input type="checkbox"> <label>飛行者風格指針</label></li>
-                            <li><input type="checkbox"> <label>簡約銀色指針</label></li>
-                            <li><input type="checkbox"> <label>簡約黑色指針</label></li>
-                            <li><input type="checkbox"> <label>簡約藍色指針殼</label></li>
+                            <li v-for="(cuzItem,index) in cuzSort.content"><input type="checkbox"> <label>{{cuzItem.itemName}}</label></li>
                         </ul>
                     </li>
                 </ul>
             </aside>
             <div class="hot-design-list">
-                <div class="hot-design-item">
-                    <div class="hot-design-pic">
-                        <img src="./images/finishwatchpic01.png" alt="">
-                    </div>
-                    <div class="hot-design-content">
-                        <div class="content-item">
-                            <div class="item-title">設計者</div>
-                            <div>Teddy</div>
-                        </div>
-                        <div class="content-item">
-                            <div class="item-title">作品名稱</div>
-                            <div>48763</div>
-                        </div>
-                        <div class="content-item">
-                            <div class="item-title">外框</div>
-                            <div>玫瑰金鋼鐵</div>
-                        </div>
-                        <div class="content-item">
-                            <div class="item-title">錶面</div>
-                            <div>航海家-黑</div>
-                        </div>
-                        <div class="content-item">
-                            <div class="item-title">錶帶</div>
-                            <div>銀色鋼鐵</div>
-                        </div>
-                        <div class="content-item">
-                            <div class="item-title">指針</div>
-                            <div>簡單黑色指針</div>
-                        </div>
-                        <div class="content-item">
-                            <div class="item-title">功能錶盤</div>
-                            <div>無</div>
-                        </div>
-                        <div class="content-item">
-                            <div class="item-title">潛水深度需求</div>
-                            <div>防水3ATM</div>
-                        </div>
-                    </div>
-                    <div class="collect">
-                        <div class="collect-item">
-                            <div class="collect-times">收藏次數</div>
-                            <div class="times">65</div>
-                        </div>
-                        <button>查看詳細規格</button>
-                    </div>
-                </div>
-                <div class="hot-design-item">
+                <div class="hot-design-item" v-for="(hotCuz,index) in hotCuzs" >
                     <div class="heart">
                         <img src="./images/product-list-heart .png">
                     </div>
                     <div class="hot-design-pic">
-                        <img src="./images/finishwatchpic01.png" alt="">
+                        <img :src="hotCuz.pic" alt="">
                     </div>
                     <div class="hot-design-content">
                         <div class="content-item">
                             <div class="item-title">設計者</div>
-                            <div>Roger</div>
+                            <div>{{hotCuz.designer}}</div>
                         </div>
                         <div class="content-item">
                             <div class="item-title">作品名稱</div>
-                            <div>哈哈哈</div>
+                            <div>{{hotCuz.cuzName}}</div>
                         </div>
                         <div class="content-item">
                             <div class="item-title">外框</div>
-                            <div>玫瑰金鋼鐵</div>
+                            <div>{{hotCuz.bezel}}</div>
                         </div>
                         <div class="content-item">
                             <div class="item-title">錶面</div>
-                            <div>航海家-灰</div>
+                            <div>{{hotCuz.face}}</div>
                         </div>
                         <div class="content-item">
                             <div class="item-title">錶帶</div>
-                            <div>銀色鋼鐵</div>
+                            <div>{{hotCuz.band}}</div>
                         </div>
                         <div class="content-item">
                             <div class="item-title">指針</div>
-                            <div>簡單黑色指針</div>
+                            <div>{{hotCuz.point}}</div>
                         </div>
                         <div class="content-item">
                             <div class="item-title">功能錶盤</div>
-                            <div>無</div>
+                            <div>{{hotCuz.fun1}}</div>/
+                            <div>{{hotCuz.fun2}}</div>/
+                            <div>{{hotCuz.fun3}}</div>
                         </div>
                         <div class="content-item">
                             <div class="item-title">潛水深度需求</div>
-                            <div>防水3ATM</div>
+                            <div>{{hotCuz.dive}}</div>
                         </div>
                     </div>
                     <div class="collect">
                         <div class="collect-item">
                             <div class="collect-times">收藏次數</div>
-                            <div class="times">89</div>
+                            <div class="times">{{hotCuz.times}}</div>
                         </div>
-                        <button>查看詳細規格</button>
+                        <button @click="addHotCuzLocal(index)"><a @click="checkLog":href="cuzHref">查看詳細規格</a></button>
                     </div>
                 </div>
             </div>
@@ -163,6 +93,220 @@
         
     </section>
     @@include('./layout/footer.html')
+
+
+
+    <script>
+        new Vue({
+            el: "#hot-design-banner",
+            data:{
+                cuzWatchHref:"",
+            },
+            methods:{
+                removeLocal(){
+                    localStorage.removeItem("hotCuz");
+                },
+                checkLog(){
+                    let memlogin = JSON.parse(localStorage.getItem("memberID"));
+                    if(!memlogin){
+                        alert("請先登入!");
+                        this.cuzWatchHref="./loginAndRegi_page.html";
+                    }else{
+                        this.cuzWatchHref="./vuecuzi.html";
+                    }
+                },
+            },
+        });
+
+        new Vue({
+            el: "#hot-design",
+            data: {
+                cuzHref:"",
+                cuzSorts:[
+                        {
+                            id: 0,
+                            title: "錶框",
+                            content: [
+                                {
+                                    url: "./images/bezel01.png",
+                                    itemName: "低調銀",
+                                },
+                                {
+                                    url: "./images/bezel02.png",
+                                    itemName: "奢華金",
+                                },
+                                {
+                                    url: "./images/bezel03.png",
+                                    itemName: "古典銅",
+                                },
+                                {
+                                    url: "./images/bezel04.png",
+                                    itemName: "神秘黑",
+                                },
+                            ],
+                        },
+                        {
+                            id: 1,
+                            title: "錶面",
+                            content: [
+                                {
+                                    url: "./images/face01.png",
+                                    itemName: "深藍幾何",
+
+                                },
+                                {
+                                    url: "./images/face02.png",
+                                    itemName: "羅馬銀",
+
+                                },
+                                {
+                                    url: "./images/face03.png",
+                                    itemName: "羅馬金",
+
+                                },
+                                {
+                                    url: "./images/face04.png",
+                                    itemName: "簡約黑",
+
+                                },
+                            ],
+                        },
+                        {
+                            id: 2,
+                            title: "錶帶",
+                            content: [
+                                {
+                                    url: "./images/band01.png",
+                                    itemName: "尼龍",
+                                },
+                                {
+                                    url: "./images/band02.png",
+                                    itemName: "金屬",
+                                },
+                                {
+                                    url: "./images/band03.png",
+                                    itemName: "牛皮",
+                                },
+                                {
+                                    url: "./images/band04.png",
+                                    itemName: "鱷魚皮",
+                                },
+                            ],
+                        },
+                        {
+                            id: 3,
+                            title: "指針",
+                            content: [
+                                {
+                                    url: "./images/point01.png",
+                                    itemName: "飛行者",
+                                },
+                                {
+                                    url: "./images/point02.png",
+                                    itemName: "簡約灰",
+                                },
+                                {
+                                    url: "./images/point03.png",
+                                    itemName: "簡約藍",
+                                },
+                                {
+                                    url: "./images/point04.png",
+                                    itemName: "簡約金",
+                                },
+                            ],
+                        },
+
+                    ],
+                hotCuzs:[
+                    {
+                        id:0,
+                        designer:"Sara",
+                        pic:"./images/hot-design01.png",
+                        cuzName:"櫻桃小丸子",
+                        bezel:"古典銅",
+                        bezelImg:"./images/bezel03.png",
+                        face:"簡約黑",
+                        faceImg:"./images/face04.png",
+                        band:"鱷魚皮",
+                        bandImg:"./images/band04.png",
+                        point:"簡約藍",
+                        pointImg:"./images/point03.png",
+                        fun1:"計時器",
+                        fun1Img:"./images/fun02.png",
+                        fun2:"未選擇",
+                        fun2Img:"./images/fun01.png",
+                        fun3:"未選擇",
+                        fun3Img:"./images/fun01.png",
+                        dive:"防水3ATM",
+                        times:"35"
+                    },
+                    {
+                        id:1,
+                        designer:"Ted",
+                        pic:"./images/hot-design02.png",
+                        cuzName:"48763",
+                        bezel:"神秘黑",
+                        bezelImg:"./images/bezel04.png",
+                        face:"深藍幾何",
+                        faceImg:"./images/face01.png",
+                        band:"尼龍",
+                        bandImg:"./images/band01.png",
+                        point:"簡約灰",
+                        pointImg:"./images/point02.png",
+                        fun1:"計時器",
+                        fun1Img:"./images/fun02.png",
+                        fun2:"指北針",
+                        fun2Img:"./images/fun03.png",
+                        fun3:"未選擇",
+                        fun3Img:"./images/fun01.png",
+                        dive:"防水5ATM",
+                        times:"68"
+
+                    },
+                    {
+                        id:2,
+                        designer:"Boruto",
+                        pic:"./images/hot-design03.png",
+                        cuzName:"Naruto",
+                        bezel:"奢華金",
+                        bezelImg:"./images/bezel02.png",
+                        face:"羅馬銀",
+                        faceImg:"./images/face02.png",
+                        band:"金屬",
+                        bandImg:"./images/band02.png",
+                        point:"飛行者",
+                        pointImg:"./images/point01.png",
+                        fun1:"指北針",
+                        fun1Img:"./images/fun03.png",
+                        fun2:"未選擇",
+                        fun2Img:"./images/fun01.png",
+                        fun3:"計時器",
+                        fun3Img:"./images/fun02.png",
+                        dive:"防水10ATM",
+                        times:"63"
+                    },
+
+                ],
+            },
+
+            methods:{
+                addHotCuzLocal(index){
+                    localStorage.setItem("hotCuz",JSON.stringify(this.hotCuzs[index]));
+                },
+
+                checkLog(){
+                    let memlogin = JSON.parse(localStorage.getItem("memberID"));
+                    if(!memlogin){
+                    alert("請先登入!");
+                     this.cuzHref="./loginAndRegi_page.html";
+                    }else{
+                     this.cuzHref="./vuecuzi.html";
+                    }
+                },
+            },
+
+        });
+    </script>
 
 
     <script>

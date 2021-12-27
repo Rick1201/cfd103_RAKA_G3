@@ -103,6 +103,9 @@
     .secret_word p{
         font-size: 18px;
     }
+    .secret_word p1{
+        line-height: unset;
+    }
     // 客製化banner
     .personal{
         margin-top: 65px;
@@ -116,7 +119,8 @@
         font-size: 18px;
     }
     .pservice p{
-        font-size: 14px;      
+        font-size: 14px;  
+        line-height: 20px;    
     }
     .customize{
         margin-top:5px;
@@ -125,9 +129,6 @@
         max-width:100%;
     }
     // 我們的願景
-    .contact-img img{
-        display: none;
-    }
     .ourtwo{
         display: grid;
         justify-content: center;
@@ -137,13 +138,25 @@
         top:0;
         left:0;
     }
+    .mission_word p{
+        line-height: unset;
+    }
     .our_vision{
         top:15px;
         left:0;
     }
+    .vision_word p{
+        line-height: unset;
+    }
     .our_values{
         top:0;
         left: 0;
+    }
+    .values_word p{
+        line-height: unset;
+    }
+    .values_word h4{
+        margin-top: 60px;
     }
     // 聯絡我們
     .contact{
@@ -177,10 +190,14 @@
         margin: auto;
     }
     .map_word p2{
-        font-size: 14px;
+        font-size: 13.5px;
+        padding-left: unset;
+        padding-right: unset;
+        position: relative;
+        left:18px;
     }
     .map_word span{
-        font-size: 14px;
+        font-size: 13.5px;
     }
     iframe{
         width: 200px;
@@ -193,6 +210,6 @@
         top:10px;
     }
     .values_pic img{
-        top:10px;
+        top:50px;
     }
 }

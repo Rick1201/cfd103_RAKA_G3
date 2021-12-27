@@ -14,7 +14,7 @@
             padding: 30px;
             .member-header{
                 display: flex;
-                margin-bottom: 20px;
+                margin-bottom: 10px;
                 .member-img{
                     margin-right: 10px;
                 }
@@ -34,7 +34,7 @@
                 }
             }
             .data-box{
-                margin-bottom: 20px;
+                margin-bottom: 10px;
                 padding: 10px;
                 font-size: $fontSize-middle;
                 table{
@@ -43,6 +43,111 @@
                     line-height: 40px;
                     width: 200px;
                     text-align: center;
+                }
+                .lightbox{
+                    display: none;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    background-color: #5858584d;
+                    width: 100%;
+                    height: 100%;
+                    .container{
+                        width: 30%;
+                        background-color: $blue-primary;
+                        border: 2px solid $blue-tertiary;
+                        border-radius: 10px;
+                        margin: auto;
+                        padding: 10px;
+                        transform: translateY(15%);
+                        position: relative;
+                        #closeBox{
+                            position: absolute;
+                            cursor: pointer;
+                            width: 40px;
+                            height: 40px;
+                            // background-color: $gray-tertiary;
+                            display: block;
+                            text-align: center;
+                            border-radius: 20px;
+                            margin-left: auto;
+                            color: $gray-tertiary;
+                            font-weight: 800;
+                            line-height: 40px;
+                            right: 0;
+                            top: 0;
+                        }
+                        .lightbox-header{
+                            display: flex;
+                            margin: auto;
+                            width: 80%;
+                            .lightbox-member-img{
+                                width: 50%;
+                                margin-right: 10px;
+                                img{
+                                    width: 100%;
+                                    vertical-align: middle;
+                                }
+                            }
+                            .lightbox-member-name{
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                                h1{
+                                    display: block;
+                                    padding: 5px;
+                                    color: $gray-tertiary;
+                                }
+                                .member-edit-btn{
+                                    border-radius: 20px;
+                                    padding: 5px;
+                                    border: 1px solid $blue-primary;
+                                    background-color: $gray-tertiary;
+                                    color: black;
+                                }
+                                input{
+                                    visibility:hidden;
+                                    display: block;
+                                    margin: 0 auto;
+                                    width: 100px;
+                                }
+                            }
+                        }
+                        .lightbox-txt{
+                            margin: auto;
+                            padding: 5px;
+                            width: 70%;
+                            h2{
+                                color: $gray-tertiary;
+                                line-height: 20px;
+                            }
+                            input{
+                                width: 100%;
+                                line-height: 30px;
+                                background-color: $gray-tertiary;
+                            }
+                            input[type="text"]{
+                                border: 1px solid $blue-primary;
+                                border-radius: 8px;
+                            }
+                        }
+                        .lightbox-btn-check{
+                            margin: auto;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            button{
+                                display: block;
+                                width: 80px;
+                                border-radius: 20px;
+                                padding: 5px;
+                                margin: 5px;
+                                border: 1px solid $blue-primary;
+                                background-color: $gray-tertiary;
+                            }
+                        }
+                    }
                 }
             }
             .member-card{
@@ -53,153 +158,17 @@
             }
             .member-side-bar-btn{
                 width: 100%;
-                ul {
-                    width: 100%;
-                    li {
-                        margin: auto;
-                        margin-top: 10px;
-                        border-radius: 20px;
-                        width: 90%;
-                        font-size: $fontSize-middle;
-                        ul{
-                            background-color: $btnColor-primary;
-                            li{
-                                display: block;
-                                background-color: $btnColor-primary;
-                                a{
-                                    text-decoration: none; 
-                                    color: white;
-                                    font-size: $fontSize-Small;
-                                }
-                            }
-                        }
-                        .main-a{
-                            color: $gray-secondary;
-                            text-decoration: none;
-                            border-radius: 20px;
-                            box-sizing: border-box;
-                            padding: 5px;
-                            display: inline-block;
-                            width: 90%;
-                            .tri-icon{
-                                width: 0px;
-                                height: 0px;
-                                border: 10px solid transparent;
-                                border-bottom:10px solid #F7F2EC;
-                                display: inline-block;
-                                transform: translateY(-25%);
-                            }
-                            .tri-icon.turn{
-                                transform: translateY(-25%) rotate(180deg);
-                            }
-                        }
-                        
-                    }
-                }
-                
-            }
-        }
-    }
-    .lightbox{
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        background-color: #5858584d;
-        width: 100%;
-        height: 100%;
-        .container{
-            width: 30%;
-            background-color: $blue-primary;
-            border: 2px solid $blue-tertiary;
-            border-radius: 10px;
-            margin: auto;
-            padding: 10px;
-            transform: translateY(15%);
-            position: relative;
-            #closeBox{
-                position: absolute;
-                cursor: pointer;
-                width: 40px;
-                height: 40px;
-                // background-color: $gray-tertiary;
-                display: block;
-                text-align: center;
-                border-radius: 20px;
-                margin-left: auto;
-                color: $gray-tertiary;
-                font-weight: 800;
-                line-height: 40px;
-                right: 0;
-                top: 0;
-            }
-            .lightbox-header{
-                display: flex;
-                margin: auto;
-                width: 80%;
-                .lightbox-member-img{
-                    width: 50%;
-                    margin-right: 10px;
-                    img{
-                        width: 100%;
-                        vertical-align: middle;
-                    }
-                }
-                .lightbox-member-name{
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    h1{
-                        display: block;
-                        padding: 5px;
-                        color: $gray-tertiary;
-                    }
-                    .member-edit-btn{
-                        border-radius: 20px;
-                        padding: 5px;
-                        border: 1px solid $blue-primary;
-                        background-color: $gray-tertiary;
-                    }
-                    input{
-                        visibility:hidden;
-                        display: block;
-                        margin: 0 auto;
-                        width: 100px;
-                    }
-                }
-            }
-            .lightbox-txt{
-                margin: auto;
-                padding: 5px;
-                width: 70%;
-                h2{
-                    color: $gray-tertiary;
-                    line-height: 20px;
-                }
-                input{
-                    width: 100%;
-                    line-height: 30px;
-                    background-color: $gray-tertiary;
-                }
-                input[type="text"]{
-                    border: 1px solid $blue-primary;
-                    border-radius: 8px;
-                }
-            }
-            .lightbox-btn-check{
-                margin: auto;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                button{
+                a{
+                    text-decoration: none; 
+                    color: white;
+                    font-size: $fontSize-Small;
+                    background: $btnColor-primary;
                     display: block;
-                    width: 80px;
-                    border-radius: 20px;
-                    padding: 5px;
-                    margin: 5px;
-                    border: 1px solid $blue-primary;
-                    background-color: $gray-tertiary;
+                    width: 200px;
+                    border-radius: 16px;
+                    line-height: 40px;
+                    text-align: center;
+                    margin: 10px auto;
                 }
             }
         }

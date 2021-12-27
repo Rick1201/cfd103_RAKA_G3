@@ -18,7 +18,7 @@
         width: 538px;
         height: 172px;
         justify-content: center;
-        background-image: url('/images/bg.jpeg');
+        background-image: url('./images/bg.jpeg');
         background-repeat: no-repeat;
         background-size: 838px 172px;
     }
@@ -101,17 +101,18 @@
         color:#163257;
         font-weight: 900;
     }
+    .m02 p5{
+        position: relative;
+        left:215px;
+        color:#163257;
+        font-weight: 900;
+    }
     .m01 h2{
         position: relative;
         top: 30px;
         color:#163257;
         font-size: 18px;
         font-weight: 700;
-    }
-    .m02 p2{
-        margin-left: 340px;
-        color:#163257;
-        font-weight: 900;
     }
     .m03{
         display: flex;
@@ -121,10 +122,11 @@
         color:#163257;
         font-weight: 900;
     }
-    .m03 p3{
+    .m03 p5{
         position: relative;
-        left:405px;
+        left: 280px;
         color:#163257;
+        font-weight: 900;
     }
     .m05{
         display: flex;
@@ -133,8 +135,9 @@
         color:#163257;
         font-weight: 900;
     }
-    .m05 p2{
-        margin-left: 340px;
+    .m05 p5{
+        position: relative;
+        left:215px;
         color:#163257;
         font-weight: 900;
     }
@@ -146,9 +149,9 @@
         color:#163257;
         font-weight: 900;
     }
-    .m06 p3{
+    .m06 p5{
         position: relative;
-        left:405px;
+        left:280px;
         color:#163257;
     }
     .money03{

@@ -225,33 +225,119 @@
     left: 0;
     border-left: 1px solid #AFB6C6;
 }
-.contact-1{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 60px;
-}
+// 聯絡表單區
+// .contact-1{
+//     display: flex;
+//     justify-content: center;
+//     margin-bottom: 60px;
+// }
 
 .customize{
-    @include btnStyle($btnColor-primary,100px);
-}
-.customize h3{
-    background: unset;
-}
-.form{
-   display: flex;
-   flex-direction: column;
-   position: relative;
-   left: -130px;
-   top: 50px;
-   background-size: cover;
-   background-color: rgba(255,255,255,.4);
-   background-blend-mode: multiply;
-}
-.contact-img img{
+     @include btnStyle($btnColor-secondary,100px);
+ }
+ .customize h3{
+     background: unset;
+ }
+// .form_word{
+//    display: flex;
+//    flex-direction: column;
+//    position: relative;
+//    left: -100px;
+//    top: 45px;
+//    background-size: cover;
+//    background-color: rgba(255,255,255,.4);
+//    background-blend-mode: multiply;
+// }
+// .contact-img img{
+//     width: 100%;
+//     position: relative;
+//     left:100px;
+// }
+// 地圖區
+.contactform{
     width: 100%;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    left:100px;
-    
+    .pic{
+        width: 50%;
+        @media screen and (max-width:375px){
+            width: 100%;
+        }
+    }
+    img{
+        width: 100%;
+        vertical-align: bottom;
+    }
+    .formarea{
+       box-sizing: border-box; 
+       position: absolute;
+       top: 0px;
+       left: 0px;
+       right: 0px;
+       bottom: 0px;
+       background: rgba(214, 212, 212, 0.7);
+       width: 25%;
+       height: 100%;
+       transform: translate(200%,0%);
+       padding: 3% 5%;
+       @media screen and (max-width:375px) {
+           width: 70%;
+           top: 50%;
+           left: 50%;
+           transform: translate(-50%,-50%);
+       }
+        .wrap{
+
+            width: 100%;
+            text-align: center;
+            @media screen and (max-width:375px){
+                padding: 10px 30px;
+            }
+        }
+        input:focus{
+            outline: none;
+        }
+        input{
+            box-sizing: border-box;
+            display: block;
+            padding: 3%;
+            border-radius: 5px;
+            width: 100%;
+            border: none;
+            // margin: 10px 0px;
+            @media screen and (max-width:375px){
+                padding: 1px;
+            }
+        }
+        textarea:focus{
+            outline: none;
+        }
+        textarea{
+            resize: none;
+            display: block;
+            padding: 3%;
+            border-radius: 5px;
+            width: 100%;
+            border: none;
+            // margin: 10px 0px;
+            @media screen and (max-width:375px){
+                padding: 1px
+            }
+        }
+        .inparea{
+            width: 100%;
+            padding: 7% 0px;
+            @media screen and (max-width:375px){
+                padding: 5px
+            }
+        }
+        .inpbtn input{
+            @include btnStyle($btnColor-secondary,100%);
+        }
+    }
 }
 .map{
     display: flex;
@@ -265,24 +351,26 @@
 }
 .map_word h3{
     font-size: $fontSize-SubTitle;
-    padding-bottom: 10px;
-    padding-left: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .map_word p{
     font-size: $fontSize-middle;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px; 
 }
 .map_word p2{
     font-size: $fontSize-middle;
-    padding-bottom:20px;
-    padding-left: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px; 
     cursor: pointer;
 }
 .map_word span{
     font-size: $fontSize-middle;
-    padding-bottom: 10px;
-    padding-left: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
     cursor: pointer;
 }

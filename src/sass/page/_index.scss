@@ -16,7 +16,7 @@ body{
     .raka-index-pic{
         width: 100%;
         height: 100%;
-        background-image: url(/images/indexbg01.png);
+        background-image: url(../images/indexbg01.png);
         background-position: 80% 0;
         background-repeat: no-repeat;
         background-size:40%;          
@@ -53,7 +53,7 @@ body{
             width: 55%;
             height: 200px;
             content: '';
-            background-image: url(/images/WATER.png);
+            background-image: url(../images/WATER.png);
             background-repeat: no-repeat;
             background-size: 100%;
             position: absolute;
@@ -64,7 +64,7 @@ body{
             width: 48%;
             height: 200px;
             content: '';
-            background-image: url(/images/UNDER.png);
+            background-image: url(../images/UNDER.png);
             background-repeat: no-repeat;
             background-size: 100%;
             position: absolute;
@@ -427,10 +427,11 @@ body{
 .raka-index-dec-watch_pic{
     width: 100%;
     @include mobile{
-        height: 0px;
+        height: auto;
     }
     img{
         width: 100%;
+        vertical-align: middle;
     }
 }
 .chatboxButton{

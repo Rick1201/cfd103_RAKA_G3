@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +8,8 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js"></script>
-    <title>Document</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.8.1/axios.js' integrity='sha512-yQvhnV+bdDcAhyxTlmVUyNikQCtnIkfC9r7GesIjLg6IrJx2M92DSv58LpyobngV7WUeM1c3mpgP0971pIY98A==' crossorigin='anonymous'></script>
+    <title>客製專區</title>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
 
     <section id="cuz-section"><!-- HTML DOM template -->         
         <div class="container">
-            <input type="text" class="cuzname" v-model="cuzName" maxlength="6">
+            <input type="text" class="cuzname" v-model="cuzName" maxlength="6" placeholder="RAKA">
             <i class="fas fa-pen"></i>
         </div>
         <div class="container">
@@ -88,11 +88,18 @@
             </div>
             <div class="cuz-zone">
                 <keep-alive>
-                    <component @emit-item="getItem" @emit-fun="getFun" :is="currentTabPage" @emit-dive="getDive" 
+                    <component @emit-item="getItem" 
+                    @emit-fun="getFun" 
+                    :is="currentTabPage" 
+                    @emit-dive="getDive" 
                     @emit-word="getWord"
                     @emit-boxcolor="getBoxColor"
                     @emit-ribboncolor = "getRibbonColor"
                     :props-tab ="currentOuterTab"
+                    :propfun1="currentFun1Name"
+                    :propfun2="currentFun2Name"
+                    :propfun3="currentFun3Name"
+                    :propdive="diveFun"
                     ></component>
                 </keep-alive>
             </div>
@@ -112,34 +119,34 @@
                             title: "錶框",
                             icon:"./images/icon-frame.png",
                             content: [
-                                {
-                                    url: "./images/bezel01.png",
-                                    itemName: "低調銀",
-                                },
-                                {
-                                    url: "./images/bezel02.png",
-                                    itemName: "玫瑰金",
-                                },
-                                {
-                                    url: "./images/bezel03.png",
-                                    itemName: "古典銅",
-                                },
-                                {
-                                    url: "./images/bezel04.png",
-                                    itemName: "奢華黑",
-                                },
-                                {
-                                    url: "./images/bezel01.png",
-                                    itemName: "玫瑰金",
-                                },
-                                {
-                                    url: "./images/bezel02.png",
-                                    itemName: "綠色",
-                                },
-                                {
-                                    url: "./images/bezel03.png",
-                                    itemName: "黑色",
-                                },
+                                // {
+                                //     url: "./images/bezel01.png",
+                                //     itemName: "低調銀",
+                                // },
+                                // {
+                                //     url: "./images/bezel02.png",
+                                //     itemName: "玫瑰金",
+                                // },
+                                // {
+                                //     url: "./images/bezel03.png",
+                                //     itemName: "古典銅",
+                                // },
+                                // {
+                                //     url: "./images/bezel04.png",
+                                //     itemName: "奢華黑",
+                                // },
+                                // {
+                                //     url: "./images/bezel01.png",
+                                //     itemName: "玫瑰金",
+                                // },
+                                // {
+                                //     url: "./images/bezel02.png",
+                                //     itemName: "綠色",
+                                // },
+                                // {
+                                //     url: "./images/bezel03.png",
+                                //     itemName: "黑色",
+                                // },
                             ],
                         },
                         {
@@ -147,26 +154,26 @@
                             title: "錶面",
                             icon:"./images/watch-face.png",
                             content: [
-                                {
-                                    url: "./images/face01.png",
-                                    itemName: "黑色",
+                                // {
+                                //     url: "./images/face01.png",
+                                //     itemName: "黑色",
 
-                                },
-                                {
-                                    url: "./images/face02.png",
-                                    itemName: "白色",
+                                // },
+                                // {
+                                //     url: "./images/face02.png",
+                                //     itemName: "白色",
 
-                                },
-                                {
-                                    url: "./images/face03.png",
-                                    itemName: "綠色",
+                                // },
+                                // {
+                                //     url: "./images/face03.png",
+                                //     itemName: "綠色",
 
-                                },
-                                {
-                                    url: "./images/face04.png",
-                                    itemName: "灰色",
+                                // },
+                                // {
+                                //     url: "./images/face04.png",
+                                //     itemName: "灰色",
 
-                                },
+                                // },
                             ],
                         },
                         {
@@ -174,22 +181,22 @@
                             title: "錶帶",
                             icon:"./images/watch-strap.png",
                             content: [
-                                {
-                                    url: "./images/band01.png",
-                                    itemName: "灰色",
-                                },
-                                {
-                                    url: "./images/band02.png",
-                                    itemName: "綠色",
-                                },
-                                {
-                                    url: "./images/band03.png",
-                                    itemName: "白色",
-                                },
-                                {
-                                    url: "./images/band04.png",
-                                    itemName: "黑色",
-                                },
+                                // {
+                                //     url: "./images/band01.png",
+                                //     itemName: "灰色",
+                                // },
+                                // {
+                                //     url: "./images/band02.png",
+                                //     itemName: "綠色",
+                                // },
+                                // {
+                                //     url: "./images/band03.png",
+                                //     itemName: "白色",
+                                // },
+                                // {
+                                //     url: "./images/band04.png",
+                                //     itemName: "黑色",
+                                // },
     
                             ],
                         },
@@ -198,22 +205,22 @@
                             title: "指針",
                             icon:"./images/clock.png",
                             content: [
-                                {
-                                    url: "./images/point01.png",
-                                    itemName: "黑指針",
-                                },
-                                {
-                                    url: "./images/point02.png",
-                                    itemName: "白指針",
-                                },
-                                {
-                                    url: "./images/point03.png",
-                                    itemName: "灰指針",
-                                },
-                                {
-                                    url: "./images/point04.png",
-                                    itemName: "黃指針",
-                                },
+                                // {
+                                //     url: "./images/point01.png",
+                                //     itemName: "黑指針",
+                                // },
+                                // {
+                                //     url: "./images/point02.png",
+                                //     itemName: "白指針",
+                                // },
+                                // {
+                                //     url: "./images/point03.png",
+                                //     itemName: "灰指針",
+                                // },
+                                // {
+                                //     url: "./images/point04.png",
+                                //     itemName: "黃指針",
+                                // },
                             ],
                         },
 
@@ -223,34 +230,34 @@
                             title: "錶框",
                             icon:"./images/icon-frame.png",
                             content: [
-                                {
-                                    url: "./images/bezel01.png",
-                                    itemName: "玫瑰金",
-                                },
-                                {
-                                    url: "./images/bezel02.png",
-                                    itemName: "綠色",
-                                },
-                                {
-                                    url: "./images/bezel03.png",
-                                    itemName: "黑色",
-                                },
-                                {
-                                    url: "./images/bezel04.png",
-                                    itemName: "粉色",
-                                },
-                                {
-                                    url: "./images/bezel01.png",
-                                    itemName: "玫瑰金",
-                                },
-                                {
-                                    url: "./images/bezel02.png",
-                                    itemName: "綠色",
-                                },
-                                {
-                                    url: "./images/bezel03.png",
-                                    itemName: "黑色",
-                                },
+                                // {
+                                //     url: "./images/bezel01.png",
+                                //     itemName: "玫瑰金",
+                                // },
+                                // {
+                                //     url: "./images/bezel02.png",
+                                //     itemName: "綠色",
+                                // },
+                                // {
+                                //     url: "./images/bezel03.png",
+                                //     itemName: "黑色",
+                                // },
+                                // {
+                                //     url: "./images/bezel04.png",
+                                //     itemName: "粉色",
+                                // },
+                                // {
+                                //     url: "./images/bezel01.png",
+                                //     itemName: "玫瑰金",
+                                // },
+                                // {
+                                //     url: "./images/bezel02.png",
+                                //     itemName: "綠色",
+                                // },
+                                // {
+                                //     url: "./images/bezel03.png",
+                                //     itemName: "黑色",
+                                // },
                             ],
                         },
 
@@ -260,12 +267,36 @@
                 selectCuzItem(item) {
                     this.$emit('emit-item', item);
                 },
+
+                fetchAllData(){
+                    axios.post("php/vuecuzi_bezel.php",{action:'fetchall'}).then(res=>
+                    {
+                    this.outerpages[0].content = res.data;
+                    this.selectedOuter.content = res.data;
+                    });
+                    axios.post("php/vuecuzi_face.php",{action:'fetchall'}).then(res=>
+                    {
+                    this.outerpages[1].content = res.data;
+                    });
+                    axios.post("php/vuecuzi_band.php",{action:'fetchall'}).then(res=>
+                    {
+                    this.outerpages[2].content = res.data;
+                    });
+                    axios.post("php/vuecuzi_pointer.php",{action:'fetchall'}).then(res=>
+                    {
+                    this.outerpages[3].content = res.data;
+                    });
+                },
             },
 
             watch:{
                 propsTab(newobject,oldobject){
                     this.selectedOuter = newobject;
                 }
+            },
+
+            mounted(){
+                this.fetchAllData();
             },
 
             template: `
@@ -295,44 +326,45 @@
 
 
         Vue.component("function", {
+            props:["propfun1","propfun2","propfun3","propdive"],
             data() {
                 return {
-                    currentfun1: "未選擇",
-                    currentfun2: "未選擇",
-                    currentfun3: "未選擇",
-                    dive:"防水3ATM",
+                    currentfun1: this.propfun1,
+                    currentfun2: this.propfun2,
+                    currentfun3: this.propfun3,
+                    dive: this.propdive,
                     funitems: [
-                        {
-                            funName: '未選擇',
-                            url: "./images/fun01.png"
-                        },
-                        {
-                            funName: '計時器',
-                            url: "./images/fun02.png",
-                        },
-                        {
-                            funName: '指北針',
-                            url: "./images/fun03.png"
-                        },
-                        {
-                            funName: '深度表',
-                            url: "./images/fun04.png"
-                        },
+                        // {
+                        //     funName: '未選擇',
+                        //     url: "./images/fun01.png"
+                        // },
+                        // {
+                        //     funName: '計時器',
+                        //     url: "./images/fun02.png",
+                        // },
+                        // {
+                        //     funName: '指北針',
+                        //     url: "./images/fun03.png"
+                        // },
+                        // {
+                        //     funName: '深度表',
+                        //     url: "./images/fun04.png"
+                        // },
                     ],
 
                     diveItem:[
-                        {
-                           diveName:"防水3ATM",
-                        },
-                        {
-                            diveName:"防水5ATM",
-                        },
-                        {
-                            diveName:"防水10ATM",
-                        },
-                        {
-                            diveName:"防水20ATM",
-                        },
+                        // {
+                        //    diveName:"防水3ATM",
+                        // },
+                        // {
+                        //     diveName:"防水5ATM",
+                        // },
+                        // {
+                        //     diveName:"防水10ATM",
+                        // },
+                        // {
+                        //     diveName:"防水20ATM",
+                        // },
                     ],
                 };
             },
@@ -354,11 +386,28 @@
                 },
                 getUrl(funname) {
                     let obj = this.funitems.find(item => {
-                        return item.funName == funname
+                        return item.WFuc_Name == funname
                     });
-                    if (obj && obj.url) return obj;
+                    if (obj && obj.WFuc_PIC) return obj;
                     return "";
                 },
+
+                fetchAllData(){
+                    axios.post("php/vuecuzi_fun.php",{action:'fetchall'}).then(res=>
+                    {
+                    this.funitems = res.data;
+                    });
+                    axios.post("php/vuecuzi_dive.php",{action:'fetchall'}).then(res=>
+                    {
+                    this.diveItem = res.data;
+                    console.log(res.data);
+                    });
+                },
+
+            },
+
+            mounted(){
+                this.fetchAllData();
             },
             computed: {
                 test1() {
@@ -376,17 +425,17 @@
                 },
                 funitems1() {
                     return this.funitems.filter(item => {
-                        return ((item.funName !== this.currentfun2 && item.funName !== this.currentfun3) || item.funName == '未選擇')
+                        return ((item.WFuc_Name !== this.currentfun2 && item.WFuc_Name !== this.currentfun3) || item.WFuc_Name == '未選擇')
                     });
                 },
                 funitems2() {
                     return this.funitems.filter(item => {
-                        return ((item.funName !== this.currentfun1 && item.funName !== this.currentfun3) || item.funName == '未選擇')
+                        return ((item.WFuc_Name !== this.currentfun1 && item.WFuc_Name !== this.currentfun3) || item.WFuc_Name == '未選擇')
                     });
                 },
                 funitems3() {
                     return this.funitems.filter(item => {
-                        return ((item.funName !== this.currentfun1 && item.funName !== this.currentfun2) || item.funName == '未選擇')
+                        return ((item.WFuc_Name !== this.currentfun1 && item.WFuc_Name !== this.currentfun2) || item.WFuc_Name == '未選擇')
                     });
                 },
 
@@ -412,22 +461,22 @@
                     <div class="fun-select">
                         <div class="select-item">
                             <label for="">1</label>
-                            <select @change="funitemchange($event, 1)">
-                                <option v-for="(funitem,index) in funitems1" :key="funitem.funName">
-                                    {{funitem.funName}}
+                            <select @change="funitemchange($event, 1)" v-model="currentfun1">
+                                <option v-for="(funitem,index) in funitems1" :key="funitem.WFuc_Name">
+                                    {{funitem.WFuc_Name}}
                                 </option>
                             </select>
                         </div>
                         <div class="select-item">
                             <label for="">2</label>
-                            <select @change="funitemchange($event, 2)">
-                                <option v-for="funitem in funitems2" :key="funitem.funName">{{funitem.funName}}</option>
+                            <select @change="funitemchange($event, 2)" v-model="currentfun2">
+                                <option v-for="funitem in funitems2" :key="funitem.WFuc_Name">{{funitem.WFuc_Name}}</option>
                             </select>
                         </div>
                         <div class="select-item">
                             <label for="">3</label>
-                            <select @change="funitemchange($event, 3)">
-                                <option v-for="funitem in funitems3" :key="funitem.funName">{{funitem.funName}}</option>
+                            <select @change="funitemchange($event, 3)" v-model="currentfun3">
+                                <option v-for="funitem in funitems3" :key="funitem.WFuc_Name">{{funitem.WFuc_Name}}</option>
                             </select>
                         </div>
                     
@@ -436,13 +485,13 @@
                 <h3>潛水規格需求</h3>
                 <div class="dive-area">
                     <input type="radio" id="3" v-model="dive" value="防水3ATM">
-                    <label for="3">防水3ATM</label><br>
+                    <label for="3">{{diveItem[0].WDiv_Name}}</label><br>
                     <input type="radio" id="5" v-model="dive" value="防水5ATM">
-                    <label for="5">防水5ATM</label><br>
+                    <label for="5">{{diveItem[1].WDiv_Name}}</label><br>
                     <input type="radio" id="10" v-model="dive" value="防水10ATM">
-                    <label for="10">防水10ATM</label><br>
+                    <label for="10">{{diveItem[2].WDiv_Name}}</label><br>
                     <input type="radio" id="20" v-model="dive" value="防水20ATM">
-                    <label for="20">防水20ATM</label>
+                    <label for="20">{{diveItem[3].WDiv_Name}}</label>
                 </div>
             </div>
           `
@@ -520,59 +569,59 @@
             data(){
                 return{
                     boxColors:[
-                        {
-                            colorId: 1,
-                            colorBtn:"./images/color01.png",
-                            boxImg:"./images/box01.png",
-                        },
-                        {
-                            colorId:2,
-                            colorBtn:"./images/color02.png",
-                            boxImg:"./images/box02.png",
-                        },
-                        {
-                            colorId:3,
-                            colorBtn:"./images/color03.png",
-                            boxImg:"./images/box03.png",
-                        },
-                        {
-                            colorId:4,
-                            colorBtn:"./images/color04.png",
-                            boxImg:"./images/box04.png",
-                        },
-                        {
-                            colorId:5,
-                            colorBtn:"./images/color05.png",
-                            boxImg:"./images/box05.png",
-                        },
+                        // {
+                        //     colorId: 1,
+                        //     colorBtn:"./images/color01.png",
+                        //     boxImg:"./images/box01.png",
+                        // },
+                        // {
+                        //     colorId:2,
+                        //     colorBtn:"./images/color02.png",
+                        //     boxImg:"./images/box02.png",
+                        // },
+                        // {
+                        //     colorId:3,
+                        //     colorBtn:"./images/color03.png",
+                        //     boxImg:"./images/box03.png",
+                        // },
+                        // {
+                        //     colorId:4,
+                        //     colorBtn:"./images/color04.png",
+                        //     boxImg:"./images/box04.png",
+                        // },
+                        // {
+                        //     colorId:5,
+                        //     colorBtn:"./images/color05.png",
+                        //     boxImg:"./images/box05.png",
+                        // },
                     ],
 
                     ribbonColors:[
-                        {
-                            colorId:1,
-                            colorBtn:"./images/color01.png",
-                            ribbonImg:"./images/ribbon01.png",
-                        },
-                        {
-                            colorId:2,
-                            colorBtn:"./images/color02.png",
-                            ribbonImg:"./images/ribbon02.png",
-                        },
-                        {
-                            colorId:3,
-                            colorBtn:"./images/color03.png",
-                            ribbonImg:"./images/ribbon03.png",
-                        },
-                        {
-                            colorId:4,
-                            colorBtn:"./images/color04.png",
-                            ribbonImg:"./images/ribbon04.png",
-                        },
-                        {
-                            colorId:5,
-                            colorBtn:"./images/color05.png",
-                            ribbonImg:"./images/ribbon05.png",
-                        },
+                        // {
+                        //     colorId:1,
+                        //     colorBtn:"./images/color01.png",
+                        //     ribbonImg:"./images/ribbon01.png",
+                        // },
+                        // {
+                        //     colorId:2,
+                        //     colorBtn:"./images/color02.png",
+                        //     ribbonImg:"./images/ribbon02.png",
+                        // },
+                        // {
+                        //     colorId:3,
+                        //     colorBtn:"./images/color03.png",
+                        //     ribbonImg:"./images/ribbon03.png",
+                        // },
+                        // {
+                        //     colorId:4,
+                        //     colorBtn:"./images/color04.png",
+                        //     ribbonImg:"./images/ribbon04.png",
+                        // },
+                        // {
+                        //     colorId:5,
+                        //     colorBtn:"./images/color05.png",
+                        //     ribbonImg:"./images/ribbon05.png",
+                        // },
                     ],
 
                 }
@@ -587,6 +636,24 @@
                     let ribbon = this.ribbonColors[num];
                     this.$emit("emit-ribboncolor",ribbon);
                 },
+
+                fetchAllData(){
+                    axios.post("php/vuecuzi_pbox.php",{action:'fetchall'}).then(res=>
+                    {
+                    this.boxColors = res.data;
+                    console.log(res.data);
+                    });
+                    axios.post("php/vuecuzi_pband.php",{action:'fetchall'}).then(res=>
+                    {
+                    this.ribbonColors = res.data;
+                    console.log(res.data);
+                    });
+                },
+
+            },
+
+            mounted(){
+                this.fetchAllData();
             },
 
             template:`
@@ -595,9 +662,9 @@
                     <h3>包裝顏色</h3>
                     <ul>
                         <li v-for="(boxColor,index) in boxColors"
-                        :key="boxColor.colorId"
+                        :key="boxColor.PBox_ID"
                         @click="changeBoxColor(index)">
-                            <img :src="boxColor.colorBtn">
+                            <img :src="boxColor.PBox_Color">
                         </li>
                     </ul>
                 </div>
@@ -605,9 +672,9 @@
                     <h3>緞帶顏色</h3>
                     <ul>
                         <li v-for="(ribbonColor,index) in ribbonColors"
-                        :key="ribbonColor.colorId"
+                        :key="ribbonColor.PBand_ID"
                         @click="changeRibbonColor(index)">
-                            <img :src="ribbonColor.colorBtn">
+                            <img :src="ribbonColor.PBand_Color">
                         </li>
                     </ul>
                 </div>
@@ -645,6 +712,7 @@
                 currentFontSize:"14",
                 currentFont:"Arial",
                 currentMsg:"RAKA",
+                hotCuzContent:null,
                 cuzTabs: [
                     {
                         page: 'outer',
@@ -663,40 +731,40 @@
                         tab: '包裝',
                     },
                 ],
-                outerPages: [
+                outerpages: [
                         {
                             id: 0,
                             title: "錶框",
                             icon:"./images/icon-frame.png",
                             content: [
-                                {
-                                    url: "./images/bezel01.png",
-                                    itemName: "玫瑰金",
-                                },
-                                {
-                                    url: "./images/bezel02.png",
-                                    itemName: "綠色",
-                                },
-                                {
-                                    url: "./images/bezel03.png",
-                                    itemName: "黑色",
-                                },
-                                {
-                                    url: "./images/bezel04.png",
-                                    itemName: "粉色",
-                                },
-                                {
-                                    url: "./images/bezel01.png",
-                                    itemName: "玫瑰金",
-                                },
-                                {
-                                    url: "./images/bezel02.png",
-                                    itemName: "綠色",
-                                },
-                                {
-                                    url: "./images/bezel03.png",
-                                    itemName: "黑色",
-                                },
+                                // {
+                                //     url: "./images/bezel01.png",
+                                //     itemName: "玫瑰金",
+                                // },
+                                // {
+                                //     url: "./images/bezel02.png",
+                                //     itemName: "綠色",
+                                // },
+                                // {
+                                //     url: "./images/bezel03.png",
+                                //     itemName: "黑色",
+                                // },
+                                // {
+                                //     url: "./images/bezel04.png",
+                                //     itemName: "粉色",
+                                // },
+                                // {
+                                //     url: "./images/bezel01.png",
+                                //     itemName: "玫瑰金",
+                                // },
+                                // {
+                                //     url: "./images/bezel02.png",
+                                //     itemName: "綠色",
+                                // },
+                                // {
+                                //     url: "./images/bezel03.png",
+                                //     itemName: "黑色",
+                                // },
                             ],
                         },
                         {
@@ -704,26 +772,26 @@
                             title: "錶面",
                             icon:"./images/watch-face.png",
                             content: [
-                                {
-                                    url: "./images/face01.png",
-                                    itemName: "黑色",
+                                // {
+                                //     url: "./images/face01.png",
+                                //     itemName: "黑色",
 
-                                },
-                                {
-                                    url: "./images/face02.png",
-                                    itemName: "白色",
+                                // },
+                                // {
+                                //     url: "./images/face02.png",
+                                //     itemName: "白色",
 
-                                },
-                                {
-                                    url: "./images/face03.png",
-                                    itemName: "綠色",
+                                // },
+                                // {
+                                //     url: "./images/face03.png",
+                                //     itemName: "綠色",
 
-                                },
-                                {
-                                    url: "./images/face04.png",
-                                    itemName: "灰色",
+                                // },
+                                // {
+                                //     url: "./images/face04.png",
+                                //     itemName: "灰色",
 
-                                },
+                                // },
                             ],
                         },
                         {
@@ -731,23 +799,22 @@
                             title: "錶帶",
                             icon:"./images/watch-strap.png",
                             content: [
-                                {
-                                    url: "./images/band01.png",
-                                    itemName: "灰色",
-                                },
-                                {
-                                    url: "./images/band02.png",
-                                    itemName: "綠色",
-                                },
-                                {
-                                    url: "./images/band03.png",
-                                    itemName: "白色",
-                                },
-                                {
-                                    url: "./images/band04.png",
-                                    itemName: "黑色",
-                                },
-    
+                                // {
+                                //     url: "./images/band01.png",
+                                //     itemName: "灰色",
+                                // },
+                                // {
+                                //     url: "./images/band02.png",
+                                //     itemName: "綠色",
+                                // },
+                                // {
+                                //     url: "./images/band03.png",
+                                //     itemName: "白色",
+                                // },
+                                // {
+                                //     url: "./images/band04.png",
+                                //     itemName: "黑色",
+                                // },
                             ],
                         },
                         {
@@ -755,22 +822,22 @@
                             title: "指針",
                             icon:"./images/clock.png",
                             content: [
-                                {
-                                    url: "./images/point01.png",
-                                    itemName: "黑指針",
-                                },
-                                {
-                                    url: "./images/point02.png",
-                                    itemName: "白指針",
-                                },
-                                {
-                                    url: "./images/point03.png",
-                                    itemName: "灰指針",
-                                },
-                                {
-                                    url: "./images/point04.png",
-                                    itemName: "黃指針",
-                                },
+                                // {
+                                //     url: "./images/point01.png",
+                                //     itemName: "黑指針",
+                                // },
+                                // {
+                                //     url: "./images/point02.png",
+                                //     itemName: "白指針",
+                                // },
+                                // {
+                                //     url: "./images/point03.png",
+                                //     itemName: "灰指針",
+                                // },
+                                // {
+                                //     url: "./images/point04.png",
+                                //     itemName: "黃指針",
+                                // },
                             ],
                         },
 
@@ -807,23 +874,22 @@
                 },
 
                 changeOuterTab(index){
-                    this.currentOuterTab = this.outerPages[index];
+                    this.currentOuterTab = this.outerpages[index];
                     this.currentTab = "outer";
                     this.currentTabIndex = 0;
                 },
 
                 getFun(funs) {
-                    this.currentFun1 = funs.url1.url;
-                    this.currentFun2 = funs.url2.url;
-                    this.currentFun3 = funs.url3.url;
-                    this.currentFun1Name = funs.url1.funName;
-                    this.currentFun2Name = funs.url2.funName;
-                    this.currentFun3Name = funs.url3.funName;                 
+                    this.currentFun1 = funs.url1.WFuc_PIC;
+                    this.currentFun2 = funs.url2.WFuc_PIC;
+                    this.currentFun3 = funs.url3.WFuc_PIC;
+                    this.currentFun1Name = funs.url1.WFuc_Name;
+                    this.currentFun2Name = funs.url2.WFuc_Name;
+                    this.currentFun3Name = funs.url3.WFuc_Name;              
                 },
 
                 getDive(dive) {
                     this.diveFun = dive; 
-                    console.log("dive",dive)         
                 },
                 getWord(word,wmsg,wfont,wfontsize){
                     this.currentWord = word;
@@ -832,16 +898,60 @@
                     this.currentMsg = wmsg;
                 },
                 getBoxColor(box){
-                    this.currentBoxImg = box.boxImg;
-                    this.currentBoxBtn = box.colorBtn;          
+                    this.currentBoxImg = box.PBox_PIC;
+                    this.currentBoxBtn = box.PBox_Color;          
                 },
 
                 getRibbonColor(ribbon){
-                    this.currentRibbonImg = ribbon.ribbonImg;
-                    this.currentRibbonBtn = ribbon.colorBtn;          
+                    this.currentRibbonImg = ribbon.PBand_Pic;
+                    this.currentRibbonBtn = ribbon.PBand_Color;          
                 },
                 addCuzLocal(){
                     localStorage.setItem("cuziwatch",JSON.stringify(this.$data))
+                },
+
+                fetchAllData(){
+                    axios.post("php/vuecuzi_bezel.php",{action:'fetchall'}).then(res=>
+                    {
+                    this.outerpages[0].content = res.data;
+                    }
+                    );
+                    axios.post("php/vuecuzi_face.php",{action:'fetchall'}).then(res=>
+                    {
+                    this.outerpages[1].content = res.data;
+                    });
+                    axios.post("php/vuecuzi_band.php",{action:'fetchall'}).then(res=>
+                    {
+                    this.outerpages[2].content = res.data;
+                    });
+                    axios.post("php/vuecuzi_pointer.php",{action:'fetchall'}).then(res=>
+                    {
+                    this.outerpages[3].content = res.data;
+                    });
+                },
+            },
+
+            mounted(){
+                this.fetchAllData();
+                let storage = JSON.parse(localStorage.getItem("hotCuz"));
+                this.hotCuzContent = storage;
+                if(this.hotCuzContent != null){
+                    this.currentBezel = this.hotCuzContent.bezelImg;
+                    this.currentBezelName = this.hotCuzContent.bezel;
+                    this.currentFace = this.hotCuzContent.faceImg;
+                    this.currentFaceName = this.hotCuzContent.face;
+                    this.currentBand = this.hotCuzContent.bandImg;
+                    this.currentBandName = this.hotCuzContent.band;
+                    this.currentPoint = this.hotCuzContent.pointImg;
+                    this.currentPointName = this.hotCuzContent.point;
+                    this.currentFun1 = this.hotCuzContent.fun1Img;
+                    this.currentFun1Name = this.hotCuzContent.fun1;
+                    this.currentFun2 = this.hotCuzContent.fun2Img;
+                    this.currentFun2Name = this.hotCuzContent.fun2;
+                    this.currentFun3 = this.hotCuzContent.fun3Img;
+                    this.currentFun3Name = this.hotCuzContent.fun3;
+                    this.diveFun = this.hotCuzContent.dive;
+                    this.cuzName =this.hotCuzContent.cuzName;
                 }
             },
         });

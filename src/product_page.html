@@ -22,20 +22,20 @@
 				<div class="product-pic">
 					<div class="switch-pics">
 						<div class="switch-pic">
-							<img class="clicked" src="./images/product_page_01.png" alt="">
+							<img class="clicked" :src="switchpic1" alt="">
 						</div>
 						<div class="switch-pic">
-							<img src="./images/product_page_02.png" alt="">
+							<img :src="switchpic2" alt="">
 						</div>
 						<div class="switch-pic">
-							<img src="./images/product_page_03.png" alt="">
+							<img :src="switchpic3" alt="">
 						</div>
 						<div class="switch-pic">
-							<img src="./images/product_page_04.png" alt="">
+							<img :src="switchpic4" alt="">
 						</div>
 					</div>
 					<div class="main-pic">
-						<img src="./images/product_page_01.png" alt="">
+						<img :src="pagepic" alt="">
 					</div>
 				</div>
 				<div class="product-title">
@@ -69,44 +69,44 @@
 					<div class="item">
 						<div class="product-card">
 							<div class="product-pic">
-								<img src="./images/product_page_01.png" alt="">
+								<img :src="suggestpic" alt="">
 							</div>
-							<div class="product-txt">
-								<h4>RAKA-1001</h4>
-								<P>NT$ 1200</P>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="product-card">
-							<div class="product-pic">
-								<img src="./images/product_page_01.png" alt="">
-							</div>
-							<div class="product-txt">
-								<h4>RAKA-1002</h4>
-								<P>NT$ 1200</P>
+							<div class="product-txt" v-for="(item, index) in title">
+								<h4>{{item.name}}</h4>
+								<P>{{item.price}}</P>
 							</div>
 						</div>
 					</div>
 					<div class="item">
 						<div class="product-card">
 							<div class="product-pic">
-								<img src="./images/product_page_01.png" alt="">
+								<img :src="suggestpic" alt="">
 							</div>
-							<div class="product-txt">
-								<h4>RAKA-1003</h4>
-								<P>NT$ 1200</P>
+							<div class="product-txt"  v-for="(item, index) in title">
+								<h4>{{item.name}}</h4>
+								<P>{{item.price}}</P>
 							</div>
 						</div>
 					</div>
 					<div class="item">
 						<div class="product-card">
 							<div class="product-pic">
-								<img src="./images/product_page_01.png" alt="">
+								<img :src="suggestpic" alt="">
 							</div>
-							<div class="product-txt">
-								<h4>RAKA-1004</h4>
-								<P>NT$ 1200</P>
+							<div class="product-txt"  v-for="(item, index) in title">
+								<h4>{{item.name}}</h4>
+								<P>{{item.price}}</P>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="product-card">
+							<div class="product-pic">
+								<img :src="suggestpic" alt="">
+							</div>
+							<div class="product-txt"  v-for="(item, index) in title">
+								<h4>{{item.name}}</h4>
+								<P>{{item.price}}</P>
 							</div>
 						</div>
 					</div>
@@ -176,7 +176,11 @@
 				return{
 					imageURL:"./images/product_page_specification.jpg",
 				}
-			}
+			},
+			mounted() {
+				let id = location.search.slice(1).split('=')[1]
+				console.log(id)
+			},
 		});
 
 		Vue.component("comment-item",{
@@ -234,6 +238,16 @@
 							count:1,
 						},
 					cart:null,
+					switchpic1:'./images/product_page_01.png',
+					switchpic2:'./images/product_page_02.png',
+					switchpic3:'./images/product_page_03.png',
+					switchpic4:'./images/product_page_04.png',
+					pagepic:'./images/product_page_01.png',
+					suggestpic:'./images/product_page_01.png',
+					title:[{
+						name:'RAKA-1001',
+						price:'NT$1200'
+					}]
 				}
             },
 			methods: {
@@ -241,10 +255,9 @@
                     let storageArray = JSON.parse(localStorage.getItem('addList'));
                     this.cart = storageArray||[];
                     this.itemCount = this.cart.length;
-					console.log(this.cart);
                 },
 				addLocal(){
-					if(this.cart == null){
+					if(this.cart == []){
 						// alert()
 						// this.cart = this.products;
 						this.cart.push(this.products);
@@ -271,8 +284,8 @@
 				},
 			},
 			mounted() {
+			
 				this.updateCart();
-				
 			},
 			// addLocal(){
 			// 	let prodCart = localStorage.setItem("addList", JSON.stringify(this.products));

@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.8.1/axios.js' integrity='sha512-yQvhnV+bdDcAhyxTlmVUyNikQCtnIkfC9r7GesIjLg6IrJx2M92DSv58LpyobngV7WUeM1c3mpgP0971pIY98A==' crossorigin='anonymous'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
 </head>
 <body>
@@ -143,6 +144,16 @@
                  </div>
              </div>
        </section>
+       <section>
+           <canvas id="canvas" width="375" height="600">
+           </canvas>
+       </section>
+       <section>
+           <canvas id="canvas2" width="375" height="600">
+           </canvas>
+           <img :src=urlwatch alt="">
+           <img :src=urlgift alt="">
+       </section>
        
      </div>
      @@include('./layout/footer.html')
@@ -155,23 +166,52 @@
                 getjsons:null,
                 watchDivimg:"",
                 giftDivimg:"",
+                cuzimg:new Image(),
+                cuzimg2:new Image(),
+                urlwatch:'',
+                urlgift:'',
             },
             methods: { 
                 screenshot(){
-                    const targetwatch = document.querySelector("#watchDiv")
-                    const targetgift = document.querySelector("#giftDiv")
-                    domtoimage.toPng(targetwatch).then((dataUrl) => {
-	            	this.watchDivimg = dataUrl;})
-                    domtoimage.toPng(targetgift).then((giftUrl) => {
-	            	this.giftDivimg = giftUrl;
-                    console.log(this.watchDivimg)
-                    console.log(giftUrl)
-	          	    })
-	          	    .catch(function (error) {
-	            	    console.error('失败===', error);
-	          	    });
-                    },
-               
+                    
+                    let cuzcanvas = document.getElementById("canvas")
+                    let cuzcanvas2 = document.getElementById("canvas2")
+                    let ctx = cuzcanvas.getContext('2d');
+                    let ctx2 = cuzcanvas2.getContext('2d');
+                    const targetwatch = document.querySelector("#watchDiv");
+                    const targetgift = document.querySelector("#giftDiv");
+                    domtoimage.toSvg(targetwatch).then((dataUrl) => {
+                        this.watchDivimg = dataUrl;
+                        this.cuzimg.src = this.watchDivimg;
+                        ctx.scale(0.75,0.75);
+                        ctx.drawImage(this.cuzimg,0,0);
+                    });
+                    domtoimage.toSvg(targetgift).then((giftUrl) => {
+                        this.giftDivimg = giftUrl;
+                        this.cuzimg2.src = this.giftDivimg;
+                        ctx2.scale(0.75,0.75);
+                        ctx2.drawImage(this.cuzimg2,0,0);
+                    })
+                        this.urlwatch = cuzcanvas.toDataURL('img/svg');
+                        this.urlgift = cuzcanvas2.toDataURL('img/svg');
+                        console.log(this.urlwatch)
+                        console.log(this.urlgift)
+                        axios.post('finish_page.php',{
+                            dataUrl:this.urlwatch
+                        }).then(res=>{
+                            alert(res.data.message)
+                        })
+	          	    
+                },
+              
+                    // getimg(imgsrc){
+                    //     let cuzcanvas = document.getElementById("canvas")
+                    //     let ctx = cuzcanvas.getContext('2d');
+                    //     let cuzimg = new Image();
+                    //     cuzimg.src = imgsrc;
+                    //     ctx.drawImage(cuzimg,0,0)
+                        
+                    // },
             },
             computed: { // 函數(方法)也可以放這裡，但是放在這裡的函數，不能傳參數，一定要有傳回值
                
@@ -180,6 +220,21 @@
                 let storageArray = JSON.parse(localStorage.getItem('cuziwatch'))
                 this.getjsons =storageArray
             },
+            // watch:{
+            //     watchDivimg(n,o){
+            //         let cuzcanvas = document.getElementById("canvas");
+            //         let ctx = cuzcanvas.getContext('2d');
+            //         let cuzimg = new Image();
+            //         cuzimg.src = n;
+            //         ctx.drawImage(cuzimg,0,0);
+            //         console.log(n);
+
+            //     },
+            //     giftDivimg(n,o){
+
+            //     }
+               
+            // },
         });
     </script>
 </body>

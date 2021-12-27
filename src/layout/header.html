@@ -11,8 +11,8 @@
 <body>
     <header class="main-header" id="main-header">
         <div class="container">
-            <div class="logo" onclick="javascript:location.href='../index.html'">
-                <img src="../images/logo.png" alt="">
+            <div class="logo" onclick="javascript:location.href='./index.html'">
+                <img src="./images/logo.png" alt="">
             </div>
             <div class="hb" id="hbBtn">
                 <span></span>
@@ -21,26 +21,25 @@
             <nav class="main-nav" id="main-nav">
                 <ul>
                     <li>
-                        <a href="../productList_page.html" class="product">商品瀏覽</a>
+                        <a href="./productList_page.html" class="product">商品瀏覽</a>
                     </li>
                     <li>
-                        <a href="../hot_design.html" class="customize01">客製化專區</a>
+                        <a href="./hot_design.html"  class="customize01">客製化專區</a>
                     </li>
                     <li>
-                        <a href="../aboutUs_page.html" class="aboutus">關於我們</a>
+                        <a href="./aboutUs_page.html" class="aboutus">關於我們</a>
                     </li>
                     <li>
-                        <a href="../member_comm.html" class="member">會員專區</a>
+                        <a :href="memberHref" class="member">會員專區</a>
                     </li>
                 </ul>
-                <div class="memBtn">
-                    <a class="login" href="../loginAndRegi_page.html"> 登入</a>
-                    <a class="sighup" href="../loginAndRegi_page.html">註冊</a>
+                <div class="memBtn" @click="logChange">
+                    <a class="login" href="./loginAndRegi_page.html">{{loginLogout}}</a>
                 </div>
             </nav>
             <div class="cart">
                 <span class="item-count">{{itemCount}}</span>
-                <a href="../shopcar_page.html"><img src="../images/bag.png" alt=""></a>
+                <a href="./shopcar_page.html"><img src="./images/bag.png" alt=""></a>
             </div>
         </div>
     </header>
@@ -58,16 +57,37 @@
             data:{
                 itemCount:'0',
                 cart:[],
+                loginLogout:'登入',
+                memberHref:'',
             },
             methods: {
                 updateCart(){
                     let storageArray = JSON.parse(localStorage.getItem('addList'));
                     this.cart = storageArray||[];
                     this.itemCount = this.cart.length;
-                }
+                },
+                logChange(){
+                    if(this.loginLogout=="登出"){
+                        this.loginLogout="登入";
+                        localStorage.removeItem("memberID");
+                    }
+                        
+                },
+
+
             },
             mounted() {
                this.updateCart();
+               //確認是否LOCAL有存會員ID
+               let memlogin = JSON.parse(localStorage.getItem("memberID"));
+               if(memlogin){
+                    this.loginLogout="登出";
+                    this.memberHref="./member_comm.html";
+               }else{
+                   this.loginLogout="登入";
+                   this.memberHref="./loginAndRegi_page.html";
+               }
+
             },
         }).$mount('#main-header')
     </script>
