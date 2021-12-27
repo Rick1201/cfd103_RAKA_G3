@@ -10,58 +10,39 @@
 	<body id="productList">
 		@@include('./layout/header.html')
 		<!-- 商品圖banner -->
-	<div class="uppage">
+	<div id="uppage">
 		<div class="shop_container">
 			<div class="product_banner">
-				<img src="images/product-list-banner1.png" alt="" />
+				<img :src="banner" alt="" />
 			</div>
 		</div>
 		<!-- 麵包屑 -->
 		<div class="breadcrumb">
 			<ul class="breadcrumb">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">ProductList</a></li>
-				<li>Watch</li>
+				<li v-for="li in items">
+					<a href="#">{{li.name}}</a>
+				{{li.nameoo}}
+				</li>
 			</ul>
 		</div>
 		<!-- 篩選器 -->
 		<section class="entzu">
 			<div class="container09">
 				<div class="filter">
-					<div class="box">
-						<h4>材質</h4>
+					<h4>材質</h4>
+					<div class="box"  v-for="label in type">
 						<input class="form-check-input" type="checkbox" />
-						<label class="type"> 陶瓷 </label>
+						<label class="type">  {{label.name}} </label>
 					</div>
-					<div class="box">
+					<h4>錶帶</h4>
+					<div class="box" v-for="label in watch">
 						<input class="form-check-input" type="checkbox" />
-						<label class="type"> 鋼 </label>
+						<label class="type">{{label.watch}} </label>
 					</div>
-					<div class="box">
-						<h4>錶帶</h4>
+					<h4>主題系列</h4>
+					<div class="box" v-for="label in themes">
 						<input class="form-check-input" type="checkbox" />
-						<label class="type"> 皮革 </label>
-					</div>
-					<div class="box">
-						<input class="form-check-input" type="checkbox" />
-						<label class="type"> 金屬 </label>
-					</div>
-					<div class="box">
-						<input class="form-check-input" type="checkbox" />
-						<label class="type"> 尼龍 </label>
-					</div>
-					<div class="box">
-						<h4>主題系列</h4>
-						<input class="form-check-input" type="checkbox" />
-						<label class="type"> 極深潛系列 </label>
-					</div>
-					<div class="box">
-						<input class="form-check-input" type="checkbox" />
-						<label class="type"> 衝浪者系列 </label>
-					</div>
-					<div class="box">
-						<input class="form-check-input" type="checkbox" />
-						<label class="type"> 海洋飛行系列 </label>
+						<label class="type"> {{label.theme}}</label>
 					</div>
 					<button class="sidebarBtn">
 						<span></span>
@@ -162,6 +143,8 @@
 			</div>
 		</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.8.1/axios.js' integrity='sha512-yQvhnV+bdDcAhyxTlmVUyNikQCtnIkfC9r7GesIjLg6IrJx2M92DSv58LpyobngV7WUeM1c3mpgP0971pIY98A==' crossorigin='anonymous'></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 		<script>
 			var img = true;
 			$(".heart").click(function () {
@@ -193,6 +176,35 @@
 				fetchData();
 			}
 			window.addEventListener("load", init, false);
+		</script>
+		<script>
+			new Vue({
+				el: '#uppage',
+				data() {
+					return {
+						banner:"images/product-list-banner1.png",
+						items:[
+                          {name:'Home'},
+                          {name:'ProductList'},
+                          {nameoo:'Watch'}
+					],
+						type:[
+							{name:'陶瓷'}, 
+							{name:'鋼'},
+					],
+						watch:[
+							{watch:'皮革'},
+							{watch:'金屬'},
+							{watch:'尼龍'},
+					],
+					themes:[
+							{theme:'極深潛系列'},
+							{theme:'衝浪者系列'},
+							{theme:'海洋飛行系列'},
+					],
+				}
+			}
+		})
 		</script>
 		@@include('./layout/footer.html')
 	</body>

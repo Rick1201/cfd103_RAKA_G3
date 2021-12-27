@@ -138,18 +138,18 @@
         background: #07284e;
         border-radius: 50%;
     }
-    .box h4{
+     .filter h4{
         margin-bottom: 20px;
         padding-top: 10px;
     }
-    .box h4::before{
+     .filter h4::before{
         content: '';
         border-left: 3px solid #07284e;
         padding-left: 5px;
     }
     .box{
-        padding-top: 13px;
-        margin-left: 50px;
+        padding-top: 10px;
+        margin-left: 10px;
     }
 }
   
