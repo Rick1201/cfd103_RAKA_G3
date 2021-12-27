@@ -124,27 +124,24 @@
             width:30px;
             height: 30px;
             position: relative;
-            bottom: 190px;
-            left:230px;
+            left:180px;
+            top:0px;
         }
-        .list_page{
+        .shop_list{
             display: grid;
             justify-content: unset;
         }
         .list p{
             text-align: none;
+            left: 90px;
         }
-        .list_page2{
-            display: grid;
-            justify-content: unset;
+        .list img{
+            width: 300%;
+            position: relative;
+            right:-10px;
         }
-        .list_page3{
-            display: grid;
-            justify-content: unset;
-        }
-        .list_page4{
-            display: grid;
-            justify-content: unset;
+        .list span{
+            left: 90px;
         }
         .filter{
             position: fixed;
@@ -155,6 +152,9 @@
             height: 100%;
             transition: .3s;
             z-index: 3;
+        }
+        .filter h4{
+            color: white;
         }
         .active{
             left: 0;

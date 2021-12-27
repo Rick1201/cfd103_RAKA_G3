@@ -49,13 +49,12 @@
 					</button>
 				</div>
 				<div class="shop_list">
-
 						<div class="list" v-for="(item, index) in products" :key="index" >
 							<img src="./images/product-list-heart .png" ref="heart" @click="changeHeart(index)" class="heart" />
-							<img :src="item.img" alt="" onclick="javascript:location.href='./product_page.html'"/>
-							<p>{{item.title}}</p>
-							<span>{{item.price}}</span>
-						</div>
+							<img :src="item.Product_PIC01" alt="" onclick="javascript:location.href='./product_page.html'"/>
+							<p>{{item.Product_Name}}</p>
+							<span>{{item.Product_Price}}</span>
+						</div>		
 					</div>
 				</div>
 			</div>
@@ -100,102 +99,105 @@
 							{theme:'海洋飛行系列'},
 					],
 					products:[
-                          {
-                           img:'images/product-list02.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-                           name:'陶瓷',
-                           watch:'金屬',
-                           theme:'衝浪者系列'
-                        },
-						{
-                           img:'images/product-list02.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-                           name:'陶瓷',
-                           watch:'金屬',
-                           theme:'衝浪者系列'
-                        },
-						{
-                           img:'images/product-list02.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-                           name:'陶瓷',
-                           watch:'金屬',
-                           theme:'衝浪者系列'
-                        },
-						{
-                           img:'images/product-list02.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-                           name:'陶瓷',
-                           watch:'金屬',
-                           theme:'衝浪者系列'
-                        },
-						{
-                           img:'images/product-list02.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-                           name:'陶瓷',
-                           watch:'金屬',
-                           theme:'衝浪者系列'
-                        },
-						{
-                           img:'images/product-list02.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-                           name:'陶瓷',
-                           watch:'金屬',
-                           theme:'衝浪者系列'
-                        },
-						{
-                           img:'images/product-list02.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-                           name:'陶瓷',
-                           watch:'金屬',
-                           theme:'衝浪者系列'
-                        },
-						{
-                           img:'images/product-list02.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-                           name:'陶瓷',
-                           watch:'金屬',
-                           theme:'衝浪者系列'
-                        },
-						{
-                           img:'images/product-list02.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-                           name:'陶瓷',
-                           watch:'金屬',
-                           theme:'衝浪者系列'
-                        },
-						{
-                           img:'images/product-list02.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-                           name:'陶瓷',
-                           watch:'金屬',
-                           theme:'衝浪者系列'
-                        },
-						{
-                           img:'images/product-list02.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-                           name:'陶瓷',
-                           watch:'金屬',
-                           theme:'衝浪者系列'
-                        },
-						{
-                           img:'images/product-list02.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-                           name:'陶瓷',
-                           watch:'金屬',
-                           theme:'衝浪者系列'
-                        },
+                        //   {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+                        //    name:'陶瓷',
+                        //    watch:'金屬',
+                        //    theme:'衝浪者系列'
+                        // },
+						// {
+
+						// }
 					]	                      
 				},
 				methods: {
@@ -207,6 +209,15 @@
 						this.$refs.heart[index].src= "images/product-list-heart .png";
 					}
            		 },
+
+			},
+			mounted() {
+				axios.post('productlist_page.php',{
+					action:'fetchall',
+				}).then(res=>{
+					console.log(123)
+					this.product=res.data
+				})
 			},
 		})
 		</script>
@@ -218,7 +229,7 @@
 				});
 			});
 		</script>
-		<script>
+		<!-- <script>
 			function fetchData(){
 				axios.post('productlist_page.php',{
 					action:'fetchall',
@@ -230,7 +241,7 @@
 				fetchData();
 			}
 			window.addEventListener("load", init, false);
-		</script>
+		</script> -->
 		
 	</body>
 </html>
