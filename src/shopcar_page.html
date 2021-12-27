@@ -14,13 +14,13 @@
         <div class="item">
             <div class="item_detail" v-for="(item,index) in itemList" :key="item.id">
                 <input type="checkbox" name="star" value="1">
-                <img v-bind:src="item.prodImg" alt="">
+                <img :src="item.prodImg" alt="">
                 <h4>{{item.prodName}}</h4>
                 <div class="information">
                     <button @click="handleSub(item,index)">-</button>
                     {{item.count}}
                     <button @click="handlePlus(item,index)">+</button>
-                    <span>${{item.prodPrice}}</span>
+                    <span>${{item.prodPrice * item.count}}</span>
                     <dt @click="handleDelete(item,index)">刪除</dt>
                </div> 
             </div>
@@ -31,37 +31,20 @@
                         <h2>訂單金額</h2>
                     </div>
                 </div>
-                <div class="money01">    
-                    <div class="m02">
-                        <p>海洋飛行PCB-01</p>
-                        <p>$75,000</p>
-                    </div> 
-                    <div class="m03">
-                        <p>1個</p>
-                        <p>小計$75,000</p>
+                <div v-for="(item,index) in itemList2" :key="item.id">
+                    <div class="money01">    
+                        <div class="m02">
+                            <p>{{item.prodName}}</p>
+                            <p>${{item.prodPrice}}</p>
+                        </div> 
+                        <div class="m03">
+                            <p>{{item.count}}個</p>
+                            <p>小計{{item.prodPrice * item.count}}</p>
+                        </div>
                     </div>
                 </div>
-                <div class="money02">
-                    <div class="m05">
-                        <p>海洋飛行PCB-01</p>
-                        <p>$75,000</p>
-                    </div>
-                    <div class="m06">
-                        <p>1個</p>
-                        <p>小計$75,000</p>
-                    </div>
-                </div>
-                <div class="money03">
-                    <div class="m05">
-                        <p>海洋飛行PCB-01</p>
-                        <p>$75,000</p>
-                    </div>
-                    <div class="m06">
-                        <p>1個</p>
-                        <p>小計$75,000</p>
-                    </div>
-                </div>                 
-            <span>總計13,0000</span>
+             
+            <span>{{ total }}</span>
             <a href="checkout_list.html">
                 <button>結帳</button>
             </a>
@@ -79,18 +62,42 @@
         methods: {
             handlePlus(item,index){
                 // console.log(item);
-                item.count++;
+                item.count++
+                item.count = (item.count > 99) ? 99 : item.count
+                this.updateCart();
             },
             handleSub(item,index){
                 // console.log(item);
-                if(item.count>1){
-                    item.count--;
-                }else{
-                    this.handleDelete(item,index);
-                }
+                item.count--
+                item.count = (item.count < 1) ? 1 : item.count
+                // if(item.count>1){
+                //     item.count--;
+                // }else{
+                //     this.handleDelete(item,index);
+                // }
+                this.updateCart();
             },
             handleDelete(item,index){
                 this.itemList.splice(index,1);
+                item.count = 0
+
+            },
+            updateCart(){
+                localStorage.setItem("addList", JSON.stringify(this.itemList));
+				vmHeader.updateCart();
+            }
+        },
+        computed: {
+            itemList2 (){
+                return this.itemList
+                .filter(i => i.count)
+                .map(i => {
+                    i.sum = i.prodPrice * i.count
+                    return i
+                })
+            },
+            total (){
+                return this.itemList.reduce((sum, i) => (sum + (i.prodPrice * i.count)), 0)
             }
         },
         mounted(){
