@@ -129,9 +129,6 @@
         max-width:100%;
     }
     // 我們的願景
-    .contact-img img{
-        display: none;
-    }
     .ourtwo{
         display: grid;
         justify-content: center;
@@ -193,10 +190,14 @@
         margin: auto;
     }
     .map_word p2{
-        font-size: 14px;
+        font-size: 13.5px;
+        padding-left: unset;
+        padding-right: unset;
+        position: relative;
+        left:18px;
     }
     .map_word span{
-        font-size: 14px;
+        font-size: 13.5px;
     }
     iframe{
         width: 200px;
