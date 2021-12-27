@@ -232,12 +232,12 @@
 //     margin-bottom: 60px;
 // }
 
-// .customize{
-//     @include btnStyle($btnColor-secondary,100px);
-// }
-// .customize h3{
-//     background: unset;
-// }
+.customize{
+     @include btnStyle($btnColor-secondary,100px);
+ }
+ .customize h3{
+     background: unset;
+ }
 // .form_word{
 //    display: flex;
 //    flex-direction: column;

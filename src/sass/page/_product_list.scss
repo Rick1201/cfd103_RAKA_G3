@@ -43,71 +43,43 @@
     }
     .filter{
         display: flex;
-        flex-direction: column;
-        
+        flex-direction: column; 
+        width:20%;
     }
     .shop_list{
         margin: auto;
+        flex-wrap: wrap;
+        width: 80%;
+        display: flex;
+      
     }
-    .list img{
-        width: 251px;
-        left: -30px;
-        cursor: pointer;
+    .list{
+        width:30%;
+        margin-bottom: 100px;
     }
     .list>.heart{
         width:30px;
         height: 30px;
         position: relative;
-        bottom: 220px;
+        bottom: 200px;
         left:280px;
+        top:-160px;
     }
-    .list_page{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-        gap:60px;
-    }
-    .list_page2{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-        gap:60px;
-    }
-    .list_page3{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-        gap:60px;
-    }
-    .list_page4{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-        gap:60px;
-    }
-    .list_page2{
-        margin-top: 90px;
-    }
-    .list_page3{
-        margin-top: 90px;
-    }
-    .list_page4{
-        margin-top: 90px;
-    }
-    .list span{
-        margin-left:130px;
-        padding-top: 10px;
+    .list img{
+        width: 55%;
     }
     .list p{
-       text-align: center;
-       padding-bottom: 15px;
-       padding-left: 35px;
+        font-size: 18px;
+        position: relative;
+        left:70px;
     }
-
+    .list span{
+        font-size: 18px;
+        position: relative;
+        left:110px;
+        margin-bottom: 10px;
+        top: 13px;
+    }
     .pagination-wrapper{
         width: 100%;
         height: 100%;
