@@ -17,7 +17,7 @@
             <div class="customization-link">
                 <h2>客製化專區</h2>
                 <p>訂製您的專屬潛水錶</p>
-                <button @click="removeLocal"><a href="./vuecuzi.html">開始設計</a></button>
+                <button @click="removeLocal"><a @click="checkLog":href="cuzWatchHref">開始設計</a></button>
             </div>
         </div>
     </div>
@@ -42,7 +42,7 @@
                         <img src="./images/product-list-heart .png">
                     </div>
                     <div class="hot-design-pic">
-                        <img src="./images/finishwatchpic01.png" alt="">
+                        <img :src="hotCuz.pic" alt="">
                     </div>
                     <div class="hot-design-content">
                         <div class="content-item">
@@ -85,7 +85,7 @@
                             <div class="collect-times">收藏次數</div>
                             <div class="times">{{hotCuz.times}}</div>
                         </div>
-                        <button @click="addHotCuzLocal(index)"><a href="./vuecuzi.html">查看詳細規格</a></button>
+                        <button @click="addHotCuzLocal(index)"><a @click="checkLog":href="cuzHref">查看詳細規格</a></button>
                     </div>
                 </div>
             </div>
@@ -99,10 +99,21 @@
     <script>
         new Vue({
             el: "#hot-design-banner",
+            data:{
+                cuzWatchHref:"",
+            },
             methods:{
                 removeLocal(){
                     localStorage.removeItem("hotCuz");
-                    console.log("111");
+                },
+                checkLog(){
+                    let memlogin = JSON.parse(localStorage.getItem("memberID"));
+                    if(!memlogin){
+                        alert("請先登入!");
+                        this.cuzWatchHref="./loginAndRegi_page.html";
+                    }else{
+                        this.cuzWatchHref="./vuecuzi.html";
+                    }
                 },
             },
         });
@@ -110,6 +121,7 @@
         new Vue({
             el: "#hot-design",
             data: {
+                cuzHref:"",
                 cuzSorts:[
                         {
                             id: 0,
@@ -209,6 +221,7 @@
                     {
                         id:0,
                         designer:"Sara",
+                        pic:"./images/hot-design01.png",
                         cuzName:"櫻桃小丸子",
                         bezel:"古典銅",
                         bezelImg:"./images/bezel03.png",
@@ -230,6 +243,7 @@
                     {
                         id:1,
                         designer:"Ted",
+                        pic:"./images/hot-design02.png",
                         cuzName:"48763",
                         bezel:"神秘黑",
                         bezelImg:"./images/bezel04.png",
@@ -252,6 +266,7 @@
                     {
                         id:2,
                         designer:"Boruto",
+                        pic:"./images/hot-design03.png",
                         cuzName:"Naruto",
                         bezel:"奢華金",
                         bezelImg:"./images/bezel02.png",
@@ -277,9 +292,19 @@
             methods:{
                 addHotCuzLocal(index){
                     localStorage.setItem("hotCuz",JSON.stringify(this.hotCuzs[index]));
-                    // console.log(this.hotCuzs[index]);
+                },
+
+                checkLog(){
+                    let memlogin = JSON.parse(localStorage.getItem("memberID"));
+                    if(!memlogin){
+                    alert("請先登入!");
+                     this.cuzHref="./loginAndRegi_page.html";
+                    }else{
+                     this.cuzHref="./vuecuzi.html";
+                    }
                 },
             },
+
         });
     </script>
 
