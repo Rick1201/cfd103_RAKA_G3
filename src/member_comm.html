@@ -32,9 +32,44 @@
 								<td>${{memberTotal}}元</td>
 							</tr>
 						</table>
+						<div class="lightbox" id="lightbox">
+							<div class="container">
+								<span id="closeBox">X</span>
+								<div class="lightbox-header">
+									<div class="lightbox-member-img">
+										<img src="../dist/images/member01.jpg" id="lightboxUserImage">
+									</div>
+									<div class="lightbox-member-name">
+										<h1 id="lightboxUserName">Emma Li</h1>
+										<label for="files" class="member-edit-btn">選擇大頭貼</label>
+										<input type="file" id="files" ref="spec" accept=".jpg,.png,.svg">
+									</div>
+								</div>
+								<div class="lightbox-txt">
+									<h2>我的地址</h2>
+									<input class="txt-box" type="text" value="" id="address">
+								</div>
+								<div class="lightbox-txt">
+									<h2>Email</h2>
+									<input class="txt-box" type="text" value="" id="email">
+								</div>
+								<div class="lightbox-txt">
+									<h2>電話</h2>
+									<input class="txt-box" type="text" value="" id="phone">
+								</div>
+								<div class="lightbox-txt">
+									<h2>我的信用卡</h2>
+									<input class="txt-box" type="text" value="" id="card">
+								</div>
+								<div class="lightbox-btn-check">
+									<button>取消</button>
+									<button>儲存</button>
+								</div>
+							</div>
+						</div>
 					</div>
 					<div class="member-card">
-						<img src="https://fakeimg.pl/340x200/#aaa"/>
+						<img src="./images/memberCard.png" alt="">
 					</div>
 					<div class="member-side-bar-btn">
 						<a href="#" class="sub-a">商品訂單</a></li>
@@ -44,41 +79,6 @@
 				</div>
 				<div class="member-content"></div>
 			</section>
-			<div class="lightbox" id="lightbox">
-				<div class="container">
-					<span id="closeBox">X</span>
-					<div class="lightbox-header">
-						<div class="lightbox-member-img">
-							<img src="../dist/images/member01.jpg" id="lightboxUserImage">
-						</div>
-						<div class="lightbox-member-name">
-							<h1 id="lightboxUserName">Emma Li</h1>
-							<label for="files" class="member-edit-btn">選擇大頭貼</label>
-							<input type="file" id="files" ref="spec" accept=".jpg,.png,.svg">
-						</div>
-					</div>
-					<div class="lightbox-txt">
-						<h2>我的地址</h2>
-						<input class="txt-box" type="text" value="" id="address">
-					</div>
-					<div class="lightbox-txt">
-						<h2>Email</h2>
-						<input class="txt-box" type="text" value="" id="email">
-					</div>
-					<div class="lightbox-txt">
-						<h2>電話</h2>
-						<input class="txt-box" type="text" value="" id="phone">
-					</div>
-					<div class="lightbox-txt">
-						<h2>我的信用卡</h2>
-						<input class="txt-box" type="text" value="" id="card">
-					</div>
-					<div class="lightbox-btn-check">
-						<button>取消</button>
-						<button>儲存</button>
-					</div>
-				</div>
-			</div>
 			@@include('./layout/footer.html')
 			<script>
 				function showBox(){
@@ -86,12 +86,6 @@
 					let lightBox = document.getElementById('lightbox').style.display = "block";
 					let txtBox = document.querySelectorAll('.txt-box');
 					let address = document.getElementById('address').value;
-					for(let i=0;i<=txtBox.length;i++){
-						console.log(txtBox);
-					}
-					console.log(address);
-
-					
 				}
 				function closeBox(){
 					document.getElementById('lightbox').style.display = "none";
