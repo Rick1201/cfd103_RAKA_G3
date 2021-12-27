@@ -176,7 +176,11 @@
 				return{
 					imageURL:"./images/product_page_specification.jpg",
 				}
-			}
+			},
+			mounted() {
+				let id = location.search.slice(1).split('=')[1]
+				console.log(id)
+			},
 		});
 
 		Vue.component("comment-item",{
@@ -280,6 +284,7 @@
 				},
 			},
 			mounted() {
+			
 				this.updateCart();
 			},
 			// addLocal(){
