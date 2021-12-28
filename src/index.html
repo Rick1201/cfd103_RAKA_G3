@@ -56,7 +56,7 @@
 				</div>
 				<div class="raka-index-detail-midllew">
 					<div class="raka-index-detail-pic">
-						<img src="./images/watch01.png"
+						<img  class="watchnone" src="./images/watch01.png"
 					alt="">
 						<div class="raka-index-detail_pic pic1">
 							<img src="./images/index00.png" alt="">
@@ -175,6 +175,12 @@
 					v.classList.add('active')
 				})
 			};
+			function removeAnI() {
+				let eleList = document.querySelectorAll(".raka-index-detail_pic");
+				eleList.forEach(v=> {
+					v.classList.remove('active')
+				})
+			};
 			function scrollWatch(){
 				let rakaWatch = document.querySelector(".raka-index-pic_watch img");
 				console.log(document.documentElement.scrollTop)
@@ -205,7 +211,6 @@
 
 			function init(){
 				document.body.onscroll= scrollWatch;
-				console.log('init')
 				document.body.addEventListener('scroll', scrollWatch);
 			}
 			$(document).ready(function(){

@@ -13,12 +13,9 @@
     <section class="shoppage">
         <div class="item">
             <div class="item_detail" v-for="(item,index) in itemList" :key="item.id">
-<<<<<<< HEAD
                 <input type="checkbox" name="star" value="1">
                 <img :src="item.prodImg" alt="">
-=======
                 <img v-bind:src="item.prodImg" alt="">
->>>>>>> dev
                 <h4>{{item.prodName}}</h4>
                 <div class="information">
                     <button @click="handleSub(item,index)">-</button>
