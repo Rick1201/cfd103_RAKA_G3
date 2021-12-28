@@ -1,0 +1,147 @@
+.chatbox .chat{
+    width: 100%;
+    height: 300px;
+    box-shadow:  0 0 10px #afb1b3;
+    background-color: #f4f5f7;
+}
+.chatbox .user{
+    display: flex;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+.chatbox .local{
+    justify-content: flex-end;
+    margin-right: -80px;
+}
+.chatbox .remote .picbox{
+    width: 80px;
+    text-align: center;
+    flex-shrink: 0;
+}
+.chatbox .user .pic{
+    width: 40px;
+    margin: auto;
+    overflow: hidden;
+    object-fit: cover;
+    padding-top: 10px;
+}
+.chatbox .user img{
+    width: 100%;
+    vertical-align: bottom;
+}
+.chatbox .user .txt{
+    background-color: #aaa;
+    padding: 16px;
+    border-radius: 10px;
+    margin-left: 80px;
+}
+.chatbox .remote .txt{
+    margin-left: 0px;
+    margin-right: 80px;
+    background-color: #f7bfa1;
+    position: relative;
+}
+.chatbox .local .txt{
+    order: -1;
+    background-color: #aec7bb;
+    position: relative;
+    margin-right: 80px;
+}
+.chatbox .remote .txt::before{
+    content:'' ;
+    position: absolute;
+    top: 20px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #f7bfa1;
+    left: -5px;  
+}
+.chatbox .local .txt::before{
+    content:'' ;
+    position: absolute;
+    top: 20px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #aec7bb;
+    right:-5px;  
+}
+.chatbox .chatbox_answer{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 50px;
+    box-shadow:  0 0 10px #afb1b3;
+    border-radius: 0 0 5px 5px;
+    padding-right: 10px;
+}
+.chatbox .chatbox_answer .element{
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+.chatbox .chatbox_answer input{
+    border-radius: 200px 0px 0px 200px;
+    width: 200px;
+    padding: 5px;
+    font-size: 14px;
+    border: none;
+    background-color: rgb(255, 255, 255);
+}
+.chatbox input::-webkit-input-placeholder{
+    font-size: 14px;
+}
+.chatbox .chatbox_answer :nth-child(2){
+    width: 60px;
+    padding: 5px;
+    border-left: none;
+    background-color: transparent;
+    color: #4a90e2;
+    font-size: 14px;
+    cursor: pointer;
+    border: 0;
+}
+.chatbox input:focus{
+    outline: none;
+}
+.chat{
+    overflow: scroll;
+    height: 300px;
+}
+.chat-head{
+    width: 100%;
+    text-align: center;
+    box-shadow:  0 0 10px #afb1b3;
+    border-radius: 5px 5px 0 0;
+    padding: 10px 0px;
+    position: relative;
+}
+.chatbox .chat-head .pic img{
+    width: 100%;
+    border-radius: 50%;
+}
+.chatbox{
+    padding-top: 40px;
+    width: 300px;
+}
+.chatbox .local .txt .timeHm {
+    color: #aaa;
+    font-size: 12px;
+    position: absolute;
+    bottom: -20px;
+    right: 10px;
+}
+.chatbox .remote .txt .timeHm {
+    color: #aaa;
+    font-size: 12px;
+    position: absolute;
+    bottom: -20px;
+    left: 10px;
+}
+.chatbox .close{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    cursor: pointer;
+}
