@@ -56,7 +56,7 @@
 				</div>
 				<div class="raka-index-detail-midllew">
 					<div class="raka-index-detail-pic">
-						<img style="width: 100%;" src="./images/watch01.png"
+						<img class="watchnone" src="./images/watch01.png"
 					alt="">
 						<div class="raka-index-detail_pic pic1">
 							<img src="./images/index00.png" alt="">
@@ -188,36 +188,16 @@
 				let waveHeight = document.querySelector(".wave").offsetHeight;
 				let varTop = (rakaIndexPicHeight - ((rakaIndexPicHeight - varHeight)/2)) + waveHeight;
 				let fixHeight = (rakaIndexPicHeight - varHeight)/2 + 77;
-				// if(document.body.clientWidth < 500){
-				// 	if(document.documentElement.scrollTop > 300){
-				// 		rakaWatch.classList.add("bubbleWathch");
-				// 		addAnI();
-				// 	}	
-				// }
-				console.log(document.documentElement.scrollTop)
-				// if(document.documentElement.scrollTop > 500){
-			// console.log('bubble')
-					// console.log(document.body.clientWidth);
-					if(document.body.clientWidth < 500){
-						if(document.documentElement.scrollTop > 300){
-							rakaWatch.classList.add("bubbleWathch");
-							addAnI();
-						}	
-					}
 
-					if(document.body.clientWidth > 500){
-						if(document.documentElement.scrollTop > 800){
-							rakaWatch.classList.add("bubbleWathch");
-							addAnI();
-						}
-					}						
-		
-					// if(document.documentElement.scrollTop > 800){
-					// rakaWatch.classList.add("bubbleWathch");
-					// addAnI();
-					// }
-				
-				// }	
+				if(document.documentElement.scrollTop > varTop){
+					rakaWatch.classList.add("bubbleWathch");
+					rakaWatch.style.top = `${varTop}px`;
+					addAnI();
+				}else{
+					rakaWatch.classList.remove("bubbleWathch");
+					rakaWatch.style.top = `${fixHeight}px`;
+					removeAnI();
+				}
 			}
 
 			function init(){
