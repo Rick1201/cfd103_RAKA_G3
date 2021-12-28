@@ -139,7 +139,7 @@
              <div class="containerGrid">
                  <div class="row">
                      <div class="col-12 buttonarea">
-                         <button @click="screenshot" onclick="javascript:location.href='Cuzcheckout_list.html'">下訂單</button>
+                         <button @click="screenshot">下訂單</button>
                      </div>
                  </div>
              </div>
@@ -171,15 +171,6 @@
                     domtoimage.toPng(targetgift).then((giftUrl) => {
                         this.giftDivimg = giftUrl;
                     })
-                        this.urlwatch = cuzcanvas.toDataURL('img/svg');
-                        this.urlgift = cuzcanvas2.toDataURL('img/svg');
-                        console.log(this.urlwatch)
-                        console.log(this.urlgift)
-                        axios.post('finish_page.php',{
-                            dataUrl:this.urlwatch
-                        }).then(res=>{
-                            alert(res.data.message)
-                        })
                     this.sendImg();
 	          	    
                 },
@@ -192,7 +183,7 @@
                             'Content-Type': 'multipart/form-data'
                         }
                     }).then(res => {
-                        console.log(res)
+                        console.log(res);
                     })
 
                 },
