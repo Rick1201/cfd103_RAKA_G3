@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="./css/style.css"/>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.8.1/axios.js' integrity='sha512-yQvhnV+bdDcAhyxTlmVUyNikQCtnIkfC9r7GesIjLg6IrJx2M92DSv58LpyobngV7WUeM1c3mpgP0971pIY98A==' crossorigin='anonymous'></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+	</head>
+	<body>
+		@@include('./layout/header.html')
+		
+		<div class="member-section" id="app">
+			<section class="member-select">
+				<div class="member-side-bar">
+					<header class="member-header">
+						<div class="member-img" style="width: 50px;">
+							<img id="userImage" src="https://fakeimg.pl/50x50/#aaa" style="width: 100%;"/>
+						</div>
+						<div class="member-name">
+							<h1>Hello ,<span id="userName"></span>!</h1>
+							<button class="member-edit-btn" id="editBox">編輯個人檔案</button>
+						</div>
+					</header>
+					
+					<div class="data-box" >
+						<table>
+							<tr>
+								<td>累積消費</td>
+							</tr>
+							<tr>
+								<td>${{memberTotal}}元</td>
+							</tr>
+						</table>
+						<div class="lightbox" id="lightbox">
+							<div class="container">
+								<span id="closeBox">X</span>
+								<div class="lightbox-header">
+									<div class="lightbox-member-img">
+										<img src="../dist/images/member01.jpg" id="lightboxUserImage">
+									</div>
+									<div class="lightbox-member-name">
+										<h1 id="lightboxUserName">Emma Li</h1>
+										<label for="files" class="member-edit-btn">選擇大頭貼</label>
+										<input type="file" id="files" ref="spec" accept=".jpg,.png,.svg">
+									</div>
+								</div>
+								<div class="lightbox-txt">
+									<h2>我的地址</h2>
+									<input class="txt-box" type="text" value="" id="address">
+								</div>
+								<div class="lightbox-txt">
+									<h2>Email</h2>
+									<input class="txt-box" type="text" value="" id="email">
+								</div>
+								<div class="lightbox-txt">
+									<h2>電話</h2>
+									<input class="txt-box" type="text" value="" id="phone">
+								</div>
+								<div class="lightbox-txt">
+									<h2>我的信用卡</h2>
+									<input class="txt-box" type="text" value="" id="card">
+								</div>
+								<div class="lightbox-btn-check">
+									<button>取消</button>
+									<button>儲存</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="member-card">
+						<img src="./images/memberCard.png" alt="">
+					</div>
+					<div class="member-side-bar-btn">
+						<a href="member_comm_order.html" class="sub-a">商品訂單</a></li>
+						<a href="member_comm_order_customize.html" class="sub-a">客製化訂單</a></li>
+						<a href="member_comm_customize.html" class="sub-a">商品收藏</a></li>
+					</div>
+				</div>
+				
+			</section>
+			<div class="member-content-comm-order">
+				<section class="member_order">
+					<div class="member_area">
+			
+				
+					<!-- 頁籤 -->
+					<!-- 會員資料 -->
+					<div class="member_container">                   
+						<div class="selectbar">
+								<div class="selectbarbtn" @click="visibility='all'">所有訂單</div>
+								<div class="selectbarbtn" @click="visibility='active'">已付款</div>
+								<div  class="selectbarbtn" @click="visibility='completed'">已出貨</div>
+				
+						</div>
+						<div  v-for="(member, index) in filters" class="member" :key="index">
+							<div class="member_text">
+									<div>
+										<p>訂單編號</p>
+										<p>{{member.Order_ID}}</p>
+									</div>
+									<div>
+										<p>訂單狀態</p>
+										<p>{{member.Order_Status == 0 ? '未出貨' : '已出貨'}}</p>
+									</div>
+									<div>
+										<p>下單時間</p>
+										<p>{{member.Order_Date}}</p>
+									</div>
+									<div>
+										<p>總計</p>
+										<p>{{member.Order_Total}}</p>
+									</div>
+			
+							</div>
+							<div class="order_button">
+								<button @click="clickItem(index + 1); getId(member.Order_ID)">查看訂單</button>
+								<!-- <button @click="clickItem(index + 1)">查看訂單 {{ index + 1 }}</button> -->
+							</div>
+							<div class="member_status_bg" v-show="showItem(index + 1)">
+								<div class="order_details_list">
+									<div>
+										<div >
+											<div>
+												<div>訂單編號{{member.Order_ID}}</div>
+												<div>訂單狀態{{member.Order_Status == 0 ? '未出貨' : '已出貨'}}</div>	
+											</div>
+								
+											<div v-for="(item, index) in orderDetail" :key="index">
+												<div>商品名稱{{item.Product_Name}}</div>
+												<div>數量{{item.Order_Count}}</div>
+												<div>價錢{{item.Product_Price}}</div>
+											</div>
+											<div>總計{{member.Order_Total}}</div>
+											<div class="button">
+												<button @click="clickItem(index + 1)">返回訂單</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="member_comment_bg" v-show="member.comment=='true'">
+								<div class="member_comment">
+			
+									<div>
+										<p>評分</p>
+									</div>
+									<div class="comment_text">
+										<div>評論</div>
+										<input type="text">
+									</div>
+									<button @click="member.comment='false'">確認</button>
+								</div>
+							</div>
+						</div>
+			
+					</div>
+					
+					</div>
+			
+			
+			
+				</section>
+			</div>
+			@@include('./layout/footer.html')
+		</div>
+			<script>
+				
+				function showBox(){
+					// document.getElementById('lightbox').style.display = "block";
+					let lightBox = document.getElementById('lightbox').style.display = "block";
+					let txtBox = document.querySelectorAll('.txt-box');
+					let address = document.getElementById('address').value;
+				}
+				function closeBox(){
+					document.getElementById('lightbox').style.display = "none";
+				}
+				function fetchData(memID){//
+					axios.post('php/member_comm.php',{
+					action:'fetchSingle',
+					id:memID.Member_ID,
+					}).then(res=>{
+						console.log(res);
+						document.querySelector("#address").value = res.data.Member_Address;
+						document.querySelector("#email").value = res.data.Member_Mail;
+						document.querySelector("#phone").value = res.data.Member_Phone;
+						document.querySelector("#card").value = res.data.Member_Card;
+						document.getElementById('userName').innerText = res.data.Member_Name;
+						document.getElementById('lightboxUserName').innerText = res.data.Member_Name;
+						document.getElementById('userImage').src = res.data.Member_Profile;
+						document.getElementById('lightboxUserImage').src = res.data.Member_Profile;
+
+					})
+				};
+				function init(){
+					document.getElementById("editBox").onclick=showBox;
+					document.getElementById("closeBox").onclick=closeBox;
+					let memID = JSON.parse(localStorage.getItem('memberID'));
+					fetchData(memID);
+				}
+				window.addEventListener("load", init, false);
+			</script>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+				activedItemList: [0],	
+				showComment:false,
+                showOrder:false,
+				orderDetail:[
+
+				],             
+                members:[
+				Order_ID=1,
+
+                ],
+
+                visibility: "all",
+					memberTotal:'0',
+					id:[],
+				},
+				computed: {
+
+					filters: function () {
+						if (this.visibility == "all") {
+							return this.members;
+						} else if (this.visibility == "active") {
+							let newMembers = [];
+							this.members.forEach(function (item) {
+								if (item.Order_Status==="0") {
+									newMembers.push(item);
+								}
+							});
+							return newMembers;
+						} else if (this.visibility == "completed") {
+							let newMembers = [];
+							this.members.forEach(function (item) {
+								if (item.Order_Status==="1") {
+									newMembers.push(item);
+								}
+							});
+							return newMembers;
+						}
+					
+					},
+                    // addStatus(){
+                    //     this.members.forEach(member => {
+                    //         add status= false
+                            
+                    //     });
+                    // }
+                    
+		},
+				methods: {
+					fetchAllDate(id){
+						axios.post("./php/member_order.php",{
+						action:'fetchall',
+						id:id
+						}).then(res=>
+						{
+						this.members=res.data
+						}
+						)
+					},
+					fetchDetail(id){
+						axios.post("./php/member_order_detail.php",{
+						action:'fetchall',
+						id:id
+						}).then(res=>{
+						console.log(res)
+						this.orderDetail=res.data}
+						)
+					},
+					clickItem(itemLabel) {
+					const itemExist = this.activedItemList.find((item) => item === itemLabel);
+					if (itemExist) {
+					const itemIndex = this.activedItemList.findIndex(
+					(item) => item === itemLabel
+					);
+					this.activedItemList.splice(itemIndex, 1);
+					} else {
+					this.activedItemList.push(itemLabel);
+					}
+					},
+					showItem(itemLabel) {
+					return this.activedItemList.find((item) => item === itemLabel);
+					},
+					// openShowOrder(index){
+                	// this.showOrder=!this.showOrder;
+            		// },
+            		// openShowComment(index){
+                	// this.showComment=!this.showComment;
+            		// },
+            		
+
+					getMemberId(){
+						let memberId = JSON.parse(localStorage.getItem('memberID'));
+						this.id = memberId;
+					},
+					fetchAllTotal(){
+						axios.post("./php/memberSum.php",{
+						action:'fetchSingle',//資料參數丟過去ajaxLogin.php
+						memId:this.id.Member_ID,
+						}
+						).then(res=>
+						{
+							console.log(res.data);
+							this.memberTotal = res.data.Order_Total;
+						}
+						)
+					},
+					getId(id) {
+						console.log(id)
+						// this.id = OrderId;
+						this.fetchDetail(id);
+					},
+					
+				},
+				
+				mounted() {
+					let id = JSON.parse(localStorage.getItem("memberID"));
+                	this.fetchAllDate(id.Member_ID)
+					this.getMemberId();
+					this.fetchAllTotal();
+				},
+			});
+		</script>
+	</body>
+</html>
