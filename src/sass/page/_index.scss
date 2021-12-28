@@ -207,8 +207,6 @@ body{
             } 
             .bubbleWathch{
                 position: relative;
-                top: 910px;
-                // transform: translateX(-9px);
                 @include mobile{
                     width: 30%;
                     top: 330.333333px;
@@ -301,8 +299,9 @@ body{
         width: 30%;
         margin: auto;
         position: relative; 
-        img{
+        .watchnone{
             width: 100%; 
+            visibility: hidden;
         }
         .raka-index-detail_pic{
             position: absolute;
@@ -312,12 +311,13 @@ body{
                 left: -47%;
                 z-index: 1;
                 clip-path: circle(0% at 100% 100%);
-                transition: clip-path 3s;
+                // transition: clip-path 2.5s;
                 img{
                     width: 100%;
                 }
                 &.active{
                     clip-path: circle(140.7% at 100% 100%);
+                    transition: clip-path 2.5s;
                 }
             }
             // pic1 text
@@ -343,12 +343,13 @@ body{
                 left: -59%;
                 z-index: 1;
                 clip-path: circle(0% at 100% 0);
-                transition: clip-path 3s 1s;
+                // transition: clip-path 2.5s 1s;
                 img{
                     width: 100%;
                 }
                 &.active{
                     clip-path: circle(140.8% at 100% 0);
+                    transition: clip-path 2.5s 1s;
                     @include mobile{
                         clip-path: circle(170% at 100% 0);
                     }
@@ -377,12 +378,13 @@ body{
                 left: 79%;
                 z-index: 1;
                 clip-path: circle(0% at 0 0);
-                transition: clip-path 3s 2.5s;
+                // transition: clip-path 2.5s 2s;
                 img{
                     width: 100%;
                 }
                 &.active{
                     clip-path: circle(140.9% at 0 0);
+                    transition: clip-path 2.5s 2s;
                     @include mobile{
                         clip-path: circle(180% at 0 0);
                     }
