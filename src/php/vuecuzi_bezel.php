@@ -1,7 +1,7 @@
 <?php
-$dbname = "tibamefe_cfd103g3-1";
+$dbname = "raka01";
 $user = "root";
-$password = "alice1105";
+$password = "t72124229155";
 
 $dsn = "mysql:host=localhost;port=3306;dbname=$dbname";
 $connect = new PDO($dsn, $user, $password);
