@@ -1,5 +1,5 @@
 <?php
-$dbname = "tibamefe_cfd103g3";
+$dbname = "tibamefe_cfd103g3-1";
 $user = "root";
 $password = "alice1105";
 
@@ -23,9 +23,9 @@ if($received_data->action =='fetchall'){
 if($received_data->action =='insert'){
    
     $query = "
-    INSERT INTO manager
-    (Manager_Account, Manager_PSW, Manager_Status)
-    VALUES ('$received_data->managerAcc','$received_data->mangerPsw','$received_data->managerSts')";
+    INSERT INTO customize
+    (Customize_Name, Member_ID, WOuter_Name, WBand_Name, WPointer_Name, WFace_Name, Div_Name, WFont_Name, WFontSize_ID, WFontText, PBox_PIC, PBand_PIC, Customize_PacPic, Customize_WPicF, Customize_Price, Customize_SUM, Customize_Shipping, Customize_Total, Customize_CName, Customize_Phone, Customize_Address,funcName1, funcName2, funcName3)
+    VALUES ('$received_data->cuzName','$received_data->id','$received_data->bezelName','$received_data->bandName','$received_data->pointName','$received_data->faceName','$received_data->diveFun','$received_data->font','$received_data->fontSize','$received_data->msg','$received_data->boxBtn','$received_data->ribbonBtn','$received_data->bezelName')";
     $statement = $connect -> prepare($query);
     $statement -> execute();
     $output = array(
@@ -33,23 +33,23 @@ if($received_data->action =='insert'){
     );
     echo json_encode($output);
 }
-// if($received_data->action =='fetchSingle'){
-//     $query="
-//     SELECT * FROM manager
-//     WHERE Manager_ID ='$received_data->id.'
-//     ";
-//     $statement= $connect->prepare($query);
-//     $statement->execute();
-//     $result = $statement->fetchAll();
-//     foreach($result as $row){
-//         $data['id'] = $row['Manager_ID'];
-//         $data['Manager_Account']=$row['Manager_Account'];
-//         $data['Manager_PSW']=$row['Manager_PSW'];
-//         $data['Manager_Status']=$row['Manager_Status'];
-
-//     }
-//     echo json_encode ($data);
-// }
+if($received_data->action =='fetchSingle'){//單筆資料
+    $query="
+    SELECT * FROM member
+    WHERE Member_ID ='$received_data->id.'
+    ";
+    $statement= $connect->prepare($query);
+    $statement->execute();
+    $result = $statement->fetchAll();
+    foreach($result as $row){
+        $data['Member_Mail']=$row['Member_Mail'];
+        $data['Member_Phone']=$row['Member_Phone'];
+        $data['Member_Profile']=$row['Member_Profile'];
+        $data['Member_Name']=$row['Member_Name'];
+        $data['Member_Profile']=$row['Member_Profile'];
+    }
+    echo json_encode ($data);
+}
 if($received_data->action =='update'){
 $data =array(
     ':Manager_Account'=>$received_data->managerAcc,

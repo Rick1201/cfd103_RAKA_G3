@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
 		<link rel="stylesheet" href="./css/style.css" />
-		<style></style>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
 	</head>
 	<body>
 		@@include('./layout/header.html')
@@ -56,7 +56,7 @@
 				</div>
 				<div class="raka-index-detail-midllew">
 					<div class="raka-index-detail-pic">
-						<img src="./images/watch01.png"
+						<img class="watchnone" src="./images/watch01.png"
 					alt="">
 						<div class="raka-index-detail_pic pic1">
 							<img src="./images/index00.png" alt="">
@@ -124,7 +124,7 @@
 								formula 1 x indy 500
 							</span>
 						</div>	
-						<a href="#">
+						<a href="productList_page.html">
 							<button>更多商品</button>
 						</a>			
 					</div>
@@ -137,7 +137,7 @@
 				<div class="raka-index-special-watch-text">
 					<h2>持久清晰</h2>
 					<h1>夜光</h1>
-					<a href="#">詳細功能</a>
+					<a href="productList_page.html">詳細功能</a>
 				</div>
 				<div class="raka-index-night-watch_pic">
 					<img src="./images/watch02.jfif" alt="">
@@ -151,13 +151,20 @@
 				<div class="raka-index-customize-text">
 					<h2>專屬於您</h2>
 					<h1>客製化</h1>
-					<a href="#">開始設計</a>
+					<a href="vuecuzi.html">開始設計</a>
 				</div>
 			</section>
 			<div class="raka-index-dec-watch_pic">
 				 <img src="./images/watch04.jpg" alt=""> 
 			</div>	
-
+			<div class="chatboxButton">
+				@@include('./layout/chatbox.html')
+				<button class="raka_chatbox">
+					<img src="./images/logorob.png" alt="">
+				</button>
+			</div>
+			<script src="./js/chatbox.js"></script>
+			
 			@@include('./layout/footer.html')
 
 		</div>
@@ -168,43 +175,46 @@
 					v.classList.add('active')
 				})
 			};
+			function removeAnI() {
+				let eleList = document.querySelectorAll(".raka-index-detail_pic");
+				eleList.forEach(v=> {
+					v.classList.remove('active')
+				})
+			};
 			function scrollWatch(){
 				let rakaWatch = document.querySelector(".raka-index-pic_watch img");
-				console.log(document.documentElement.scrollTop)
-				// if(document.documentElement.scrollTop > 500){
-			// console.log('bubble')
-					// console.log(document.body.clientWidth);
-					if(document.body.clientWidth < 500){
-						if(document.documentElement.scrollTop > 300){
-							rakaWatch.classList.add("bubbleWathch");
-							addAnI();
-						}	
-					}
+				let rakaIndexPicHeight = document.querySelector(".raka-index-pic").offsetHeight;
+				let varHeight = document.querySelector(".raka-index-pic_watch img").offsetHeight;
+				let waveHeight = document.querySelector(".wave").offsetHeight;
+				let varTop = (rakaIndexPicHeight - ((rakaIndexPicHeight - varHeight)/2)) + waveHeight;
+				let fixHeight = (rakaIndexPicHeight - varHeight)/2 + 77;
 
-					if(document.body.clientWidth > 500){
-						if(document.documentElement.scrollTop > 800){
-							rakaWatch.classList.add("bubbleWathch");
-							addAnI();
-						}
-					}						
-		
-					// if(document.documentElement.scrollTop > 800){
-					// rakaWatch.classList.add("bubbleWathch");
-					// addAnI();
-					// }
-				
-				// }
-				
-				
-				
-				
+				if(document.documentElement.scrollTop > varTop){
+					rakaWatch.classList.add("bubbleWathch");
+					rakaWatch.style.top = `${varTop}px`;
+					addAnI();
+				}else{
+					rakaWatch.classList.remove("bubbleWathch");
+					rakaWatch.style.top = `${fixHeight}px`;
+					removeAnI();
+				}
 			}
 
 			function init(){
 				document.body.onscroll= scrollWatch;
-				console.log('init')
 				document.body.addEventListener('scroll', scrollWatch);
 			}
+			$(document).ready(function(){
+				$("#chatbox").slideToggle();
+				$(".raka_chatbox").click(function(){
+					$("#chatbox").slideToggle();
+					
+				});
+				$(".close").click(function(){
+					$("#chatbox").slideToggle();
+					
+				});
+			});
 			window.addEventListener("load", init, false);
 
 			const text = document.querySelector('.logo p');
@@ -214,14 +224,6 @@
 			).join("")
 
 		</script>
-		
-		
-		
-		
-		
-		
-		
-		
 	
 	</body>
 </html>

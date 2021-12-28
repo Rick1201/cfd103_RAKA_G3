@@ -122,6 +122,8 @@
 				data:{
 					memberTotal:'0',
 					id:[],
+					spec:"",
+					formData : new FormData(),
 				},
 				methods: {
 					getMemberId(){
@@ -139,7 +141,16 @@
 							this.memberTotal = res.data.Order_Total;
 						}
 						)
-					}
+					},
+					uploadImage(){
+						this.spec=this.$refs.spec.files[0]
+						this.formData.append("file",this.spec)	
+						axios.post('./php/memberImguUL.php',this.formData,{
+							"Content-Type":"multipart/form-data"
+						}).then(res=>{
+							this.newProduct.Product_Spec=res.data.image
+						})
+					},
 				},
 				mounted() {
 					this.getMemberId();

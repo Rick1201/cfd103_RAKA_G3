@@ -1,177 +1,11 @@
-.main-header{
-    .container{
-        margin: auto;
-        display: flex;
-        text-align: center;
-        align-items: center;
-    }
-    .logo{
-        width: 200px;
-        padding: 10px;
-    }
-    .logo img{
-        width: 100%;
-    }
-    .main-nav a{ 
-        font-family: $fontStyle-decorate;
-        text-decoration: none;
-        color: #4e5766;
-    }
-    .main-nav ul li{
-        margin: 10px;
-    }
-    .main-nav ul li:after{
-        content: '';
-        display: inline-block;
-        width: 20px;
-        height: 30px;
-        background:linear-gradient(-65deg, transparent 49.5%, #4e5766 49.5%, #4e5766 50.5%, transparent 50.5%);
-    }
-    .product{
-        position: relative;
-    }
-    .customize01{
-        position: relative;
-    }
-    .aboutus{
-        position: relative;
-    }
-    .member{
-        position: relative;
-    }
-    .product::after{
-        content: 'Product';
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform: translateY(-100%);
-    }
-    .customize01::after{
-        content: 'Customize';
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform: translateY(-100%);
-    }
-    .aboutus::after{
-        content: 'About Us';
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform: translateY(-100%);
-    }
-    .member::after{
-        content: 'Member';
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform: translateY(-100%);
-    }
-    .cart{
-        position: relative;
-        width: 30px;
-        margin: 10px;
-        .item-count{
-            position: absolute;
-            top: 0;
-            right: -10px;
-            width: 20px;
-            height: 20px;
-            border-radius: 20px;
-            background-color: brown;
-            color: cornsilk;
-            font-size: 15px;
-            line-height: 20px;
-        }
-    }
-    .cart img{
-        width: 100%;
-    }
-    .memBtn{
-        margin: 10px;
-    }
-    .memBtn a{
-        display: block;
-        text-align: center;
-    }
-    @media screen and (max-width:1024px){
-        .logo{
-            margin-right: auto;
-            order: 2;
-        }
-        .hb{
-            width: 40px;
-            height: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            order: 1;
-            padding: 10px;
-        }
-        .hb span:first-child{
-            display: block;
-            width: 24px;
-            height: 2px;
-            background-color: #4e5766;
-            margin-bottom: 5px;
-        }
-        .hb span:last-child{
-            display: block;
-            width: 30px;
-            height: 2px;
-            background-color: #4e5766;
-            margin-bottom: 5px;
-        }
-        #main-nav{
-            z-index: 50;
-            position: absolute;
-            width: 200px;
-            left: -200px;
-            top: 77px;
-            background-color: whitesmoke;
-            height: calc(100vh - 77px);
-            transition: left .5s;
-        }
-        #main-nav.hidden{
-            position: absolute;
-            z-index: 100;
-            width: 200px;
-            left: 0px;
-            top: 77px;
-            background-color: whitesmoke;
-            height: calc(100vh - 77px);
-            transition: left .5s;
-        }
-        .main-nav ul{
-            display: flex;
-            justify-content: flex-end;
-            flex-direction: column;
-        }
-        .cart{
-            order: 3;
-        }
-    }
-    @media screen and (min-width:1025px){
-        .main-nav ul{
-            display: flex;
-            justify-content: flex-end;
-            flex-direction: row;
-            margin-left: auto;
-        }
-        
-        .main-nav{
-            display: flex;
-            flex-grow: 1;
-        }
-        .memBtn{
-            display: inline-block;
-        }
-    }
-}
+
 
 
 body{
     overflow-x: hidden;
+}
+.raka-index__page{
+    position: relative;
 }
 .raka-index-main{
     width: 100%;
@@ -207,8 +41,6 @@ body{
             } 
             .bubbleWathch{
                 position: relative;
-                top: 910px;
-                // transform: translateX(-9px);
                 @include mobile{
                     width: 30%;
                     top: 330.333333px;
@@ -217,7 +49,7 @@ body{
         }
         .raka-index-pic_watch::after{
             width: 55%;
-            height: 150px;
+            height: 200px;
             content: '';
             background-image: url(../images/WATER.png);
             background-repeat: no-repeat;
@@ -228,7 +60,7 @@ body{
         }
         .raka-index-pic_watch::before{
             width: 48%;
-            height: 180px;
+            height: 200px;
             content: '';
             background-image: url(../images/UNDER.png);
             background-repeat: no-repeat;
@@ -301,8 +133,9 @@ body{
         width: 30%;
         margin: auto;
         position: relative; 
-        img{
+        .watchnone{
             width: 100%; 
+            visibility: hidden;
         }
         .raka-index-detail_pic{
             position: absolute;
@@ -312,12 +145,13 @@ body{
                 left: -47%;
                 z-index: 1;
                 clip-path: circle(0% at 100% 100%);
-                transition: clip-path 3s;
+                // transition: clip-path 2.5s;
                 img{
                     width: 100%;
                 }
                 &.active{
                     clip-path: circle(140.7% at 100% 100%);
+                    transition: clip-path 2.5s;
                 }
             }
             // pic1 text
@@ -343,12 +177,13 @@ body{
                 left: -59%;
                 z-index: 1;
                 clip-path: circle(0% at 100% 0);
-                transition: clip-path 3s 1s;
+                // transition: clip-path 2.5s 1s;
                 img{
                     width: 100%;
                 }
                 &.active{
                     clip-path: circle(140.8% at 100% 0);
+                    transition: clip-path 2.5s 1s;
                     @include mobile{
                         clip-path: circle(170% at 100% 0);
                     }
@@ -377,12 +212,13 @@ body{
                 left: 79%;
                 z-index: 1;
                 clip-path: circle(0% at 0 0);
-                transition: clip-path 3s 2.5s;
+                // transition: clip-path 2.5s 2s;
                 img{
                     width: 100%;
                 }
                 &.active{
                     clip-path: circle(140.9% at 0 0);
+                    transition: clip-path 2.5s 2s;
                     @include mobile{
                         clip-path: circle(180% at 0 0);
                     }
@@ -600,6 +436,16 @@ body{
         vertical-align: middle;
     }
 }
-
+.chatboxButton{
+    position: absolute;
+    bottom: 7%;
+    right: 2%;
+    .raka_chatbox{
+        float: right;
+    }
+    @include mobile{
+        display: none;
+    }
+}
 
 
