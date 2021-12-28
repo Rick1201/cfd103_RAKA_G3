@@ -17,9 +17,9 @@ storeImg($encoded_image2);
 function storeImg($encoded_image) {
     $fileImg_parts = explode(";base64,", $encoded_image);
     $image_type_aux = explode("image/", $fileImg_parts[0]);
-    $image_type = $image_type_aux[1];
+    $image_type = $image_type_aux[1]; //png
     $image_base64 = base64_decode($fileImg_parts[1]);
-    $results = './images' . uniqid() .'.'. $image_type;
+    $results = '../images' . uniqid() .'.'. $image_type;
     echo $results;
     file_put_contents($results, $image_base64);
     }
