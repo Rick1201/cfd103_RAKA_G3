@@ -157,14 +157,6 @@
 					</div>
 				</div>
 			</section>
-			<section>
-				<canvas id="canvas" width="375" height="600"> </canvas>
-			</section>
-			<section>
-				<canvas id="canvas2" width="375" height="600"> </canvas>
-				<img :src="urlwatch" alt="" />
-				<img :src="urlgift" alt="" />
-			</section>
 		</div>
 		@@include('./layout/footer.html')
 		<script
@@ -187,39 +179,13 @@
 					responds: "",
 					fd: new FormData(),
 					fd2: new FormData(),
+                    finishWatch:"",
+                    finishPackage:"",
 				},
+
+
+
 				methods: {
-					// screenshot() {
-					// 	const targetwatch = document.querySelector("#watchDiv");
-					// 	const targetgift = document.querySelector("#giftDiv");
-					// 	domtoimage.toPng(targetwatch).then((dataUrl) => {
-					// 		this.watchDivimg = dataUrl;
-					// 		// this.cuzimg.src = this.watchDivimg;
-					// 		// ctx.scale(0.75,0.75);
-					// 		// ctx.drawImage(this.cuzimg,0,0);
-					// 	});
-					// 	domtoimage.toPng(targetgift).then((giftUrl) => {
-					// 		this.giftDivimg = giftUrl;
-					// 		this.cuzimg2.src = this.giftDivimg;
-					// 		// ctx2.scale(0.75,0.75);
-					// 		// ctx2.drawImage(this.cuzimg2,0,0);
-					// 	});
-					// 	this.sendImg();
-					// },
-					// sendImg() {
-					// 	let fd = new FormData();
-					// 	fd.append("img1", this.watchDivimg);
-					// 	fd.append("img2", this.giftDivimg);
-					// 	axios
-					// 		.post("./php/finish_page.php", fd, {
-					// 			headers: {
-					// 				"Content-Type": "multipart/form-data",
-					// 			},
-					// 		})
-					// 		.then((res) => {
-					// 			this.responds = res.data;
-					// 		});
-					// },
 					screenshot() {
 						const targetwatch = document.querySelector("#watchDiv");
 						const targetgift = document.querySelector("#giftDiv");
@@ -228,9 +194,6 @@
 							this.sendImg();
 							this.screenshot2();
 						});
-						// domtoimage.toPng(targetgift).then((giftUrl) => {
-						//     this.giftDivimg = giftUrl;
-						// })
 					},
 					screenshot2() {
 						const targetgift = document.querySelector("#giftDiv");
@@ -252,7 +215,9 @@
 								},
 							})
 							.then((res) => {
-								console.log(res.data);
+								this.finishWatch = "./images" + res.data.split("images/")[1];
+                                console.log( res.data.split("images/")[1]);
+                                localStorage.setItem("cuzFinishWatch",JSON.stringify(this.finishWatch));
 							});
 					},
 					sendImg2() {
@@ -266,38 +231,19 @@
 								},
 							})
 							.then((res) => {
-								console.log(res.data);
+								this.finishPackage = "./images" + res.data.split("images/")[1];
+                                console.log( res.data.split("images/")[1]);
+                                localStorage.setItem("cuzFinishPackage",JSON.stringify(this.finishPackage));
+                                location.href='./Cuzcheckout_list.html';
 							});
+
 					},
-
-					// getimg(imgsrc){
-					//     let cuzcanvas = document.getElementById("canvas")
-					//     let ctx = cuzcanvas.getContext('2d');
-					//     let cuzimg = new Image();
-					//     cuzimg.src = imgsrc;
-					//     ctx.drawImage(cuzimg,0,0)
-
-					// },
 				},
+                
 				mounted() {
 					let storageArray = JSON.parse(localStorage.getItem("cuziwatch"));
 					this.getjsons = storageArray;
 				},
-				// watch:{
-				//     watchDivimg(n,o){
-				//         let cuzcanvas = document.getElementById("canvas");
-				//         let ctx = cuzcanvas.getContext('2d');
-				//         let cuzimg = new Image();
-				//         cuzimg.src = n;
-				//         ctx.drawImage(cuzimg,0,0);
-				//         console.log(n);
-
-				//     },
-				//     giftDivimg(n,o){
-
-				//     }
-
-				// },
 			});
 		</script>
 	</body>
