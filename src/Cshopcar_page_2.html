@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css"/>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.8.1/axios.js' integrity='sha512-yQvhnV+bdDcAhyxTlmVUyNikQCtnIkfC9r7GesIjLg6IrJx2M92DSv58LpyobngV7WUeM1c3mpgP0971pIY98A==' crossorigin='anonymous'></script>
 </head>
 <body>
     @@include('./layout/header.html')
@@ -103,8 +104,10 @@
             let cuziwatch = JSON.parse(localStorage.getItem('cuziwatch'));
             let cuzInfo = JSON.parse(localStorage.getItem('cuzInfo'));
             let memId = JSON.parse(localStorage.getItem('memberID'));
-            axios.post('php/cuzFinal.php',{
-            action:'fetchSingle',
+            let finishWatch = JSON.parse(localStorage.getItem("cuzFinishWatch"));
+            let finishPackage = JSON.parse(localStorage.getItem("cuzFinishPackage"));
+            axios.post('./php/cuzFinal.php',{
+            action:'insert',
             id:memId.Member_ID,
             price:7000,
             ship:90,
@@ -129,9 +132,14 @@
             cName:cuzInfo.cName,
             cPs:cuzInfo.cPs,
             cTel:cuzInfo.cTel,
-            }).then(res=>{
+            // ---
+            finishWatch: finishWatch,
+            finishPackage: finishPackage
 
+            }).then(res=>{
+				console.log(res.data);
             })
+
         }
         function init(){
             let cuzInfo = JSON.parse(localStorage.getItem('cuzInfo'));
