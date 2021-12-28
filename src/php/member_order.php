@@ -1,7 +1,7 @@
 <?php
-$dbname = "tibamefe_cfd103g3-1";
+$dbname = "rakaa";
 $user = "root";
-$password = "alice1105";
+$password = "au4a83au4a83666";
 
 $dsn = "mysql:host=localhost;port=3306;dbname=$dbname";
 $connect = new PDO($dsn, $user, $password);
@@ -10,7 +10,7 @@ $received_data = json_decode($dba);
 $data= array();
 if($received_data->action =='fetchall'){
     $query="
-    SELECT * FROM manager
+    SELECT * FROM orderlist WHERE Member_ID = '$received_data->id'
     ";
     $statement = $connect->prepare($query);
     $statement -> execute();
@@ -33,24 +33,23 @@ if($received_data->action =='insert'){
     );
     echo json_encode($output);
 }
-if($received_data->action =='fetchSingle'){//單筆資料
-    $query="
-    SELECT * FROM member
-    WHERE Member_ID ='$received_data->id.'
-    ";
-    $statement= $connect->prepare($query);
-    $statement->execute();
-    $result = $statement->fetchAll();
-    foreach($result as $row){
-        $data['Member_Mail']=$row['Member_Mail'];
-        $data['Member_Phone']=$row['Member_Phone'];
-        $data['Member_Profile']=$row['Member_Profile'];
-        $data['Member_Name']=$row['Member_Name'];
-        $data['Member_Address']=$row['Member_Address'];
-        $data['Member_Card']=$row['Member_Card'];
-    }
-    echo json_encode ($data);
-}
+// if($received_data->action =='fetchSingle'){
+//     $query="
+//     SELECT * FROM manager
+//     WHERE Manager_ID ='$received_data->id.'
+//     ";
+//     $statement= $connect->prepare($query);
+//     $statement->execute();
+//     $result = $statement->fetchAll();
+//     foreach($result as $row){
+//         $data['id'] = $row['Manager_ID'];
+//         $data['Manager_Account']=$row['Manager_Account'];
+//         $data['Manager_PSW']=$row['Manager_PSW'];
+//         $data['Manager_Status']=$row['Manager_Status'];
+
+//     }
+//     echo json_encode ($data);
+// }
 if($received_data->action =='update'){
 $data =array(
     ':Manager_Account'=>$received_data->managerAcc,
