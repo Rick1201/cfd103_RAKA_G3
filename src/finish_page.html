@@ -139,20 +139,10 @@
              <div class="containerGrid">
                  <div class="row">
                      <div class="col-12 buttonarea">
-                         <button @click="screenshot">下訂單</button>
+                         <button @click="screenshot" onclick="javascript:location.href='Cuzcheckout_list.html'">下訂單</button>
                      </div>
                  </div>
              </div>
-       </section>
-       <section>
-           <canvas id="canvas" width="375" height="600">
-           </canvas>
-       </section>
-       <section>
-           <canvas id="canvas2" width="375" height="600">
-           </canvas>
-           <img :src=urlwatch alt="">
-           <img :src=urlgift alt="">
        </section>
        
      </div>
@@ -173,24 +163,13 @@
             },
             methods: { 
                 screenshot(){
-                    
-                    let cuzcanvas = document.getElementById("canvas")
-                    let cuzcanvas2 = document.getElementById("canvas2")
-                    let ctx = cuzcanvas.getContext('2d');
-                    let ctx2 = cuzcanvas2.getContext('2d');
                     const targetwatch = document.querySelector("#watchDiv");
                     const targetgift = document.querySelector("#giftDiv");
-                    domtoimage.toSvg(targetwatch).then((dataUrl) => {
+                    domtoimage.toPng(targetwatch).then((dataUrl) => {
                         this.watchDivimg = dataUrl;
-                        this.cuzimg.src = this.watchDivimg;
-                        ctx.scale(0.75,0.75);
-                        ctx.drawImage(this.cuzimg,0,0);
                     });
-                    domtoimage.toSvg(targetgift).then((giftUrl) => {
+                    domtoimage.toPng(targetgift).then((giftUrl) => {
                         this.giftDivimg = giftUrl;
-                        this.cuzimg2.src = this.giftDivimg;
-                        ctx2.scale(0.75,0.75);
-                        ctx2.drawImage(this.cuzimg2,0,0);
                     })
                         this.urlwatch = cuzcanvas.toDataURL('img/svg');
                         this.urlgift = cuzcanvas2.toDataURL('img/svg');
@@ -201,7 +180,21 @@
                         }).then(res=>{
                             alert(res.data.message)
                         })
+                    this.sendImg();
 	          	    
+                },
+                sendImg() {
+                    let fd = new FormData();
+                    fd.append("img1", this.watchDivimg);
+                    fd.append("img2", this.giftDivimg);
+                    axios.post('./php/finish_page.php', fd, {
+                        headers: {
+                            'Content-Type': 'multipart/form-data'
+                        }
+                    }).then(res => {
+                        console.log(res)
+                    })
+
                 },
               
                     // getimg(imgsrc){
