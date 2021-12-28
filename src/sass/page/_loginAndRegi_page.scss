@@ -6,99 +6,163 @@
     .container{
         margin: 20px auto;
         .component_zone{
-    width: 750px;
-    margin: 0 auto;
-    display: flex;
-    // border: 1px solid #888;
-    // border-radius: 0px 20px 20px 0;
-
-    .img_area{
-        width: 375px;
-        img{
-            width: 375px;
-            height: 450px;
-            vertical-align: middle;
-        }
-    }
-    .form_area{
-        width: 375px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border-top: 1px solid #888;
-        border-right: 1px solid #888;
-        border-bottom: 1px solid #888;
-        border-radius: 0px 20px 20px 0;
-        // justify-content: center;
-        // height: 400px;
-        .title_dist{
-            margin: 20px;
-            h2{
-                font-size: $fontSize-SubTitle;
-            }
-        }
-        .form_dist{
-            width: 100%;
+            width: 750px;
+            margin: 0 auto;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-grow: 1;
-            form{
-                width: 100%;
+
+            .img_area{
+                width: 375px;
+                img{
+                    width: 375px;
+                    height: 450px;
+                    vertical-align: middle;
+                }
+            }
+            .form_area{
+                width: 375px;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
                 align-items: center;
-                flex-grow: 1;
-                .form_region{
-                    width: 100%;
+                border-top: 1px solid #888;
+                border-right: 1px solid #888;
+                border-bottom: 1px solid #888;
+                border-radius: 0px 20px 20px 0;
+                // justify-content: center;
+                // height: 400px;
+                .title_dist{
+                    margin: 20px;
+                    h2{
+                        font-size: $fontSize-SubTitle;
+                    }
                 }
-                .form_group{ 
-                    width: 80%;
-                    margin: 20px auto;
+                .form_dist{
+                    width: 100%;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    justify-content: center;
-                    label{
-                        align-self: flex-start;
-                    }
-                    input{
+                    flex-grow: 1;
+                    form{
                         width: 100%;
-                        margin: 5px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: center;
+                        flex-grow: 1;
+                        .form_region{
+                            width: 100%;
+                        }
+                        .form_group{ 
+                            width: 80%;
+                            margin: 20px auto;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            label{
+                                align-self: flex-start;
+                            }
+                            input{
+                                width: 100%;
+                                margin: 5px;
+                            }
+                        }
+                        .btn_region{
+                            width: 100%;
+                            margin-bottom: 30px;
+                            display: flex;
+                            justify-content: space-evenly;
+                        }
+                    }
+                    .submit_btn{
+                        @include btnStyle($btnColor-primary,100px)
+                    }
+                    .regi_btn{
+                        @include btnStyle($btnColor-secondary,100px)
+                    }
+                    
+                }
+                .subTitle_dist{
+                    margin: 20px;
+                    h3{
+                        font-size: $fontSize-middle;
                     }
                 }
-                .btn_region{
-                    width: 100%;
-                    margin-bottom: 30px;
+                .thirdLogin_dist{
                     display: flex;
-                    justify-content: space-evenly;
+                    margin-bottom: 30px;
+                    .icon{
+                        margin: 0 10px;
+                        font-size: $fontSize-SubTitle +10;
+                        color: black;
+                    }
                 }
-            }
-            .submit_btn{
-                @include btnStyle($btnColor-primary,100px)
-            }
-            .regi_btn{
-                @include btnStyle($btnColor-secondary,100px)
-            }
-            
-        }
-        .subTitle_dist{
-            margin: 20px;
-            h3{
-                font-size: $fontSize-middle;
-            }
-        }
-        .thirdLogin_dist{
-            display: flex;
-            margin-bottom: 30px;
-            .icon{
-                margin: 0 10px;
-                font-size: $fontSize-SubTitle +10;
-                color: black;
             }
         }
     }
 }
+
+@media screen and (max-width:375px){
+    .loginAndRegiPage{
+        .container{
+            .component_zone{
+                width: 100%;
+                .img_area{
+                    display: none;
+                }
+                .form_area{
+                    width: 95%;
+                    margin: auto;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    border-top: 1px solid #888;
+                    border-right: 1px solid #888;
+                    border-bottom: 1px solid #888;
+                    border-left:1px solid #888;
+                    border-radius:20px;
+                    // justify-content: center;
+                    // height: 400px;
+                    .title_dist{
+                        margin: 20px;
+                        h2{
+                            font-size: $fontSize-SubTitle;
+                        }
+                    }
+                    .form_dist{
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        flex-grow: 1;
+                        form{
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            align-items: center;
+                            flex-grow: 1;
+                            .form_region{
+                                width: 100%;
+                            }
+                            .form_group{ 
+                                width: 80%;
+                                margin: 20px auto;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                label{
+                                    align-self: flex-start;
+                                }
+                                input{
+                                    width: 100%;
+                                    margin: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
