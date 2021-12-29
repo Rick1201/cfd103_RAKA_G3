@@ -120,11 +120,15 @@
 
 					})
 				};
+				function memCenter(){
+					document.querySelector(".member-select").classList.toggle("active");
+				}
 				function init(){
 					document.getElementById("editBox").onclick=showBox;
 					document.getElementById("closeBox").onclick=closeBox;
 					let memID = JSON.parse(localStorage.getItem('memberID'));
 					fetchData(memID);
+					document.querySelector(".member-select").onclick = memCenter;
 				}
 				window.addEventListener("load", init, false);
 			</script>
