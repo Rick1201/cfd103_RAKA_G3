@@ -165,7 +165,7 @@
 				</div>
 				<div class="component_area">
 					<div class="title_area">
-						<h3>包裝管理</h3>
+						<h3>緞帶管理</h3>
 					</div>
 					<div class="container">
 						<div class="btn_dist">
@@ -189,7 +189,7 @@
 									<div class="modal-content">
 										<div class="modal-header">
 											<h3 class="modal-title" id="exampleModalLabel">
-												包裝新增
+												緞帶新增
 											</h3>
 											<button
 												type="button"
@@ -200,7 +200,7 @@
 										</div>
 											<div class="modal-body">
 												<div class="file_upload">
-													<label for="product_add_PIC">外盒顏色圖片上傳</label>
+													<label for="product_add_PIC">緞帶顏色圖片上傳</label>
 													<br />
 													<input
 														type="file"
@@ -212,7 +212,7 @@
 													/>
                                                 </div>
                                                 <div class="file_upload">
-													<label for="product_add_Spec">規格圖上傳</label>
+													<label for="product_add_Spec">緞帶圖片上傳</label>
 													<br />
 													<input
 														type="file"
@@ -294,10 +294,10 @@
 										</thead>
 										<tbody>
 											<tr v-for="(item,index) of filters " :key="item.PBox_ID">
-												<td>{{item.PBox_ID}}</td>
-												<td><img width="200" height="200" :src="item.PBox_Color" alt=""></td>
-												<td><img width="200" height="200" :src="item.PBox_PIC" alt=""></td>
-												<td>{{item.PBox_Status== 0 ?'下架':'正常'}}</td>
+												<td>{{item.PBand_ID}}</td>
+												<td><img width="200" height="200" :src="item.PBand_Color" alt=""></td>
+												<td><img width="200" height="200" :src="item.PBand_Pic" alt=""></td>
+												<td>{{item.PBand_Status==0 ? "下架":"正常"}}</td>
 												<td>
 													<button
 														class="btn btn-outline-primary"
@@ -308,7 +308,7 @@
 													</button>
 												</td>
 												<td>
-													<button class="btn" @click="deleteData(item.PBox_ID)">
+													<button class="btn" @click="deleteData(item.PBand_ID)">
 														&times;
 													</button>
 												</td>
@@ -329,7 +329,7 @@
 											<div class="modal-content">
 												<div class="modal-header">
 													<h5 class="modal-title" id="exampleModalLabel">
-														編輯包裝資料
+														編輯緞帶資料
 													</h5>
 													<button
 														type="button"
@@ -341,13 +341,13 @@
 													<div class="modal-body">
 														<div class="mb-3">
 															<label class="form-label"
-																>{{item.PBox_ID}}</label
+																>{{item.PBand_ID}}</label
 															>
 														</div>
 
 														<div class="file_upload">
 															<label :for="`product_edit_${index}_spec`"
-																>包裝顏色圖片修改</label
+																>緞帶顏色圖片修改</label
 															>
 															<br />
 															<input
@@ -361,7 +361,7 @@
 
 														<div class="file_upload">
 															<label :for="`product_edit_${index}_file1`"
-																>包裝圖片修改</label
+																>緞帶圖片修改</label
 															>
 															<br />
 															<input
@@ -384,7 +384,7 @@
 																class="form-control"
 																:id="`product_edit_${index}_status`"
 																name="status"
-																v-model="item.PBox_Status"
+																v-model="item.PBand_Status"
 															>
 															<option value="0">下架</option>
 															<option value="1">正常</option>
@@ -428,10 +428,10 @@
 				data() {
 					return {
 						table_head: [
-							"外盒顏色編號",
-                            "外盒顏色圖片",
-							"外盒圖片",
-							"外盒狀態",
+							"緞帶顏色編號",
+                            "緞帶顏色圖片",
+							"緞帶圖片",
+							"緞帶狀態",
 						],
                         colorOptionPic:"",
                         colorOptionPicFD:new FormData(),
@@ -455,7 +455,7 @@
 						} else if (this.visibility == "active") {
 							let newData = [];
 							this.items.forEach(function (item) {
-								if (item.PBox_Status == 0) {
+								if (item.PBand_Status == 0) {
 									newData.push(item);
 								}
 							});
@@ -463,7 +463,7 @@
 						} else if (this.visibility == "completed") {
 							let newData = [];
 							this.items.forEach(function (item) {
-								if (item.PBox_Status == 1) {
+								if (item.PBand_Status == 1) {
 									newData.push(item);
 								}
 							});
@@ -474,7 +474,7 @@
 				},
 				methods: {
 					fetchAllDate:function(){
-						axios.post("./php/packageManage.php",{
+						axios.post("./php/bandManage.php",{
 							action:'fetchall'
 						}).then(res=>
 							{
@@ -483,7 +483,7 @@
 						)
 					},
 					uploadImage(){
-							axios.post('./php/packageManage.php',{
+							axios.post('./php/bandManage.php',{
 								action:'insert',
 								newColor:this.newItem.PBox_Color,
 								newPIC:this.newItem.PBox_PIC,
@@ -520,12 +520,12 @@
 						})
 					},
                     editData(item){
-						axios.post("./php/packageManage.php",{
+						axios.post("./php/bandManage.php",{
 							action:'update',
-							boxId:item.PBox_ID,
-							boxColor:item.PBox_Color,
-							boxPic:item.PBox_PIC,
-							boxSts:item.PBox_Status
+							boxId:item.PBand_ID,
+							boxColor:item.PBand_Color,
+							boxPic:item.PBand_PIC,
+							boxSts:item.PBand_Status
 						}).then(res=>{
 							this.fetchAllDate()
 							alert(res.data.message)
@@ -537,7 +537,7 @@
 						axios.post('./php/upload.php',this.colorOptionPicFD,{
 							"Content-Type":"multipart/form-data"
 						}).then(res=>{
-							item.PBox_Color=res.data.image
+							item.PBand_Color=res.data.image
 							this.editPic1(item,index)
 						})
 						},
@@ -548,13 +548,14 @@
 						axios.post('./php/upload.php',this.itemPicFD,{
 							"Content-Type":"multipart/form-data"
 						}).then(res=>{
-							item.PBox_PIC=res.data.image
+							item.PBand_PIC=res.data.image
 							this.editData(item,index)
 						})
 					},
+					
 					deleteData(id){
 						if(confirm("確定是否刪除")){
-							axios.post('./php/packageManage.php',{
+							axios.post('./php/bandManage.php',{
 								action:'delete',
 								id:id,
 							}).then(res=>{
@@ -562,7 +563,7 @@
 								alert(res.data.message)
 							})
 						}
-					}, 
+					},  
                 },
 				created() {
 					this.fetchAllDate();

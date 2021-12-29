@@ -356,7 +356,7 @@
 																class="form-control"
 																:id="`product_edit_${index}_name`"
 																name="name"
-																v-model="item.itemName"
+																v-model="item.WFuc_Name"
 															/>
 														</div>
 
@@ -527,7 +527,7 @@
 						axios.post('./php/upload.php',this.itemPicFD,{
 							"Content-Type":"multipart/form-data"
 						}).then(res=>{
-							item.url=res.data.image
+							item.WFuc_PIC=res.data.image
 							this.editData(item,index)
 						})
 						},
