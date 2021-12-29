@@ -208,7 +208,7 @@
 						).then(res=>
 						{
 							if(res.data.Member_ID > 0){
-								location.href="./member_comm.html";
+								location.href="./member_comm_order.html";
 								localStorage.setItem("memberID", JSON.stringify(res.data));
 							}else{
 								alert("帳密錯誤，請重新輸入");

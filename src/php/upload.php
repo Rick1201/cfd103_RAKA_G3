@@ -7,7 +7,7 @@ if(isset($_FILES['file']['name'])){
     $extension = pathinfo($image_name, PATHINFO_EXTENSION);
     if(in_array($extension, $valid_extensions))
     {
-        $upload_path='./images/'.uniqid(). '.' .$extension;
+        $upload_path='../images/'.uniqid(). '.' .$extension;
         if(move_uploaded_file($_FILES['file']['tmp_name'],$upload_path))
         {
             $message = '照片上傳';
