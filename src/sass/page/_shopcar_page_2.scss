@@ -53,7 +53,7 @@
     .receiver-box{
         border: 1px solid #aaa;
         padding: 10px;
-        background-image: url('/images/bg.jpeg');
+        background-image: url('../images/bg.jpeg');
         margin-bottom: 30px;
         .receiver-tb{
             margin: auto;
@@ -82,14 +82,14 @@
     .order-box{
         border: 1px solid #aaa;
         padding: 10px;
-        background-image: url('/images/bg.jpeg');
+        background-image: url('../images/bg.jpeg');
         margin-bottom: 30px;
         .order-tb{
             margin-bottom: 30px;
             width: 1000px;
             padding: 10px;
             font-size: $fontSize-middle;
-            background-image: url('/images/bg.jpeg');
+            background-image: url('../images/bg.jpeg');
             font-weight: 600;
             th{
                 text-align: start;
@@ -111,14 +111,14 @@
     .payment-box{
         border: 1px solid #aaa;
         padding: 10px;
-        background-image: url('/images/bg.jpeg');
+        background-image: url('../images/bg.jpeg');
         margin-bottom: 30px;
         .payment-tb{
             margin-bottom: 30px;
             width: 1000px;
             padding: 10px;
             font-size: $fontSize-middle;
-            background-image: url('/images/bg.jpeg');
+            background-image: url('../images/bg.jpeg');
             font-weight: 600;
             th{
                 text-align: start;
