@@ -342,7 +342,8 @@
                 }
             }
             .activeZone{
-                animation: changeTab 0.5s;
+                animation: changeTab 1s;
+                transform-origin:(left);
             }
 
         }
@@ -507,11 +508,9 @@
 
 @keyframes changeTab{
     0% {
-        transform: translateX(-10%);
-        opacity: 0;
+        transform: rotateY(-90deg);
     }
     100%{ 
-        transform: translateX(0);
-        opacity: 1;
+        transform: rotateY(0);
     }
 }
