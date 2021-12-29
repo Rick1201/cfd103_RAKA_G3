@@ -4,14 +4,14 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>componentPage</title>
+		<title>後台管理頁面</title>
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
 			rel="stylesheet"
 			integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 			crossorigin="anonymous"
 		/>
-		<link rel="stylesheet" href="./123.css" />
+		<link rel="stylesheet" href="./css/back.css" />
 		<script
 			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"
 			integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN"
@@ -28,7 +28,7 @@
 			<header class="main-header">
 				<div class="container">
 					<div class="logo">
-						<img src="../images/logo.png" alt="" />
+						<img src="./images/logo.png" alt="" />
 					</div>
 				</div>
 			</header>
@@ -771,7 +771,7 @@
 				},
 				methods: {
 					fetchAllDate:function(){
-						axios.post("productManage.php",{
+						axios.post("./php/productManage.php",{
 							action:'fetchall'
 						}).then(res=>
 							{
@@ -781,7 +781,7 @@
 					},
 					submitData(){
 						if(this.newProduct.Product_Name !="" && this.newProduct.Product_Price != ""){
-							axios.post('productManage.php',{
+							axios.post('./php/productManage.php',{
 								action:'insert',
 								productName:this.newProduct.Product_Name,
 								productPrice:this.newProduct.Product_Price,
@@ -809,7 +809,7 @@
 					uploadImage(){
 						this.spec=this.$refs.spec.files[0]
 						this.formData.append("file",this.spec)	
-						axios.post('upload.php',this.formData,{
+						axios.post('./php/upload.php',this.formData,{
 							"Content-Type":"multipart/form-data"
 						}).then(res=>{
 							this.newProduct.Product_Spec=res.data.image
@@ -819,7 +819,7 @@
 					uploadPic1(){
 						this.pic1=this.$refs.pic1.files[0]
 						this.multiformData1.append("file",this.pic1)
-						axios.post('upload.php',this.multiformData1,{
+						axios.post('./php/upload.php',this.multiformData1,{
 							"Content-Type":"multipart/form-data"
 						}).then(res=>{
 							this.newProduct.Product_PIC1=res.data.image
@@ -829,7 +829,7 @@
 					uploadPic2(){
 						this.pic2=this.$refs.pic2.files[0]
 						this.multiformData2.append("file",this.pic2)
-						axios.post('upload.php',this.multiformData2,{
+						axios.post('./php/upload.php',this.multiformData2,{
 							"Content-Type":"multipart/form-data"
 						}).then(res=>{
 							this.newProduct.Product_PIC2=res.data.image
@@ -839,7 +839,7 @@
 					uploadPic3(){
 						this.pic3=this.$refs.pic3.files[0]
 						this.multiformData3.append("file",this.pic3)
-						axios.post('upload.php',this.multiformData3,{
+						axios.post('./php/upload.php',this.multiformData3,{
 							"Content-Type":"multipart/form-data"
 						}).then(res=>{
 							this.newProduct.Product_PIC3=res.data.image
@@ -849,7 +849,7 @@
 					uploadPic4(){
 						this.pic4=this.$refs.pic4.files[0]
 						this.multiformData4.append("file",this.pic4)
-						axios.post('upload.php',this.multiformData4,{
+						axios.post('./php/upload.php',this.multiformData4,{
 							"Content-Type":"multipart/form-data"
 						}).then(res=>{
 							this.newProduct.Product_PIC4=res.data.image
@@ -858,7 +858,7 @@
 					},
 					
 					editData(item){
-						axios.post("productManage.php",{
+						axios.post("./php/productManage.php",{
 							action:'update',
 							productName:item.Product_Name,
 							productPrice:item.Product_Price,
@@ -884,7 +884,7 @@
 					editImage(item,index){
 						this.spec=this.$refs.editSpec[index].files[0]
 						this.formData.append("file",this.spec)	
-						axios.post('upload.php',this.formData,{
+						axios.post('./php/upload.php',this.formData,{
 							"Content-Type":"multipart/form-data"
 						}).then(res=>{
 							item.Product_Spec=res.data.image
@@ -894,7 +894,7 @@
 					editPic1(item,index){
 						this.pic1=this.$refs.editPic1[index].files[0]
 						this.multiformData1.append("file",this.pic1)
-						axios.post('upload.php',this.multiformData1,{
+						axios.post('./php/upload.php',this.multiformData1,{
 							"Content-Type":"multipart/form-data"
 						}).then(res=>{
 							item.Product_PIC1=res.data.image
@@ -904,7 +904,7 @@
 					editPic2(item,index){
 						this.pic2=this.$refs.editPic2[index].files[0]
 						this.multiformData2.append("file",this.pic2)
-						axios.post('upload.php',this.multiformData2,{
+						axios.post('./php/upload.php',this.multiformData2,{
 							"Content-Type":"multipart/form-data"
 						}).then(res=>{
 							item.Product_PIC2=res.data.image
@@ -914,7 +914,7 @@
 					editPic3(item,index){
 						this.pic3=this.$refs.editPic3[index].files[0]
 						this.multiformData3.append("file",this.pic3)
-						axios.post('upload.php',this.multiformData3,{
+						axios.post('./php/upload.php',this.multiformData3,{
 							"Content-Type":"multipart/form-data"
 						}).then(res=>{
 							item.Product_PIC3=res.data.image
@@ -924,7 +924,7 @@
 					editPic4(item,index){
 						this.pic4=this.$refs.editPic4[index].files[0]
 						this.multiformData4.append("file",this.pic4)
-						axios.post('upload.php',this.multiformData4,{
+						axios.post('./php/upload.php',this.multiformData4,{
 							"Content-Type":"multipart/form-data"
 						}).then(res=>{
 							item.Product_PIC4=res.data.image
@@ -933,7 +933,7 @@
 					},
 					deleteData(id){
 						if(confirm("確定是否刪除")){
-							axios.post('productManage.php',{
+							axios.post('./php/productManage.php',{
 								action:'delete',
 								id:id,
 							}).then(res=>{

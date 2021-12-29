@@ -11,7 +11,7 @@
 			integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 			crossorigin="anonymous"
 		/>
-		<link rel="stylesheet" href="./123.css" />
+		<link rel="stylesheet" href="./css/back.css" />
 		<script
 			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"
 			integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN"
@@ -28,7 +28,7 @@
 			<header class="main-header">
 				<div class="container">
 					<div class="logo">
-						<img src="../images/logo.png" alt="" />
+						<img src="./images/logo.png" alt="" />
 					</div>
 				</div>
 			</header>
@@ -329,7 +329,7 @@
 						} else if (this.visibility == "active") {
 							let newData = [];
 							this.items.forEach(function (item) {
-								if (item.Order_Status == "0") {
+								if (item.Customize_Status == "0") {
 									newData.push(item);
 								}
 							});
@@ -337,7 +337,7 @@
 						} else if (this.visibility == "completed") {
 							let newData = [];
 							this.items.forEach(function (item) {
-								if (item.Order_Status == "1") {
+								if (item.Customize_Status == "1") {
 									newData.push(item);
 								}
 							});
@@ -348,7 +348,7 @@
 				},
 				methods: {
 					fetchAllDate:function(){
-						axios.post("cuzorderManage.php",{
+						axios.post("./php/cuzorderManage.php",{
 							action:'fetchall'
 						}).then(res=>
 							{
@@ -357,7 +357,7 @@
 						)
 					},
 					fetchSingle(orderId){
-						axios.post('cuzorderManage.php',{
+						axios.post('./php/cuzorderManage.php',{
 							action:"fetchSingle",
 							id:orderId
 						}

@@ -7,7 +7,7 @@ if(isset($_FILES['file']['name'])){
     $extension = pathinfo($image_name, PATHINFO_EXTENSION);
     if(in_array($extension, $valid_extensions))
     {
-        $upload_path='./images/'.rand(0,9999999999). '.' .$extension;
+        $upload_path='../images/'.rand(0,9999999999). '.' .$extension;
         if(move_uploaded_file($_FILES['file']['tmp_name'],$upload_path))
         {
             $message = '照片上傳';
@@ -25,7 +25,7 @@ else{
 }
 $output = array(
     'message' => $message,
-    'image' => $image
+    'image' => substr($image, 1, mb_strlen($image)-1)
 );
 echo json_encode($output);
 ?>
