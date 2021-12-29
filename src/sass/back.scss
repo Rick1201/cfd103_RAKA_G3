@@ -17,23 +17,24 @@ header{
     }
 }
 .backStage{
-    width: 1440px;
+    // width: 1440px;
     display: flex;
     .accordion-flush{
         width: 25%;
         height: 90vh;
-        border-right:solid 1px black ;
+        position: sticky;
+        top:0;
+        
         .accordion-item{
             border-bottom:1px solid #ccc ;
         }
         
     }
     .component_area{
-        width: 75%;
+        width: 100%;
         display: flex;
-        
         flex-direction: column;
-        
+        border-left:solid 1px black ;
         align-items: center;
         .title_area{
             h3{
@@ -53,6 +54,23 @@ header{
             .search_group{
                 margin: 15px;
             }
+        }
+        .table_dist{
+            .table-responsive{
+                 .table{
+                    tbody{
+                        tr{
+                            td{
+                                img{
+                                    height: 200px;
+                                    width: 200px;
+                            }
+                        }
+                    }
+                }
+            }
+            }
+           
         }
         }
     }
