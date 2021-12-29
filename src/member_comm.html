@@ -197,30 +197,46 @@
 						{
 							this.dir = res.data.image.slice(1);
 							this.memSubmit();
-							this.XBox();
 						}
 						)
 					},
 					memSubmit(){
-						axios.post("./php/memberSubmit.php",{
-						action:'update',
-						id:this.id.Member_ID,
-						memImg:this.dir,
-						memAdd:this.memAdd,
-						memEmail:this.memEmail,
-						memTel:this.memTel,
-						memCard:this.memCard,
+						if(this.dir){
+							axios.post("./php/memberSubmit.php",{
+							action:'update',
+							id:this.id.Member_ID,
+							memImg:this.dir,
+							memAdd:this.memAdd,
+							memEmail:this.memEmail,
+							memTel:this.memTel,
+							memCard:this.memCard,
+							}
+							).then(res=>
+							{
+								console.log(res.$data);
+								this.XBox();
+							}
+							)
+						}else{
+							axios.post("./php/memberSubmit.php",{
+							action:'update1',
+							id:this.id.Member_ID,
+							memAdd:this.memAdd,
+							memEmail:this.memEmail,
+							memTel:this.memTel,
+							memCard:this.memCard,
+							}
+							).then(res=>
+							{
+								console.log(res.$data);
+								this.XBox();
+							}
+							)
 						}
-						).then(res=>
-						{
-							console.log(res.$data);
-						}
-						)
 					},
 					XBox(){
 						document.getElementById('lightbox').style.display = "none";
-						this.fetchAllTotal();
-						this.fetchData();
+						location.href = "./member_comm.html";
 					},
 					cancel(){
 						document.getElementById('lightbox').style.display = "none";
