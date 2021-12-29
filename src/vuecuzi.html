@@ -27,6 +27,7 @@
                 :key="index" 
                 @click="activeCuzTab(index) ,currentTab = cuzTab.page"
                 :class="{activetab:currentTabIndex == index}"
+                :props-tab ="currentOuterTab"
                 >
                     <p>{{cuzTab.tab}}</p>
                 </div>
@@ -42,7 +43,9 @@
                         <img :src="currentFun3" class="fun3">
                         <img :src="currentPoint" class="float-img">
                         <div class="watch-item">
-                            <div class="selected-item" v-for="(currentItem,index) in currentItems" :key="currentItem"
+                            <div class="selected-item" 
+                            v-for="(currentItem,index) in currentItems" 
+                            :key="currentItem"
                             @click="changeOuterTab(index)">
                                 <img :src="currentItem" class="selected-img">
                             </div>
@@ -259,8 +262,9 @@
                                 //     itemName: "黑色",
                                 // },
                             ],
-                        },
+                    },
 
+                    activeSort: 0,
                 };
             },
             methods: {
@@ -287,12 +291,18 @@
                     this.outerpages[3].content = res.data;
                     });
                 },
+
+                checkActiveSort(index){
+                    this.activeSort = index;
+                }
+
             },
 
             watch:{
                 propsTab(newobject,oldobject){
                     this.selectedOuter = newobject;
-                }
+                    this.activeSort = newobject.id;
+                },
             },
 
             mounted(){
@@ -303,8 +313,10 @@
                 <div class="outer-page">
                     <div class="aside">
                         <div v-for="(outerpage, index) in outerpages"
-                        :key="index"
-                        @click ="selectedOuter = outerpages[index]"
+                        :key="outerpage.title"
+                        @click ="checkActiveSort(index),selectedOuter = outerpages[index]"
+                        class = "cuz-sort"
+                        :class ="{activeSort: activeSort == index}"
                         >
                         <img :src="outerpage.icon">
                         </div>
@@ -707,7 +719,7 @@
                 currentBoxBtn:"./images/color01.png",
                 currentRibbonImg:"./images/ribbon01.png",
                 currentRibbonBtn:"./images/color01.png",
-                cuzName:"",
+                cuzName:"RAKA",
                 currentWord:"",
                 currentFontSize:"14",
                 currentFont:"Arial",

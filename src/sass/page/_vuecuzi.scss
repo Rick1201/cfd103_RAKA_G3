@@ -1,4 +1,3 @@
-
 #cuz-section{
     padding: 50px 0;
     .container{
@@ -27,6 +26,7 @@
                 font-size: 32px;
                 padding: 20px 10px;
                 border-radius: 10px;
+                transition: background-color 0.3s,color 0.3s;
                 p{
                     writing-mode: vertical-lr;
                 }
@@ -34,6 +34,7 @@
             .activetab{
                 background-color:$blue-tertiary;
                 color: white;
+                transition: background-color 0.3s, color 0.3s;
             }
         }
         .show-box{
@@ -50,14 +51,11 @@
                         top: 0;
                         left: 10%;
                         width: 80%;
-                        // vertical-align: bottom;
-                        // margin-left: 10%;
                     }
                     .bottom-img{
                         position: static;
                         display: block;
                         width: 80%;
-                        // vertical-align: middle;
                         margin: auto;
                     }
                     .watch-item{
@@ -125,19 +123,28 @@
                 height: 100%;
                 .aside{
                     width: 20%;
-                    padding:0 15px ;
                     border-radius: 30px 0 0 30px;
                     background-color: $blue-tertiary;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-evenly;
                     height: 100%;
-                    div{
+                    .cuz-sort{
+                        padding: 20px;
+                        transition: transform 0.3s;
                         img{
                             width: 100%;
-                            vertical-align: bottom;
+                            vertical-align: middle;
                         }
                     }
+                    .activeSort{
+                        transform: translateX(20%);
+                        border-radius:50%;
+                        background-color: $blue-tertiary;
+                        transition: transform 0.3s;
+                        // outline: 2px solid  $blue-tertiary;
+                    }
+
                 }
                 .cuz-item{
                     background-color:$gray-tertiary;
@@ -152,6 +159,7 @@
                     .pic{
                         width: 50%;
                         padding: 20px;
+                        border-radius:50%;
                         img{
                             width: 100%;
                             // height: 160px;
@@ -392,7 +400,8 @@
                         flex-direction: row;
                         justify-content: space-evenly;
                         height: auto;
-                        div{
+                        overflow:hidden;
+                        .cuz-sort{
                             width: 25%;
                             padding: 20px;
                             img{
@@ -400,6 +409,10 @@
                                 vertical-align: bottom;
                             }
                         }
+                        .activeSort{
+                            transform: scale(1.3);
+                        }
+
                     }
                     .cuz-item{
                         width: 375px;
