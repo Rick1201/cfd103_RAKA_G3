@@ -70,11 +70,11 @@
 				</div>
 				<div class="shop_list">
 						<div class="list" v-for="(item, index) in filters" :key="index" >
-							<!-- <a :href="`product_page.html?id=${index+1}`"> -->
+							<a :href="`product_page.html?id=${index+1}`">
 							<img src="./images/product-list-heart .png" ref="heart" @click="changeHeart(index)" class="heart" />
-							<img :src="item.img" alt="" onclick="javascript:location.href='./product_page.html'"/>
-							<p>{{item.title}}</p>
-							<span>{{item.price}}</span>
+							<img :src="item.Product_PIC01" alt="" onclick="javascript:location.href='./product_page.html'"/>
+							<p>{{item.Product_Name}}</p>
+							<span>{{item.Product_Price}}</span>
 							</a>
 							
 						</div>		
@@ -122,102 +122,102 @@
 							{theme:'海洋飛行系列'},
 					],
 					products:[
-                          {
-                           img:'images/product-list05.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-						   bowls:"陶瓷",
-						   wtype:"皮革",
-						   themetype:"極深潛系列"
-                        },
-						{
-                           img:'images/product-list01.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-						   bowls:"鋼",
-						   wtype:"皮革",
-						   themetype:"衝浪者系列"
-                        },
-						{
-                           img:'images/product-list03.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-						   bowls:"鋼",
-						   wtype:"皮革",
-						   themetype:"海洋飛行系列"
-                        },
-						{
-                           img:'images/product-list02.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-						   bowls:"陶瓷",
-						   wtype:"金屬",
-						   themetype:"衝浪者系列"
-                        },
-						{
-                           img:'images/product-list06.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-						   bowls:"鋼",
-						   wtype:"金屬",
-						   themetype:"極深潛系列"
-                        },
-						{
-                           img:'images/product-list02.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-						   bowls:"陶瓷",
-						   wtype:"尼龍",
-						   themetype:"海洋飛行系列"
-                        },
-						{
-                           img:'images/product-list01.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-						   bowls:"鋼", 
-						   wtype:"尼龍",
-						   themetype:"極深潛系列"
-                        },
-						{
-                           img:'images/product-list06.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-						   bowls:"鋼",
-						   wtype:"尼龍",
-						   themetype:"海洋飛行系列"
-                        },
-						{
-                           img:'images/product-list04.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-						   bowls:"鋼",
-						   wtype:"金屬",
-						   themetype:"海洋飛行系列"
-                        },
-						{
-                           img:'images/product-list05.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-						   bowls:"鋼",
-						   wtype:"金屬",
-						   themetype:"海洋飛行系列"
-                        },
-						{
-                           img:'images/product-list02.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-						   bowls:"陶瓷",
-						   wtype:"皮革",
-						   themetype:"極深潛系列"
-                        },
-						{
-                           img:'images/product-list06.png',
-                           title:'Formula 1X 500',
-                           price:'NT7500',
-						   bowls:"陶瓷",
-						   wtype:"尼龍",
-						   themetype:"極深潛系列"
-                        },
+                        //   {
+                        //    img:'images/product-list05.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+						//    bowls:"陶瓷",
+						//    wtype:"皮革",
+						//    themetype:"極深潛系列"
+                        // },
+						// {
+                        //    img:'images/product-list01.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+						//    bowls:"鋼",
+						//    wtype:"皮革",
+						//    themetype:"衝浪者系列"
+                        // },
+						// {
+                        //    img:'images/product-list03.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+						//    bowls:"鋼",
+						//    wtype:"皮革",
+						//    themetype:"海洋飛行系列"
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+						//    bowls:"陶瓷",
+						//    wtype:"金屬",
+						//    themetype:"衝浪者系列"
+                        // },
+						// {
+                        //    img:'images/product-list06.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+						//    bowls:"鋼",
+						//    wtype:"金屬",
+						//    themetype:"極深潛系列"
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+						//    bowls:"陶瓷",
+						//    wtype:"尼龍",
+						//    themetype:"海洋飛行系列"
+                        // },
+						// {
+                        //    img:'images/product-list01.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+						//    bowls:"鋼", 
+						//    wtype:"尼龍",
+						//    themetype:"極深潛系列"
+                        // },
+						// {
+                        //    img:'images/product-list06.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+						//    bowls:"鋼",
+						//    wtype:"尼龍",
+						//    themetype:"海洋飛行系列"
+                        // },
+						// {
+                        //    img:'images/product-list04.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+						//    bowls:"鋼",
+						//    wtype:"金屬",
+						//    themetype:"海洋飛行系列"
+                        // },
+						// {
+                        //    img:'images/product-list05.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+						//    bowls:"鋼",
+						//    wtype:"金屬",
+						//    themetype:"海洋飛行系列"
+                        // },
+						// {
+                        //    img:'images/product-list02.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+						//    bowls:"陶瓷",
+						//    wtype:"皮革",
+						//    themetype:"極深潛系列"
+                        // },
+						// {
+                        //    img:'images/product-list06.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+						//    bowls:"陶瓷",
+						//    wtype:"尼龍",
+						//    themetype:"極深潛系列"
+                        // },
 					],
 					showItem:"全部",	                      
 				},
@@ -238,7 +238,7 @@
 						}else if(this.showItem=="陶瓷"){
 							let newArrs=[];
 							this.products.forEach(function(thing){
-								if(thing.bowls==="陶瓷"){
+								if(thing.Product_MType==="陶瓷"){
 									newArrs.push(thing);
 								}				
 							});
@@ -246,7 +246,7 @@
 					}else if(this.showItem=="鋼"){
 						let newArrs=[];
 						this.products.forEach(function(thing){
-							if(thing.bowls==="鋼"){
+							if(thing.Product_MType==="鋼"){
 								newArrs.push(thing);
 							}
 						});
@@ -254,7 +254,7 @@
 					}else if(this.showItem=="尼龍"){
 						let newArrs=[];
 						this.products.forEach(function(thing){
-							if(thing.wtype==="尼龍"){
+							if(thing.Product_BType==="尼龍"){
 								newArrs.push(thing);
 							}
 						});
@@ -262,7 +262,7 @@
 					}else if(this.showItem=="金屬"){
 						let newArrs=[];
 						this.products.forEach(function(thing){
-							if(thing.wtype==="金屬"){
+							if(thing.Product_BType==="金屬"){
 								newArrs.push(thing);
 							}
 						});
@@ -270,7 +270,7 @@
 					}else if(this.showItem=="皮革"){
 						let newArrs=[];
 						this.products.forEach(function(thing){
-							if(thing.wtype==="皮革"){
+							if(thing.Product_BType==="皮革"){
 								newArrs.push(thing);
 							}
 						});
@@ -278,7 +278,7 @@
 					}else if(this.showItem=="極深潛系列"){
 						let newArrs=[];
 						this.products.forEach(function(thing){
-							if(thing.themetype==="極深潛系列"){
+							if(thing.Product_CType==="極深潛系列"){
 								newArrs.push(thing);
 							}
 						});
@@ -286,7 +286,7 @@
 					}else if(this.showItem=="衝浪者系列"){
 						let newArrs=[];
 						this.products.forEach(function(thing){
-							if(thing.themetype==="衝浪者系列"){
+							if(thing.Product_CType==="衝浪者系列"){
 								newArrs.push(thing);
 							}
 						});
@@ -294,7 +294,7 @@
 					}else if(this.showItem=="海洋飛行系列"){
 						let newArrs=[];
 						this.products.forEach(function(thing){
-							if(thing.themetype==="海洋飛行系列"){
+							if(thing.Product_CType==="海洋飛行系列"){
 								newArrs.push(thing);
 							}
 						});
