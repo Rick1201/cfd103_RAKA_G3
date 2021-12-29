@@ -8,8 +8,8 @@
 		<link rel="stylesheet" href="./css/style.css" />
 	</head>
 	<body>
+		@@include('./layout/header.html')
 		<div id="app">
-			@@include('./layout/header.html')
 			<section class="backStageLogin">
 				<div class="container">
 					<div class="component_zone">
@@ -19,7 +19,7 @@
 							</div>
 							<div class="form_dist">
 								<h2>管理員登入</h2>
-								<form action="POST">
+								<form>
 									<div class="form_region">
 										<div class="form_group">
 											<label for="account">帳號</label>
@@ -45,11 +45,13 @@
 										<div class="text_group">
 											<p>
 												忘記帳號密碼?
-												<a href="">聯絡管理人員</a>
+												<a href="mailto:rakaSupprot@gmail.com">聯絡管理人員</a>
 											</p>
 										</div>
 										<div class="btn_group">
-											<button class="login_btn">登入</button>
+											<button @click.prevent="fetchAllDate" class="login_btn">
+												登入
+											</button>
 										</div>
 									</div>
 								</form>
@@ -58,24 +60,44 @@
 					</div>
 				</div>
 			</section>
-			@@include('./layout/footer.html')
 		</div>
+		@@include('./layout/footer.html')
 		<script
 			src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"
 			integrity="sha512-PyKhbAWS+VlTWXjk/36s5hJmUJBxcGY/1hlxg6woHD/EONP2fawZRKmvHdTGOWPKTqk3CPSUPh7+2boIBklbvw=="
 			crossorigin="anonymous"
 		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.8.1/axios.js"
+			integrity="sha512-yQvhnV+bdDcAhyxTlmVUyNikQCtnIkfC9r7GesIjLg6IrJx2M92DSv58LpyobngV7WUeM1c3mpgP0971pIY98A=="
+			crossorigin="anonymous"
+		></script>
 		<script>
 			new Vue({
-				data() {
-					return {
-						manager: {
-							account: "",
-							password: "",
-						},
-					};
+				el: "#app",
+				data: {
+					manager: {
+						account: "",
+						password: "",
+					},
 				},
-				methods: {},
+				methods: {
+					fetchAllDate() {
+						axios
+							.post("./php/backlogin.php", {
+								action: "fetchSingle", //資料參數丟過去ajaxLogin.php
+								memAcc: this.manager.account,
+								memPsw: this.manager.password,
+							})
+							.then((res) => {
+								if (res.data.Manager_ID > 0) {
+									location.href = "orderManage.html";
+								} else {
+									alert("帳密錯誤，請重新輸入");
+								}
+							});
+					},
+				},
 			});
 		</script>
 	</body>
