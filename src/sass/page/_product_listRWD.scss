@@ -17,7 +17,7 @@
         .list span{
             margin-left: 92px;
         }
-        .list>.heart{
+        .list a>.heart{
             width:30px;
             height: 30px;
             position: relative;
@@ -120,11 +120,11 @@
         .box h4{
             color:white;
         }
-        .list>.heart{
+        .list a>.heart{
             width:30px;
             height: 30px;
             position: relative;
-            left:210px;
+            left:180px;
             top:0px;
         }
         .shop_list{
@@ -133,7 +133,8 @@
         }
         .list p{
             text-align: none;
-            left: 90px;
+            left: 95px;
+            bottom: -8px;
         }
         .list img{
             width: 300%;
@@ -141,7 +142,7 @@
             right:-10px;
         }
         .list span{
-            left: 90px;
+            left: 106px;
         }
         .filter{
             position: fixed;
