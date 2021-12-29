@@ -3,9 +3,28 @@
     flex-wrap: wrap;
     position: relative;
     .member-select{
-        position:fixed;
+        // position:fixed;
         color: $gray-secondary;
         width: 30%;
+        @include mobile{
+            position: absolute;
+            width: 100%;
+            transition: 1s auto;
+            top: 0;
+            left: -370px;
+            transition: 1s left;
+            &::after{
+                content: '會員中心';
+                text-align: center;
+                width: 30px;
+                height: 80px;
+                background-color: $blue-tertiary;
+                position: absolute;
+                top: 0;
+                right: -30px;
+                padding-top: 5px;
+            }
+        }
         .member-side-bar{
             display: flex;
             flex-direction: column;
@@ -13,6 +32,9 @@
             align-items: center;
             background-color: $blue-tertiary;
             padding: 30px;
+            @include mobile{
+                padding: 30px 30px 30px 90px;
+            }
             .member-header{
                 display: flex;
                 margin-bottom: 10px;
@@ -62,6 +84,9 @@
                         padding: 10px;
                         transform: translateY(15%);
                         position: relative;
+                        @include mobile{
+                            width: 90%;
+                        }
                         #closeBox{
                             position: absolute;
                             cursor: pointer;
@@ -175,10 +200,18 @@
             }
         }
     }
+    .active{
+        // transform: translateX(350px);
+        left:-80px;
+        transition: 1s left;
+    }
     .member-content{
-        width: 100%;
-        height: 200vh;
-        margin-left: 30%;
+        width: 70%;
+        // height: 200vh;
+        // margin-left: 30%;
+        @include mobile{
+            width: 100%;
+        }
         .mem_cus_main{
             margin: auto;
             width: 70%;
@@ -193,6 +226,9 @@
                 margin: 20px;
                 padding: 25px;
                 border-radius: 2%;
+                @include mobile{
+                    width: 88%;
+                }
                 .c_pic{
                     width: 100%;
                     a{
@@ -209,35 +245,5 @@
                 }
             }
         }
-    }
-}
-@media screen and (min-width:375px){
-    .member-section .member-select{
-        position: absolute;
-        width: 100%;
-        top: 0;
-        left: -370px;
-        &::after{
-            content: '會員中心';
-            width: 30px;
-            height: 80px;
-            background-color: $blue-tertiary;
-            position: absolute;
-            top: 0;
-            right: -30px;
-        }
-        .member-content-comm-order{
-            width: 100%;
-            .member_order{
-                width: 100%;
-                .selectbar{
-                    width: 100%;
-                }
-            }
-        }
-    }
-    .active{
-        left: -40px;
-        transition: 1s auto;
     }
 }

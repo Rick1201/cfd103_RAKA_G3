@@ -11,7 +11,7 @@
 			integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 			crossorigin="anonymous"
 		/>
-		<link rel="stylesheet" href="./123.css" />
+		<link rel="stylesheet" href="./css/back.css" />
 		<script
 			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"
 			integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN"
@@ -28,7 +28,7 @@
 			<header class="main-header">
 				<div class="container">
 					<div class="logo">
-						<img src="../images/logo.png" alt="" />
+						<img src="./images/logo.png" alt="" />
 					</div>
 				</div>
 			</header>
@@ -196,7 +196,7 @@
 							</div>
 							<div class="table_dist">
 								<div class="table-responsive">
-									<table class="table">
+									<table class="table align-middle table-striped">
 										<thead>
 											<tr>
 												<th v-for="head in table_head">{{ head }}</th>
@@ -350,7 +350,7 @@
 				},
 				methods: {
 					fetchAllDate:function(){
-						axios.post("commentManage.php",{
+						axios.post("./php/commentManage.php",{
 							action:'fetchall'
 						}).then(res=>
 							{
@@ -359,7 +359,7 @@
 						)
 					},
                     editData(item){
-						axios.post("commentManage.php",{
+						axios.post("./php/commentManage.php",{
 							action:'update',
 							itemId:item.PComment_ID,
 							itemSts:item.PComment_Show
@@ -372,7 +372,7 @@
 					
 					deleteData(id){
 						if(confirm("確定是否刪除")){
-							axios.post('commentManage.php',{
+							axios.post('./php/commentManage.php',{
 								action:'delete',
 								id:id,
 							}).then(res=>{

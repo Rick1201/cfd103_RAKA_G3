@@ -11,7 +11,7 @@
 			integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 			crossorigin="anonymous"
 		/>
-		<link rel="stylesheet" href="./123.css" />
+		<link rel="stylesheet" href="./css/back.css" />
 		<script
 			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"
 			integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN"
@@ -28,7 +28,7 @@
 			<header class="main-header">
 				<div class="container">
 					<div class="logo">
-						<img src="../images/logo.png" alt="" />
+						<img src="./images/logo.png" alt="" />
 					</div>
 				</div>
 			</header>
@@ -286,7 +286,7 @@
 							</div>
 							<div class="table_dist">
 								<div class="table-responsive">
-									<table class="table">
+									<table class="table align-middle table-striped">
 										<thead>
 											<tr>
 												<th v-for="head in table_head">{{ head }}</th>
@@ -474,7 +474,7 @@
 				},
 				methods: {
 					fetchAllDate:function(){
-						axios.post("bandManage.php",{
+						axios.post("./php/bandManage.php",{
 							action:'fetchall'
 						}).then(res=>
 							{
@@ -483,7 +483,7 @@
 						)
 					},
 					uploadImage(){
-							axios.post('bandManage.php',{
+							axios.post('./php/bandManage.php',{
 								action:'insert',
 								newColor:this.newItem.PBox_Color,
 								newPIC:this.newItem.PBox_PIC,
@@ -502,7 +502,7 @@
                     submitData(){
 						this.colorOptionPic=this.$refs.spec.files[0]
 						this.colorOptionPicFD.append("file",this.colorOptionPic)	
-						axios.post('upload.php',this.colorOptionPicFD,{
+						axios.post('./php/upload.php',this.colorOptionPicFD,{
 							"Content-Type":"multipart/form-data"
 						}).then(res=>{
 							this.newItem.PBox_Color=res.data.image
@@ -512,7 +512,7 @@
 					uploadPic1(){
 						this.itemPic=this.$refs.pic1.files[0]
 						this.itemPicFD.append("file",this.itemPic)
-						axios.post('upload.php',this.itemPicFD,{
+						axios.post('./php/upload.php',this.itemPicFD,{
 							"Content-Type":"multipart/form-data"
 						}).then(res=>{
 							this.newItem.PBox_PIC=res.data.image
@@ -520,7 +520,7 @@
 						})
 					},
                     editData(item){
-						axios.post("bandManage.php",{
+						axios.post("./php/bandManage.php",{
 							action:'update',
 							boxId:item.PBand_ID,
 							boxColor:item.PBand_Color,
@@ -534,7 +534,7 @@
 					editImage(item,index){
 						this.colorOptionPic=this.$refs.editSpec[index].files[0]
 						this.colorOptionPicFD.append("file",this.colorOptionPic)	
-						axios.post('upload.php',this.colorOptionPicFD,{
+						axios.post('./php/upload.php',this.colorOptionPicFD,{
 							"Content-Type":"multipart/form-data"
 						}).then(res=>{
 							item.PBand_Color=res.data.image
@@ -545,7 +545,7 @@
 					editPic1(item,index){
 						this.itemPic=this.$refs.editPic1[index].files[0]
 						this.itemPicFD.append("file",this.itemPic)
-						axios.post('upload.php',this.itemPicFD,{
+						axios.post('./php/upload.php',this.itemPicFD,{
 							"Content-Type":"multipart/form-data"
 						}).then(res=>{
 							item.PBand_PIC=res.data.image
@@ -555,7 +555,7 @@
 					
 					deleteData(id){
 						if(confirm("確定是否刪除")){
-							axios.post('bandManage.php',{
+							axios.post('./php/bandManage.php',{
 								action:'delete',
 								id:id,
 							}).then(res=>{

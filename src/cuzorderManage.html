@@ -11,7 +11,7 @@
 			integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 			crossorigin="anonymous"
 		/>
-		<link rel="stylesheet" href="./123.css" />
+		<link rel="stylesheet" href="./css/back.css" />
 		<script
 			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"
 			integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN"
@@ -28,7 +28,7 @@
 			<header class="main-header">
 				<div class="container">
 					<div class="logo">
-						<img src="../images/logo.png" alt="" />
+						<img src="./images/logo.png" alt="" />
 					</div>
 				</div>
 			</header>
@@ -196,7 +196,7 @@
 							</div>
 							<div class="table_dist">
 								<div class="table-responsive">
-									<table class="table">
+									<table class="table align-middle table-striped" style="width: 1600px;">
 										<thead>
 											<tr>
 												<th v-for="head in table_head">{{ head }}</th>
@@ -209,14 +209,13 @@
 												<td>{{product.Member_ID}}</td>
 												<td>{{product.Customize_Shipping}}</td>
 												<td>{{product.Customize_Total}}</td>
-												<td>{{product.Order_Shipping}}</td>
 												<td>{{product.Customize_CName}}</td>
 												<td>{{product.Customize_Phone}}</td>
 												<td>{{product.Customize_Address}}</td>
 												<td>{{product.Customize_Notes}}</td>
 												<td>{{product.Member_Card}}</td>
-                                                <td><img  width="200" height="200" :src="product.Customize_PacPic" alt=""></td>
-                                                <td><img  width="200" height="200" :src="product.Customize_WPicF" alt=""></td>
+                                                <td><img :src="product.Customize_PacPic" alt=""></td>
+                                                <td><img :src="product.Customize_WPicF" alt=""></td>
 												<td>{{product.Customize_Status== 0 ? '未出貨' : '已出貨'}}</td>
 												<td>
 													<button
@@ -305,7 +304,6 @@
 							"會員編號",
 							"運費",
 							"訂單總額(加運費)",
-							"運費",
 							"收件人姓名",
 							"收件人電話",
 							"收件人地址",
@@ -329,7 +327,7 @@
 						} else if (this.visibility == "active") {
 							let newData = [];
 							this.items.forEach(function (item) {
-								if (item.Order_Status == "0") {
+								if (item.Customize_Status == "0") {
 									newData.push(item);
 								}
 							});
@@ -337,7 +335,7 @@
 						} else if (this.visibility == "completed") {
 							let newData = [];
 							this.items.forEach(function (item) {
-								if (item.Order_Status == "1") {
+								if (item.Customize_Status == "1") {
 									newData.push(item);
 								}
 							});
@@ -348,7 +346,7 @@
 				},
 				methods: {
 					fetchAllDate:function(){
-						axios.post("cuzorderManage.php",{
+						axios.post("./php/cuzorderManage.php",{
 							action:'fetchall'
 						}).then(res=>
 							{
@@ -357,7 +355,7 @@
 						)
 					},
 					fetchSingle(orderId){
-						axios.post('cuzorderManage.php',{
+						axios.post('./php/cuzorderManage.php',{
 							action:"fetchSingle",
 							id:orderId
 						}
