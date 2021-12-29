@@ -79,6 +79,30 @@ $data =array(
     echo json_encode($data);
 
 }
+if($received_data->action =='update1'){
+$data =array(
+    ':Member_ID'=>$received_data->id,
+    ':Member_Mail'=>$received_data->memEmail,
+    ':Member_Card'=>$received_data->memCard,
+    ':Member_Address'=>$received_data->memAdd,
+    ':Member_Phone'=>$received_data->memTel,
+);
+    $query = "
+    UPDATE member
+    SET
+    Member_Mail = :Member_Mail,
+    Member_Card = :Member_Card,
+    Member_Address = :Member_Address,
+    Member_Phone = :Member_Phone
+    WHERE Member_ID = :Member_ID";
+    $statement= $connect->prepare($query);
+    $statement->execute($data);
+    $data = array(
+        'message'=>'修改完成'
+    );
+    echo json_encode($data);
+
+}
 
 if($received_data->action =='delete'){
     $query = "
