@@ -406,14 +406,24 @@
 							</div>
 							<div class="table_dist">
 								<div class="table-responsive">
-									<table class="table">
+									<table class="table align-middle table-striped" style="width: 2300px;">
 										<thead>
 											<tr>
-												<th v-for="head in table_head">{{ head }}</th>
+												<th>商品編號</th>
+												<th>商品名稱</th>
+												<th>商品價格</th>
+												<th>材質類別</th>
+												<th>錶帶類別</th>
+												<th>主題類別</th>
+												<th>商品介紹</th>
+												<th>商品狀態</th>
+												<th>商品圖片</th>
+												<th>商品規格</th>
+												
 											</tr>
 										</thead>
 										<tbody>
-											<tr v-for="(product,index) of filters " :key="product.Product_ID" height="300" style="overflow-y:auto;">
+											<tr v-for="(product,index) of filters " :key="product.Product_ID">
 												<td>{{product.Product_ID}}</td>
 												<td>{{product.Product_Name}}</td>
 												<td>{{product.Product_Price}}</td>
@@ -421,12 +431,13 @@
 												<td>{{product.Product_BType}}</td>
 												<td>{{product.Product_CType}}</td>
 												<td>{{product.Product_Info}}</td>
-												<td><img width="200" height="200" :src="product.Product_Spec" alt=""></td>
-												<td height="300" ><img width="200" height="200" :src="product.Product_PIC01" alt="">
-													<img width="200" height="200" :src="product.Product_PIC02" alt="">
-													<img width="200" height="200" :src="product.Product_PIC03" alt="">
-													<img width="200" height="200" :src="product.Product_PIC04" alt=""></td>
-												<td>{{product.Product_Status}}</td>
+												<td>{{product.Product_Status==0?"未出貨":"已出貨"}}</td>
+												<td><img :src="product.Product_Spec" alt=""></td>
+												<td><img :src="product.Product_PIC01" alt=""></td>
+												<td><img :src="product.Product_PIC02" alt=""></td>
+												<td><img :src="product.Product_PIC03" alt=""></td>
+												<td><img :src="product.Product_PIC04" alt=""></td>
+												
 												<td>
 													<button
 														class="btn btn-outline-primary"
