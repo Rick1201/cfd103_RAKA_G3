@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>componentPage</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="./123.css" />
+		<script
+			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"
+			integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"
+			integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/"
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+		<div id="app">
+			<header class="main-header">
+				<div class="container">
+					<div class="logo">
+						<img src="../images/logo.png" alt="" />
+					</div>
+				</div>
+			</header>
+			<section class="backStage">
+				<div class="accordion accordion-flush" id="accordionFlushExample">
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="flush-headingOne">
+							<button
+								class="accordion-button collapsed"
+								type="button"
+								data-bs-toggle="collapse"
+								data-bs-target="#flush-collapseOne"
+								aria-expanded="false"
+								aria-controls="flush-collapseOne"
+							>
+								訂單列表管理
+							</button>
+						</h2>
+						<div
+							id="flush-collapseOne"
+							class="accordion-collapse collapse"
+							aria-labelledby="flush-headingOne"
+							data-bs-parent="#accordionFlushExample"
+						>
+							<div class="accordion-body d-grid gap-2">
+								<button class="btn btn-primary"  onclick="javascript:location.href='orderManage.html'">商品訂單</button>
+								<button class="btn btn-primary" onclick="javascript:location.href='cuzorderManage.html'">客製化訂單</button>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="flush-headingTwo">
+							<button
+								class="accordion-button collapsed"
+								type="button"
+								data-bs-toggle="collapse"
+								data-bs-target="#flush-collapseTwo"
+								aria-expanded="false"
+								aria-controls="flush-collapseTwo"
+							>
+								商品項目管理
+							</button>
+						</h2>
+						<div
+							id="flush-collapseTwo"
+							class="accordion-collapse collapse"
+							aria-labelledby="flush-headingTwo"
+							data-bs-parent="#accordionFlushExample"
+						>
+							<div class="accordion-body d-grid gap-2">
+								<button class="btn btn-primary" onclick="javascript:location.href='productManage.html'">商品管理</button>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="flush-headingThree">
+							<button
+								class="accordion-button collapsed"
+								type="button"
+								data-bs-toggle="collapse"
+								data-bs-target="#flush-collapseThree"
+								aria-expanded="false"
+								aria-controls="flush-collapseThree"
+							>
+								客製化元件管理
+							</button>
+						</h2>
+						<div
+							id="flush-collapseThree"
+							class="accordion-collapse collapse"
+							aria-labelledby="flush-headingThree"
+							data-bs-parent="#accordionFlushExample"
+						>
+							<div class="accordion-body d-grid gap-2">
+								<button class="btn btn-primary" onclick="javascript:location.href='wouterManage.html'">外框管理</button>
+								<button class="btn btn-primary" onclick="javascript:location.href='wfaceManage.html'">錶面管理</button>
+								<button class="btn btn-primary" onclick="javascript:location.href='wpointerManage.html'">指針管理</button>
+								<button class="btn btn-primary" onclick="javascript:location.href='wbandManage.html'">錶帶管理</button>
+								<button class="btn btn-primary" onclick="javascript:location.href='wfucManage.html'">功能管理</button>
+								<button class="btn btn-primary" onclick="javascript:location.href='packageManage.html'">包裝管理</button>
+								<button class="btn btn-primary" onclick="javascript:location.href='bandManage.html'">緞帶管理</button>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="flush-headingFour">
+							<button
+								class="accordion-button collapsed"
+								type="button"
+								data-bs-toggle="collapse"
+								data-bs-target="#flush-collapseFour"
+								aria-expanded="false"
+								aria-controls="flush-collapseFour"
+							>
+								會員管理
+							</button>
+						</h2>
+						<div
+							id="flush-collapseFour"
+							class="accordion-collapse collapse"
+							aria-labelledby="flush-headingFour"
+							data-bs-parent="#accordionFlushExample"
+						>
+							<div class="accordion-body d-grid gap-2">
+								<button class="btn btn-primary" onclick="javascript:location.href='memberManage.html'">會員管理</button>
+								<button class="btn btn-primary" onclick="javascript:location.href='commentManage.html'">評論管理</button>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="flush-headingFive">
+							<button
+								class="accordion-button collapsed"
+								type="button"
+								data-bs-toggle="collapse"
+								data-bs-target="#flush-collapseFive"
+								aria-expanded="false"
+								aria-controls="flush-collapseFive"
+							>
+								管理員管理
+							</button>
+						</h2>
+						<div
+							id="flush-collapseFive"
+							class="accordion-collapse collapse"
+							aria-labelledby="flush-headingFive"
+							data-bs-parent="#accordionFlushExample"
+						>
+							<div class="accordion-body d-grid gap-2">
+								<button class="btn btn-primary" onclick="javascript:location.href='managerManage.html'">管理員管理</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="component_area">
+					<div class="title_area">
+						<h3>商品管理</h3>
+					</div>
+					<div class="container">
+						<div class="btn_dist">
+							<button
+								class="btn btn-outline-primary"
+								data-bs-toggle="modal"
+								data-bs-target="#product_add"
+							>
+								新增+
+							</button>
+                        </div>
+							<!-- product add modal -->
+							<div
+								class="modal fade"
+								id="product_add"
+								tabindex="-1"
+								aria-labelledby="exampleModalLabel"
+								aria-hidden="true"
+							>
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h3 class="modal-title" id="exampleModalLabel">
+												新增商品
+											</h3>
+											<button
+												type="button"
+												class="btn-close"
+												data-bs-dismiss="modal"
+												aria-label="Close"
+											></button>
+										</div>
+										
+											<div class="modal-body">
+												<div class="mb-3">
+													<label class="form-label">{{products.length+1}}</label>
+                                                
+												</div>
+
+												<div class="mb-3">
+													<label for="product_add_name" class="form-label"
+														>商品名稱</label
+													>
+													<input
+														type="text"
+														class="form-control"
+														id="product_add_name"
+														name="name"
+                                                        v-model="newProduct.Product_Name"
+													/>
+												</div>
+
+												<div class="mb-3">
+													<label for="product_add_price" class="form-label"
+														>商品價格</label
+													>
+													<input
+														type="text"
+														class="form-control"
+														id="product_add_price"
+														name="name"
+                                                        v-model="newProduct.Product_Price"
+													/>
+												</div>
+
+												<div class="mb-3">
+													<label for="product_add_MType" class="form-label"
+														>商品材質類別</label
+													>
+													<select
+														type="text"
+														class="form-control"
+														id="product_add_MType"
+														name="name"
+                                                        v-model="newProduct.Product_MType"
+													>
+                                                <option v-for="opt of MType" :value="`${opt}`">{{opt}}</option>
+                                                </select>
+												</div>
+
+												<div class="mb-3">
+													<label for="product_add_BType" class="form-label"
+														>商品錶帶類別</label
+													>
+													<select
+														type="text"
+														class="form-control"
+														id="product_add_BType"
+														name="name"
+                                                        v-model="newProduct.Product_BType"
+													>
+                                                <option v-for="opt of BType" :value="`${opt}`">{{opt}}</option>
+                                                </select>
+												</div>
+
+												<div class="mb-3">
+													<label for="product_add_CType" class="form-label"
+														>商品主題類別</label
+													>
+													<select
+														type="text"
+														class="form-control"
+														id="product_add_CType"
+														name="name"
+                                                        v-model="newProduct.Product_CType"
+													>
+                                                        <option v-for="opt of CType" :value="`${opt}`">{{opt}}</option>
+                                                    </select>
+												</div>
+
+												<div class="mb-3">
+													<label
+														for="product_add_Info"
+														class="form-label"
+														>商品介紹</label
+													>
+													<textarea
+														name="description"
+														id="product_add_Info"
+														rows="3"
+														class="form-control"
+                                                        v-model="newProduct.Product_Info"
+													>
+													</textarea>
+												</div>
+
+												<div class="form-check mb-3">
+													<input
+														class="form-check-input"
+														type="checkbox"
+														checked
+														id="product_add_status"
+														name="product_add_status"
+                                                        v-model="newProduct.Product_Status"
+													/>
+													<label
+														class="form-check-label"
+														for="product_add_status"
+													>
+														上架</label
+													>
+												</div>
+
+												<div class="file_upload">
+													<label for="product_add_Spec">規格圖上傳</label>
+													<br />
+													<input
+														type="file"
+														name="files"
+														id="product_add_Spec"
+														accept=".jpg,.png,.svg"
+														ref="spec"
+													/>
+												</div>
+
+												<div class="file_upload">
+													<label for="product_add_PIC">商品圖上傳</label>
+													<br />
+													<input
+														type="file"
+														name="files"
+														id="product_add_PIC1"
+														accept=".jpg,.png,.svg"
+														ref="pic1"
+														
+													/>
+													<input
+														type="file"
+														name="files"
+														id="product_add_PIC2"
+														accept=".jpg,.png,.svg"
+														ref="pic2"
+														
+													/>
+													<input
+														type="file"
+														name="files"
+														id="product_add_PIC3"
+														accept=".jpg,.png,.svg"
+														ref="pic3"
+														
+													/>
+													<input
+														type="file"
+														name="files"
+														id="product_add_PIC4"
+														accept=".jpg,.png,.svg"
+														ref="pic4"
+														
+													/>
+													<div
+														class="preview"
+														id="product_add_PIC"
+													></div>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button
+													type="button"
+													class="btn btn-secondary"
+													data-bs-dismiss="modal"
+												>
+													Close
+												</button>
+												<button class="btn btn-primary" @click="uploadImage"  data-bs-dismiss="modal">
+													Submit
+												</button>
+											</div>
+										
+									</div>
+								</div>
+							</div>
+
+							<div class="tab_dist">
+								<div class="btn-group" role="group" aria-label="Basic example">
+									<button
+										type="button"
+										class="btn btn-primary"
+										@click="visibility='all'"
+									>
+										所有
+									</button>
+									<button
+										type="button"
+										class="btn btn-primary"
+										@click="visibility='active'"
+									>
+										未上架
+									</button>
+									<button
+										type="button"
+										class="btn btn-primary"
+										@click="visibility='completed'"
+									>
+										上架中
+									</button>
+								</div>
+							</div>
+							<div class="table_dist">
+								<div class="table-responsive">
+									<table class="table">
+										<thead>
+											<tr>
+												<th v-for="head in table_head">{{ head }}</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr v-for="(product,index) of filters " :key="product.Product_ID" height="300" style="overflow-y:auto;">
+												<td>{{product.Product_ID}}</td>
+												<td>{{product.Product_Name}}</td>
+												<td>{{product.Product_Price}}</td>
+												<td>{{product.Product_MType}}</td>
+												<td>{{product.Product_BType}}</td>
+												<td>{{product.Product_CType}}</td>
+												<td>{{product.Product_Info}}</td>
+												<td><img width="200" height="200" :src="product.Product_Spec" alt=""></td>
+												<td height="300" ><img width="200" height="200" :src="product.Product_PIC01" alt="">
+													<img width="200" height="200" :src="product.Product_PIC02" alt="">
+													<img width="200" height="200" :src="product.Product_PIC03" alt="">
+													<img width="200" height="200" :src="product.Product_PIC04" alt=""></td>
+												<td>{{product.Product_Status}}</td>
+												<td>
+													<button
+														class="btn btn-outline-primary"
+														data-bs-toggle="modal"
+														:data-bs-target="`#product_edit_${index}`"
+													>
+														Edit
+													</button>
+												</td>
+												<td>
+													<button class="btn" @click="deleteData(product.Product_ID)">
+														&times;
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+
+									<!-- product edit modal -->
+									<div
+										class="modal fade"
+										:id="`product_edit_${index}`"
+										tabindex="-1"
+										aria-labelledby="exampleModalLabel"
+										aria-hidden="true"
+										v-for="(product,index) of filters"
+									>
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="exampleModalLabel">
+														編輯商品
+													</h5>
+													<button
+														type="button"
+														class="btn-close"
+														data-bs-dismiss="modal"
+														aria-label="Close"
+													></button>
+												</div>
+												<form>
+													<div class="modal-body">
+														<div class="mb-3">
+															<label class="form-label"
+																>{{product.Product_ID}}</label
+															>
+														</div>
+
+														<div class="mb-3">
+															<label
+																:for="`product_edit_${index}_name`"
+																class="form-label"
+																>商品名稱</label
+															>
+															<input
+																type="text"
+																class="form-control"
+																:id="`product_edit_${index}_name`"
+																name="name"
+																v-model="product.Product_Name"
+															/>
+														</div>
+
+														<div class="mb-3">
+															<label
+																:for="`product_edit_${index}_price`"
+																class="form-label"
+																>商品價格</label
+															>
+															<input
+																type="number"
+																class="form-control"
+																:id="`product_edit_${index}_price`"
+																name="name"
+																v-model="product.Product_Price"
+															/>
+														</div>
+
+														<div class="mb-3">
+															<label
+																:for="`product_edit_${index}_MType`"
+																class="form-label"
+																>商品材質類別</label
+															>
+															<select
+																type="text"
+																class="form-control"
+																:id="`product_edit_${index}_MType`"
+																name="name"
+																v-model="product.Product_MType"
+															>
+															<option v-for="opt of MType" :value="opt">{{opt}}</option>
+															</select>
+														</div>
+
+														<div class="mb-3">
+															<label
+																:for="`product_edit_${index}_BType`"
+																class="form-label"
+																>商品錶帶類別</label
+															>
+															<select
+																type="text"
+																class="form-control"
+																:id="`product_edit_${index}_BType`"
+																name="name"
+																v-model="product.Product_BType"
+															>
+															<option v-for="opt of BType" :value="opt">{{opt}}
+															</option>
+														</select>
+														</div>
+
+														<div class="mb-3">
+															<label
+																:for="`product_edit_${index}_CType`"
+																class="form-label"
+																>商品主題類別</label
+															>
+															<select
+																type="text"
+																class="form-control"
+																:id="`product_edit_${index}_CType`"
+																name="name"
+																v-model="product.Product_CType"
+															>
+															<option v-for="opt of CType" :value="opt">{{opt}}
+															</option>
+															</select>
+														</div>
+
+														<div class="mb-3">
+															<label
+																:for="`product_edit_${index}_description`"
+																class="form-label"
+																>商品描述</label
+															>
+															<textarea
+																name="description"
+																:id="`product_edit_${index}_description`"
+																rows="3"
+																class="form-control"
+																v-model="product.Product_Info"
+															>
+																{{product.Product_Info}}</textarea
+															>
+														</div>
+
+														<div class="form-check mb-3">
+															<input
+																class="form-check-input"
+																type="checkbox"
+																checked
+																:id="`product_edit_${index}_status`"
+																name="status"
+																v-model="product.Product_Status"
+															/>
+															<label
+																class="form-check-label"
+																:for="`product_edit_${index}_status`"
+															>
+																上架</label
+															>
+														</div>
+
+														<div class="file_upload">
+															<label :for="`product_edit_${index}_spec`"
+																>規格圖上傳</label
+															>
+															<br />
+															<input
+																type="file"
+																name="files"
+																:id="`product_edit_${index}_spec`"
+																accept=".jpg,.png,.svg"
+																ref="editSpec"
+															/>
+														</div>
+
+														<div class="file_upload">
+															<label :for="`product_edit_${index}_file1`"
+																>商品圖上傳1</label
+															>
+															<br />
+															<input
+																type="file"
+																name="files"
+																:id="`product_edit_${index}_file1`"
+																accept=".jpg,.png,.svg"
+																ref="editPic1"
+																
+															/>
+														</div>
+														<div class="file_upload">
+															<label :for="`product_edit_${index}_file2`"
+																>商品圖上傳2</label
+															>
+															<br />
+															<input
+																type="file"
+																name="files"
+																:id="`product_edit_${index}_file2`"
+																accept=".jpg,.png,.svg"
+																
+																ref="editPic2"
+															/>
+														</div>
+														<div class="file_upload">
+															<label :for="`product_edit_${index}_file3`"
+																>商品圖上傳3</label
+															>
+															<br />
+															<input
+																type="file"
+																name="files"
+																:id="`product_edit_${index}_file3`"
+																accept=".jpg,.png,.svg"
+																ref="editPic3"
+																
+															/>
+														</div>
+														<div class="file_upload">
+															<label :for="`product_edit_${index}_file4`"
+																>商品圖上傳4</label
+															>
+															<br />
+															<input
+																type="file"
+																name="files"
+																:id="`product_edit_${index}_file4`"
+																accept=".jpg,.png,.svg"
+																ref="editPic4"
+																
+															/>
+														</div>
+													</div>
+													<div class="modal-footer">
+														<button
+															type="button"
+															class="btn btn-secondary"
+															data-bs-dismiss="modal"
+															@click="editImage(product,index)"
+														>
+															Close
+														</button>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<footer></footer>
+		</div>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"
+			integrity="sha512-PyKhbAWS+VlTWXjk/36s5hJmUJBxcGY/1hlxg6woHD/EONP2fawZRKmvHdTGOWPKTqk3CPSUPh7+2boIBklbvw=="
+			crossorigin="anonymous"
+		></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.8.1/axios.js' integrity='sha512-yQvhnV+bdDcAhyxTlmVUyNikQCtnIkfC9r7GesIjLg6IrJx2M92DSv58LpyobngV7WUeM1c3mpgP0971pIY98A==' crossorigin='anonymous'></script>
+		
+		<script>
+			new Vue({
+				el: "#app",
+				data() {
+					return {
+                        image:"",
+						uploadedImage:"",
+						file:"",
+						spec:"",
+						pic1:"",
+						pic2:"",
+						pic3:"",
+						pic4:"",
+						formData : new FormData(),
+						multiformData1:new FormData(),
+						multiformData2:new FormData(),
+						multiformData3:new FormData(),
+						multiformData4:new FormData(),
+						table_head: [
+							"商品編號",
+							"商品名稱",
+							"商品價格",
+							"商品材質類別",
+							"商品錶帶類別",
+							"商品主題類別",
+							"商品介紹",
+							"商品規格",
+							"商品圖片",
+							"商品狀態",
+						],
+						MType: ["陶瓷", "鋼"],
+						BType: ["皮革", "金屬", "尼龍"],
+						CType: ["極深潛系列", "衝浪者系列", "海洋飛行系列"],
+                        newProduct:{
+                                Product_ID: "",
+								Product_Name: "",
+								Product_Price: 0,
+								Product_MType: "",
+								Product_BType: "",
+								Product_CType: "",
+								Product_Info: "",
+								Product_Spec: "",
+								Product_PIC1: "",
+								Product_PIC2:"",
+								Product_PIC3:"",
+								Product_PIC4:"",
+								Product_Status: true,
+                        },
+						products: [
+						],
+						visibility: "all",
+					};
+				},
+				computed: {
+					filters: function () {
+						if (this.visibility == "all") {
+							return this.products;
+						} else if (this.visibility == "active") {
+							let newProducts = [];
+							this.products.forEach(function (item) {
+								if (!item.Product_Status) {
+									newProducts.push(item);
+								}
+							});
+							return newProducts;
+						} else if (this.visibility == "completed") {
+							let newProducts = [];
+							this.products.forEach(function (item) {
+								if (item.Product_Status) {
+									newProducts.push(item);
+								}
+							});
+							return newProducts;
+						}
+						return [];
+					},
+				},
+				methods: {
+					fetchAllDate:function(){
+						axios.post("productManage.php",{
+							action:'fetchall'
+						}).then(res=>
+							{
+							this.products=res.data
+						}
+						)
+					},
+					submitData(){
+						if(this.newProduct.Product_Name !="" && this.newProduct.Product_Price != ""){
+							axios.post('productManage.php',{
+								action:'insert',
+								productName:this.newProduct.Product_Name,
+								productPrice:this.newProduct.Product_Price,
+								productMType:this.newProduct.Product_MType,
+								productBType:this.newProduct.Product_BType,
+								productCType:this.newProduct.Product_CType,
+								productInfo:this.newProduct.Product_Info,
+								productSpec:this.newProduct.Product_Spec,
+								productPIC1:this.newProduct.Product_PIC1,
+								productPIC2:this.newProduct.Product_PIC2,
+								productPIC3:this.newProduct.Product_PIC3,
+								productPIC4:this.newProduct.Product_PIC4,
+								productStatus:this.newProduct.Product_Status,
+								headers:{
+									'Content-Type':'multipart/form-data'
+								}
+							}).then(res=>{
+								this.fetchAllDate()
+								this.resetProduct()
+							})
+						}else{
+							alert("請填入資料")
+						}
+					},
+					uploadImage(){
+						this.spec=this.$refs.spec.files[0]
+						this.formData.append("file",this.spec)	
+						axios.post('upload.php',this.formData,{
+							"Content-Type":"multipart/form-data"
+						}).then(res=>{
+							this.newProduct.Product_Spec=res.data.image
+							this.uploadPic1()
+						})
+						},
+					uploadPic1(){
+						this.pic1=this.$refs.pic1.files[0]
+						this.multiformData1.append("file",this.pic1)
+						axios.post('upload.php',this.multiformData1,{
+							"Content-Type":"multipart/form-data"
+						}).then(res=>{
+							this.newProduct.Product_PIC1=res.data.image
+							this.uploadPic2()
+						})
+					},				
+					uploadPic2(){
+						this.pic2=this.$refs.pic2.files[0]
+						this.multiformData2.append("file",this.pic2)
+						axios.post('upload.php',this.multiformData2,{
+							"Content-Type":"multipart/form-data"
+						}).then(res=>{
+							this.newProduct.Product_PIC2=res.data.image
+							this.uploadPic3()
+						})
+					},
+					uploadPic3(){
+						this.pic3=this.$refs.pic3.files[0]
+						this.multiformData3.append("file",this.pic3)
+						axios.post('upload.php',this.multiformData3,{
+							"Content-Type":"multipart/form-data"
+						}).then(res=>{
+							this.newProduct.Product_PIC3=res.data.image
+							this.uploadPic4()
+						})
+					},
+					uploadPic4(){
+						this.pic4=this.$refs.pic4.files[0]
+						this.multiformData4.append("file",this.pic4)
+						axios.post('upload.php',this.multiformData4,{
+							"Content-Type":"multipart/form-data"
+						}).then(res=>{
+							this.newProduct.Product_PIC4=res.data.image
+							this.submitData()
+						})
+					},
+					
+					editData(item){
+						axios.post("productManage.php",{
+							action:'update',
+							productName:item.Product_Name,
+							productPrice:item.Product_Price,
+							productMType:item.Product_MType,
+							productBType:item.Product_BType,
+							productCType:item.Product_CType,
+							productInfo:item.Product_Info,
+							productSpec:item.Product_Spec,
+							productPIC1:item.Product_PIC1,
+							productPIC2:item.Product_PIC2,
+							productPIC3:item.Product_PIC3,
+							productPIC4:item.Product_PIC4,
+							productStatus:item.Product_Status,
+							productId:item.Product_ID,
+							headers:{
+									'Content-Type':'multipart/form-data'
+								}
+						}).then(res=>{
+							this.fetchAllDate()
+							alert(res.data)
+						})
+					},
+					editImage(item,index){
+						this.spec=this.$refs.editSpec[index].files[0]
+						this.formData.append("file",this.spec)	
+						axios.post('upload.php',this.formData,{
+							"Content-Type":"multipart/form-data"
+						}).then(res=>{
+							item.Product_Spec=res.data.image
+							this.editPic1(item,index)
+						})
+						},
+					editPic1(item,index){
+						this.pic1=this.$refs.editPic1[index].files[0]
+						this.multiformData1.append("file",this.pic1)
+						axios.post('upload.php',this.multiformData1,{
+							"Content-Type":"multipart/form-data"
+						}).then(res=>{
+							item.Product_PIC1=res.data.image
+							this.editPic2(item,index)
+						})
+					},				
+					editPic2(item,index){
+						this.pic2=this.$refs.editPic2[index].files[0]
+						this.multiformData2.append("file",this.pic2)
+						axios.post('upload.php',this.multiformData2,{
+							"Content-Type":"multipart/form-data"
+						}).then(res=>{
+							item.Product_PIC2=res.data.image
+							this.editPic3(item,index)
+						})
+					},
+					editPic3(item,index){
+						this.pic3=this.$refs.editPic3[index].files[0]
+						this.multiformData3.append("file",this.pic3)
+						axios.post('upload.php',this.multiformData3,{
+							"Content-Type":"multipart/form-data"
+						}).then(res=>{
+							item.Product_PIC3=res.data.image
+							this.editPic4(item,index)
+						})
+					},
+					editPic4(item,index){
+						this.pic4=this.$refs.editPic4[index].files[0]
+						this.multiformData4.append("file",this.pic4)
+						axios.post('upload.php',this.multiformData4,{
+							"Content-Type":"multipart/form-data"
+						}).then(res=>{
+							item.Product_PIC4=res.data.image
+							this.editData(item,index)
+						})
+					},
+					deleteData(id){
+						if(confirm("確定是否刪除")){
+							axios.post('productManage.php',{
+								action:'delete',
+								id:id,
+							}).then(res=>{
+								this.fetchAllDate()
+								alert(res.data.message)
+							})
+						}
+
+					},
+
+					removeItem(item) {
+						let newIndex = "";
+						this.products.forEach(function (product, key) {
+							if (item.Product_ID === product.Product_ID) {
+								newIndex = key;
+							}
+						});
+						this.products.splice(newIndex, 1);
+					},
+                    // addProduct(){
+						// this.newProduct.Product_ID = this.products.length
+                    //     this.products.push({
+					// 		Product_ID:this.products.length+1,
+					// 		Product_Name:this.newProduct.Product_Name,
+					// 		Product_Price:this.newProduct.Product_Price,
+					// 		Product_MType:this.newProduct.Product_MType,
+					// 		Product_BType:this.newProduct.Product_BType,
+					// 		Product_CType:this.newProduct.Product_CType,
+					// 		Product_Info:this.newProduct.Product_Info,
+					// 		Product_Spec:this.newProduct.Product_Spec,
+					// 		Product_PIC:this.newProduct.Product_PIC,
+					// 		Product_Status:this.newProduct.Product_Status,   
+					// 	})
+                    //    this.resetProduct()
+                    // },
+                    //  resetProduct(){
+                    //     this.newProduct.Product_ID= ""
+                    //     this.newProduct.Product_Name= "",
+                    //     this.newProduct.Product_Price= 0,
+                    //     this.newProduct.Product_MType= "",
+                    //     this.newProduct.Product_BType= "",
+                    //     this.newProduct.Product_CType= "",
+                    //     this.newProduct.Product_Info= "",
+                    //     this.newProduct.Product_Spec= "",
+                    //     this.newProduct.Product_PIC1= "",
+					// 	this.newProduct.Product_PIC2= "",
+					// 	this.newProduct.Product_PIC3= "",
+					// 	this.newProduct.Product_PIC4= "",
+                    //     this.newProduct.Product_Status= 0   
+                    //  },
+                    //  getFiles(e){
+                    //     let files = e.target.files
+                    //     if(!files.length)return;
+                    //     this.file = files[0]
+                    //     this.createImg(this.file)         
+                    // },
+                    // createImg(file){
+                    //     let image = new Image()
+                    //     let reader = new FileReader()
+                    //     reader.onload=(e)=>{
+                    //         this.image = e.target.result
+                    //     };
+                    //     this.newProduct.Product_Spec = file.name
+                    // }
+                    
+                   
+                },
+				// created() {
+					
+				// },
+				mounted() {
+					this.fetchAllDate()
+				},
+                
+			});
+		</script>
+	</body>
+</html>
