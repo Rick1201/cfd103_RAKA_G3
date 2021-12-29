@@ -211,3 +211,19 @@
         }
     }
 }
+// @media screen and (min-width:375px){
+//     .member-section .member-select{
+//         width: 100%;
+//         top: 0;
+//         left: -488px;
+//         &::after{
+//             content: '';
+//             width: 30px;
+//             height: 80px;
+//             background-color: $blue-tertiary;
+//             position: absolute;
+//             top: 0;
+//             right: -30px;
+//         }
+//     }
+// }
