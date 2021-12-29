@@ -326,3 +326,33 @@
         
     }
 }
+@media screen and (min-width:375px){
+    .member-section .member-select{
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: -370px;
+        &::after{
+            content: '會員中心';
+            width: 30px;
+            height: 80px;
+            background-color: $blue-tertiary;
+            position: absolute;
+            top: 0;
+            right: -30px;
+        }
+        .member-content-comm-order{
+            width: 100%;
+            .member_order{
+                width: 100%;
+                .selectbar{
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .active{
+        left: -40px;
+        transition: 1s auto;
+    }
+}
