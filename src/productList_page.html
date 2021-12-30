@@ -30,6 +30,10 @@
 			<div class="container09">
 				<div class="filter">
 					<div class="box">
+						<input class="form-check-input" name="myCheckBox" value="全選" type="checkbox" @click="showItem=('全選')" checked="checked"/>
+						<label class="type">全選</label>
+					</div>
+					<div class="box">
 						<h4>材質</h4>
 						<input class="form-check-input" name="myCheckBox" value="陶瓷" type="checkbox" @click="showItem=('陶瓷')"/>
 						<label class="type">陶瓷</label>
@@ -298,6 +302,8 @@
 							}
 						});
 						return newArrs;
+					}else if(this.showItem="全選"){
+						return this.products;
 					}
 				}		
 			},

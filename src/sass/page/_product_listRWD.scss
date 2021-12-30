@@ -120,7 +120,7 @@
         .box h4{
             color:white;
         }
-        .list a>.heart{
+        img[alt*="愛心"]{
             width:30px;
             height: 30px;
             position: relative;
@@ -136,7 +136,7 @@
             left: 95px;
             bottom: -8px;
         }
-        .list img{
+        img[alt*="手錶商品圖"]{
             width: 300%;
             position: relative;
             right:-10px;
