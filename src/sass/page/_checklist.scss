@@ -115,9 +115,10 @@
         width: 600px;
         height: 25px;
     }
-    input[name="ps"]{
+    textarea[name="ps"]{
         width: 700px;
         height: 205px;
+        resize: none;
     }
     .money_detail01{
         width: 529px;

@@ -69,8 +69,8 @@
 					</button>
 				</div>
 				<div class="shop_list">
-						<div class="list" v-for="(item, index) in filters" :key="index" >
-							<a :href="`product_page.html?id=${index+1}`">
+						<div class="list" v-for="(item, index) in filters" :key="item.Product_ID" >
+							<a :href="`product_page.html?id=${item.Product_ID}`">
 							<img src="./images/product-list-heart .png" ref="heart" @click="changeHeart(index)" class="heart" />
 							<img :src="item.Product_PIC01" alt="" onclick="javascript:location.href='./product_page.html'"/>
 							<p>{{item.Product_Name}}</p>
@@ -306,7 +306,6 @@
 				axios.post('./php/productList_page.php',{
 					action:'fetchall',
 				}).then(res=>{
-					console.log(123)
 					this.products=res.data
 				})
 			}
