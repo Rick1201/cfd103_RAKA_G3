@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css"/>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.8.1/axios.js' integrity='sha512-yQvhnV+bdDcAhyxTlmVUyNikQCtnIkfC9r7GesIjLg6IrJx2M92DSv58LpyobngV7WUeM1c3mpgP0971pIY98A==' crossorigin='anonymous'></script>
 </head>
 <body>
     @@include('./layout/header.html')
@@ -26,19 +27,19 @@
                 <th>收件人訊息</th>
                 <tr>
                     <td class="receiver-title">姓名:</td>
-                    <td>張三</td>
+                    <td id="name">?</td>
                 </tr>
                 <tr>
                     <td class="receiver-title">地址:</td>
-                    <td>台北區大安區忠孝東路三段</td>
+                    <td id="address">?</td>
                 </tr>
                 <tr>
                     <td class="receiver-title">電話:</td>
-                    <td>0900-111-222</td>
+                    <td id="tel">?</td>
                 </tr>
                 <tr>
                     <td class="receiver-title">備註:</td>
-                    <td>仔細檢查鏡面有無刮痕</td>
+                    <td id="ps">?</td>
                 </tr>
             </table>
         </div>
@@ -47,15 +48,15 @@
                 <th>訂單資料</th>
                 <tr>
                     <td class="order-title">商品金額</td>
-                    <td>$1200</td>
+                    <td id="prodPrice"></td>
                 </tr>
                 <tr>
                     <td class="order-title">運費</td>
-                    <td>$60</td>
+                    <td>$90</td>
                 </tr>
                 <tr>
                     <td class="order-title">總金額</td>
-                    <td>$1210</td>
+                    <td id="sum"></td>
                 </tr>
             </table>
         </div>
@@ -90,12 +91,61 @@
                 修改訂單資訊
                 </a>
             </button>
-            <button class="payment-page-btn">
+            <button class="payment-page-btn"  id="submitOrder" type="button">
                 <a href="checkout_final.html">
                 確認付款
                 </a>
             </button>
         </div>
     </section>
+    <script>
+        function submitOrder(){
+            let orderInfo = JSON.parse(localStorage.getItem('orderInfo'));
+            // let addList = localStorage.getItem('addList');
+            let addList = JSON.parse(localStorage.getItem('addList'))[0];
+            let memId = JSON.parse(localStorage.getItem('memberID'));
+            axios.post('php/shopcar_page.php',{
+            action:'insert',
+            id:memId.Member_ID,
+            ship:90,
+            count:addList.count,
+            prod_id:addList.id,
+            prodName:addList.prodName,
+            prodPrice:addList.prodPrice,
+            sum:addList.sum,
+
+            oAddress:orderInfo.oAddress,
+            oName:orderInfo.oName,
+            oPs:orderInfo.oPs,
+            oTel:orderInfo.oTel,
+            oTime:orderInfo.oTime,
+
+            
+            
+            }).then(res=>{
+                this.orderInfo=res.data
+            })
+        }
+        // location.href = './checkout_final.html';
+        function init(){
+            let orderInfo = JSON.parse(localStorage.getItem('orderInfo'));
+            let addList = JSON.parse(localStorage.getItem('addList'));
+            addList[0].sum = addList[0].prodPrice * addList[0].count;
+            console.log(addList);
+
+
+
+            document.querySelector('#name').innerText = orderInfo.oName;
+            document.querySelector('#address').innerText = orderInfo.oAddress;
+            document.querySelector('#tel').innerText = orderInfo.oTel;
+            document.querySelector('#ps').innerText = orderInfo.oPs;
+
+
+            document.querySelector('#prodPrice').innerText = addList[0].prodPrice;
+            document.querySelector('#sum').innerText = addList[0].sum + 90;
+            document.querySelector('#submitOrder').onclick = submitOrder;
+        }
+        window.addEventListener("load", init, false);
+    </script>
 </body>
 </html>

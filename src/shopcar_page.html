@@ -13,12 +13,8 @@
     <section class="shoppage">
         <div class="item">
             <div class="item_detail" v-for="(item,index) in itemList" :key="item.id">
-<<<<<<< HEAD
                 <input type="checkbox" name="star" value="1">
                 <img :src="item.prodImg" alt="">
-=======
-                <img v-bind:src="item.prodImg" alt="">
->>>>>>> dev
                 <h4>{{item.prodName}}</h4>
                 <div class="information">
                     <button @click="handleSub(item,index)">-</button>
@@ -39,11 +35,11 @@
                     <div class="money01">    
                         <div class="m02">
                             <p>{{item.prodName}}</p>
-                            <p>${{item.prodPrice}}</p>
+                            <p id="prodPrice">${{item.prodPrice}}</p>
                         </div> 
                         <div class="m03">
                             <p>{{item.count}}個</p>
-                            <p>小計{{item.prodPrice * item.count}}</p>
+                            <p id="sum">小計{{item.prodPrice * item.count}}</p>
                         </div>
                     </div>
                 </div>
@@ -87,7 +83,7 @@
 
             },
             updateCart(){
-                localStorage.setItem("addList", JSON.stringify(this.itemList));
+                localStorage.setItem("addList", JSON.stringify(this.itemList),);
 				vmHeader.updateCart();
             }
         },
@@ -109,6 +105,12 @@
             let storageCount = storageArray.length;
             this.itemList = storageArray;
             console.log(storageCount)
+            // axios.post('./php/shopcar_page.php',{
+			// 		action:'fetchall',
+			// 	}).then(res=>{
+			// 		console.log(123)
+			// 		this.products=res.data
+			// 	})
         },
     })
 </script>
