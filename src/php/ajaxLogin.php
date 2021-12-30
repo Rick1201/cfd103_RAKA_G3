@@ -1,5 +1,5 @@
 <?php
-require_once('connectDB.php');
+require_once("connectDB.php");
 $dba=file_get_contents("php://input");
 $received_data = json_decode($dba);//轉格式
 $data= array();//命名一個空陣列
