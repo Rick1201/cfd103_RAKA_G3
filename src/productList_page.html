@@ -13,7 +13,7 @@
 	<div id="uppage">
 		<div class="shop_container">
 			<div class="product_banner">
-				<img :src="banner" alt="" />
+				<img :src="bannerPic" alt="" />
 			</div>
 		</div>
 		<!-- 麵包屑 -->
@@ -31,37 +31,37 @@
 				<div class="filter">
 					<div class="box">
 						<h4>材質</h4>
-						<input class="form-check-input" type="checkbox" />
+						<input class="form-check-input" name="myCheckBox" value="陶瓷" type="checkbox" @click="showItem=('陶瓷')"/>
 						<label class="type">陶瓷</label>
 					</div>
 					<div class="box">
-						<input class="form-check-input" type="checkbox" />
+						<input class="form-check-input" name="myCheckBox" value="鋼" type="checkbox" @click="showItem=('鋼')" />
 						<label class="type">鋼</label>
 					</div>
 					<div class="box">
 						<h4>錶帶</h4>
-						<input class="form-check-input" type="checkbox" />
+						<input class="form-check-input"  name="myCheckBox" value="皮革"  type="checkbox" @click="showItem=('皮革')"/>
 						<label class="type">皮革</label>
 					</div>
 					<div class="box">
-						<input class="form-check-input" type="checkbox" />
+						<input class="form-check-input" name="myCheckBox" value="金屬" type="checkbox" @click="showItem=('金屬')"/>
 						<label class="type">金屬</label>
 					</div>
 					<div class="box">
-						<input class="form-check-input" type="checkbox" />
+						<input class="form-check-input" name="myCheckBox" value="尼龍" type="checkbox" @click="showItem=('尼龍')"/>
 						<label class="type">尼龍</label>
 					</div>
 					<div class="box">
 						<h4>主題</h4>
-						<input class="form-check-input" type="checkbox" />
+						<input class="form-check-input" name="myCheckBox" value="極深潛系列" type="checkbox" @click="showItem=('極深潛系列')"/>
 						<label class="type">極深潛系列</label>
 					</div>
 					<div class="box">
-						<input class="form-check-input" type="checkbox" />
+						<input class="form-check-input" name="myCheckBox" value="衝浪者系列" type="checkbox" @click="showItem=('衝浪者系列')"/>
 						<label class="type">衝浪者系列</label>
 					</div>
 					<div class="box">
-						<input class="form-check-input" type="checkbox" />
+						<input class="form-check-input" name="myCheckBox" value="海洋飛行系列" type="checkbox" @click="showItem=('海洋飛行系列')"/>
 						<label class="type">海洋飛行系列</label>
 					</div>
 					<button class="sidebarBtn">
@@ -69,8 +69,8 @@
 					</button>
 				</div>
 				<div class="shop_list">
-						<div class="list" v-for="(item, index) in products" :key="index" >
-							<a :href="`product_page.html?id=${index+1}`">
+						<div class="list" v-for="(item, index) in filters" :key="item.Product_ID" >
+							<a :href="`product_page.html?id=${item.Product_ID}`">
 							<img src="./images/product-list-heart .png" ref="heart" @click="changeHeart(index)" class="heart" />
 							<img :src="item.Product_PIC01" alt="" onclick="javascript:location.href='./product_page.html'"/>
 							<p>{{item.Product_Name}}</p>
@@ -101,7 +101,7 @@
 			new Vue({
 				el: '#uppage',
 				data: {
-						banner:"images/product-list-banner1.png",
+						bannerPic:"images/plistbanner.png",
 						items:[
                           {name:'Home'},
                           {name:'ProductList'},
@@ -123,105 +123,103 @@
 					],
 					products:[
                         //   {
-                        //    img:'images/product-list02.png',
+                        //    img:'images/product-list05.png',
                         //    title:'Formula 1X 500',
                         //    price:'NT7500',
-                        //    name:'陶瓷',
-                        //    watch:'金屬',
-                        //    theme:'衝浪者系列'
+						//    bowls:"陶瓷",
+						//    wtype:"皮革",
+						//    themetype:"極深潛系列"
+                        // },
+						// {
+                        //    img:'images/product-list01.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+						//    bowls:"鋼",
+						//    wtype:"皮革",
+						//    themetype:"衝浪者系列"
+                        // },
+						// {
+                        //    img:'images/product-list03.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+						//    bowls:"鋼",
+						//    wtype:"皮革",
+						//    themetype:"海洋飛行系列"
                         // },
 						// {
                         //    img:'images/product-list02.png',
                         //    title:'Formula 1X 500',
                         //    price:'NT7500',
-                        //    name:'陶瓷',
-                        //    watch:'金屬',
-                        //    theme:'衝浪者系列'
+						//    bowls:"陶瓷",
+						//    wtype:"金屬",
+						//    themetype:"衝浪者系列"
+                        // },
+						// {
+                        //    img:'images/product-list06.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+						//    bowls:"鋼",
+						//    wtype:"金屬",
+						//    themetype:"極深潛系列"
                         // },
 						// {
                         //    img:'images/product-list02.png',
                         //    title:'Formula 1X 500',
                         //    price:'NT7500',
-                        //    name:'陶瓷',
-                        //    watch:'金屬',
-                        //    theme:'衝浪者系列'
+						//    bowls:"陶瓷",
+						//    wtype:"尼龍",
+						//    themetype:"海洋飛行系列"
+                        // },
+						// {
+                        //    img:'images/product-list01.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+						//    bowls:"鋼", 
+						//    wtype:"尼龍",
+						//    themetype:"極深潛系列"
+                        // },
+						// {
+                        //    img:'images/product-list06.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+						//    bowls:"鋼",
+						//    wtype:"尼龍",
+						//    themetype:"海洋飛行系列"
+                        // },
+						// {
+                        //    img:'images/product-list04.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+						//    bowls:"鋼",
+						//    wtype:"金屬",
+						//    themetype:"海洋飛行系列"
+                        // },
+						// {
+                        //    img:'images/product-list05.png',
+                        //    title:'Formula 1X 500',
+                        //    price:'NT7500',
+						//    bowls:"鋼",
+						//    wtype:"金屬",
+						//    themetype:"海洋飛行系列"
                         // },
 						// {
                         //    img:'images/product-list02.png',
                         //    title:'Formula 1X 500',
                         //    price:'NT7500',
-                        //    name:'陶瓷',
-                        //    watch:'金屬',
-                        //    theme:'衝浪者系列'
+						//    bowls:"陶瓷",
+						//    wtype:"皮革",
+						//    themetype:"極深潛系列"
                         // },
 						// {
-                        //    img:'images/product-list02.png',
+                        //    img:'images/product-list06.png',
                         //    title:'Formula 1X 500',
                         //    price:'NT7500',
-                        //    name:'陶瓷',
-                        //    watch:'金屬',
-                        //    theme:'衝浪者系列'
+						//    bowls:"陶瓷",
+						//    wtype:"尼龍",
+						//    themetype:"極深潛系列"
                         // },
-						// {
-                        //    img:'images/product-list02.png',
-                        //    title:'Formula 1X 500',
-                        //    price:'NT7500',
-                        //    name:'陶瓷',
-                        //    watch:'金屬',
-                        //    theme:'衝浪者系列'
-                        // },
-						// {
-                        //    img:'images/product-list02.png',
-                        //    title:'Formula 1X 500',
-                        //    price:'NT7500',
-                        //    name:'陶瓷',
-                        //    watch:'金屬',
-                        //    theme:'衝浪者系列'
-                        // },
-						// {
-                        //    img:'images/product-list02.png',
-                        //    title:'Formula 1X 500',
-                        //    price:'NT7500',
-                        //    name:'陶瓷',
-                        //    watch:'金屬',
-                        //    theme:'衝浪者系列'
-                        // },
-						// {
-                        //    img:'images/product-list02.png',
-                        //    title:'Formula 1X 500',
-                        //    price:'NT7500',
-                        //    name:'陶瓷',
-                        //    watch:'金屬',
-                        //    theme:'衝浪者系列'
-                        // },
-						// {
-                        //    img:'images/product-list02.png',
-                        //    title:'Formula 1X 500',
-                        //    price:'NT7500',
-                        //    name:'陶瓷',
-                        //    watch:'金屬',
-                        //    theme:'衝浪者系列'
-                        // },
-						// {
-                        //    img:'images/product-list02.png',
-                        //    title:'Formula 1X 500',
-                        //    price:'NT7500',
-                        //    name:'陶瓷',
-                        //    watch:'金屬',
-                        //    theme:'衝浪者系列'
-                        // },
-						// {
-                        //    img:'images/product-list02.png',
-                        //    title:'Formula 1X 500',
-                        //    price:'NT7500',
-                        //    name:'陶瓷',
-                        //    watch:'金屬',
-                        //    theme:'衝浪者系列'
-                        // },
-						// {
-
-						// }
-					]	                      
+					],
+					showItem:"全部",	                      
 				},
 				methods: {
 					changeHeart:function(index){
@@ -231,18 +229,87 @@
 					} else {
 						this.$refs.heart[index].src= "images/product-list-heart .png";
 					}
-           		 },
-
+			}
+		},		
+				computed: {
+					filters:function(){
+						if (this.showItem=="全部"){
+							return this.products;
+						}else if(this.showItem=="陶瓷"){
+							let newArrs=[];
+							this.products.forEach(function(thing){
+								if(thing.Product_MType==="陶瓷"){
+									newArrs.push(thing);
+								}				
+							});
+						return newArrs;
+					}else if(this.showItem=="鋼"){
+						let newArrs=[];
+						this.products.forEach(function(thing){
+							if(thing.Product_MType==="鋼"){
+								newArrs.push(thing);
+							}
+						});
+						return newArrs;
+					}else if(this.showItem=="尼龍"){
+						let newArrs=[];
+						this.products.forEach(function(thing){
+							if(thing.Product_BType==="尼龍"){
+								newArrs.push(thing);
+							}
+						});
+						return newArrs;
+					}else if(this.showItem=="金屬"){
+						let newArrs=[];
+						this.products.forEach(function(thing){
+							if(thing.Product_BType==="金屬"){
+								newArrs.push(thing);
+							}
+						});
+						return newArrs;
+					}else if(this.showItem=="皮革"){
+						let newArrs=[];
+						this.products.forEach(function(thing){
+							if(thing.Product_BType==="皮革"){
+								newArrs.push(thing);
+							}
+						});
+						return newArrs;
+					}else if(this.showItem=="極深潛系列"){
+						let newArrs=[];
+						this.products.forEach(function(thing){
+							if(thing.Product_CType==="極深潛系列"){
+								newArrs.push(thing);
+							}
+						});
+						return newArrs;
+					}else if(this.showItem=="衝浪者系列"){
+						let newArrs=[];
+						this.products.forEach(function(thing){
+							if(thing.Product_CType==="衝浪者系列"){
+								newArrs.push(thing);
+							}
+						});
+						return newArrs;
+					}else if(this.showItem=="海洋飛行系列"){
+						let newArrs=[];
+						this.products.forEach(function(thing){
+							if(thing.Product_CType==="海洋飛行系列"){
+								newArrs.push(thing);
+							}
+						});
+						return newArrs;
+					}
+				}		
 			},
-			mounted() {
+		mounted() {
 				axios.post('./php/productList_page.php',{
 					action:'fetchall',
 				}).then(res=>{
-					console.log(123)
 					this.products=res.data
 				})
-			},
-		})
+			}
+		});
 		</script>
 		<script>
 			$(document).ready(function () {
@@ -251,6 +318,15 @@
 					$(".sidebarBtn").toggleClass("toggle");
 				});
 			});
+			$(document).ready(function(){
+				$("input[name=myCheckBox]").click(function () {
+				var Selected = $(this).val();
+				$("input[name=myCheckBox]").each(function(i){
+				if($(this).val() == Selected) $(this).prop("checked", true);
+				else $(this).prop("checked", false);
+			});
+		});
+	});
 		</script>
 		<!-- <script>
 			function fetchData(){

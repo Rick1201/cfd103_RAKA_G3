@@ -1,7 +1,7 @@
 <?php
-$dbname = "raka";
+$dbname = "rakawatch";
 $user = "root";
-$password = "wei12345";
+$password = "lamigo079032";
 
 $dsn = "mysql:host=localhost;port=3306;dbname=$dbname";
 $connect = new PDO($dsn, $user, $password);

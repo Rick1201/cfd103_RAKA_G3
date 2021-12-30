@@ -1,234 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/style.css" />
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.8.1/axios.js' integrity='sha512-yQvhnV+bdDcAhyxTlmVUyNikQCtnIkfC9r7GesIjLg6IrJx2M92DSv58LpyobngV7WUeM1c3mpgP0971pIY98A==' crossorigin='anonymous'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
-</head>
-<body>
-    @@include('./layout/header.html')
-    <div id="app"> <!-- HTML DOM template -->
-        <section class="finshpage">
-            <div class="containerGrid">
-                <div class="row center">
-                    <div class="col-12">
-                        <div class="row">
-                            <div class="col-6 center fixmargin">
-                                <div class="pic-gift" id="giftDiv">
-                                    <img class="giftboxpic" :src="getjsons.currentBoxImg">
-                                    <img class="giftribbonpic" :src="getjsons.currentRibbonImg">
-                                </div>
-                            </div>
-                            <div class="col-6 center fixmargin">
-                                <div class="pic-watch" id="watchDiv">
-                                    <img class="currentBand" :src="getjsons.currentBand">
-                                    <img class="currentBezel" :src="getjsons.currentBezel">
-                                    <img class="currentFace" :src="getjsons.currentFace">
-                                    <img class="currentFun1" :src="getjsons.currentFun1">
-                                    <img class="currentFun2" :src="getjsons.currentFun2">
-                                    <img class="currentFun3" :src="getjsons.currentFun3">
-                                    <img class="currentPoint" :src="getjsons.currentPoint">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-       </section>
-       <section class="formsec">
-           <div class="containerGrid">
-               <div class="row">
-                   <div class="col-12 mainform">
-                       <div class="row">
-                           <div class="col-12">
-                               <div class="formtitle">
-                                   <h2>
-                                       客製化品項明細
-                                   </h2>
-                               </div>
-                           </div>
-                           <div class="col-12">
-                               <div class="featuretitle">
-                                   <h2>外觀</h2>
-                               </div>
-                           </div>
-                           <div class="col-6 item">
-                               <div>錶框</div>
-                               <div>{{getjsons.currentBezelName}}</div>
-                           </div>
-                           <div class="col-6 item">
-                               <div>錶面</div>
-                               <div>{{getjsons.currentFaceName}}</div>
-                           </div>
-                           <div class="col-6 item">
-                               <div>錶帶</div>
-                               <div>{{getjsons.currentBandName}}</div>
-                           </div>
-                           <div class="col-6 item">
-                               <div>指針</div>
-                               <div>{{getjsons.currentPointName}}</div>
-                           </div>
-                           <div class="col-6">
-                             <div class="featuretitle">
-                                 <h2>功能表盤</h2>
-                                 <div class="row featureitem">
-                                     <div class="col-6 featurepic">
-                                         <img src="./images/finishfunpic.png">
-                                     </div>
-                                     <div class="col-6 featuretxt">
-                                         <ol>
-                                            <li>{{getjsons.currentFun1Name}}</li>
-                                            <li>{{getjsons.currentFun2Name}}</li>
-                                            <li>{{getjsons.currentFun3Name}}</li>
-                                         </ol>
-                                     </div>
-                                 </div>
-                             </div>
-                           </div>
-                           <div class="col-6">
-                             <div class="featuretitle">
-                                 <h2>潛水規格需求</h2>
-                                 <div class="row featureitem">
-                                     <div class="col-12 ">
-                                         <p>{{getjsons.diveFun}}</p>
-                                     </div>
-                                 </div>
-                             </div>
-                           </div> 
-                           <div class="col-12">
-                             <div class="featuretitle">
-                                 <h2>刻字服務</h2>
-                             </div>
-                           </div>
-                             <div class="col-6 itemsettxt">
-                                 <div>字體</div>
-                                 <div>{{getjsons.currentFont}}</div>
-                             </div>
-                             <div class="col-6 itemsettxt">
-                                 <div>字體大小</div>
-                                 <div>{{getjsons.currentFontSize}}</div>
-                             </div>
-                             <div class="col-6">
-                                 <div>刻字內容</div>
-                             </div>
-                             <div class="col-12 textcon">
-                                 <textarea readonly="readonly" name="" id="" cols="100" rows="5">{{getjsons.currentMsg}}</textarea>
-                             </div>
-                             <div class="col-12">
-                                 <div class="featuretitle">
-                                     <h2>包裝</h2>
-                                 </div>
-                               </div>
-                             <div class="col-12 item">
-                                 <div>外盒顏色</div>
-                                 <div><img :src="getjsons.currentBoxBtn"></div>
-                                 <div>緞帶顏色</div>
-                                 <div><img :src="getjsons.currentRibbonBtn"></div>
-                             </div>
-                           
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </section>
-       <section class="finishbutton">
-             <div class="containerGrid">
-                 <div class="row">
-                     <div class="col-12 buttonarea">
-                         <button @click="screenshot" onclick="javascript:location.href='Cuzcheckout_list.html'">下訂單</button>
-                     </div>
-                 </div>
-             </div>
-       </section>
-       
-     </div>
-     @@include('./layout/footer.html')
-     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js' integrity='sha512-PyKhbAWS+VlTWXjk/36s5hJmUJBxcGY/1hlxg6woHD/EONP2fawZRKmvHdTGOWPKTqk3CPSUPh7+2boIBklbvw==' crossorigin='anonymous'></script>
-     <script>
-         
-        new Vue({
-            el: '#app',  
-            data: {  // 變數放這裡
-                getjsons:null,
-                watchDivimg:"",
-                giftDivimg:"",
-                cuzimg:new Image(),
-                cuzimg2:new Image(),
-                urlwatch:'',
-                urlgift:'',
-            },
-            methods: { 
-                screenshot(){
-                    const targetwatch = document.querySelector("#watchDiv");
-                    const targetgift = document.querySelector("#giftDiv");
-                    domtoimage.toPng(targetwatch).then((dataUrl) => {
-                        this.watchDivimg = dataUrl;
-                    });
-                    domtoimage.toPng(targetgift).then((giftUrl) => {
-                        this.giftDivimg = giftUrl;
-                    })
-                        this.urlwatch = cuzcanvas.toDataURL('img/svg');
-                        this.urlgift = cuzcanvas2.toDataURL('img/svg');
-                        console.log(this.urlwatch)
-                        console.log(this.urlgift)
-                        axios.post('finish_page.php',{
-                            dataUrl:this.urlwatch
-                        }).then(res=>{
-                            alert(res.data.message)
-                        })
-                    this.sendImg();
-	          	    
-                },
-                sendImg() {
-                    let fd = new FormData();
-                    fd.append("img1", this.watchDivimg);
-                    fd.append("img2", this.giftDivimg);
-                    axios.post('./php/finish_page.php', fd, {
-                        headers: {
-                            'Content-Type': 'multipart/form-data'
-                        }
-                    }).then(res => {
-                        console.log(res)
-                    })
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="./css/style.css" />
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.8.1/axios.js"
+			integrity="sha512-yQvhnV+bdDcAhyxTlmVUyNikQCtnIkfC9r7GesIjLg6IrJx2M92DSv58LpyobngV7WUeM1c3mpgP0971pIY98A=="
+			crossorigin="anonymous"
+		></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+	</head>
+	<body>
+		@@include('./layout/header.html')
+		<div id="app">
+			<!-- HTML DOM template -->
+			<section class="finshpage">
+				<div class="containerGrid">
+					<div class="row center">
+						<div class="col-12">
+							<div class="row">
+								<div class="col-6 center fixmargin">
+									<div class="pic-gift" id="giftDiv">
+										<img class="giftboxpic" :src="getjsons.currentBoxImg" />
+										<img
+											class="giftribbonpic"
+											:src="getjsons.currentRibbonImg"
+										/>
+									</div>
+								</div>
+								<div class="col-6 center fixmargin">
+									<div class="pic-watch" id="watchDiv">
+										<img class="currentBand" :src="getjsons.currentBand" />
+										<img class="currentBezel" :src="getjsons.currentBezel" />
+										<img class="currentFace" :src="getjsons.currentFace" />
+										<img class="currentFun1" :src="getjsons.currentFun1" />
+										<img class="currentFun2" :src="getjsons.currentFun2" />
+										<img class="currentFun3" :src="getjsons.currentFun3" />
+										<img class="currentPoint" :src="getjsons.currentPoint" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="formsec">
+				<div class="containerGrid">
+					<div class="row">
+						<div class="col-12 mainform">
+							<div class="row">
+								<div class="col-12">
+									<div class="formtitle">
+										<h2>客製化品項明細</h2>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="featuretitle">
+										<h2>外觀</h2>
+									</div>
+								</div>
+								<div class="col-6 item">
+									<div>錶框</div>
+									<div>{{getjsons.currentBezelName}}</div>
+								</div>
+								<div class="col-6 item">
+									<div>錶面</div>
+									<div>{{getjsons.currentFaceName}}</div>
+								</div>
+								<div class="col-6 item">
+									<div>錶帶</div>
+									<div>{{getjsons.currentBandName}}</div>
+								</div>
+								<div class="col-6 item">
+									<div>指針</div>
+									<div>{{getjsons.currentPointName}}</div>
+								</div>
+								<div class="col-6">
+									<div class="featuretitle">
+										<h2>功能表盤</h2>
+										<div class="row featureitem">
+											<div class="col-6 featurepic">
+												<img src="./images/finishfunpic.png" />
+											</div>
+											<div class="col-6 featuretxt">
+												<ol>
+													<li>{{getjsons.currentFun1Name}}</li>
+													<li>{{getjsons.currentFun2Name}}</li>
+													<li>{{getjsons.currentFun3Name}}</li>
+												</ol>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-6">
+									<div class="featuretitle">
+										<h2>潛水規格需求</h2>
+										<div class="row featureitem">
+											<div class="col-12">
+												<p>{{getjsons.diveFun}}</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="featuretitle">
+										<h2>刻字服務</h2>
+									</div>
+								</div>
+								<div class="col-6 itemsettxt">
+									<div>字體</div>
+									<div>{{getjsons.currentFont}}</div>
+								</div>
+								<div class="col-6 itemsettxt">
+									<div>字體大小</div>
+									<div>{{getjsons.currentFontSize}}</div>
+								</div>
+								<div class="col-6">
+									<div>刻字內容</div>
+								</div>
+								<div class="col-12 textcon">
+									<textarea
+										readonly="readonly"
+										name=""
+										id=""
+										cols="100"
+										rows="5"
+									>
+{{getjsons.currentMsg}}</textarea
+									>
+								</div>
+								<div class="col-12">
+									<div class="featuretitle">
+										<h2>包裝</h2>
+									</div>
+								</div>
+								<div class="col-12 item">
+									<div>外盒顏色</div>
+									<div><img :src="getjsons.currentBoxBtn" /></div>
+									<div>緞帶顏色</div>
+									<div><img :src="getjsons.currentRibbonBtn" /></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="finishbutton">
+				<div class="containerGrid">
+					<div class="row">
+						<div class="col-12 buttonarea">
+							<button @click="screenshot">下訂單</button>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		@@include('./layout/footer.html')
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"
+			integrity="sha512-PyKhbAWS+VlTWXjk/36s5hJmUJBxcGY/1hlxg6woHD/EONP2fawZRKmvHdTGOWPKTqk3CPSUPh7+2boIBklbvw=="
+			crossorigin="anonymous"
+		></script>
+		<script>
+			new Vue({
+				el: "#app",
+				data: {
+					// 變數放這裡
+					getjsons: null,
+					watchDivimg: "",
+					giftDivimg: "",
+					cuzimg: new Image(),
+					cuzimg2: new Image(),
+					urlwatch: "",
+					urlgift: "",
+					responds: "",
+					fd: new FormData(),
+					fd2: new FormData(),
+                    finishWatch:"",
+                    finishPackage:"",
+				},
 
-                },
-              
-                    // getimg(imgsrc){
-                    //     let cuzcanvas = document.getElementById("canvas")
-                    //     let ctx = cuzcanvas.getContext('2d');
-                    //     let cuzimg = new Image();
-                    //     cuzimg.src = imgsrc;
-                    //     ctx.drawImage(cuzimg,0,0)
-                        
-                    // },
-            },
-            computed: { // 函數(方法)也可以放這裡，但是放在這裡的函數，不能傳參數，一定要有傳回值
-               
-            },
-            mounted() {
-                let storageArray = JSON.parse(localStorage.getItem('cuziwatch'))
-                this.getjsons =storageArray
-            },
-            // watch:{
-            //     watchDivimg(n,o){
-            //         let cuzcanvas = document.getElementById("canvas");
-            //         let ctx = cuzcanvas.getContext('2d');
-            //         let cuzimg = new Image();
-            //         cuzimg.src = n;
-            //         ctx.drawImage(cuzimg,0,0);
-            //         console.log(n);
 
-            //     },
-            //     giftDivimg(n,o){
 
-            //     }
-               
-            // },
-        });
-    </script>
-</body>
+				methods: {
+					screenshot() {
+						const targetwatch = document.querySelector("#watchDiv");
+						const targetgift = document.querySelector("#giftDiv");
+						domtoimage.toPng(targetwatch).then((dataUrl) => {
+							this.watchDivimg = dataUrl;
+							this.sendImg();
+							this.screenshot2();
+						});
+					},
+					screenshot2() {
+						const targetgift = document.querySelector("#giftDiv");
+
+						domtoimage.toPng(targetgift).then((giftUrl) => {
+							this.giftDivimg = giftUrl;
+							this.sendImg2();
+						});
+					},
+
+					sendImg() {
+						// fd.append("img", img);
+						this.fd.append("img", this.watchDivimg);
+						// fd.append("img2", this.giftDivimg);
+						axios
+							.post("./php/finish_page.php", this.fd, {
+								headers: {
+									"Content-Type": "multipart/form-data",
+								},
+							})
+							.then((res) => {
+								this.finishWatch = "./images" + res.data.split("images/")[1];
+                                console.log( res.data.split("images/")[1]);
+                                localStorage.setItem("cuzFinishWatch",JSON.stringify(this.finishWatch));
+							});
+					},
+					sendImg2() {
+						// this.fd2.append("img", img);
+						// fd.append("img1", this.watchDivimg);
+						this.fd2.append("img", this.giftDivimg);
+						axios
+							.post("./php/finish_page.php", this.fd2, {
+								headers: {
+									"Content-Type": "multipart/form-data",
+								},
+							})
+							.then((res) => {
+								this.finishPackage = "./images" + res.data.split("images/")[1];
+                                console.log( res.data.split("images/")[1]);
+                                localStorage.setItem("cuzFinishPackage",JSON.stringify(this.finishPackage));
+                                location.href='./Cuzcheckout_list.html';
+							});
+
+					},
+				},
+                
+				mounted() {
+					let storageArray = JSON.parse(localStorage.getItem("cuziwatch"));
+					this.getjsons = storageArray;
+				},
+			});
+		</script>
+	</body>
 </html>

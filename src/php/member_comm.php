@@ -1,7 +1,7 @@
 <?php
-$dbname = "raka01";
+$dbname = "tibamefe_cfd103g3";
 $user = "root";
-$password = "t72124229155";
+$password = "alice1105";
 
 $dsn = "mysql:host=localhost;port=3306;dbname=$dbname";
 $connect = new PDO($dsn, $user, $password);
@@ -46,7 +46,8 @@ if($received_data->action =='fetchSingle'){//單筆資料
         $data['Member_Phone']=$row['Member_Phone'];
         $data['Member_Profile']=$row['Member_Profile'];
         $data['Member_Name']=$row['Member_Name'];
-        $data['Member_Profile']=$row['Member_Profile'];
+        $data['Member_Address']=$row['Member_Address'];
+        $data['Member_Card']=$row['Member_Card'];
     }
     echo json_encode ($data);
 }

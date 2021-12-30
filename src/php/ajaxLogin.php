@@ -1,5 +1,5 @@
 <?php
-$dbname = "tibamefe_cfd103g3-1";
+$dbname = "tibamefe_cfd103g3";
 $user = "root";
 $password = "alice1105";
 

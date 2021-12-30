@@ -39,6 +39,9 @@
     .member{
         position: relative;
     }
+    .game{
+        position: relative;
+    }
     .product::after{
         content: 'Product';
         position: absolute;
@@ -55,6 +58,13 @@
     }
     .aboutus::after{
         content: 'About Us';
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+    }
+    .game::after{
+        content: 'Game';
         position: absolute;
         top: 0;
         left: 0;

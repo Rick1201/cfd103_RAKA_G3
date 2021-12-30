@@ -258,26 +258,31 @@ section.relative-product {
 
         .owl-carousel {
             .item {
-                .product-card {
-                    background-color: #eee;
-
-                    .product-pic {
-                        width: 100%;
-                        object-fit: cover;
-                    }
-
-                    .product-txt {
-                        padding: 10px;
-                        text-align: center;
-
-                        h4 {
-                            font-size: $fontSize-middle;
-                            padding: 5px 0;
+                a{
+                    text-decoration: none;
+                    .product-card {
+                        background-color: transparent;
+                        .product-pic {
+                            width: 100%;
+                            object-fit: cover;
                         }
-
-                        p {
-                            font-size:$fontSize-middle;
-                            padding: 5px 0;
+    
+                        .product-txt {
+                            padding: 10px;
+                            text-align: center;
+                            background-color: $blue-secondary;
+                            color: $gray-secondary;
+                            width: 80%;
+                            margin: auto;
+                            h4 {
+                                font-size: $fontSize-middle;
+                                padding: 5px 0;
+                            }
+    
+                            p {
+                                font-size:$fontSize-middle;
+                                padding: 5px 0;
+                            }
                         }
                     }
                 }

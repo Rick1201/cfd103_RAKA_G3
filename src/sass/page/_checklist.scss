@@ -60,7 +60,7 @@
         width: 836px;
         height: 655px;
         border: 1px solid black;
-        background-image: url('./images/bg.jpeg');
+        background-image: url('../images/bg.jpeg');
         background-repeat: no-repeat;
         background-size: 836px 655px;
     }
@@ -115,9 +115,10 @@
         width: 600px;
         height: 25px;
     }
-    input[name="ps"]{
+    textarea[name="ps"]{
         width: 700px;
         height: 205px;
+        resize: none;
     }
     .money_detail01{
         width: 529px;
@@ -126,7 +127,7 @@
         display: flex;
         flex-direction: column;
         margin-left: 3px;
-        background-image: url('./images/bg.jpeg');
+        background-image: url('../images/bg.jpeg');
         background-repeat: no-repeat;
         background-size: 529px 700px;
     }

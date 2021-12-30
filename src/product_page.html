@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://kit.fontawesome.com/2c95395281.js" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.8.1/axios.js' integrity='sha512-yQvhnV+bdDcAhyxTlmVUyNikQCtnIkfC9r7GesIjLg6IrJx2M92DSv58LpyobngV7WUeM1c3mpgP0971pIY98A==' crossorigin='anonymous'></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"></link>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"></link>
 	<link rel="stylesheet" href="./css/style.css">
@@ -22,25 +23,25 @@
 				<div class="product-pic">
 					<div class="switch-pics">
 						<div class="switch-pic">
-							<img class="clicked" :src="switchpic1" alt="">
+							<img class="clicked" :src="currentProudcut.Product_PIC01" alt="">
 						</div>
 						<div class="switch-pic">
-							<img :src="switchpic2" alt="">
+							<img :src="currentProudcut.Product_PIC02" alt="">
 						</div>
 						<div class="switch-pic">
-							<img :src="switchpic3" alt="">
+							<img :src="currentProudcut.Product_PIC03" alt="">
 						</div>
 						<div class="switch-pic">
-							<img :src="switchpic4" alt="">
+							<img :src="currentProudcut.Product_PIC04" alt="">
 						</div>
 					</div>
 					<div class="main-pic">
-						<img :src="pagepic" alt="">
+						<img :src="currentProudcut.Product_PIC01" alt="">
 					</div>
 				</div>
 				<div class="product-title">
-					<h2>海洋飛行PCB-01</h2>
-					<p>NT$ <span>6000</span></p>
+					<h2>{{currentProudcut.Product_Name}}</h2>
+					<p>NT$ <span>{{currentProudcut.Product_Price}}</span></p>
 					<button @click="addLocal">加入購物車</button>
 				</div>
 			</div>
@@ -49,13 +50,13 @@
 		<!-- 商品詳細內容 -->
 		<section id="product-detail">
 			<ul class="section-select">
-				<li class="product-info detail-tab active-tab" @click="content='info';tabActive">商品資訊</ㄠ>
-				<li class="product-specification detail-tab" @click="content='specification',tabActive">規格</li>
-				<li class="product-comment detail-tab" @click="content='comment',tabActive">評論</li>
+				<li class="product-info detail-tab active-tab" @click="content='info'">商品資訊</ㄠ>
+				<li class="product-specification detail-tab" @click="content='specification'">規格</li>
+				<li class="product-comment detail-tab" @click="content='comment'">評論</li>
 			</ul>
 			<div class="container">
 				<keep-alive>
-					<component :is="content"></component>
+					<component :is="content" :currentinfo="currentProudcut"></component>
 				</keep-alive>
 			</div>
 		</section>
@@ -66,49 +67,20 @@
 			<div class="container">
 				<h3>相關商品</h3>
 				<div class="owl-carousel owl-theme">
-					<div class="item">
-						<div class="product-card">
-							<div class="product-pic">
-								<img :src="suggestpic" alt="">
+					<div class="item" v-for="(item, index) in relative"
+					:key="item.Product_ID"
+					>
+						<a :href="`product_page.html?id=${item.Product_ID}`">
+							<div class="product-card">
+								<div class="product-pic">
+									<img :src="item.Product_PIC01" alt="">
+								</div>
+								<div class="product-txt">
+									<h4>{{item.Product_Name}}</h4>
+									<P>NT${{item.Product_Price}}</P>
+								</div>
 							</div>
-							<div class="product-txt" v-for="(item, index) in title">
-								<h4>{{item.name}}</h4>
-								<P>{{item.price}}</P>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="product-card">
-							<div class="product-pic">
-								<img :src="suggestpic" alt="">
-							</div>
-							<div class="product-txt"  v-for="(item, index) in title">
-								<h4>{{item.name}}</h4>
-								<P>{{item.price}}</P>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="product-card">
-							<div class="product-pic">
-								<img :src="suggestpic" alt="">
-							</div>
-							<div class="product-txt"  v-for="(item, index) in title">
-								<h4>{{item.name}}</h4>
-								<P>{{item.price}}</P>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="product-card">
-							<div class="product-pic">
-								<img :src="suggestpic" alt="">
-							</div>
-							<div class="product-txt"  v-for="(item, index) in title">
-								<h4>{{item.name}}</h4>
-								<P>{{item.price}}</P>
-							</div>
-						</div>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -147,34 +119,49 @@
 				tabs[i].onclick = tabActive;
 			}
 
-
+			$(".owl-carousel").owlCarousel({
+				loop: true, 
+				margin: 60, 
+				nav: true, 
+				dots: false,
+				responsive: {
+					0: {
+					items: 1
+					},
+					376: {
+					items: 3
+					},
+				}
+			});
 		}
 		window.addEventListener("load",init,false);
 	</script>
 
 	<script>
 		Vue.component("info",{
+			props:['currentinfo'],
 			template:`
 				<div class="info-content">
 					<p class="info-txt">
-						體的怎當的童論因？還府而……比公解我。重的小了名……的考下有手任那化工牛權。言流放……錢銷開用了大言場公突能多。媽是利？出輕企道大色家此同時媽月負是吸定色寫為受其軍？外要當手全成排只功回就火到；生中講供車所畫所對果：想自及車，賽前習頭對時人，德月生在。……錢銷開用了大言場公突能多。媽是利？出輕企道大色家此同時媽月負是吸定色寫為受其軍？外要當手全成……錢銷開用了大言場公突能多。媽是利？出輕企道大色家此同時媽月負是吸定色寫為受其軍？外要當手全成。。言流放……錢銷開用了大言場公突能多。媽是利？出輕企道大色家此同時媽月負是吸定色寫為受其軍？外要。
+						{{currentinfo.Product_Info}}
 					</p>
 					<p class="info-txt">
-						體的怎當的童論因？還府而……比公解我。重的小了名……的考下有手任那化工牛權。言流放……錢銷開用了大言場公突能多。媽是利？出輕企道大色家此同時媽月負是吸定色寫為受其軍？外要當手全成排只功回就火到；生中講供車所畫所對果：想自及車，賽前習頭對時人，德月生在。？外要當手全成排只功回就火到；生中講供車所畫所對果：想自及車，賽前習頭對時人，德？外要當手全成排只功回就火到；生中講供車所畫所對果：想自及車，賽前習頭對時人，德？外要當手全成排只功回就火到；生中講供車所畫所對果：想自
+						{{currentinfo.Product_Info}}
 					</p>
 				</div>
 			`,
 		});
 		Vue.component("specification",{
+			props:['currentinfo'],
 			template:`
 				<div class="specification-pic">
-					<img :src="imageURL">
+					<img :src="currentinfo.Product_Spec">
 				</div>
 			`,
 
 			data(){
 				return{
-					imageURL:"./images/product_page_specification.jpg",
+					// imageURL:"./images/product_page_specification.jpg",
 				}
 			},
 			mounted() {
@@ -223,6 +210,9 @@
 				</div>
 			`,
 		});
+
+
+		
 		new Vue({
             el: '#app',
             data(){
@@ -247,7 +237,9 @@
 					title:[{
 						name:'RAKA-1001',
 						price:'NT$1200'
-					}]
+					}],
+					currentProudcut:{},
+					allProducts:null,
 				}
             },
 			methods: {
@@ -282,10 +274,30 @@
 					localStorage.setItem("addList", JSON.stringify(this.cart));
 					vmHeader.updateCart();
 				},
+				fetchAllData(srcId){
+                    axios.post("php/productList_page.php",{action:'fetchall'}).then(res=>
+                    {
+						console.log(res.data);
+						this.allProducts=res.data;
+						for(let i =0;i<res.data.length;i++){
+							if(res.data[i].Product_ID == srcId){
+								this.currentProudcut = res.data[i];
+							}
+						}
+                    });
+                },
+			},
+			computed:{
+				relative(){
+					return this.allProducts.filter(item=>{
+						return item.Product_CType == this.currentProudcut.Product_CType
+					});
+				},
 			},
 			mounted() {
-			
 				this.updateCart();
+				let srcId=location.search.slice(1).split("=")[1];
+				this.fetchAllData(srcId);
 			},
 			// addLocal(){
 			// 	let prodCart = localStorage.setItem("addList", JSON.stringify(this.products));
@@ -295,22 +307,7 @@
         });
 	</script>
 
-	<script>
-		$(".owl-carousel").owlCarousel({
-			loop: true, 
-			margin: 60, 
-			nav: true, 
-			dots: false,
-			responsive: {
-				0: {
-				items: 1
-				},
-				376: {
-				items: 3
-				},
-			}
-		});
-	</script>
+
  @@include('./layout/footer.html')
 </body>
 </html>
