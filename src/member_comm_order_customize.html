@@ -73,9 +73,9 @@
 						<img src="./images/memberCard.png" alt="">
 					</div>
 					<div class="member-side-bar-btn">
-						<a href="member_comm_order.html" class="sub-a">商品訂單</a></li>
-						<a href="member_comm_order_customize.html" class="sub-a">客製化訂單</a></li>
-						<a href="member_comm_customize.html" class="sub-a">商品收藏</a></li>
+						<a href="member_comm_order.html" class="sub-a">商品訂單</a>
+						<a href="member_comm_order_customize.html" class="sub-a">客製化訂單</a>
+						<a href="member_comm_customize.html" class="sub-a">商品收藏</a>
 					</div>
 				</div>
 				
@@ -202,6 +202,16 @@
 			new Vue({
 				el:'#app',
 				data:{
+				memberTotal:'0',
+				id:[],
+				spec:"",
+				formData : new FormData(),
+				dir:"",
+				memAdd:"",
+				memEmail:"",
+				memTel:"",
+				memCard:"",
+				item:[],
 				activedItemList: [0],	
 				showComment:false,
                 showOrder:false,                
@@ -256,6 +266,88 @@
                     
 		},
 				methods: {
+					fetchData(id){
+						axios.post('php/member_comm.php',{
+						action:'fetchSingle',
+						id:this.id.Member_ID,
+						}).then(res=>{
+						this.item = res.data;
+						this.memAdd = res.data.Member_Address;
+						this.memEmail = res.data.Member_Mail;
+						this.memTel = res.data.Member_Phone;
+						this.memCard = res.data.Member_Card;
+					})
+					},
+					editImg(){
+						this.spec = this.$refs.spec.files[0]
+						this.formData.append("file",this.spec)
+						axios.post("./php/upload.php",this.formData,{
+							"Content-Type":"multipart/form-data"
+						}
+						).then(res=>
+						{
+							this.dir = res.data.image;
+							this.memSubmit();
+						}
+						)
+					},
+					getMemberId(){
+						let memberId = JSON.parse(localStorage.getItem('memberID'));
+						this.id = memberId;
+					},
+					fetchAllTotal(){
+						axios.post("./php/memberSum.php",{
+						action:'fetchSingle',//資料參數丟過去ajaxLogin.php
+						memId:this.id.Member_ID,
+						}
+						).then(res=>
+						{
+							console.log(res.data);
+							this.memberTotal = res.data.Order_Total;
+						}
+						)
+					},
+					cancel(){
+						document.getElementById('lightbox').style.display = "none";
+					},
+					XBox(){
+						document.getElementById('lightbox').style.display = "none";
+						location.href = "./member_comm_customize.html";
+					},
+					memSubmit(){
+						if(this.dir){
+							axios.post("./php/memberSubmit.php",{
+							action:'update',
+							id:this.id.Member_ID,
+							memImg:this.dir,
+							memAdd:this.memAdd,
+							memEmail:this.memEmail,
+							memTel:this.memTel,
+							memCard:this.memCard,
+							}
+							).then(res=>
+							{
+								console.log(res.$data);
+								this.XBox();
+							}
+							)
+						}else{
+							axios.post("./php/memberSubmit.php",{
+							action:'update1',
+							id:this.id.Member_ID,
+							memAdd:this.memAdd,
+							memEmail:this.memEmail,
+							memTel:this.memTel,
+							memCard:this.memCard,
+							}
+							).then(res=>
+							{
+								console.log(res.$data);
+								this.XBox();
+							}
+							)
+						}
+					},
 					fetchAllDate(id){
 						axios.post("./php/member_order_customize.php",{
 						action:'fetchall',
@@ -312,6 +404,7 @@
                 	this.fetchAllDate(id.Member_ID)
 					this.getMemberId();
 					this.fetchAllTotal();
+					this.fetchData();
 				},
 			});
 		</script>
