@@ -16,15 +16,14 @@
 				<div class="member-side-bar">
 					<header class="member-header">
 						<div class="member-img" style="width: 50px;">
-							<img id="userImage" src="https://fakeimg.pl/50x50/#aaa" style="width: 100%;"/>
+							<img id="userImage" :src="item.Member_Profile" style="width: 100%;"/>
 						</div>
 						<div class="member-name">
-							<h1>Hello ,<span id="userName"></span>!</h1>
+							<h1>Hello ,<span id="userName">{{item.Member_Name}}</span>!</h1>
 							<button class="member-edit-btn" id="editBox">編輯個人檔案</button>
 						</div>
 					</header>
-					
-					<div class="data-box" >
+					<div class="data-box">
 						<table>
 							<tr>
 								<td>累積消費</td>
@@ -38,33 +37,33 @@
 								<span id="closeBox">X</span>
 								<div class="lightbox-header">
 									<div class="lightbox-member-img">
-										<img src="../dist/images/member01.jpg" id="lightboxUserImage">
+										<img :src="item.Member_Profile" id="imgPreview">
 									</div>
 									<div class="lightbox-member-name">
-										<h1 id="lightboxUserName">Emma Li</h1>
-										<label for="files" class="member-edit-btn">選擇大頭貼</label>
-										<input type="file" id="files" ref="spec" accept=".jpg,.png,.svg">
+										<h1 id="lightboxUserName">{{item.Member_Name}}</h1>
+										<label for="upFile" class="member-edit-btn">選擇大頭貼</label>
+										<input type="file" id="upFile" ref="spec" accept=".jpg,.png,.svg">
 									</div>
 								</div>
 								<div class="lightbox-txt">
 									<h2>我的地址</h2>
-									<input class="txt-box" type="text" value="" id="address">
+									<input class="txt-box" type="text" v-model="memAdd" id="address">
 								</div>
 								<div class="lightbox-txt">
 									<h2>Email</h2>
-									<input class="txt-box" type="text" value="" id="email">
+									<input class="txt-box" type="text" v-model="memEmail" id="email">
 								</div>
 								<div class="lightbox-txt">
 									<h2>電話</h2>
-									<input class="txt-box" type="text" value="" id="phone">
+									<input class="txt-box" type="text" v-model="memTel" id="phone">
 								</div>
 								<div class="lightbox-txt">
 									<h2>我的信用卡</h2>
-									<input class="txt-box" type="text" value="" id="card">
+									<input class="txt-box" type="text" v-model="memCard" id="card">
 								</div>
 								<div class="lightbox-btn-check">
-									<button>取消</button>
-									<button>儲存</button>
+									<button @click="cancel">取消</button>
+									<button id="imgSubmit" @click="editImg">儲存</button>
 								</div>
 							</div>
 						</div>
@@ -73,12 +72,11 @@
 						<img src="./images/memberCard.png" alt="">
 					</div>
 					<div class="member-side-bar-btn">
-						<a href="member_comm_order.html" class="sub-a">商品訂單</a></li>
-						<a href="member_comm_order_customize.html" class="sub-a">客製化訂單</a></li>
-						<a href="member_comm_customize.html" class="sub-a">商品收藏</a></li>
+						<a href="member_comm_order.html" class="sub-a">商品訂單</a>
+						<a href="member_comm_order_customize.html" class="sub-a">客製化訂單</a>
+						<a href="member_comm_customize.html" class="sub-a">商品收藏</a>
 					</div>
 				</div>
-				
 			</section>
 			<div class="member-content">
 				<section class="mem_cus_main">
@@ -94,41 +92,26 @@
 			</div>
 			@@include('./layout/footer.html')
 			<script>
+				function fileRead(e){
+					let file = e.target.files[0];
+					let reader = new FileReader();
+					reader.onload = function(){
+						document.getElementById("imgPreview").src = reader.result;
+					}
+					reader.readAsDataURL(file);
+				}
 				function showBox(){
 					// document.getElementById('lightbox').style.display = "block";
 					let lightBox = document.getElementById('lightbox').style.display = "block";
 					let txtBox = document.querySelectorAll('.txt-box');
-					let address = document.getElementById('address').value;
 				}
 				function closeBox(){
 					document.getElementById('lightbox').style.display = "none";
 				}
-				function fetchData(memID){//
-					axios.post('php/member_comm.php',{
-					action:'fetchSingle',
-					id:memID.Member_ID,
-					}).then(res=>{
-						console.log(res);
-						document.querySelector("#address").value = res.data.Member_Address;
-						document.querySelector("#email").value = res.data.Member_Mail;
-						document.querySelector("#phone").value = res.data.Member_Phone;
-						document.querySelector("#card").value = res.data.Member_Card;
-						document.getElementById('userName').innerText = res.data.Member_Name;
-						document.getElementById('lightboxUserName').innerText = res.data.Member_Name;
-						document.getElementById('userImage').src = res.data.Member_Profile;
-						document.getElementById('lightboxUserImage').src = res.data.Member_Profile;
-
-					})
-				};
-				function memCenter(){
-					document.querySelector(".member-select").classList.toggle("active");
-				}
 				function init(){
+					document.getElementById("upFile").onchange = fileRead;
 					document.getElementById("editBox").onclick=showBox;
 					document.getElementById("closeBox").onclick=closeBox;
-					let memID = JSON.parse(localStorage.getItem('memberID'));
-					fetchData(memID);
-					document.querySelector(".member-select").onclick = memCenter;
 				}
 				window.addEventListener("load", init, false);
 			</script>
@@ -137,6 +120,16 @@
 			new Vue({
 				el:'#app',
 				data:{
+					memberTotal:'0',
+					id:[],
+					spec:"",
+					formData : new FormData(),
+					dir:"",
+					memAdd:"",
+					memEmail:"",
+					memTel:"",
+					memCard:"",
+					item:[],
 					cardList:[
                 // {
                 //     img:"images/product-list01.png",
@@ -161,21 +154,43 @@
 
                 
             ],
-					memberTotal:'0',
-					id:[],
 				},
 				methods: {
 					fetchAllDate(id){
-						axios.post("./php/member_comm_customize.php",{
-						action:'fetchall',
-						id:id
-						}).then(res=>
+					axios.post("./php/member_comm_customize.php",{
+					action:'fetchall',
+					id:id
+					}).then(res=>
+					{
+					this.cardList=res.data
+					}
+					)
+					},
+					fetchData(id){
+						axios.post('php/member_comm.php',{
+						action:'fetchSingle',
+						id:this.id.Member_ID,
+						}).then(res=>{
+						this.item = res.data;
+						this.memAdd = res.data.Member_Address;
+						this.memEmail = res.data.Member_Mail;
+						this.memTel = res.data.Member_Phone;
+						this.memCard = res.data.Member_Card;
+					})
+					},
+					editImg(){
+						this.spec = this.$refs.spec.files[0]
+						this.formData.append("file",this.spec)
+						axios.post("./php/upload.php",this.formData,{
+							"Content-Type":"multipart/form-data"
+						}
+						).then(res=>
 						{
-						this.cardList=res.data
+							this.dir = res.data.image;
+							this.memSubmit();
 						}
 						)
 					},
-
 					getMemberId(){
 						let memberId = JSON.parse(localStorage.getItem('memberID'));
 						this.id = memberId;
@@ -191,7 +206,48 @@
 							this.memberTotal = res.data.Order_Total;
 						}
 						)
-					}
+					},
+					cancel(){
+						document.getElementById('lightbox').style.display = "none";
+					},
+					XBox(){
+						document.getElementById('lightbox').style.display = "none";
+						location.href = "./member_comm_customize.html";
+					},
+					memSubmit(){
+						if(this.dir){
+							axios.post("./php/memberSubmit.php",{
+							action:'update',
+							id:this.id.Member_ID,
+							memImg:this.dir,
+							memAdd:this.memAdd,
+							memEmail:this.memEmail,
+							memTel:this.memTel,
+							memCard:this.memCard,
+							}
+							).then(res=>
+							{
+								console.log(res.$data);
+								this.XBox();
+							}
+							)
+						}else{
+							axios.post("./php/memberSubmit.php",{
+							action:'update1',
+							id:this.id.Member_ID,
+							memAdd:this.memAdd,
+							memEmail:this.memEmail,
+							memTel:this.memTel,
+							memCard:this.memCard,
+							}
+							).then(res=>
+							{
+								console.log(res.$data);
+								this.XBox();
+							}
+							)
+						}
+					},
 					
 				},
 				
@@ -200,6 +256,7 @@
                 	this.fetchAllDate(id.Member_ID)
 					this.getMemberId();
 					this.fetchAllTotal();
+					this.fetchData();
 				},
 			});
 		</script>
