@@ -78,10 +78,11 @@
 							<a :href="`product_page.html?id=${item.Product_ID}`">
 								<img :src="item.Product_PIC01" alt="手錶商品圖">
 							</a>
-							<p>{{item.Product_Name}}</p>
-							<span>{{item.Product_Price}}</span>
+							<div class="item_word">
+								<p>{{item.Product_Name}}</p>
+								<span>{{item.Product_Price}}</span>
+							</div>
 						</div>		
-					</div>
 				</div>
 			</div>
 		</section>

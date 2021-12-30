@@ -46,44 +46,45 @@
         flex-direction: column; 
         width:20%;
     }
+    // 商品列表區
     .shop_list{
-        margin: auto;
+        display: flex;
         flex-wrap: wrap;
         width: 80%;
-        display: flex;
-        
     }
     .list{
-        width:30%;
-        margin-bottom: 100px;
+        width: 33%;
         position: relative;
+        margin-bottom: 100px;
     }
     img[alt*="愛心"]{
-        width:30px;
-        position: absolute;
-        top: 0;
-        left: 200px;
-
-    }  
+       width: 6%;
+       position: absolute;
+    }
+    .item_word{
+        text-align: center;
+        margin-right: 50%;
+    }
+    .item_word span{
+        margin-top: 30px;
+    }
     .list a{
         height: 280px;
         text-decoration: none;
     }
     img[alt*="手錶商品圖"] {
-        width: 55%;
+        width: 50%;
     }
     .list p{
         font-size: 18px;
         color: black;
-        position: absolute;
-        left: 30px;
+       
     }
     .list span{
         font-size: 18px;
-        position: absolute;
+       
         color: black;
-        right: 245px;
-        top: 227px;
+  
     }
     .pagination-wrapper{
         width: 100%;
