@@ -57,19 +57,19 @@
         width:30%;
         margin-bottom: 100px;
     }
-    .list a{
-        height: 280px;
-        text-decoration: none;
-    }
-    .list a>.heart{
+    img[alt*="愛心"]{
         width:30px;
         height: 30px;
         position: relative;
         bottom: 200px;
-        left:230px;
-        top:-160px;
+        left:330px;
+        top:-250px;
+    }  
+    .list a{
+        height: 280px;
+        text-decoration: none;
     }
-    .list img{
+    img[alt*="手錶商品圖"] {
         width: 55%;
     }
     .list p{
