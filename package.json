@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "套件的安裝": "npm i",
-    "開發dev": "gulp w",
+    "開發dev": "gulp",
     "清除舊檔案": "gulp clearall",
     "上線打包": "gulp packages"
   },
