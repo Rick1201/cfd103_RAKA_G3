@@ -13,7 +13,7 @@
 		@@include('./layout/header.html')
 		
 		<div class="member-section" id="app"> 
-			<section class="member-select hidden">
+			<section class="member-select">
 				<div class="member-side-bar">
 					<header class="member-header">
 						<div class="member-img" style="width: 50px;">
@@ -182,10 +182,14 @@
 			function closeBox(){
 				document.getElementById('lightbox').style.display = "none";
 			}
+			function memCenter(){
+					document.querySelector(".member-select").classList.toggle("active");
+				}
 			function init(){
 				document.getElementById("upFile").onchange = fileRead;
 				document.getElementById("editBox").onclick=showBox;
 				document.getElementById("closeBox").onclick=closeBox;
+				document.querySelector(".member-select").onclick = memCenter;
 			}
 			window.addEventListener("load", init, false);
 			</script>
