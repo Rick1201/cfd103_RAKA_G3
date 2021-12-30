@@ -51,18 +51,19 @@
         flex-wrap: wrap;
         width: 80%;
         display: flex;
-      
+        
     }
     .list{
         width:30%;
         margin-bottom: 100px;
+        position: relative;
     }
     img[alt*="愛心"]{
         width:30px;
-        height: 30px;
-        position: relative;
-        left:233px;
-        top:-180px;
+        position: absolute;
+        top: 0;
+        left: 200px;
+
     }  
     .list a{
         height: 280px;
@@ -73,18 +74,16 @@
     }
     .list p{
         font-size: 18px;
-        position: relative;
-        left:58px;
         color: black;
-        top:16px;
+        position: absolute;
+        left: 30px;
     }
     .list span{
         font-size: 18px;
-        position: relative;
-        left:110px;
-        margin-bottom: 10px;
-        top: 22px;
+        position: absolute;
         color: black;
+        right: 245px;
+        top: 227px;
     }
     .pagination-wrapper{
         width: 100%;
@@ -98,9 +97,7 @@
     }
     .pagination span{
         display: inline-block;
-        position: relative;
-        width: 20px;
-        height: 20px;
+      
         border-radius: 50%;
     }
     .pagination span .active{

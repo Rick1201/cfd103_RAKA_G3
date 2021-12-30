@@ -123,26 +123,30 @@
         img[alt*="愛心"]{
             width:30px;
             height: 30px;
-            position: relative;
             left:180px;
-            top:0px;
+            position: relative;
         }
         .shop_list{
             display: grid;
             justify-content: unset;
+            position: relative;
+        }
+        .list{
+            position: unset;
         }
         .list p{
-            text-align: none;
-            left: 95px;
-            bottom: -8px;
+            margin-left: unset;
+            left: 50px;
         }
         img[alt*="手錶商品圖"]{
             width: 300%;
-            position: relative;
             right:-10px;
         }
         .list span{
-            left: 106px;
+            right: -90px;
+            bottom: -35px;
+            position: relative;
+            top:unset;
         }
         .filter{
             position: fixed;
