@@ -32,25 +32,23 @@
                 </div>
                 <div class="name">
                     <label for="name">姓名:</label> <br>
-                    <input type="text" name="name" placeholder="" required autofocus/ ><br>
+                    <input type="text" name="name" placeholder="" required autofocus/><br>
                 </div>
                 <div class="phone">    
                     <label for="phone">電話:</label> <br>
-                    <input type="text" name="tel" placeholder="" required autofocus/ ><br>
+                    <input type="text" name="tel" placeholder="" /><br>
                 </div>
                 <div class="address">
                     <label for="ar">地址:</label> <br>
-                    <input type="text" name="address" placeholder="" required autofocus/
-                   ><br>
+                    <input type="text" name="address" placeholder="" /><br>
                 </div>
                 <div class="ps">
                     <label for="ex">備註:</label> <br>
-                    <input type="text" name="ps" placeholder="" required autofocus/
-                    ><br>
+                    <textarea name="ps"></textarea>
                 </div>
                 <div class="member01">
                     <input type="checkbox" name="star" value="1">
-                    <label for="check">同會員資訊</label>
+                    <label for="check">同會員資訊</label> 
                 </div>
             </div>
             <div class="money_detail01">
@@ -62,28 +60,64 @@
                 <div class="money01">    
                     <div class="m02">
                     <p>海洋飛行PCB-01</p>
-                    <p2>$75,000</p2>
+                    <p2>$<span id="Wprice"></span></p2>
                 </div> 
                 <div class="m03">
-                    <p>1個</p>
-                    <p3>小計$75,000</p3>
+                    <p><span id="count">1</span>個</p>
+                    <p3>小計$<span id="prodPrice"></span></p3>
                 </div>
             </div>
         <div class="ship">
             <p>運送方式:宅配</p>
             <p>運費:$90</p> 
-            <span>總計13,0000</span>
+            <span>總計$<span id="sum"></span></span>
         </div>    
         <div class="buttonplace">    
             <a href="productList_page.html">
             <button>繼續購物</button>
             </a>
             <a href="shopcar_page_2.html">
-            <button>送出訂單</button>
+            <button class="submitOrder">送出訂單</button>
             </a>
         </div>    
     </div>
 </div>
 @@include('./layout/footer.html')   
+<script>
+    function Order(){
+        let name = document.getElementsByName("name")[0].value
+        let tel = document.getElementsByName("tel")[0].value
+        let address = document.getElementsByName("address")[0].value
+        let ps = document.getElementsByName("ps")[0].value
+        let orderInfo = {
+            oName : name,
+            oTel: tel,
+            oAddress: address,
+            oPs: ps,
+        };
+        // console.log(orderInfo);
+        localStorage.setItem("orderInfo", JSON.stringify(orderInfo));
+        // location.href = './shopcar_page_2.html';
+
+        //php
+        axios.post('./php/checkout_list.php',{
+					action:'fetchall',
+				}).then(res=>{
+					console.log(123)
+					this.products=res.data
+				})
+    }
+    function init(){
+        let addList = JSON.parse(localStorage.getItem('addList'));
+        addList[0].sum = addList[0].prodPrice * addList[0].count;
+        // document.getElementById('#sum').value =+ 90;
+        document.querySelector('#count').innerText = addList[0].count;
+        document.querySelector('#Wprice').innerText = addList[0].prodPrice;
+        document.querySelector('#prodPrice').innerText = addList[0].prodPrice * addList[0].count;
+        document.querySelector('#sum').innerText = addList[0].sum + 90;
+        document.querySelector('.submitOrder').onclick = Order;
+    }
+    window.addEventListener("load", init, false);
+</script>
 </body>
 </html>

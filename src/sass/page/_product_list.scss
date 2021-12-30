@@ -57,12 +57,16 @@
         width:30%;
         margin-bottom: 100px;
     }
-    .list>.heart{
+    .list a{
+        height: 280px;
+        text-decoration: none;
+    }
+    .list a>.heart{
         width:30px;
         height: 30px;
         position: relative;
         bottom: 200px;
-        left:280px;
+        left:230px;
         top:-160px;
     }
     .list img{
@@ -72,6 +76,8 @@
         font-size: 18px;
         position: relative;
         left:70px;
+        color: black;
+        top:8px;
     }
     .list span{
         font-size: 18px;
@@ -79,6 +85,7 @@
         left:110px;
         margin-bottom: 10px;
         top: 13px;
+        color: black;
     }
     .pagination-wrapper{
         width: 100%;

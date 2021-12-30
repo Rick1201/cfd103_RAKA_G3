@@ -13,8 +13,8 @@
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.8.1/axios.js' integrity='sha512-yQvhnV+bdDcAhyxTlmVUyNikQCtnIkfC9r7GesIjLg6IrJx2M92DSv58LpyobngV7WUeM1c3mpgP0971pIY98A==' crossorigin='anonymous'></script>
 	</head>
 	<body>
+		@@include('./layout/header.html')
 		<div id="app">
-			@@include('./layout/header.html')
 			<component :is="content" @update-content="updateSelf">
 				<!-- <template>
 					<button @click="content='regi-page'" type="submit" class="regi_btn">
@@ -127,8 +127,8 @@
 				</div>
 			</section> -->
 
-			@@include('./layout/footer.html')
 		</div>
+		@@include('./layout/footer.html')
 
 		<script
 			src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"
@@ -139,17 +139,16 @@
 			Vue.component("login-page", {
 				template: `
 				<section class="loginAndRegiPage">
-				<div class="container">
-					<div class="component_zone">
-						<div class="img_area">
-							<img src="./images/loginAndRegi_page-01.jpg" alt="" />
-						</div>
-						<div class="form_area">
-							<div class="title_dist">
-								<h2>會員登入</h2>
+					<div class="container">
+						<div class="component_zone">
+							<div class="img_area">
+								<img src="./images/loginAndRegi_page-01.jpg" alt="" />
 							</div>
-							<div class="form_dist">
-							
+							<div class="form_area">
+								<div class="title_dist">
+									<h2>會員登入</h2>
+								</div>
+								<div class="form_dist">
 									<div class="form_region">
 										<div class="form_group">
 											<label for="account"><p>信箱</p></label>
@@ -160,34 +159,29 @@
 											<input type="password" id="psw" v-model="user.password" name="uPsw"/>
 										</div>
 									</div>
-									
 									<div class="btn_region">
 										<button @click="fetchAllDate()" class="submit_btn">登入</button>
 										<button @click="updateContent"  class="regi_btn">註冊</button>
 									</div>
-									
-								
-								<div class="subTitle_dist">
-								<h2>第三方登入</h2>
-								</div>
-								<div class="thirdLogin_dist">
-								<div class="icon">
-									<a href="##"><i class="fab fa-facebook-square"></i></a>
-								</div>
-								<div class="icon">
-									<a href="##"><i class="fab fa-google"></i></a>
-								</div>
-								<div class="icon">
-									<a href="##"><i><i class="fab fa-line"></i></i></a>
-								</div>
+									<div class="subTitle_dist">
+										<h2>第三方登入</h2>
+									</div>
+									<div class="thirdLogin_dist">
+										<div class="icon">
+											<a href="##"><i class="fab fa-facebook-square"></i></a>
+										</div>
+										<div class="icon">
+											<a href="##"><i class="fab fa-google"></i></a>
+										</div>
+										<div class="icon">
+											<a href="##"><i><i class="fab fa-line"></i></i></a>
+										</div>
+									</div>	
 								</div>	
-							</div>	
 							</div>
-							
 						</div>
 					</div>
-				</div>
-			</section>`,
+				</section>`,
 				data() {
 					return {
 						user: {
@@ -214,7 +208,7 @@
 						).then(res=>
 						{
 							if(res.data.Member_ID > 0){
-								location.href="./member_comm.html";
+								location.href="./member_comm_order.html";
 								localStorage.setItem("memberID", JSON.stringify(res.data));
 							}else{
 								alert("帳密錯誤，請重新輸入");

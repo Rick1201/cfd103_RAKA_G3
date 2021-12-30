@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="./css/style.css"/>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.8.1/axios.js' integrity='sha512-yQvhnV+bdDcAhyxTlmVUyNikQCtnIkfC9r7GesIjLg6IrJx2M92DSv58LpyobngV7WUeM1c3mpgP0971pIY98A==' crossorigin='anonymous'></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+	</head>
+	<body>
+		@@include('./layout/header.html')
+		<div class="member-section" id="app">
+			<section class="member-select">
+				<div class="member-side-bar">
+					<header class="member-header">
+						<div class="member-img" style="width: 50px;">
+							<img id="userImage" src="https://fakeimg.pl/50x50/#aaa" style="width: 100%;"/>
+						</div>
+						<div class="member-name">
+							<h1>Hello ,<span id="userName"></span>!</h1>
+							<button class="member-edit-btn" id="editBox">編輯個人檔案</button>
+						</div>
+					</header>
+					
+					<div class="data-box" >
+						<table>
+							<tr>
+								<td>累積消費</td>
+							</tr>
+							<tr>
+								<td>${{memberTotal}}元</td>
+							</tr>
+						</table>
+						<div class="lightbox" id="lightbox">
+							<div class="container">
+								<span id="closeBox">X</span>
+								<div class="lightbox-header">
+									<div class="lightbox-member-img">
+										<img src="../dist/images/member01.jpg" id="lightboxUserImage">
+									</div>
+									<div class="lightbox-member-name">
+										<h1 id="lightboxUserName">Emma Li</h1>
+										<label for="files" class="member-edit-btn">選擇大頭貼</label>
+										<input type="file" id="files" ref="spec" accept=".jpg,.png,.svg">
+									</div>
+								</div>
+								<div class="lightbox-txt">
+									<h2>我的地址</h2>
+									<input class="txt-box" type="text" value="" id="address">
+								</div>
+								<div class="lightbox-txt">
+									<h2>Email</h2>
+									<input class="txt-box" type="text" value="" id="email">
+								</div>
+								<div class="lightbox-txt">
+									<h2>電話</h2>
+									<input class="txt-box" type="text" value="" id="phone">
+								</div>
+								<div class="lightbox-txt">
+									<h2>我的信用卡</h2>
+									<input class="txt-box" type="text" value="" id="card">
+								</div>
+								<div class="lightbox-btn-check">
+									<button>取消</button>
+									<button>儲存</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="member-card">
+						<img src="./images/memberCard.png" alt="">
+					</div>
+					<div class="member-side-bar-btn">
+						<a href="member_comm_order.html" class="sub-a">商品訂單</a></li>
+						<a href="member_comm_order_customize.html" class="sub-a">客製化訂單</a></li>
+						<a href="member_comm_customize.html" class="sub-a">商品收藏</a></li>
+					</div>
+				</div>
+				
+			</section>
+			<div class="member-content">
+				<section class="mem_cus_main">
+					<div class="mem_cus_body" v-for="(card, index) in cardList" :key=" index">
+						<div class="c_pic">
+							<a href="#"><img :src="card.Product_PIC01"></a>
+						</div>
+						<div class="c_delete" ></div>
+						<h3>{{card.Product_Name}}</h3>
+						<h3>{{card.Product_Price}}</h3>
+					</div>
+				</section>
+			</div>
+			@@include('./layout/footer.html')
+			<script>
+				function showBox(){
+					// document.getElementById('lightbox').style.display = "block";
+					let lightBox = document.getElementById('lightbox').style.display = "block";
+					let txtBox = document.querySelectorAll('.txt-box');
+					let address = document.getElementById('address').value;
+				}
+				function closeBox(){
+					document.getElementById('lightbox').style.display = "none";
+				}
+				function fetchData(memID){//
+					axios.post('php/member_comm.php',{
+					action:'fetchSingle',
+					id:memID.Member_ID,
+					}).then(res=>{
+						console.log(res);
+						document.querySelector("#address").value = res.data.Member_Address;
+						document.querySelector("#email").value = res.data.Member_Mail;
+						document.querySelector("#phone").value = res.data.Member_Phone;
+						document.querySelector("#card").value = res.data.Member_Card;
+						document.getElementById('userName').innerText = res.data.Member_Name;
+						document.getElementById('lightboxUserName').innerText = res.data.Member_Name;
+						document.getElementById('userImage').src = res.data.Member_Profile;
+						document.getElementById('lightboxUserImage').src = res.data.Member_Profile;
+
+					})
+				};
+				function memCenter(){
+					document.querySelector(".member-select").classList.toggle("active");
+				}
+				function init(){
+					document.getElementById("editBox").onclick=showBox;
+					document.getElementById("closeBox").onclick=closeBox;
+					let memID = JSON.parse(localStorage.getItem('memberID'));
+					fetchData(memID);
+					document.querySelector(".member-select").onclick = memCenter;
+				}
+				window.addEventListener("load", init, false);
+			</script>
+		</div>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					cardList:[
+                // {
+                //     img:"images/product-list01.png",
+                //     name:"簍空機械錶",
+                //     price:"$233550",
+                // },
+                // {
+                //     img:"images/product-list01.png",
+                //     name:"簍空機械錶",
+                //     price:"$233550",
+                // },
+                // {
+                //     img:"images/product-list01.png",
+                //     name:"簍空機械錶",
+                //     price:"$233550",
+                // },
+                // {
+                //     img:"images/product-list01.png",
+                //     name:"簍空機械錶",
+                //     price:"$233550",
+                // },
+
+                
+            ],
+					memberTotal:'0',
+					id:[],
+				},
+				methods: {
+					fetchAllDate(id){
+						axios.post("./php/member_comm_customize.php",{
+						action:'fetchall',
+						id:id
+						}).then(res=>
+						{
+						this.cardList=res.data
+						}
+						)
+					},
+
+					getMemberId(){
+						let memberId = JSON.parse(localStorage.getItem('memberID'));
+						this.id = memberId;
+					},
+					fetchAllTotal(){
+						axios.post("./php/memberSum.php",{
+						action:'fetchSingle',//資料參數丟過去ajaxLogin.php
+						memId:this.id.Member_ID,
+						}
+						).then(res=>
+						{
+							console.log(res.data);
+							this.memberTotal = res.data.Order_Total;
+						}
+						)
+					}
+					
+				},
+				
+				mounted() {
+					let id = JSON.parse(localStorage.getItem("memberID"));
+                	this.fetchAllDate(id.Member_ID)
+					this.getMemberId();
+					this.fetchAllTotal();
+				},
+			});
+		</script>
+	</body>
+</html>
