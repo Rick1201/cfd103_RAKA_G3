@@ -70,6 +70,7 @@
         background-image: url('../images/bg.jpeg');
         background-repeat: no-repeat;
         background-size: 529px 700px;
+       
     }
     .money{
         display: flex;
@@ -83,6 +84,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: relative;
     }
     .money02{
         width: 400px;
@@ -97,9 +99,11 @@
         border-top: 1px solid black;
         width:400px;
     }
-    .m02 p{
+    .m02 p #prodPrice{
         color:#163257;
         font-weight: 900;
+        position: absolute;
+        right:0;
     }
     .m02 p5{
         position: relative;
@@ -122,9 +126,9 @@
         color:#163257;
         font-weight: 900;
     }
-    .m03 p5{
-        position: relative;
-        left: 280px;
+    .m03 p #sum{
+        position: absolute;
+        right: 0px;
         color:#163257;
         font-weight: 900;
     }
@@ -174,6 +178,7 @@
     .shoppage span{
         color:#163257;
         font-weight: 900;
+        margin-top: 30px;
     }
     
 }

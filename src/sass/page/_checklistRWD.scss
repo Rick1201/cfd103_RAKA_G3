@@ -49,8 +49,11 @@
             justify-content: unset;
         }
         .clifor01{
-            max-width: 100%;
+            max-width: 35%;
             margin:10px;
+        }
+        textarea[name="ps"]{
+            width: 250px;
         }
         .phone{
             right:0;
@@ -72,7 +75,7 @@
         .money_detail01{
             margin-left:10px;
             margin-top:60px;
-            max-width:95%;
+            max-width:35%;
             background-size: unset;
         }
         .money_detail01 button{

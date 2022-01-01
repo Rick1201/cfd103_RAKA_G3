@@ -8,6 +8,10 @@
         display: flex;
         margin-bottom: 30px;
     }
+    .checklist01 ship{
+        text-align: center;
+        margin-left: 425px;
+    }
     :nth-child(1).payment-page-step-btn{
         width: 33.33333%;
         height: 40px;
@@ -164,6 +168,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: relative;
     }
     .money02{
         width: 533px;
@@ -179,7 +184,9 @@
         border-top: 1px solid black;
         width:525px;
     }
-    .m02 p{
+    span #Wprice{
+        position: absolute;
+        right:20px;
         color:#163257;
         font-weight: 900;
     }
@@ -191,18 +198,13 @@
         font-size: 18px;
         font-weight: 700;
     }
-    .m02 p2{
-        margin-left: 340px;
-        color:#163257;
-        font-weight: 900;
-    }
     .m03{
         display: flex;
         border-bottom: 1px solid black;
-        width:525px;
-       
+        width:525px;     
         color:#163257;
         font-weight: 900;
+        margin-top: 20px;
     }
     .m03 p3{
         position: relative;
