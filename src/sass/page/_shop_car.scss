@@ -119,18 +119,20 @@
                 text-align: end;
                 margin-top: 50px;
             }
-            a{
+            button{
+                @include btnStyle($btnColor-primary,150px);
+                height: 40px;
+                margin: 50px 0 0 auto;
                 display: block;
-                text-align: end;
-                margin-top: 50px;
-                button{
-                    @include btnStyle($btnColor-primary,150px);
-                    font-size:$fontSize-middle;
+                a{
+                    display: block;
+                    text-decoration: none;
                     color: $blue-tertiary;
+                    font-size:$fontSize-middle;
                     font-weight: 600;
-                    height: 40px;
                 }
             }
+    
 
         }
 
