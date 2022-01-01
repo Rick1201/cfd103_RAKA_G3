@@ -121,28 +121,24 @@
             color:white;
         }
         img[alt*="愛心"]{
-            width:30px;
-            height: 30px;
-            position: relative;
-            left:180px;
-            top:0px;
+            position: absolute;
+            left: 250px;
         }
         .shop_list{
             display: grid;
             justify-content: unset;
+            margin: auto;
         }
-        .list p{
-            text-align: none;
-            left: 95px;
-            bottom: -8px;
+        .list{
+            position: unset;
+        }
+        .item_word{
+            margin-right: unset;
+            position: absolute;
+            left: 90px;
         }
         img[alt*="手錶商品圖"]{
             width: 300%;
-            position: relative;
-            right:-10px;
-        }
-        .list span{
-            left: 106px;
         }
         .filter{
             position: fixed;

@@ -1,255 +1,500 @@
 @import "../mixin/mixin";
 @import "../base/var";
 @import "../base/base";
+
 .checklist01{
+    min-height: calc(100vh - 360px);
+    margin: 30px 0;
     .check{
         width: 500px;
         margin: auto;
         display: flex;
         margin-bottom: 30px;
-    }
-    :nth-child(1).payment-page-step-btn{
-        width: 33.33333%;
-        height: 40px;
-        border-radius: 30px;
-        background-color: $blue-tertiary;
-        color:#f7f2ec;
-        border: 1px solid $blue-tertiary;
-        p{
-            line-height: 40px;
-            text-align: center;
+        :nth-child(1).payment-page-step-btn{
+            width: 33.33333%;
+            height: 40px;
+            border-radius: 30px;
+            background-color: $blue-tertiary;
             color:#f7f2ec;
+            border: 1px solid $blue-tertiary;
+            p{
+                line-height: 40px;
+                text-align: center;
+                color:#f7f2ec;
+            }
         }
-    }
-    :nth-child(2).payment-page-step-btn{
-        width: 33.33333%;
-        height: 40px;    
-        border-radius: 30px;
-        p{
-            line-height: 40px;
-            text-align: center;
-            color:black;
+        :nth-child(2).payment-page-step-btn{
+            width: 33.33333%;
+            height: 40px;    
+            border-radius: 30px;
+            p{
+                line-height: 40px;
+                text-align: center;
+                color:black;
+            }
+            a{
+                text-decoration: none;
+            }
         }
-        a{
-            text-decoration: none;
-        }
-    }
-    .payment-page-step-btn3{
-        width: 33.33333%;
-        height: 40px;
-        p{
-            line-height: 40px;
-            text-align: center;
-            color:black;
-        }
-        a{
-            text-decoration: none;
+        .payment-page-step-btn3{
+            width: 33.33333%;
+            height: 40px;
+            p{
+                line-height: 40px;
+                text-align: center;
+                color:black;
+            }
+            a{
+                text-decoration: none;
+            }
         }
     }
     .client{
+        max-width:1440px;
+        margin: auto;
         display: flex;
-        justify-content: space-around;
-    }
-    .bt01 p{
-        margin-right: 95px;
-    }
-    .bt02 p{
-        margin-right: 95px;
-    }
-    .clifor01{
-        width: 836px;
-        height: 655px;
-        border: 1px solid black;
-        background-image: url('../images/bg.jpeg');
-        background-repeat: no-repeat;
-        background-size: 836px 655px;
-    }
-    .phone{
-        position: relative;
-        right:-350px;
-        bottom:40px;
-        color:#163257;
-        font-weight: 800;
-    }
-    .name{
-        margin-left: 20px;
-        color:#163257;
-        font-weight: 800;
-    }
-    .address{
-        position: relative;
-        bottom:40px;
-        margin-left: 20px;
-        color:#163257;
-        font-weight: 800;
-    }
-    .ps{
-       margin-left: 20px;
-       position: relative;
-       bottom:40px;
-       color:#163257;
-       font-weight: 800;
-    }
-    .cinfor h3{
-        margin-left: 20px;
-        margin-bottom: 40px;
-        color:#163257;
-        font-weight: 900;
-        font-size: 24px;
-        
-    }
-    .clifor01 .member01{
-        margin-left: 20px;
-        color:#163257;
-        font-weight: 800;
-    }
-    input[name="name"]{
-        width: 250px;
-        height: 25px;
-    }
-    input[name="tel"]{
-        width: 250px;
-        height: 25px;
-    }
-    input[name="address"]{
-        width: 600px;
-        height: 25px;
-    }
-    textarea[name="ps"]{
-        width: 700px;
-        height: 205px;
-        resize: none;
-    }
-    .money_detail01{
-        width: 529px;
-        height: 650px;
-        border: 1px solid black;
-        display: flex;
-        flex-direction: column;
-        margin-left: 3px;
-        background-image: url('../images/bg.jpeg');
-        background-repeat: no-repeat;
-        background-size: 529px 700px;
-    }
-    .money_detail01 button{    
-            width:100px;
-            position: relative;
-            left: 430px;
-            bottom: -10px;
-            @include btnStyle($btnColor-primary,100px);
-    }
-    .buttonplace{
-        margin-left: -110px;
-    }
-    .ship{
-        margin-left: 400px;
-    }
-    .ship p{
-        color:#163257;
-        font-weight: 900;
-    }
-    .ship span{
-        color:#163257;
-        font-weight: 900;
-    }
-    .money{
-        display: flex;
-        flex-direction: column;
-        width: 530px;
-        height: 50px;
-        align-items: center;
-    }
-    .money01{
-        width: 533px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .money02{
-        width: 533px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .m01{
-        display: flex;
-    }
-    .m02{
-        display: flex;
-        border-top: 1px solid black;
-        width:525px;
-    }
-    .m02 p{
-        color:#163257;
-        font-weight: 900;
-    }
-    .m01 h2{
-        margin-right: 455px;
-        position: relative;
-        top: 30px;
-        color:#163257;
-        font-size: 18px;
-        font-weight: 700;
-    }
-    .m02 p2{
-        margin-left: 340px;
-        color:#163257;
-        font-weight: 900;
-    }
-    .m03{
-        display: flex;
-        border-bottom: 1px solid black;
-        width:525px;
-       
-        color:#163257;
-        font-weight: 900;
-    }
-    .m03 p3{
-        position: relative;
-        left:405px;
-        color:#163257;
-    }
-    .m05{
-        display: flex;
-    }
-    .m05 p{
-        color:#163257;
-        font-weight: 900;
-    }
-    .m05 p2{
-        margin-left: 340px;
-        color:#163257;
-        font-weight: 900;
-    }
-    .m06{
-        display: flex;
-        border-bottom: 1px solid black;
-        width:525px;
-       
-        color:#163257;
-        font-weight: 900;
-    }
-    .m06 p3{
-        position: relative;
-        left:405px;
-        color:#163257;
-    }
-    .money03{
-        width: 533px;
-        height: 127px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .money_detail01 span{
-        text-align: end;
-        color:#163257;
-    }
-    .money_detail01 button{
-        width:100px;
-        position: relative;
-        left: 430px;
-        bottom: -10px;
-        @include btnStyle($btnColor-primary,100px);
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .clifor01{
+            width: 48%;
+            border: 1px solid $gray-primary;
+            background-image: url(../images/bg.jpeg);
+            background-repeat: no-repeat;
+            padding: 15px 50px;
+            color:$blue-tertiary;
+            align-self: flex-start;
+            box-shadow: 10px 5px 10px 5px rgba(0,0,0,0.1);
+            .cinfor{
+                h2{
+                    font-size: $fontSize-SubTitle;
+                    font-weight: 600;
+                    padding: 10px 0;
+                }
+            }
+            .group{
+                display: flex;
+                justify-content: space-between;
+                font-size:$fontSize-middle;
+                font-weight: 600;
+                .name{
+                    width: 45%;
+                    margin-bottom: 10px;
+                    label{
+                        margin-bottom: 10px;
+                        display: inline-block;
+                    }
+                    input{
+                        width: 100%;
+                        padding: 5px;
+                        background-color: $gray-secondary;
+                        font-size:$fontSize-middle;
+                        color:$blue-tertiary;
+                        border: none;
+                    }
+                }
+                .phone{
+                    width: 45%;
+                    margin-bottom: 10px;
+                    label{
+                        margin-bottom: 10px;
+                        display: inline-block;
+                    }
+                    input{
+                        width: 100%;
+                        padding: 5px;
+                        background-color:$gray-secondary;
+                        font-size:$fontSize-middle;
+                        color:$blue-tertiary;
+                        border: none;
+                    }
+                }
+            }
+            .address{
+                width: 100%;
+                font-size:$fontSize-middle;
+                font-weight: 600;
+                margin-bottom: 10px;
+                label{
+                    margin-bottom: 10px;
+                    display: inline-block;
+                }
+                input{
+                    width: 100%;
+                    padding: 5px;
+                    background-color: $gray-secondary;
+                    font-size:$fontSize-middle;
+                    color:$blue-tertiary;
+                    border: none;
+                }
+            }
+            .ps{
+                width: 100%;
+                font-size:$fontSize-middle;
+                font-weight: 600;
+                margin-bottom: 30px;
+                label{
+                    margin-bottom: 10px;
+                    display: inline-block;
+                }
+                textarea{
+                    resize: none;
+                    width: 100%;
+                    height: 250px;
+                    padding: 5px;
+                    background-color: $gray-secondary;
+                    font-size:$fontSize-middle;
+                    color:$blue-tertiary;
+                    border: none;
+                }
+            }
+            .member01{
+                label{
+                    color:$blue-tertiary;
+                    font-size:$fontSize-middle;
+                    font-weight: 600;
+                }
+            }
+        }
+        .money_detail01{
+            width: 48%;
+            border: 1px solid $gray-primary;
+            background-image: url(../images/bg.jpeg);
+            background-repeat: no-repeat;
+            padding: 15px 50px;
+            color:$blue-tertiary;
+            align-self: flex-start;
+            box-shadow: 10px 5px 10px 5px rgba(0,0,0,0.1);
+            .money{
+                .m01{
+                    h2{
+                        color:$blue-tertiary;
+                        font-size: $fontSize-SubTitle;
+                        font-weight: 600;
+                        padding: 10px 0;
+                        border-bottom: 2px solid $blue-secondary;
+                    }
+                }
+            }
+            .money01{
+                padding: 10px 0;
+                border-bottom: 1px solid $blue-secondary;
+                color: $blue-tertiary;
+                font-weight: 600;
+                font-size: $fontSize-middle;
+                .m02{
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 15px;
+                }
+                .m03{
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+            .ship{
+                color: $blue-tertiary;
+                font-weight: 600;
+                font-size: $fontSize-middle;
+                text-align: end;
+                p{
+                    margin: 15px 0;
+                }
+            }
+            .buttonplace{
+                margin-top: 50px;
+                text-align: end;
+                a{
+                    display: inline-block;
+                    button{
+                        @include btnStyle($btnColor-primary,150px);
+                        font-size:$fontSize-middle;
+                        color: $blue-tertiary;
+                        font-weight: 600;
+                        height: 40px;
+                    }
+                }
+            }
+        }
     }
 }
+
+@media screen and(max-width:375px) {
+    .checklist01{
+        .check{
+            width: 300px;
+        }
+        .client{
+            display: flex;
+            justify-content: unset;
+            flex-direction: column;
+            flex-wrap: wrap;
+            .clifor01{
+                width: 95%;
+                margin:  0 auto 30px; 
+                padding: 10px;
+            }
+            .money_detail01{
+                width: 95%;
+                margin: auto;
+                padding: 10px;
+                .buttonplace{
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+
+// .checklist01{
+//     .check{
+//         width: 500px;
+//         margin: auto;
+//         display: flex;
+//         margin-bottom: 30px;
+//     }
+//     :nth-child(1).payment-page-step-btn{
+//         width: 33.33333%;
+//         height: 40px;
+//         border-radius: 30px;
+//         background-color: $blue-tertiary;
+//         color:#f7f2ec;
+//         border: 1px solid $blue-tertiary;
+//         p{
+//             line-height: 40px;
+//             text-align: center;
+//             color:#f7f2ec;
+//         }
+//     }
+//     :nth-child(2).payment-page-step-btn{
+//         width: 33.33333%;
+//         height: 40px;    
+//         border-radius: 30px;
+//         p{
+//             line-height: 40px;
+//             text-align: center;
+//             color:black;
+//         }
+//         a{
+//             text-decoration: none;
+//         }
+//     }
+//     .payment-page-step-btn3{
+//         width: 33.33333%;
+//         height: 40px;
+//         p{
+//             line-height: 40px;
+//             text-align: center;
+//             color:black;
+//         }
+//         a{
+//             text-decoration: none;
+//         }
+//     }
+//     .client{
+//         display: flex;
+//         justify-content: space-around;
+//     }
+//     .bt01 p{
+//         margin-right: 95px;
+//     }
+//     .bt02 p{
+//         margin-right: 95px;
+//     }
+//     .clifor01{
+//         width: 836px;
+//         height: 655px;
+//         border: 1px solid black;
+//         background-image: url('../images/bg.jpeg');
+//         background-repeat: no-repeat;
+//         background-size: 836px 655px;
+//     }
+//     .phone{
+//         position: relative;
+//         right:-350px;
+//         bottom:40px;
+//         color:#163257;
+//         font-weight: 800;
+//     }
+//     .name{
+//         margin-left: 20px;
+//         color:#163257;
+//         font-weight: 800;
+//     }
+//     .address{
+//         position: relative;
+//         bottom:40px;
+//         margin-left: 20px;
+//         color:#163257;
+//         font-weight: 800;
+//     }
+//     .ps{
+//        margin-left: 20px;
+//        position: relative;
+//        bottom:40px;
+//        color:#163257;
+//        font-weight: 800;
+//     }
+//     .cinfor h3{
+//         margin-left: 20px;
+//         margin-bottom: 40px;
+//         color:#163257;
+//         font-weight: 900;
+//         font-size: 24px;
+        
+//     }
+//     .clifor01 .member01{
+//         margin-left: 20px;
+//         color:#163257;
+//         font-weight: 800;
+//     }
+//     input[name="name"]{
+//         width: 250px;
+//         height: 25px;
+//     }
+//     input[name="tel"]{
+//         width: 250px;
+//         height: 25px;
+//     }
+//     input[name="address"]{
+//         width: 600px;
+//         height: 25px;
+//     }
+//     textarea[name="ps"]{
+//         width: 700px;
+//         height: 205px;
+//         resize: none;
+//     }
+//     .money_detail01{
+//         width: 529px;
+//         height: 650px;
+//         border: 1px solid black;
+//         display: flex;
+//         flex-direction: column;
+//         margin-left: 3px;
+//         background-image: url('../images/bg.jpeg');
+//         background-repeat: no-repeat;
+//         background-size: 529px 700px;
+//     }
+//     .money_detail01 button{    
+//             width:100px;
+//             position: relative;
+//             left: 430px;
+//             bottom: -10px;
+//             @include btnStyle($btnColor-primary,100px);
+//     }
+//     .buttonplace{
+//         margin-left: -110px;
+//     }
+//     .ship{
+//         margin-left: 400px;
+//     }
+//     .ship p{
+//         color:#163257;
+//         font-weight: 900;
+//     }
+//     .ship span{
+//         color:#163257;
+//         font-weight: 900;
+//     }
+//     .money{
+//         display: flex;
+//         flex-direction: column;
+//         width: 530px;
+//         height: 50px;
+//         align-items: center;
+//     }
+//     .money01{
+//         width: 533px;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//     }
+//     .money02{
+//         width: 533px;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//     }
+//     .m01{
+//         display: flex;
+//     }
+//     .m02{
+//         display: flex;
+//         border-top: 1px solid black;
+//         width:525px;
+//     }
+//     .m02 p{
+//         color:#163257;
+//         font-weight: 900;
+//     }
+//     .m01 h2{
+//         margin-right: 455px;
+//         position: relative;
+//         top: 30px;
+//         color:#163257;
+//         font-size: 18px;
+//         font-weight: 700;
+//     }
+//     .m02 p2{
+//         margin-left: 340px;
+//         color:#163257;
+//         font-weight: 900;
+//     }
+//     .m03{
+//         display: flex;
+//         border-bottom: 1px solid black;
+//         width:525px;
+       
+//         color:#163257;
+//         font-weight: 900;
+//     }
+//     .m03 p3{
+//         position: relative;
+//         left:405px;
+//         color:#163257;
+//     }
+//     .m05{
+//         display: flex;
+//     }
+//     .m05 p{
+//         color:#163257;
+//         font-weight: 900;
+//     }
+//     .m05 p2{
+//         margin-left: 340px;
+//         color:#163257;
+//         font-weight: 900;
+//     }
+//     .m06{
+//         display: flex;
+//         border-bottom: 1px solid black;
+//         width:525px;
+       
+//         color:#163257;
+//         font-weight: 900;
+//     }
+//     .m06 p3{
+//         position: relative;
+//         left:405px;
+//         color:#163257;
+//     }
+//     .money03{
+//         width: 533px;
+//         height: 127px;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//     }
+//     .money_detail01 span{
+//         text-align: end;
+//         color:#163257;
+//     }
+//     .money_detail01 button{
+//         width:100px;
+//         position: relative;
+//         left: 430px;
+//         bottom: -10px;
+//         @include btnStyle($btnColor-primary,100px);
+//     }
+// }
