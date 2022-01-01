@@ -10,7 +10,7 @@
 </head>
 <body>
     @@include('./layout/header.html')
-    <div class="payment-page-step">
+    <div class="check2">
         <div class="payment-page-step-btn">
                 <p>填寫訂單</p>
         </div>
@@ -52,7 +52,7 @@
                 </tr>
                 <tr>
                     <td class="order-title">運費</td>
-                    <td>$90</td>
+                    <td>$ 90</td>
                 </tr>
                 <tr>
                     <td class="order-title">總金額</td>
@@ -73,31 +73,32 @@
                 </tr>
                 <tr>
                     <td class="payment-title">信用卡號碼</td>
-                    <td><input type="text"></td>
+                    <td><input id="card" type="text" maxlength="16"></td>
                 </tr>
                 <tr>
                     <td class="payment-title">效期</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" maxlength="4"></td>
                 </tr>
                 <tr>
                     <td class="payment-title">檢查碼</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" maxlength="3"></td>
                 </tr>
             </table>
         </div>
         <div class="payment-page-btn-box">
             <button class="payment-page-btn">
-                <a href="checkout_list.html">
+                <a href="./checkout_list.html">
                 修改訂單資訊
                 </a>
             </button>
             <button class="payment-page-btn"  id="submitOrder" type="button">
-                <a href="checkout_final.html">
+                <a href="./checkout_final.html">
                 確認付款
                 </a>
             </button>
         </div>
     </section>
+    @@include('./layout/footer.html')
     <script>
         function submitOrder(){
             let orderInfo = JSON.parse(localStorage.getItem('orderInfo'));
