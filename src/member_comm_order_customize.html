@@ -120,16 +120,98 @@
 							</div>
 							<div class="member_status_bg" v-show="showItem(index + 1)">
 								<div class="order_details_list">
-									<div>
-										<ul>
-											<li>訂單編號{{member.number}}</li>
-											<li>下單時間{{member.time}}</li>
-											<li>訂單狀態{{member.state}}</li>
-											<li>總計{{member.price}}</li>
-											<div class="button">
-												<button @click="clickItem(index + 1)">返回訂單</button>
-											</div>
-										</ul>
+									<div>	
+										<div class="cus">
+											<!-- HTML DOM template -->
+											<section class="finshpage">
+											 <div class="containerGrid">
+											  <div class="row center">
+											   <div class="col-12">
+												<div class="row">
+												 <div class="col-6 center fixmargin">
+												  <div class="pic-gift" id="giftDiv">
+												   <img class="giftboxpic" :src="cus.Customize_PacPic" />
+												  </div>
+												 </div>
+												 <div class="col-6 center fixmargin">
+												  <div class="pic-watch" id="watchDiv">
+												   <img :src="cus.Customize_WPicF" />
+												  </div>
+												 </div>
+												</div>
+											   </div>
+											  </div>
+											 </div>
+											</section>
+											<section class="formsec" >
+											 <div class="containerGrid">
+											  <div class="row ">
+											   <div class="col-12 mainform">
+												<div class="row">
+												 <div class="col-12">
+												  <div class="formtitle">
+												   <h2>客製化品項明細</h2>
+												  </div>
+												 </div>
+												 <div class="col-12">
+												  <div class="featuretitle">
+												   <h2>外觀</h2>
+												  </div>
+												 </div>
+												 <div class="col-6 item">
+												  <div>錶框</div>
+												  <div>{{currentobj.Customize_Total}}</div>
+												 </div>
+												 <div class="col-6 item">
+												  <div>錶面</div>
+												  <div>{{currentobj.WOuter_Name}}</div>
+												 </div>
+												 <div class="col-6 item">
+												  <div>錶帶</div>
+												  <div>{{currentobj.WBand_Name}}</div>
+												 </div>
+												 <div class="col-6 item">
+												  <div>指針</div>
+												  <div>{{currentobj.WPointer_Name}}</div>
+												 </div>
+												 <div class="col-6">
+												  <div class="featuretitle">
+												   <h2>功能表盤</h2>
+												   <div class="row featureitem">
+													<div class="col-6 featurepic">
+													 <!-- <img src="./images/finishfunpic.png" /> -->
+													</div>
+													<div class="col-6 featuretxt">
+													 <ol>
+													  <li>{{cus.WPointer_Name}}</li>
+													  <li>{{cus.WPointer_Name}}</li>
+													  <li>{{cus.WPointer_Name}}</li>
+													 </ol>
+													</div>
+												   </div>
+												  </div>
+												 </div>
+												 <div class="col-6">
+												  <div class="featuretitle">
+												   <h2>潛水規格需求</h2>
+												   <div class="row featureitem">
+													<div class="col-12">
+													 <p>{{cus.WPointer_Name}}</p>
+													</div>
+												   </div>
+												  </div>
+												 </div>
+												 
+												</div>
+											   </div>
+											  </div>
+											 </div>
+											</section>
+										</div>
+										<div class="button">
+											<button @click="clickItem(index + 1)">返回訂單</button>
+										</div>
+		
 									</div>
 								</div>
 							</div>
@@ -202,6 +284,8 @@
 			new Vue({
 				el:'#app',
 				data:{
+				currentobj:'',
+    			cus:[],
 				memberTotal:'0',
 				id:[],
 				spec:"",
@@ -277,6 +361,17 @@
 						this.memTel = res.data.Member_Phone;
 						this.memCard = res.data.Member_Card;
 					})
+					},
+					fetchCus(id){
+					axios.post("./php/member_comm_order_customize.php",{
+					action:'fetchall',
+					id:id
+					}).then(res=>
+					{
+					console.log(res) 
+					this.cus=res.data
+					}
+					)
 					},
 					editImg(){
 						this.spec = this.$refs.spec.files[0]
@@ -359,6 +454,7 @@
 						)
 					},
 					clickItem(itemLabel) {
+					this.currentobj=this.cus[itemLabel-1];
 					const itemExist = this.activedItemList.find((item) => item === itemLabel);
 					if (itemExist) {
 					const itemIndex = this.activedItemList.findIndex(
@@ -395,13 +491,18 @@
 							this.memberTotal = res.data.Order_Total;
 						}
 						)
-					}
-					
+					},
+					getId(id) {
+					console.log(id)
+					// this.id = OrderId;
+					this.fetchCus(id);
+					},
 				},
 				
 				mounted() {
 					let id = JSON.parse(localStorage.getItem("memberID"));
-                	this.fetchAllDate(id.Member_ID)
+                	this.fetchAllDate(id.Member_ID);
+                	this.fetchCus(id.Member_ID);
 					this.getMemberId();
 					this.fetchAllTotal();
 					this.fetchData();

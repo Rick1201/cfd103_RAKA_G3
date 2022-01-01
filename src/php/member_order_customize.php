@@ -5,7 +5,9 @@ $received_data = json_decode($dba);
 $data= array();
 if($received_data->action =='fetchall'){
     $query="
-    SELECT * FROM orderlist WHERE Member_ID = '$received_data->id'
+    SELECT * FROM orderlist 
+    WHERE Member_ID = '$received_data->id'
+    order by Order_ID DESC
     ";
     $statement = $connect->prepare($query);
     $statement -> execute();

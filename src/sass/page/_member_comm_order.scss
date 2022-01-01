@@ -23,6 +23,7 @@
                 top: 0;
                 right: -30px;
                 padding-top: 5px;
+                border-radius: 0px 10px 10px 0px;
             }
         }
         .member-side-bar{
@@ -214,7 +215,7 @@
         }
         .member_order{
             // float: right;
-            width: 70%;
+            width: 90%;
             overflow: scroll;
             height: 90vh;
             @include mobile{
@@ -290,19 +291,33 @@
                 white-space:nowrap;
             }
             .order_button{
-                
                 width: 30%;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 button{
+                    border-radius: 10px;
+                    padding: 5px;
                     margin: 5px;
+                    background-color: $blue-tertiary;
+                    color: $gray-tertiary;
                 }
             }
             .member_container{
                 width: 100%;
                 height: 100%;
+                .select-title{
+                    padding: 10px;
+                    color: $blue-tertiary;
+                    font-weight: 600;
+                    margin-bottom: 10px;
+                    h2{
+                        border-bottom: 1px solid $blue-primary;
+                        display: inline;
+                        font-size: $fontSize-SubTitle;
+                    }
+                }
             }
             .member_comment_bg{
                 z-index: 10;
@@ -344,13 +359,39 @@
                 bottom: 0;
                 left: 0;
                 position: fixed;
-                text-align: center;
+                // text-align: center;
                 align-items: center;
                 justify-content: center;
                 height: 100%;
                 width: 100%;
                 display: flex;
-                margin: auto;
+                color: $blue-tertiary;
+                .order_details_list{
+                    overflow: scroll;
+                    width: 50%;
+                    @include mobile{
+                        width: 70%;
+                    }
+                    .item{
+                        padding: 10px;
+                    }
+                }
+                button{
+                    border: 1px solid $blue-tertiary;
+                    border-radius: 10px;
+                    padding: 5px;
+                    display: block;
+                    margin: auto;
+                    background-color: $blue-tertiary;
+                    color: $gray-tertiary;
+                }
+                .memberDetail{
+                    border: 1px solid $blue-tertiary;
+                    border-radius: 10px;
+                    background-color: $gray-tertiary;
+                    line-height: 30px;
+                    margin: 10px 0px;
+                }
             }
             .order_details_list{
                 width: 50%;

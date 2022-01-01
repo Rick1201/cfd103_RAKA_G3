@@ -23,6 +23,7 @@
                 top: 0;
                 right: -30px;
                 padding-top: 5px;
+                border-radius: 0px 10px 10px 0px;
             }
         }
         .member-side-bar{
@@ -214,7 +215,7 @@
         }
         .mem_cus_main{
             margin: auto;
-            width: 70%;
+            width: 90%;
             display: flex;
             flex-wrap: wrap;
             box-sizing: border-box;
