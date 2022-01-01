@@ -1,179 +1,364 @@
 @import "../mixin/mixin";
 @import "../base/var";
 @import "../base/base";
+
 .entzu01{
+    min-height: calc(100vh - 400px);
+    margin: 50px 0;
     .shoppage{
+        max-width: 1440px;
+        margin: auto;
         display: flex;
-        justify-content: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .item{
+            width:48%;
+            .item_detail{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                background: url(../images/bg.jpeg);
+                background-repeat: no-repeat;
+                margin: 0 0 30px;
+                border: 1px solid $gray-primary;
+                box-shadow: 10px 5px 10px 5px rgba(0,0,0,0.1);
+                img{
+                    width:30%;
+                    vertical-align: middle;
+                    background-color: $blue-tertiary;
+                }
+                .information{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    margin-left: 30px;
+                    flex-grow: 1;
+                    color: $blue-tertiary;
+                    h4{
+                        font-size: $fontSize-middle;
+                        margin-bottom: 30px;
+                        font-weight: 600;
+                    }
+                    .counter{
+                        display: flex;
+                        align-items: center;
+                        .count{
+                            display: flex;
+                            align-items: center;
+                            margin-right: 30px;
+                            .itemcount{
+                                background-color:$gray-primary;
+                                width: 80px;
+                                display: inline-block;
+                                text-align: center;
+                                font-size: $fontSize-middle;
+                                padding: 1.5px 0;
+                                font-weight: 600;
+                            }
+                            button{
+                                display: inline-block;
+                                border: none;
+                                background-color:$gray-primary;
+                                font-size: $fontSize-middle;
+                                padding: 0 5px;
+                            }
+                        }
+                    }
+                    span{
+                        font-weight: 600;
+                    }
+                }
+                dt{
+                    padding:0 20px 0 0;
+                    color:$blue-tertiary ;
+                }
+            }
+        }
+        .money_detail{
+            width: 48%;
+            background: url(../images/bg.jpeg);
+            background-repeat: no-repeat;
+            padding: 15px 30px;
+            align-self: flex-start;
+            position: sticky;
+            top: 30px;
+            border: 1px solid $gray-primary;
+            box-shadow: 10px 5px 10px 5px rgba(0,0,0,0.1);
+            .money{
+                .m01{
+                    h2{
+                        color:$blue-tertiary;
+                        font-size: $fontSize-SubTitle;
+                        font-weight: 600;
+                        padding: 10px 0;
+                        border-bottom: 2px solid $blue-secondary;
+                    }
+                }
+            }
+            .money01{
+                padding: 10px 0;
+                border-bottom: 1px solid $blue-secondary;
+                color: $blue-tertiary;
+                font-weight: 600;
+                font-size: $fontSize-middle;
+                .m02{
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 15px;
+                }
+                .m03{
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+            span{
+                font-size: $fontSize-SubTitle;
+                color: $blue-tertiary;
+                font-weight: 800;
+                display: block;
+                text-align: end;
+                margin-top: 50px;
+            }
+            a{
+                display: block;
+                text-align: end;
+                margin-top: 50px;
+                button{
+                    @include btnStyle($btnColor-primary,150px);
+                    font-size:$fontSize-middle;
+                    color: $blue-tertiary;
+                    font-weight: 600;
+                    height: 40px;
+                }
+            }
+
+        }
+
     }
-    .item{
-        display: flex;
-        flex-direction: column;
-    }
-    .item .item_detail{
-        display: flex;
-        align-items: center;
-        margin-top: 63px;
-        border: 1px solid black;
-        width: 538px;
-        height: 172px;
-        justify-content: center;
-        background-image: url('../images/bg.jpeg');
-        background-repeat: no-repeat;
-        background-size: 838px 172px;
-    }
-    .item img{
-        width: 20%;
-        background-color: #163257;
-    }
-    .item h4{
-        color:#163257;
-        padding-bottom: 10px;
-        font-weight: 900;
-    }
-    .qty{
-        width:50px;
-    }
-    .information{
-        display: flex; 
-        
-    }
-    .information span{
-       color:#163257;
-    }
-    dt{
-        position: relative;
-        left:60px;
-        bottom:5px;
-        color:#163257;
-    }
-    input.qtyplus {
-        width: 15px;
-        height: 25px;
-        border: 1px solid #aaa;
-        background: #f8f8f8;
-      }
-      
-    input.qtyminus {
-        width: 15px;
-        height: 25px;
-        border: 1px solid #aaa;
-        background: #f8f8f8;
-    }
-    .money_detail{
-        width: 400px;
-        height: 700px;
-        border: 1px solid black;
-        display: flex;
-        flex-direction: column;
-        margin-left: 10px;
-        background-image: url('../images/bg.jpeg');
-        background-repeat: no-repeat;
-        background-size: 529px 700px;
-    }
-    .money{
-        display: flex;
-        flex-direction: column;
-        width: 400px;
-        height: 50px;
-        align-items: center;
-    }
-    .money01{
-        width: 400px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .money02{
-        width: 400px;
-        display: flex;
-        flex-direction: column;
-    }
-    .m01{
-        display: flex;
-    }
-    .m02{
-        display: flex;
-        border-top: 1px solid black;
-        width:400px;
-    }
-    .m02 p{
-        color:#163257;
-        font-weight: 900;
-    }
-    .m02 p5{
-        position: relative;
-        left:215px;
-        color:#163257;
-        font-weight: 900;
-    }
-    .m01 h2{
-        position: relative;
-        top: 30px;
-        color:#163257;
-        font-size: 18px;
-        font-weight: 700;
-    }
-    .m03{
-        display: flex;
-        border-bottom: 1px solid black;
-        width:400px;
-        margin-top: 30px;
-        color:#163257;
-        font-weight: 900;
-    }
-    .m03 p5{
-        position: relative;
-        left: 280px;
-        color:#163257;
-        font-weight: 900;
-    }
-    .m05{
-        display: flex;
-    }
-    .m05 p{
-        color:#163257;
-        font-weight: 900;
-    }
-    .m05 p5{
-        position: relative;
-        left:215px;
-        color:#163257;
-        font-weight: 900;
-    }
-    .m06{
-        display: flex;
-        border-bottom: 1px solid black;
-        width:400px;
-        margin-top: 30px;
-        color:#163257;
-        font-weight: 900;
-    }
-    .m06 p5{
-        position: relative;
-        left:280px;
-        color:#163257;
-    }
-    .money03{
-        width: 400px;
-        height: 127px;
-        display: flex;
-        flex-direction: column;
-    }
-    .money_detail span{
-        text-align: end;
-        color:#163257;
-    }
-    .money_detail button{
-        width:100px;
-        position: relative;
-        left: 290px;
-        bottom: -10px;
-        @include btnStyle($btnColor-primary,100px);
-    }
-    .shoppage span{
-        color:#163257;
-        font-weight: 900;
-    }
-    
+
 }
+
+@media screen and (max-width:375px) {
+    .entzu01{
+        .shoppage{
+            flex-direction: column;
+            justify-content:unset;
+            .item{
+                width:95%;
+                margin: auto;
+                .item_detail{
+                    img{
+                        width:25%;
+                    }
+                    .information{
+                        .counter{
+                            .count{
+                                .itemcount{
+                                    width: 50px;
+                                }
+                                button{
+                                    padding: 0 5px;
+                                }
+                            }
+                        }
+                    }
+                    dt{
+                        padding:0 10px 0 0;
+                    }
+                }
+            }
+            .money_detail{
+                width: 95%;
+                margin: 20px auto 0;
+                position: static;
+                .money{
+                    .m01{
+                        h2{
+                            color:$blue-tertiary;
+                            font-size: $fontSize-SubTitle;
+                            font-weight: 600;
+                            padding: 10px 0;
+                            border-bottom: 2px solid $blue-secondary;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// .entzu01{
+//     .shoppage{
+//         display: flex;
+//         justify-content: center;
+//     }
+//     .item{
+//         display: flex;
+//         flex-direction: column;
+//     }
+//     .item .item_detail{
+//         display: flex;
+//         align-items: center;
+//         margin-top: 63px;
+//         border: 1px solid black;
+//         width: 538px;
+//         height: 172px;
+//         justify-content: center;
+//         background-image: url('../images/bg.jpeg');
+//         background-repeat: no-repeat;
+//         background-size: 838px 172px;
+//     }
+//     .item img{
+//         width: 20%;
+//         background-color: #163257;
+//     }
+//     .item h4{
+//         color:#163257;
+//         padding-bottom: 10px;
+//         font-weight: 900;
+//     }
+//     .qty{
+//         width:50px;
+//     }
+//     .information{
+//         display: flex; 
+        
+//     }
+//     .information span{
+//        color:#163257;
+//     }
+//     dt{
+//         position: relative;
+//         left:60px;
+//         bottom:5px;
+//         color:#163257;
+//     }
+//     input.qtyplus {
+//         width: 15px;
+//         height: 25px;
+//         border: 1px solid #aaa;
+//         background: #f8f8f8;
+//       }
+      
+//     input.qtyminus {
+//         width: 15px;
+//         height: 25px;
+//         border: 1px solid #aaa;
+//         background: #f8f8f8;
+//     }
+//     .money_detail{
+//         width: 400px;
+//         height: 700px;
+//         border: 1px solid black;
+//         display: flex;
+//         flex-direction: column;
+//         margin-left: 10px;
+//         background-image: url('../images/bg.jpeg');
+//         background-repeat: no-repeat;
+//         background-size: 529px 700px;
+//     }
+//     .money{
+//         display: flex;
+//         flex-direction: column;
+//         width: 400px;
+//         height: 50px;
+//         align-items: center;
+//     }
+//     .money01{
+//         width: 400px;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//     }
+//     .money02{
+//         width: 400px;
+//         display: flex;
+//         flex-direction: column;
+//     }
+//     .m01{
+//         display: flex;
+//     }
+//     .m02{
+//         display: flex;
+//         border-top: 1px solid black;
+//         width:400px;
+//     }
+//     .m02 p{
+//         color:#163257;
+//         font-weight: 900;
+//     }
+//     .m02 p5{
+//         position: relative;
+//         left:215px;
+//         color:#163257;
+//         font-weight: 900;
+//     }
+//     .m01 h2{
+//         position: relative;
+//         top: 30px;
+//         color:#163257;
+//         font-size: 18px;
+//         font-weight: 700;
+//     }
+//     .m03{
+//         display: flex;
+//         border-bottom: 1px solid black;
+//         width:400px;
+//         margin-top: 30px;
+//         color:#163257;
+//         font-weight: 900;
+//     }
+//     .m03 p5{
+//         position: relative;
+//         left: 280px;
+//         color:#163257;
+//         font-weight: 900;
+//     }
+//     .m05{
+//         display: flex;
+//     }
+//     .m05 p{
+//         color:#163257;
+//         font-weight: 900;
+//     }
+//     .m05 p5{
+//         position: relative;
+//         left:215px;
+//         color:#163257;
+//         font-weight: 900;
+//     }
+//     .m06{
+//         display: flex;
+//         border-bottom: 1px solid black;
+//         width:400px;
+//         margin-top: 30px;
+//         color:#163257;
+//         font-weight: 900;
+//     }
+//     .m06 p5{
+//         position: relative;
+//         left:280px;
+//         color:#163257;
+//     }
+//     .money03{
+//         width: 400px;
+//         height: 127px;
+//         display: flex;
+//         flex-direction: column;
+//     }
+//     .money_detail span{
+//         text-align: end;
+//         color:#163257;
+//     }
+//     .money_detail button{
+//         width:100px;
+//         position: relative;
+//         left: 290px;
+//         bottom: -10px;
+//         @include btnStyle($btnColor-primary,100px);
+//     }
+//     .shoppage span{
+//         color:#163257;
+//         font-weight: 900;
+//     }
+    
+// }

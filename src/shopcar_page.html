@@ -9,47 +9,48 @@
 </head>
 <body>
     @@include('./layout/header.html')
-<div class="entzu01" id="app">    
-    <section class="shoppage">
-        <div class="item">
-            <div class="item_detail" v-for="(item,index) in itemList" :key="item.id">
-                <!-- <input type="checkbox" name="star" value="1"> -->
-                <img :src="item.prodImg" alt="">
-                <h4>{{item.prodName}}</h4>
-                <div class="information">
-                    <button @click="handleSub(item,index)">-</button>
-                    {{item.count}}
-                    <button @click="handlePlus(item,index)">+</button>
-                    <span>${{item.prodPrice * item.count}}</span>
-                    <dt @click="handleDelete(item,index)">刪除</dt>
-               </div> 
+    <div class="entzu01" id="app">    
+        <section class="shoppage">
+            <div class="item">
+                <div class="item_detail" v-for="(item,index) in itemList" :key="item.Product_ID">
+                    <img :src="item.Product_PIC01" alt="">
+                    <div class="information">
+                        <h4>{{item.Product_Name}}</h4>
+                        <div class="counter">
+                            <div class="count">
+                                <button @click="handleSub(item,index)">-</button>
+                                <span class="itemcount">{{item.count}}</span>
+                                <button @click="handlePlus(item,index)">+</button>
+                            </div>
+                            <span>${{item.Product_Price * item.count}}</span>
+                        </div>
+                   </div>
+                   <dt @click="handleDelete(item,index)">刪除</dt>
+                </div>
             </div>
-        </div>
             <div class="money_detail">
                 <div class="money">
                     <div class="m01">
                         <h2>訂單金額</h2>
                     </div>
                 </div>
-                <div v-for="(item,index) in itemList2" :key="item.id">
-                    <div class="money01">    
-                        <div class="m02">
-                            <p>{{item.prodName}}</p>
-                            <p id="prodPrice">${{item.prodPrice}}</p>
-                        </div> 
-                        <div class="m03">
-                            <p>{{item.count}}個</p>
-                            <p id="sum">小計{{item.prodPrice * item.count}}</p>
-                        </div>
+                <div class="money01" v-for="(item,index) in itemList2" :key="item.Product_ID">    
+                    <div class="m02">
+                        <p>{{item.Product_Name}}</p>
+                        <p id="prodPrice">$ {{item.Product_Price}}</p>
+                    </div> 
+                    <div class="m03">
+                        <p>*{{item.count}}</p>
+                        <p id="sum">小計 {{item.Product_Price * item.count}}</p>
                     </div>
                 </div>
-             
-            <span>{{ total }}</span>
-            <a href="checkout_list.html">
-                <button>結帳</button>
-            </a>
-    </section>
-</div>   
+                <span>總計 $ {{total}}</span>
+                <a href="checkout_list.html" @click="updateCart">
+                    <button>結帳</button>
+                </a>
+            </div>
+        </section>
+    </div>   
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -92,12 +93,12 @@
                 return this.itemList
                 .filter(i => i.count)
                 .map(i => {
-                    i.sum = i.prodPrice * i.count
+                    i.sum = i.Product_Price  * i.count
                     return i
                 })
             },
             total (){
-                return this.itemList.reduce((sum, i) => (sum + (i.prodPrice * i.count)), 0)
+                return this.itemList.reduce((sum, i) => (sum + (i.Product_Price  * i.count)), 0)
             }
         },
         mounted(){

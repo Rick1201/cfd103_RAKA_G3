@@ -220,24 +220,24 @@
 					itemCount:'0',
 					content: 'info',
 					tabs:["商品資訊","規格","評論"],
-					products:{
-							id:'20',						
-							prodName:'海洋飛行PCB-01',
-							prodPrice:'6000',
-							prodImg:'./images/product_page_02.png',
-							count:1,
-						},
+					// products:{
+					// 		id:'20',						
+					// 		prodName:'海洋飛行PCB-01',
+					// 		prodPrice:'6000',
+					// 		prodImg:'./images/product_page_02.png',
+					// 		count:1,
+					// 	},
 					cart:null,
-					switchpic1:'./images/product_page_01.png',
-					switchpic2:'./images/product_page_02.png',
-					switchpic3:'./images/product_page_03.png',
-					switchpic4:'./images/product_page_04.png',
-					pagepic:'./images/product_page_01.png',
-					suggestpic:'./images/product_page_01.png',
-					title:[{
-						name:'RAKA-1001',
-						price:'NT$1200'
-					}],
+					// switchpic1:'./images/product_page_01.png',
+					// switchpic2:'./images/product_page_02.png',
+					// switchpic3:'./images/product_page_03.png',
+					// switchpic4:'./images/product_page_04.png',
+					// pagepic:'./images/product_page_01.png',
+					// suggestpic:'./images/product_page_01.png',
+					// title:[{
+					// 	name:'RAKA-1001',
+					// 	price:'NT$1200'
+					// }],
 					currentProudcut:{},
 					allProducts:null,
 				}
@@ -266,9 +266,9 @@
 						// 		this.cart.push(this.products[0]);
 						// 	}
 						// }
-						let index = this.cart.findIndex(item => item.id == this.products.id);
+						let index = this.cart.findIndex(item => item.Product_ID == this.currentProudcut.Product_ID);
 						if (index > -1) this.cart[index].count += 1;
-						else this.cart.push(this.products);
+						else this.cart.push(this.currentProudcut);
 				
 					}
 					localStorage.setItem("addList", JSON.stringify(this.cart));
@@ -277,11 +277,11 @@
 				fetchAllData(srcId){
                     axios.post("php/productList_page.php",{action:'fetchall'}).then(res=>
                     {
-						console.log(res.data);
 						this.allProducts=res.data;
 						for(let i =0;i<res.data.length;i++){
 							if(res.data[i].Product_ID == srcId){
 								this.currentProudcut = res.data[i];
+								this.currentProudcut = Object.assign({}, this.currentProudcut, {count: 1});
 							}
 						}
                     });

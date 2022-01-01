@@ -9,42 +9,40 @@
 </head>
 <body>
     @@include('./layout/header.html')
-    <div class="checklist01">
+    <div class="checklist01" id="app">
         <div class="check">
             <div class="payment-page-step-btn">
                 <p>填寫訂單</p>
             </div>
             <div class="payment-page-step-btn">
-                
-                    <p>確認付款</p>
-                
+                    <p>確認付款</p> 
             </div>
             <div class="payment-page-step-btn3">
-               
                 <p>訂單完成</p>
-                
             </div>
         </div>    
         <div class="client">
             <div class="clifor01">    
                 <div class="cinfor">
-                    <h3>收件人資訊</h3>
+                    <h2>收件人資訊</h2>
                 </div>
-                <div class="name">
-                    <label for="name">姓名:</label> <br>
-                    <input type="text" name="name" placeholder="" required autofocus/><br>
-                </div>
-                <div class="phone">    
-                    <label for="phone">電話:</label> <br>
-                    <input type="text" name="tel" placeholder="" /><br>
+                <div class="group">
+                    <div class="name">
+                        <label for="name">姓名:</label> <br>
+                        <input type="text" name="name" v-model="name" required autofocus/>
+                    </div>
+                    <div class="phone">    
+                        <label for="phone">電話:</label> <br>
+                        <input type="text" name="tel" v-model="tel" />
+                    </div>
                 </div>
                 <div class="address">
                     <label for="ar">地址:</label> <br>
-                    <input type="text" name="address" placeholder="" /><br>
+                    <input type="text" name="address" v-model="address" />
                 </div>
                 <div class="ps">
-                    <label for="ex">備註:</label> <br>
-                    <textarea name="ps"></textarea>
+                    <label for="ex">備註:</label><br>
+                    <textarea name="ps" v-model="ps" maxlength="100"></textarea>
                 </div>
                 <div class="member01">
                     <input type="checkbox" name="star" value="1">
@@ -57,67 +55,97 @@
                         <h2>確認訂單</h2>
                     </div>
                 </div>
-                <div class="money01">    
+                <div class="money01" v-for="(item,index) in itemList"
+                :key="item.Product_ID"
+                >    
                     <div class="m02">
-                    <p>海洋飛行PCB-01</p>
-                    <p2>$<span id="Wprice"></span></p2>
-                </div> 
-                <div class="m03">
-                    <p><span id="count">1</span>個</p>
-                    <p3>小計$<span id="prodPrice"></span></p3>
+                        <p>{{item.Product_Name}}</p>
+                        <p2>$<span id="Wprice">{{item.Product_Price}}</span></p2>
+                    </div> 
+                    <div class="m03">
+                        <p><span id="count">*{{item.count}}</span></p>
+                        <p3>小計$<span id="prodPrice">{{item.sum}}</span></p3>
+                    </div>
                 </div>
+                <div class="ship">
+                    <p>運送方式: 宅配</p>
+                    <p>運費: $90</p> 
+                    <span>總計$<span id="sum">{{total+90}}</span></span>
+                </div>    
+                <div class="buttonplace">    
+                    <a href="productList_page.html">
+                    <button>繼續購物</button>
+                    </a>
+                    <a href="shopcar_page_2.html">
+                    <button class="submitOrder" @click="submitOrder">送出訂單</button>
+                    </a>
+                </div>    
             </div>
-        <div class="ship">
-            <p>運送方式:宅配</p>
-            <p>運費:$90</p> 
-            <span>總計$<span id="sum"></span></span>
-        </div>    
-        <div class="buttonplace">    
-            <a href="productList_page.html">
-            <button>繼續購物</button>
-            </a>
-            <a href="shopcar_page_2.html">
-            <button class="submitOrder">送出訂單</button>
-            </a>
-        </div>    
+        </div>
     </div>
-</div>
 @@include('./layout/footer.html')   
 <script>
-    function Order(){
-        let name = document.getElementsByName("name")[0].value
-        let tel = document.getElementsByName("tel")[0].value
-        let address = document.getElementsByName("address")[0].value
-        let ps = document.getElementsByName("ps")[0].value
-        let orderInfo = {
-            oName : name,
-            oTel: tel,
-            oAddress: address,
-            oPs: ps,
-        };
-        // console.log(orderInfo);
-        localStorage.setItem("orderInfo", JSON.stringify(orderInfo));
-        // location.href = './shopcar_page_2.html';
 
-        //php
-        axios.post('./php/checkout_list.php',{
-					action:'fetchall',
-				}).then(res=>{
-					console.log(123)
-					this.products=res.data
-				})
-    }
-    function init(){
-        let addList = JSON.parse(localStorage.getItem('addList'));
-        addList[0].sum = addList[0].prodPrice * addList[0].count;
-        // document.getElementById('#sum').value =+ 90;
-        document.querySelector('#count').innerText = addList[0].count;
-        document.querySelector('#Wprice').innerText = addList[0].prodPrice;
-        document.querySelector('#prodPrice').innerText = addList[0].prodPrice * addList[0].count;
-        document.querySelector('#sum').innerText = addList[0].sum + 90;
-        document.querySelector('.submitOrder').onclick = Order;
-    }
-    window.addEventListener("load", init, false);
+new Vue({
+    el:"#app",
+    data:{
+        itemList:[],
+        name:"",
+        tel:"",
+        address:"",
+        ps:"",
+    },
+    methods: {
+        submitOrder(){
+            localStorage.setItem("orderInfo",JSON.stringify(this.orderInfo));
+        },
+    },
+    computed:{
+        total(){
+            return this.itemList.reduce((sum, i) => (sum + (i.Product_Price * i.count)), 0)
+        },
+       orderInfo(){
+            return {oName:this.name, oTel:this.tel,oAddress:this.address,oPs:this.ps,sum:this.total,total:this.total + 90};
+        },
+    },
+    mounted() {
+        this.itemList  = JSON.parse(localStorage.getItem('addList'));
+    },
+})
+    // function Order(){
+    //     let name = document.getElementsByName("name")[0].value
+    //     let tel = document.getElementsByName("tel")[0].value
+    //     let address = document.getElementsByName("address")[0].value
+    //     let ps = document.getElementsByName("ps")[0].value
+    //     let orderInfo = {
+    //         oName : name,
+    //         oTel: tel,
+    //         oAddress: address,
+    //         oPs: ps,
+    //     };
+    //     // console.log(orderInfo);
+    //     localStorage.setItem("orderInfo", JSON.stringify(orderInfo));
+    //     // location.href = './shopcar_page_2.html';
+
+    //     //php
+    //     axios.post('./php/checkout_list.php',{
+	// 				action:'fetchall',
+	// 			}).then(res=>{
+	// 				console.log(123)
+	// 				this.products=res.data
+	// 			})
+    // }
+    // function init(){
+    //     let addList = JSON.parse(localStorage.getItem('addList'));
+    //     addList[0].sum = addList[0].prodPrice * addList[0].count;
+    //     // document.getElementById('#sum').value =+ 90;
+    //     document.querySelector('#count').innerText = addList[0].count;
+    //     document.querySelector('#Wprice').innerText = addList[0].prodPrice;
+    //     document.querySelector('#prodPrice').innerText = addList[0].prodPrice * addList[0].count;
+    //     document.querySelector('#sum').innerText = addList[0].sum + 90;
+    //     document.querySelector('.submitOrder').onclick = Order;
+    // }
+    // window.addEventListener("load", init, false);
 </script>
 </body>
 </html>
