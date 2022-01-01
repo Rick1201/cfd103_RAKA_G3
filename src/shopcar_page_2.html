@@ -127,7 +127,6 @@
             axios.post("./php/shopcar_page2.php",
             {action:'fetchall'}).then(res=>{
             orderId = res.data[0].Order_ID;
-            console.log(orderId);
             for(let i = 0; i< addList.length; i++ ){
                 axios.post("./php/shopcar_page2.php",{
                 action:'insert',
