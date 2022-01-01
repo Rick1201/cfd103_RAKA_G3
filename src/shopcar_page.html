@@ -83,7 +83,7 @@
             handleDelete(item,index){
                 this.itemList.splice(index,1);
                 item.count = 0
-
+                this.updateCart();
             },
             updateCart(){
                 localStorage.setItem("addList", JSON.stringify(this.itemList),);
