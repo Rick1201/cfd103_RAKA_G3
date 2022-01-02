@@ -13,7 +13,7 @@
 		@@include('./layout/header.html')
 		
 		<div class="member-section" id="app"> 
-			<section class="member-select hidden">
+			<section class="member-select">
 				<div class="member-side-bar">
 					<header class="member-header">
 						<div class="member-img" style="width: 50px;">
@@ -82,16 +82,16 @@
 			<div class="member-content-comm-order">
 				<section class="member_order">
 					<div class="member_area">
-			
-				
 					<!-- 頁籤 -->
 					<!-- 會員資料 -->
-					<div class="member_container">                   
+					<div class="member_container">
+						<div class="select-title">
+							<h2>商品訂單</h2>
+						</div>
 						<div class="selectbar">
-								<div class="selectbarbtn" @click="visibility='all'">所有訂單</div>
-								<div class="selectbarbtn" @click="visibility='active'">已付款</div>
-								<div  class="selectbarbtn" @click="visibility='completed'">已出貨</div>
-				
+							<div class="selectbarbtn" @click="visibility='all'">所有訂單</div>
+							<div class="selectbarbtn" @click="visibility='active'">已付款</div>
+							<div class="selectbarbtn" @click="visibility='completed'">已出貨</div>
 						</div>
 						<div  v-for="(member, index) in filters" class="member" :key="index">
 							<div class="member_text">
@@ -119,23 +119,16 @@
 							</div>
 							<div class="member_status_bg" v-show="showItem(index + 1)">
 								<div class="order_details_list">
-									<div>
-										<div >
-											<div>
-												<div>訂單編號{{member.Order_ID}}</div>
-												<div>訂單狀態{{member.Order_Status == 0 ? '未出貨' : '已出貨'}}</div>	
-											</div>
-								
-											<div v-for="(item, index) in orderDetail" :key="index">
-												<div>商品名稱{{item.Product_Name}}</div>
-												<div>數量{{item.Order_Count}}</div>
-												<div>價錢{{item.Product_Price}}</div>
-											</div>
-											<div>總計{{member.Order_Total}}</div>
-											<div class="button">
-												<button @click="clickItem(index + 1)">返回訂單</button>
-											</div>
-										</div>
+									<div class="memberId item">訂單編號:{{member.Order_ID}}</div>
+									<div class="memberSta item">訂單狀態:{{member.Order_Status == 0 ? '未出貨' : '已出貨'}}</div>
+									<div v-for="(item, index) in orderDetail" :key="index" class="memberDetail item">
+										<div>商品名稱:{{item.Product_Name}}</div>
+										<div>數量:{{item.Order_Count}}</div>
+										<div>價錢:{{item.Product_Price}}</div>
+									</div>
+									<div class="memberTotal item">總計:{{member.Order_Total}}</div>
+									<div class="button">
+										<button @click="clickItem(index + 1)">返回訂單</button>
 									</div>
 								</div>
 							</div>
@@ -182,10 +175,14 @@
 			function closeBox(){
 				document.getElementById('lightbox').style.display = "none";
 			}
+			function memCenter(){
+					document.querySelector(".member-select").classList.toggle("active");
+				}
 			function init(){
 				document.getElementById("upFile").onchange = fileRead;
 				document.getElementById("editBox").onclick=showBox;
 				document.getElementById("closeBox").onclick=closeBox;
+				document.querySelector(".member-select").onclick = memCenter;
 			}
 			window.addEventListener("load", init, false);
 			</script>
@@ -307,7 +304,7 @@
 					},
 					XBox(){
 						document.getElementById('lightbox').style.display = "none";
-						location.href = "./member_comm_customize.html";
+						location.href = "./member_comm_order.html";
 					},
 					memSubmit(){
 						if(this.dir){

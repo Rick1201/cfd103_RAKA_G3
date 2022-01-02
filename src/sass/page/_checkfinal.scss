@@ -1,78 +1,177 @@
-.final .container{
-    margin: auto;
-}
-.word1{
-    margin: auto;
-}
-.final{
-    display: flex;
-    justify-content: center;
-    height: 785px;
-    width: 1000px;
-    margin: auto;
-    border: 1px solid black;
-    background-image: url('../images/bg.jpeg');
-    background-repeat: no-repeat;
-    background-size:2560px 985px;
-}
-.thanks h2{
-    color:#163257;
-    font-weight: 800;
-    font-size: 24px;
-}
-.thanks{
-    margin-bottom: 172px;
-}
-.checklist p{
-    color:#163257;
-    font-weight: 400;
-    font-size: 18px;
-    padding-bottom: 10px;
-}
-.final button{
-    @include btnStyle($btnColor-primary,100px);
-   
-}
-.check{
+.check3{
     width: 500px;
     margin: auto;
     display: flex;
     margin-bottom: 30px;
+    :nth-child(1).payment-page-step-btn{
+        width: 33.33333%;
+        height: 40px;
+        p{
+            line-height: 40px;
+            text-align: center;
+            color: black;
+        }
+        a{
+            text-decoration: none;
+        }
+    }
+    :nth-child(2).payment-page-step-btn{
+        width: 33.33333%;
+        height: 40px;    
+        border-radius: 30px;
+        p{
+            line-height: 40px;
+            text-align: center;
+            color: black;
+        }
+        a{
+            text-decoration: none;
+        }
+    }
+    :nth-child(3).payment-page-step-btn{
+        width: 33.33333%;
+        height: 40px;
+        background-color: $blue-tertiary;
+        color: $gray-secondary;
+        border: 1px solid $blue-tertiary;
+        border-radius: 30px;
+        p{
+            line-height: 40px;
+            text-align: center;
+        }
+    }
 }
-:nth-child(1).payment-page-step-btn{
-    width: 33.33333%;
-    height: 40px;
-    p{
-        line-height: 40px;
-        text-align: center;
-        color: black;
-    }
-    a{
-        text-decoration: none;
+.final{
+    max-width: 1000px;
+    min-height: calc(100vh - 420px);
+    margin:0 auto 50px;
+    background-image: url('../images/bg.jpeg');
+    background-repeat: no-repeat;
+    border: 1px solid $gray-primary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 10px 5px 10px 5px rgba(0,0,0,0.1);
+    .word1{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h2{
+            font-size: $fontSize-Title;
+            color: $blue-tertiary;
+            font-weight: 800;
+            margin-bottom: 50px;
+        }
+        .checklist{
+            p{
+                color: $blue-tertiary;
+                font-size:$fontSize-middle;
+                font-weight: 600;
+                margin-bottom: 10px
+            }
+        }
+        button{
+            @include btnStyle($btnColor-primary,150px);
+            font-size:$fontSize-middle;
+            font-weight: 600;
+            height: 40px;
+            margin: 80px 0 0 0;
+            display: block;
+            a{
+                display: block;
+                text-decoration: none;
+                color: $blue-tertiary;
+            }
+        }
     }
 }
-:nth-child(2).payment-page-step-btn{
-    width: 33.33333%;
-    height: 40px;    
-    border-radius: 30px;
-    p{
-        line-height: 40px;
-        text-align: center;
-        color: black;
+
+@media screen and (max-width:375px) {
+    .check3{
+        width: 300px;
     }
-    a{
-        text-decoration: none;
+    .final{
+        width: 95%;
+        margin: auto;
+        margin-bottom: 50px;
     }
 }
-:nth-child(3).payment-page-step-btn{
-    width: 33.33333%;
-    height: 40px;
-    background-color: $blue-tertiary;
-    color: $gray-secondary;
-    border: 1px solid $blue-tertiary;
-    border-radius: 30px;
-    p{
-        line-height: 40px;
-        text-align: center;
-    }
-}
+// .final .container{
+//     margin: auto;
+// }
+// .word1{
+//     margin: auto;
+// }
+// .final{
+//     display: flex;
+//     justify-content: center;
+//     height: 785px;
+//     width: 1000px;
+//     margin: auto;
+//     border: 1px solid black;
+//     background-image: url('../images/bg.jpeg');
+//     background-repeat: no-repeat;
+//     background-size:2560px 985px;
+// }
+// .thanks h2{
+//     color:#163257;
+//     font-weight: 800;
+//     font-size: 24px;
+// }
+// .thanks{
+//     margin-bottom: 172px;
+// }
+// .checklist p{
+//     color:#163257;
+//     font-weight: 400;
+//     font-size: 18px;
+//     padding-bottom: 10px;
+// }
+// .final button{
+//     @include btnStyle($btnColor-primary,100px);
+   
+// }
+// .check{
+//     width: 500px;
+//     margin: auto;
+//     display: flex;
+//     margin-bottom: 30px;
+// }
+// :nth-child(1).payment-page-step-btn{
+//     width: 33.33333%;
+//     height: 40px;
+//     p{
+//         line-height: 40px;
+//         text-align: center;
+//         color: black;
+//     }
+//     a{
+//         text-decoration: none;
+//     }
+// }
+// :nth-child(2).payment-page-step-btn{
+//     width: 33.33333%;
+//     height: 40px;    
+//     border-radius: 30px;
+//     p{
+//         line-height: 40px;
+//         text-align: center;
+//         color: black;
+//     }
+//     a{
+//         text-decoration: none;
+//     }
+// }
+// :nth-child(3).payment-page-step-btn{
+//     width: 33.33333%;
+//     height: 40px;
+//     background-color: $blue-tertiary;
+//     color: $gray-secondary;
+//     border: 1px solid $blue-tertiary;
+//     border-radius: 30px;
+//     p{
+//         line-height: 40px;
+//         text-align: center;
+//     }
+// }

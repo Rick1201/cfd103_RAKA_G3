@@ -23,6 +23,7 @@
                 top: 0;
                 right: -30px;
                 padding-top: 5px;
+                border-radius: 0px 10px 10px 0px;
             }
         }
         .member-side-bar{
@@ -214,11 +215,17 @@
         }
         .mem_cus_main{
             margin: auto;
-            width: 70%;
-            display: flex;
-            flex-wrap: wrap;
+            width: 80%;
             box-sizing: border-box;
             font-family: $fontStyle-primary;
+            h2{
+                border-bottom: 2px solid $blue-primary;
+                display: inline;
+                font-size: $fontSize-SubTitle;
+                color: $blue-primary;
+                font-weight: 600;
+                padding: 5px;
+            }
             .mem_cus_body{
                 width: 35%;
                 border: 1px solid gray;
