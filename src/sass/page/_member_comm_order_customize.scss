@@ -378,8 +378,15 @@
                     width: 80%;
                 }
                 .formitem{
+                    color: $blue-tertiary;
+                    .total-price{
+                        text-align: center;
+                        font-weight: 600;
+                    }
                     h2{
                         font-size: 28px;
+                        font-weight: 600;
+                        color: $blue-tertiary;
                     }
                     .row{
                         margin: auto;
@@ -390,25 +397,39 @@
                         align-items: start;
                         h3{
                             font-size: 20px;
+                            font-weight: 600;
+                            padding: 10px;
                         }
                         .info-2{
+                            margin-bottom: 10px;
+                            padding: 5px;
                             line-height: 30px;
                             display: flex;
                             flex-wrap: wrap;
+                            color: $blue-tertiary;
                             .watchinfo-title{
-                                border-bottom: 2px solid $blue-tertiary;
+                                border-left: 2px solid $blue-tertiary;
                                 font-weight: 600;
                                 font-size: $fontSize-middle;
                                 color: $blue-tertiary;
                                 display: inline;
+                                padding: 5px;
                             }
                             .watchinfo{
                                 margin-left: 20px;
+                                line-height: 40px;
+                            }
+                            .funitem{
+                                line-height: 50px;
                             }
                             .info-item{
                                 display: flex;
+                                @include mobile{
+                                    flex-direction: column;
+                                }
                                 ol li{
                                     text-align: start;
+                                    line-height: 50px;
                                 }
                             }
                             .worditem{
@@ -416,6 +437,12 @@
                             }
                             .color-item{
                                 display: flex;
+                                .box-color{
+                                    margin: 10px;
+                                }
+                                .rib-color{
+                                    margin: 10px;
+                                }
                             }
                         }
                     }
