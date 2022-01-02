@@ -129,10 +129,11 @@
 }
 @media screen and (max-width:375px){
     .game{
+        position: relative;
         margin-bottom: 200px;
         .startbtn{
             position: absolute;
-            top: 48%;
+            top: 100%;
             left: 30%;
             h1{
                 border-bottom: 1px solid #aaa;
