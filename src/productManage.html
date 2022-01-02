@@ -812,6 +812,7 @@
 							}).then(res=>{
 								this.fetchAllDate()
 								this.resetProduct()
+								alert("新增成功")
 							})
 						}else{
 							alert("請填入資料")
@@ -889,7 +890,7 @@
 								}
 						}).then(res=>{
 							this.fetchAllDate()
-							alert(res.data)
+							alert(res.data.message)
 						})
 					},
 					editImage(item,index){
@@ -980,21 +981,21 @@
 					// 	})
                     //    this.resetProduct()
                     // },
-                    //  resetProduct(){
-                    //     this.newProduct.Product_ID= ""
-                    //     this.newProduct.Product_Name= "",
-                    //     this.newProduct.Product_Price= 0,
-                    //     this.newProduct.Product_MType= "",
-                    //     this.newProduct.Product_BType= "",
-                    //     this.newProduct.Product_CType= "",
-                    //     this.newProduct.Product_Info= "",
-                    //     this.newProduct.Product_Spec= "",
-                    //     this.newProduct.Product_PIC1= "",
-					// 	this.newProduct.Product_PIC2= "",
-					// 	this.newProduct.Product_PIC3= "",
-					// 	this.newProduct.Product_PIC4= "",
-                    //     this.newProduct.Product_Status= 0   
-                    //  },
+                     resetProduct(){
+                        this.newProduct.Product_ID= ""
+                        this.newProduct.Product_Name= "",
+                        this.newProduct.Product_Price= 0,
+                        this.newProduct.Product_MType= "",
+                        this.newProduct.Product_BType= "",
+                        this.newProduct.Product_CType= "",
+                        this.newProduct.Product_Info= "",
+                        this.newProduct.Product_Spec= "",
+                        this.newProduct.Product_PIC1= "",
+						this.newProduct.Product_PIC2= "",
+						this.newProduct.Product_PIC3= "",
+						this.newProduct.Product_PIC4= "",
+                        this.newProduct.Product_Status= 0   
+                     },
                     //  getFiles(e){
                     //     let files = e.target.files
                     //     if(!files.length)return;
