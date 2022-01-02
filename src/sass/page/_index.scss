@@ -258,6 +258,7 @@ body{
         justify-content: center;
         flex-wrap: wrap;
         margin: auto;
+        text-decoration: none;
         @include mobile{
             width: 375px;
             flex-wrap: wrap;
