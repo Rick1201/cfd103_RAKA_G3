@@ -1,154 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/style.css"/>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.8.1/axios.js' integrity='sha512-yQvhnV+bdDcAhyxTlmVUyNikQCtnIkfC9r7GesIjLg6IrJx2M92DSv58LpyobngV7WUeM1c3mpgP0971pIY98A==' crossorigin='anonymous'></script>
-</head>
-<body>
-    @@include('./layout/header.html')
-    <div class="check2">
-        <div class="payment-page-step-btn">
-                <p>填寫訂單</p>
-        </div>
-        <div class="payment-page-step-btn">
-            <p>確認付款</p>
-        </div>
-        <div class="payment-page-step-btn5">
-                <p>訂單完成</p>
-        </div>
-    </div>
-    <section class="payment-page">
-        <div class="receiver-box">
-            <table class="receiver-tb">
-                <th>收件人訊息</th>
-                <tr>
-                    <td class="receiver-title">姓名:</td>
-                    <td id="name">張三</td>
-                </tr>
-                <tr>
-                    <td class="receiver-title">地址:</td>
-                    <td id="address">台北區大安區忠孝東路三段</td>
-                </tr>
-                <tr>
-                    <td class="receiver-title">電話:</td>
-                    <td id="phone">0900-111-222</td>
-                </tr>
-                <tr>
-                    <td class="receiver-title">備註:</td>
-                    <td id="ps">仔細檢查鏡面有無刮痕</td>
-                </tr>
-            </table>
-        </div>
-        <div class="order-box">
-            <table class="order-tb">
-                <th>訂單資料</th>
-                <tr>
-                    <td class="order-title">商品金額</td>
-                    <td>$7,000</td>
-                </tr>
-                <tr>
-                    <td class="order-title">運費</td>
-                    <td>$90</td>
-                </tr>
-                <tr>
-                    <td class="order-title">總金額</td>
-                    <td>$7,090</td>
-                </tr>
-            </table>
-        </div>
-        <div class="payment-box">
-            <table class="payment-tb">
-                <th>付款資訊</th>
-                <tr class="payment-title">
-                    <td>付款方式</td>
-                    <td>
-                        <select>
-                            <option value="">信用卡</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="payment-title">信用卡號碼</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td class="payment-title">效期</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td class="payment-title">檢查碼</td>
-                    <td><input type="text"></td>
-                </tr>
-            </table>
-        </div>
-        <div class="payment-page-btn-box">
-            <button class="payment-page-btn">
-                <a href="checkout_list.html">
-                修改訂單資訊
-                </a>
-            </button>
-            <button class="payment-page-btn" id="submitOrder">
-                <a href="./Ccheckout_final.html">
-                確認付款
-                </a>
-            </button>
-        </div>
-    </section>
-    <script>
-        function submitOrder(){
-            let cuziwatch = JSON.parse(localStorage.getItem('cuziwatch'));
-            let cuzInfo = JSON.parse(localStorage.getItem('cuzInfo'));
-            let memId = JSON.parse(localStorage.getItem('memberID'));
-            let finishWatch = JSON.parse(localStorage.getItem("cuzFinishWatch"));
-            let finishPackage = JSON.parse(localStorage.getItem("cuzFinishPackage"));
-            axios.post('./php/cuzFinal.php',{
-            action:'insert',
-            id:memId.Member_ID,
-            price:7000,
-            ship:90,
-            sum:7090,
-            total:7090,
-            cuzName:cuziwatch.cuzName,
-            bandName:cuziwatch.currentBandName,
-            bezelName:cuziwatch.currentBezelName,
-            faceName:cuziwatch.currentFaceName,
-            pointName:cuziwatch.currentPointName,
-            fun1Name:cuziwatch.currentFun1Name,
-            fun2Name:cuziwatch.currentFun2Name,
-            fun3Name:cuziwatch.currentFun3Name,
-            diveFun:cuziwatch.diveFun,
-            fontSize:cuziwatch.currentFontSize,
-            font:cuziwatch.currentFont,
-            msg:cuziwatch.currentMsg,
-            ribbonBtn:cuziwatch.currentRibbonBtn,
-            boxBtn:cuziwatch.currentBoxBtn,
-            // ---
-            cAddress:cuzInfo.cAddress,
-            cName:cuzInfo.cName,
-            cPs:cuzInfo.cPs,
-            cTel:cuzInfo.cTel,
-            // ---
-            finishWatch: finishWatch,
-            finishPackage: finishPackage
-
-            }).then(res=>{
-				console.log(res.data);
-            })
-
-        }
-        function init(){
-            let cuzInfo = JSON.parse(localStorage.getItem('cuzInfo'));
-            document.querySelector('#name').innerText = cuzInfo.cName;
-            document.querySelector('#address').innerText = cuzInfo.cAddress;
-            document.querySelector('#phone').innerText = cuzInfo.cTel;
-            document.querySelector('#ps').innerText = cuzInfo.cPs;
-            document.querySelector('#submitOrder').onclick = submitOrder;
-        }
-        window.addEventListener("load", init, false);
-    </script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>會員中心</title>
+		<link rel="stylesheet" href="./css/style.css" />
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.8.1/axios.js"
+			integrity="sha512-yQvhnV+bdDcAhyxTlmVUyNikQCtnIkfC9r7GesIjLg6IrJx2M92DSv58LpyobngV7WUeM1c3mpgP0971pIY98A=="
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+		@@include('./layout/header.html')
+		<div class="check2">
+			<div class="payment-page-step-btn">
+				<p>填寫訂單</p>
+			</div>
+			<div class="payment-page-step-btn">
+				<p>確認付款</p>
+			</div>
+			<div class="payment-page-step-btn5">
+				<p>訂單完成</p>
+			</div>
+		</div>
+		<section class="payment-page">
+			<div class="receiver-box">
+				<table class="receiver-tb">
+					<th>收件人訊息</th>
+					<tr>
+						<td class="receiver-title">姓名:</td>
+						<td id="name">張三</td>
+					</tr>
+					<tr>
+						<td class="receiver-title">地址:</td>
+						<td id="address">台北區大安區忠孝東路三段</td>
+					</tr>
+					<tr>
+						<td class="receiver-title">電話:</td>
+						<td id="phone">0900-111-222</td>
+					</tr>
+					<tr>
+						<td class="receiver-title">備註:</td>
+						<td id="ps">仔細檢查鏡面有無刮痕</td>
+					</tr>
+				</table>
+			</div>
+			<div class="order-box">
+				<table class="order-tb">
+					<th>訂單資料</th>
+					<tr>
+						<td class="order-title">商品金額</td>
+						<td>$7,000</td>
+					</tr>
+					<tr>
+						<td class="order-title">運費</td>
+						<td>$90</td>
+					</tr>
+					<tr>
+						<td class="order-title">總金額</td>
+						<td>$7,090</td>
+					</tr>
+				</table>
+			</div>
+			<div class="payment-box">
+				<table class="payment-tb">
+					<th>付款資訊</th>
+					<tr class="payment-title">
+						<td>付款方式</td>
+						<td>
+							<select>
+								<option value="">信用卡</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td class="payment-title">信用卡號碼</td>
+						<td><input type="text" /></td>
+					</tr>
+					<tr>
+						<td class="payment-title">效期</td>
+						<td><input type="text" /></td>
+					</tr>
+					<tr>
+						<td class="payment-title">檢查碼</td>
+						<td><input type="text" /></td>
+					</tr>
+				</table>
+			</div>
+			<div class="payment-page-btn-box">
+				<button class="payment-page-btn">
+					<a href="checkout_list.html"> 修改訂單資訊 </a>
+				</button>
+				<button class="payment-page-btn" id="submitOrder">
+					<a href="./Ccheckout_final.html"> 確認付款 </a>
+				</button>
+			</div>
+		</section>
+		<script>
+			function submitOrder() {
+				let cuziwatch = JSON.parse(localStorage.getItem("cuziwatch"));
+				let cuzInfo = JSON.parse(localStorage.getItem("cuzInfo"));
+				let memId = JSON.parse(localStorage.getItem("memberID"));
+				let finishWatch = JSON.parse(localStorage.getItem("cuzFinishWatch"));
+				let finishPackage = JSON.parse(
+					localStorage.getItem("cuzFinishPackage")
+				);
+				axios
+					.post("./php/cuzFinal.php", {
+						action: "insert",
+						id: memId.Member_ID,
+						price: 7000,
+						ship: 90,
+						sum: 7090,
+						total: 7090,
+						cuzName: cuziwatch.cuzName,
+						bandName: cuziwatch.currentBandName,
+						bezelName: cuziwatch.currentBezelName,
+						faceName: cuziwatch.currentFaceName,
+						pointName: cuziwatch.currentPointName,
+						fun1Name: cuziwatch.currentFun1Name,
+						fun2Name: cuziwatch.currentFun2Name,
+						fun3Name: cuziwatch.currentFun3Name,
+						diveFun: cuziwatch.diveFun,
+						fontSize: cuziwatch.currentFontSize,
+						font: cuziwatch.currentFont,
+						msg: cuziwatch.currentMsg,
+						ribbonBtn: cuziwatch.currentRibbonBtn,
+						boxBtn: cuziwatch.currentBoxBtn,
+						// ---
+						cAddress: cuzInfo.cAddress,
+						cName: cuzInfo.cName,
+						cPs: cuzInfo.cPs,
+						cTel: cuzInfo.cTel,
+						// ---
+						finishWatch: finishWatch,
+						finishPackage: finishPackage,
+					})
+					.then((res) => {
+						console.log(res.data);
+					});
+			}
+			function init() {
+				let cuzInfo = JSON.parse(localStorage.getItem("cuzInfo"));
+				document.querySelector("#name").innerText = cuzInfo.cName;
+				document.querySelector("#address").innerText = cuzInfo.cAddress;
+				document.querySelector("#phone").innerText = cuzInfo.cTel;
+				document.querySelector("#ps").innerText = cuzInfo.cPs;
+				document.querySelector("#submitOrder").onclick = submitOrder;
+			}
+			window.addEventListener("load", init, false);
+		</script>
+	</body>
 </html>
