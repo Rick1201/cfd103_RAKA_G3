@@ -16,8 +16,119 @@
 	<body>
 		@@include('./layout/header.html')
 		<div id="app">
+			<section class="finishwave">
+				<div class="wave"></div>
+			</section>
+			<section class="finishpage">
+				<div class="finish-container">
+					<div class="productitem">
+						<div class="pic-gift" id="giftDiv">
+							<img class="giftheight" src="./images/box03.png"/>
+							<div class="giftboxpic">
+								<img :src="getjsons.currentBoxImg"/>
+								<img
+									class="giftribbonpic"
+									:src="getjsons.currentRibbonImg"/>
+							</div>
+						</div>
+						<div class="pic-watch" id="watchDiv">
+							<img class="watchheight" src="./images/band01.png" />
+							<div class="currentBand">
+								<img :src="getjsons.currentBand" />
+								<img class="currentBezel" :src="getjsons.currentBezel" />
+								<img class="currentFace" :src="getjsons.currentFace" />
+								<img class="currentFun1" :src="getjsons.currentFun1" />
+								<img class="currentFun2" :src="getjsons.currentFun2" />
+								<img class="currentFun3" :src="getjsons.currentFun3" />
+								<img class="currentPoint" :src="getjsons.currentPoint" />
+							</div>
+						</div>
+					</div>
+					<div class="formitem">
+						<h2>客製品項明細</h2>
+						<div class="row">
+							<h3>外觀</h3>
+							<div class="info-2">
+								<div class="watchinfo">錶框</div>
+								<div class="watchinfo">{{getjsons.currentBezelName}}</div>
+							</div>
+							<div class="info-2">
+								<div class="watchinfo">錶面</div>
+								<div class="watchinfo">{{getjsons.currentFaceName}}</div>
+							</div>
+							<div class="info-2">
+								<div class="watchinfo">錶帶</div>
+								<div class="watchinfo">{{getjsons.currentBandName}}</div>
+							</div>
+							<div class="info-2">
+								<div class="watchinfo">指針</div>
+								<div class="watchinfo">{{getjsons.currentPointName}}</div>
+							</div>
+							<div class="info-2">
+								<h3>功能錶盤</h3>
+								<div class="info-item">
+									<div class="info-pic">
+										<img src="./images/finishfunpic.png">
+									</div>
+									<div class="info-txt">
+										<ol>
+											<li>1、{{getjsons.currentFun1Name}}</li>
+											<li>2、{{getjsons.currentFun2Name}}</li>
+											<li>3、{{getjsons.currentFun3Name}}</li>
+										</ol>
+									</div>
+								</div>
+							</div>
+							<div class="info-2">
+								<h3>潛水規格需求</h3>
+								<div class="funitem">
+									<p>{{getjsons.diveFun}}</p>
+								</div>
+							</div>
+							<div class="info-2">
+								<h3>刻字服務</h3>
+								<div class="worditem">
+									<ol>
+										<li>1、字體:{{getjsons.currentFont}}</li>
+										<li>2、字體大小:{{getjsons.currentFontSize}}</li>
+										<li>3、刻字內容:{{getjsons.currentMsg}}</li>
+									</ol>
+								</div>
+							</div>
+							<div class="info-2">
+								<h3>包裝</h3>
+								<div class="color-item">
+									<div class="box-color">
+										<div class="txt">
+											<p>外盒顏色</p>
+										</div>
+										<div class="pic">
+											<img :src="getjsons.currentBoxBtn">
+										</div>
+									</div>
+									<div class="rib-color">
+										<div class="txt">
+											<p>緞帶顏色</p>
+										</div>
+										<div class="pic">
+											<img :src="getjsons.currentRibbonBtn">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="total-price">
+							<p>商品金額 $7000元</p>
+						</div>
+					</div>
+					<div class="finish-btn">
+						<button @click="screenshot">下訂單</button>
+					</div>
+
+				</div>
+			</section>
 			<!-- HTML DOM template -->
-			<section class="finshpage">
+			<!-- <section class="finshpage">
 				<div class="containerGrid">
 					<div class="row center">
 						<div class="col-12">
@@ -156,7 +267,7 @@
 						</div>
 					</div>
 				</div>
-			</section>
+			</section> -->
 		</div>
 		@@include('./layout/footer.html')
 		<script
