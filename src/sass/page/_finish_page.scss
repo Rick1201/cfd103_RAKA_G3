@@ -34,6 +34,32 @@
             .watchheight{
                 width: 100%;
             }
+            .currentBand{
+                .currentFun1{
+                    position: absolute;
+                    top: 42%;
+                    left: 46.5%;
+                    right: 0;
+                    bottom: 0;
+                    width: 8%;
+                }
+                .currentFun2{
+                    position: absolute;
+                    top: 50%;
+                    left: 53.5%;
+                    right: 0;
+                    bottom: 0;
+                    width: 8%;
+                }
+                .currentFun3{
+                    position: absolute;
+                    top: 50%;
+                    left: 39.5%;
+                    right: 0;
+                    bottom: 0;
+                    width: 8%;
+                }
+            }
             .currentBand img{
                 width: 100%;
                 position: absolute;
@@ -42,6 +68,7 @@
                 right: 0;
                 bottom: 0;
                 // transform: translate(50%,0%);
+                
             }
         }
         .formitem{
