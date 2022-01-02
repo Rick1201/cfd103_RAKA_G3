@@ -377,6 +377,49 @@
                 @include mobile{
                     width: 80%;
                 }
+                .formitem{
+                    h2{
+                        font-size: 28px;
+                    }
+                    .row{
+                        margin: auto;
+                        width: 80%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: start;
+                        align-items: start;
+                        h3{
+                            font-size: 20px;
+                        }
+                        .info-2{
+                            line-height: 30px;
+                            display: flex;
+                            flex-wrap: wrap;
+                            .watchinfo-title{
+                                border-bottom: 2px solid $blue-tertiary;
+                                font-weight: 600;
+                                font-size: $fontSize-middle;
+                                color: $blue-tertiary;
+                                display: inline;
+                            }
+                            .watchinfo{
+                                margin-left: 20px;
+                            }
+                            .info-item{
+                                display: flex;
+                                ol li{
+                                    text-align: start;
+                                }
+                            }
+                            .worditem{
+                                text-align: start;
+                            }
+                            .color-item{
+                                display: flex;
+                            }
+                        }
+                    }
+                }
                 button{
                     background-color: $blue-tertiary;
                     color: $gray-tertiary;
