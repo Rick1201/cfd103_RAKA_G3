@@ -87,12 +87,14 @@
 				
 					<!-- 頁籤 -->
 					<!-- 會員資料 -->
-					<div class="member_container">                   
+					<div class="member_container">
+						<div class="select-title">
+							<h2>客製化訂單</h2>
+						</div>              
 						<div class="selectbar">
 								<div class="selectbarbtn" @click="visibility='all'">所有訂單</div>
 								<div class="selectbarbtn" @click="visibility='active'">已付款</div>
 								<div  class="selectbarbtn" @click="visibility='completed'">已出貨</div>
-				
 						</div>
 						<div  v-for="(member, index) in filters" class="member" :key="index">
 							<div class="member_text">
@@ -160,11 +162,11 @@
 												 </div>
 												 <div class="col-6 item">
 												  <div>錶框</div>
-												  <div>{{currentobj.Customize_Total}}</div>
+												  <div>{{currentobj.WOuter_Name}}</div>
 												 </div>
 												 <div class="col-6 item">
 												  <div>錶面</div>
-												  <div>{{currentobj.WOuter_Name}}</div>
+												  <div>{{currentobj.WFace_Name}}</div>
 												 </div>
 												 <div class="col-6 item">
 												  <div>錶帶</div>
@@ -178,14 +180,14 @@
 												  <div class="featuretitle">
 												   <h2>功能表盤</h2>
 												   <div class="row featureitem">
-													<div class="col-6 featurepic">
+													<!-- <div class="col-6 featurepic"> -->
 													 <!-- <img src="./images/finishfunpic.png" /> -->
-													</div>
+													<!-- </div> -->
 													<div class="col-6 featuretxt">
 													 <ol>
-													  <li>{{cus.WPointer_Name}}</li>
-													  <li>{{cus.WPointer_Name}}</li>
-													  <li>{{cus.WPointer_Name}}</li>
+													  <li>{{currentobj.funcName1}}</li>
+													  <li>{{currentobj.funcName2}}</li>
+													  <li>{{currentobj.funcName3}}</li>
 													 </ol>
 													</div>
 												   </div>
@@ -196,7 +198,7 @@
 												   <h2>潛水規格需求</h2>
 												   <div class="row featureitem">
 													<div class="col-12">
-													 <p>{{cus.WPointer_Name}}</p>
+													 <p>{{currentobj.Div_Name}}</p>
 													</div>
 												   </div>
 												  </div>
