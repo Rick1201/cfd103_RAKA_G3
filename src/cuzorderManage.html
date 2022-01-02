@@ -224,7 +224,7 @@
 														:data-bs-target="`#order_item_${index}`"
 														@click="fetchSingle(product.Order_ID)"
 													>
-														查看訂單項目
+														查看客製細項
 													</button>
 												</td>
 											</tr>
@@ -366,6 +366,14 @@
 				},
 				created() {
 					this.fetchAllDate();
+				},
+				mounted() {
+					//確認是否LOCAL有存會員ID
+					let memlogin = JSON.parse(localStorage.getItem("memberID"));
+					if (memlogin !== null ) {
+					} else {
+						location.href = "./backLogin_page.html";
+					}
 				},
 			});
 		</script>
