@@ -548,6 +548,15 @@
 				created() {
 					this.fetchAllDate();
 				},
+				mounted() {
+					//確認是否LOCAL有存會員ID
+					let memlogin = JSON.parse(localStorage.getItem("memberID"));
+					if (memlogin) {
+						location.href = "./wfucManage.html";
+					} else {
+						location.href = "./backLogin_page.html";
+					}
+				},
                 
 			});
 		</script>
