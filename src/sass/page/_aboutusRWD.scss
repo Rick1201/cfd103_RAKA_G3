@@ -99,6 +99,7 @@
     }
     .secret_word{
         margin-top: 60px;
+        line-height: 26px;
     }
     .secret_word p{
         font-size: 18px;
@@ -112,8 +113,10 @@
     }
     .pservice{
         margin-left: 0%;
-        bottom: 110px;
+        bottom: 131px;
         position: relative;
+        margin-right: 23px;
+        text-align: end;
     }
     .pservice h2{
         font-size: 18px;
@@ -139,21 +142,21 @@
         left:0;
     }
     .mission_word p{
-        line-height: unset;
+        line-height: 25px;
     }
     .our_vision{
         top:15px;
         left:0;
     }
     .vision_word p{
-        line-height: unset;
+        line-height: 25px;
     }
     .our_values{
         top:0;
         left: 0;
     }
     .values_word p{
-        line-height: unset;
+        line-height: 25px;
     }
     .values_word h4{
         margin-top: 60px;
@@ -188,19 +191,29 @@
     .map{
         display: grid;
         margin: auto;
+        width: 80%;
+    }
+    .map_word h3{
+        line-height: 40px;
     }
     .map_word p2{
         font-size: 13.5px;
         padding-left: unset;
         padding-right: unset;
         position: relative;
-        left:18px;
+        // left:18px;
+        line-height: 40px;
     }
+    // .map_word p{
+    //     padding: unset;
+    // }
     .map_word span{
         font-size: 13.5px;
+        display: block;
+        margin-bottom: 20px;
     }
     iframe{
-        width: 200px;
+        width: 100%;
         height: 200px;
     }
     .form_zone{
