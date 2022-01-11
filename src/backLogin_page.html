@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>BackStage Login</title>
+		<title>RAKA｜後台登入</title>
 		<link rel="stylesheet" href="./css/style.css" />
 	</head>
 	<body>
@@ -85,12 +85,13 @@
 					fetchAllDate() {
 						axios
 							.post("./php/backlogin.php", {
-								action: "fetchSingle", //資料參數丟過去ajaxLogin.php
+								action: "fetchSingle",
 								memAcc: this.manager.account,
 								memPsw: this.manager.password,
 							})
 							.then((res) => {
-								if (res.data.Manager_ID > 0) {
+								if (res.data.Manager_ID !== null) {
+									localStorage.setItem("memberID", JSON.stringify(res.data));
 									location.href = "orderManage.html";
 								} else {
 									alert("帳密錯誤，請重新輸入");

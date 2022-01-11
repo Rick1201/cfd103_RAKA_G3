@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>後台管理頁面</title>
+		<title>RAKA｜後台管理頁面</title>
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
 			rel="stylesheet"
@@ -812,6 +812,7 @@
 							}).then(res=>{
 								this.fetchAllDate()
 								this.resetProduct()
+								alert("新增成功")
 							})
 						}else{
 							alert("請填入資料")
@@ -889,7 +890,7 @@
 								}
 						}).then(res=>{
 							this.fetchAllDate()
-							alert(res.data)
+							alert(res.data.message)
 						})
 					},
 					editImage(item,index){
@@ -980,21 +981,21 @@
 					// 	})
                     //    this.resetProduct()
                     // },
-                    //  resetProduct(){
-                    //     this.newProduct.Product_ID= ""
-                    //     this.newProduct.Product_Name= "",
-                    //     this.newProduct.Product_Price= 0,
-                    //     this.newProduct.Product_MType= "",
-                    //     this.newProduct.Product_BType= "",
-                    //     this.newProduct.Product_CType= "",
-                    //     this.newProduct.Product_Info= "",
-                    //     this.newProduct.Product_Spec= "",
-                    //     this.newProduct.Product_PIC1= "",
-					// 	this.newProduct.Product_PIC2= "",
-					// 	this.newProduct.Product_PIC3= "",
-					// 	this.newProduct.Product_PIC4= "",
-                    //     this.newProduct.Product_Status= 0   
-                    //  },
+                     resetProduct(){
+                        this.newProduct.Product_ID= ""
+                        this.newProduct.Product_Name= "",
+                        this.newProduct.Product_Price= 0,
+                        this.newProduct.Product_MType= "",
+                        this.newProduct.Product_BType= "",
+                        this.newProduct.Product_CType= "",
+                        this.newProduct.Product_Info= "",
+                        this.newProduct.Product_Spec= "",
+                        this.newProduct.Product_PIC1= "",
+						this.newProduct.Product_PIC2= "",
+						this.newProduct.Product_PIC3= "",
+						this.newProduct.Product_PIC4= "",
+                        this.newProduct.Product_Status= 0   
+                     },
                     //  getFiles(e){
                     //     let files = e.target.files
                     //     if(!files.length)return;
@@ -1017,6 +1018,13 @@
 				// },
 				mounted() {
 					this.fetchAllDate()
+					
+					//確認是否LOCAL有存會員ID
+					let memlogin = JSON.parse(localStorage.getItem("memberID"));
+					if (memlogin) {
+					} else {
+						location.href = "./backLogin_page.html";
+					}
 				},
                 
 			});

@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>後台管理頁面</title>
+		<title>RAKA｜後台管理頁面</title>
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
 			rel="stylesheet"
@@ -567,6 +567,15 @@
 				created() {
 					this.fetchAllDate();
 				},
+				mounted() {
+					//確認是否LOCAL有存會員ID
+					let memlogin = JSON.parse(localStorage.getItem("memberID"));
+					if (memlogin) {
+					} else {
+						location.href = "./backLogin_page.html";
+					}
+				},
+                
                 
 			});
 		</script>

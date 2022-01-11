@@ -4,13 +4,17 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Login and Registration</title>
+		<title>RAKA｜登入與註冊</title>
 		<link rel="stylesheet" href="../dist/css/style.css" />
 		<script
 			src="https://kit.fontawesome.com/8470264036.js"
 			crossorigin="anonymous"
 		></script>
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.8.1/axios.js' integrity='sha512-yQvhnV+bdDcAhyxTlmVUyNikQCtnIkfC9r7GesIjLg6IrJx2M92DSv58LpyobngV7WUeM1c3mpgP0971pIY98A==' crossorigin='anonymous'></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.8.1/axios.js"
+			integrity="sha512-yQvhnV+bdDcAhyxTlmVUyNikQCtnIkfC9r7GesIjLg6IrJx2M92DSv58LpyobngV7WUeM1c3mpgP0971pIY98A=="
+			crossorigin="anonymous"
+		></script>
 	</head>
 	<body>
 		@@include('./layout/header.html')
@@ -126,7 +130,6 @@
 					</div>
 				</div>
 			</section> -->
-
 		</div>
 		@@include('./layout/footer.html')
 
@@ -199,23 +202,21 @@
 						this.content = "regi-page";
 						this.$emit("update-content", this.content);
 					},
-					fetchAllDate(){
-						axios.post("./php/ajaxLogin.php",{
-						action:'fetchSingle',//資料參數丟過去ajaxLogin.php
-						memAcc:this.user.email,
-						memPsw:this.user.password
-						}
-						).then(res=>
-						{
-							if(res.data.Member_ID > 0){
-								location.href="./member_comm_order.html";
-								localStorage.setItem("memberID", JSON.stringify(res.data));
-							}else{
-								alert("帳密錯誤，請重新輸入");
-							}
-							
-						}
-						)
+					fetchAllDate() {
+						axios
+							.post("./php/ajaxLogin.php", {
+								action: "fetchSingle", //資料參數丟過去ajaxLogin.php
+								memAcc: this.user.email,
+								memPsw: this.user.password,
+							})
+							.then((res) => {
+								if (res.data.Member_ID > 0) {
+									location.href = "./member_comm_order.html";
+									localStorage.setItem("memberID", JSON.stringify(res.data));
+								} else {
+									alert("帳密錯誤，請重新輸入");
+								}
+							});
 					},
 				},
 				mounted() {
@@ -285,22 +286,21 @@
 						this.content = "login-page";
 						this.$emit("update-content", this.content);
 					},
-					fetchAllRegi(){
-						axios.post("./php/ajaxRegi.php",{
-						action:'insert',//資料參數丟過去ajaxLogin.php
-						memAcc:this.user.email,
-						memPsw:this.user.password,
-						memName:this.user.name
-						}
-						).then(res=>
-						{
-							console.log(res.data);
-							alert(res.data.message);
-							if(res.data.message == '註冊成功,請重新登入'){
-								location.href="./loginAndRegi_page.html";
-							}
-						}
-						)
+					fetchAllRegi() {
+						axios
+							.post("./php/ajaxRegi.php", {
+								action: "insert", //資料參數丟過去ajaxLogin.php
+								memAcc: this.user.email,
+								memPsw: this.user.password,
+								memName: this.user.name,
+							})
+							.then((res) => {
+								console.log(res.data);
+								alert(res.data.message);
+								if (res.data.message == "註冊成功,請重新登入") {
+									location.href = "./loginAndRegi_page.html";
+								}
+							});
 					},
 				},
 			});
@@ -315,7 +315,6 @@
 					updateSelf(val) {
 						this.content = val;
 					},
-					
 				},
 			});
 		</script>

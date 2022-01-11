@@ -13,11 +13,14 @@
         left: 15%;
         h1{
             border-bottom: 1px solid #aaa;
+            font-size: 30px;
         }
         h2{
             padding: 20px 0px;
+            font-size: 30px;
         }
         button{
+            font-size: 24px;
             @include btnStyle($btnColor-primary,100%);
         }
     }
@@ -126,11 +129,24 @@
 }
 @media screen and (max-width:375px){
     .game{
+        position: relative;
         margin-bottom: 200px;
         .startbtn{
             position: absolute;
-            top: 50%;
+            top: 100%;
             left: 30%;
+            h1{
+                border-bottom: 1px solid #aaa;
+                font-size: 16px;
+            }
+            h2{
+                padding: 20px 0px;
+                font-size: 16px;
+            }
+            button{
+                font-size: 16px;
+                @include btnStyle($btnColor-primary,100%);
+            }
         }
         .jumpbox{
             position: fixed;

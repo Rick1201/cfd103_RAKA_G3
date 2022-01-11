@@ -1,279 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-		<link rel="stylesheet" href="./css/style.css" />
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
-	</head>
-	<body>
-		@@include('./layout/header.html')
-		<div class="raka-index__page">
-			<div class="raka-index-header"></div>
-			<section class="raka-index-main">
-				<div class="raka-index-pic">
-					<div class="raka-index-pic_watch">
-						<img src="./images/watch01.png" alt="" />
-					</div>
-					<div class="raka-circle-text">
-						<div class="logo">
-							<p>RAKA DIVING WATCH</p>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="raka-index-detail">
-				<div class="wave-container">
-					<div class="wave">
-						<!-- 動態 -->
-						<svg
-							width="100%"
-							height="100%"
-							id="svg"
-							viewBox="0 0 1440 500"
-							xmlns="http://www.w3.org/2000/svg"
-							class="transition duration-300 ease-in-out delay-150"
-						>
-							<style>
-								.path-0 {
-									animation: pathAnim-0 4s;
-									animation-timing-function: linear;
-									animation-iteration-count: infinite;
-								}
-								@keyframes pathAnim-0 {
-									0% {
-										d: path(
-											"M 0,500 C 0,500 0,250 0,250 C 136,207.03571428571428 272,164.07142857142858 393,164 C 514,163.92857142857142 620.0000000000001,206.75 728,242 C 835.9999999999999,277.25 946,304.92857142857144 1065,305 C 1184,305.07142857142856 1312,277.5357142857143 1440,250 C 1440,250 1440,500 1440,500 Z"
-										);
-									}
-									25% {
-										d: path(
-											"M 0,500 C 0,500 0,250 0,250 C 93.75,201.35714285714286 187.5,152.71428571428572 301,183 C 414.5,213.28571428571428 547.7500000000001,322.5 699,338 C 850.2499999999999,353.5 1019.5000000000002,275.28571428571433 1146,245 C 1272.4999999999998,214.7142857142857 1356.25,232.35714285714283 1440,250 C 1440,250 1440,500 1440,500 Z"
-										);
-									}
-									50% {
-										d: path(
-											"M 0,500 C 0,500 0,250 0,250 C 94.53571428571428,254.5 189.07142857142856,259 331,277 C 472.92857142857144,295 662.2499999999999,326.5 776,302 C 889.7500000000001,277.5 927.9285714285713,197 1026,179 C 1124.0714285714287,161 1282.0357142857142,205.5 1440,250 C 1440,250 1440,500 1440,500 Z"
-										);
-									}
-									75% {
-										d: path(
-											"M 0,500 C 0,500 0,250 0,250 C 154.85714285714286,263.5357142857143 309.7142857142857,277.07142857142856 409,265 C 508.2857142857143,252.92857142857142 552,215.24999999999997 654,208 C 756,200.75000000000003 916.2857142857142,223.92857142857144 1057,236 C 1197.7142857142858,248.07142857142856 1318.857142857143,249.03571428571428 1440,250 C 1440,250 1440,500 1440,500 Z"
-										);
-									}
-									100% {
-										d: path(
-											"M 0,500 C 0,500 0,250 0,250 C 136,207.03571428571428 272,164.07142857142858 393,164 C 514,163.92857142857142 620.0000000000001,206.75 728,242 C 835.9999999999999,277.25 946,304.92857142857144 1065,305 C 1184,305.07142857142856 1312,277.5357142857143 1440,250 C 1440,250 1440,500 1440,500 Z"
-										);
-									}
-								}
-							</style>
-							<defs>
-								<linearGradient
-									id="gradient"
-									x1="50%"
-									y1="100%"
-									x2="50%"
-									y2="0%"
-								>
-									<stop offset="5%" stop-color="#081838ff"></stop>
-									<stop offset="95%" stop-color="#27516cff"></stop>
-								</linearGradient>
-							</defs>
-							<path
-								d="M 0,500 C 0,500 0,250 0,250 C 136,207.03571428571428 272,164.07142857142858 393,164 C 514,163.92857142857142 620.0000000000001,206.75 728,242 C 835.9999999999999,277.25 946,304.92857142857144 1065,305 C 1184,305.07142857142856 1312,277.5357142857143 1440,250 C 1440,250 1440,500 1440,500 Z"
-								stroke="none"
-								stroke-width="0"
-								fill="url(#gradient)"
-								class="transition-all duration-300 ease-in-out delay-150 path-0"
-							></path>
-						</svg>
-					</div>
-				</div>
-				<div class="raka-index-detail-midllew">
-					<div class="raka-index-detail-pic">
-						<img class="watchnone" src="./images/watch01.png" alt="" />
-						<div class="raka-index-detail_pic pic1">
-							<img src="./images/index00.png" alt="" />
-						</div>
-						<div class="raka-index-detail_pic pic2">
-							<img src="./images/index01.png" alt="" />
-						</div>
-						<div class="raka-index-detail_pic pic3">
-							<img src="./images/index02.png" alt="" />
-						</div>
-					</div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css"/>
+    <title>RAKA｜前導頁</title>
+</head>
+<body>
+    <section class="landing-wrap">
+        <div class="image">
+            <img src="./images/watchL.png" alt="">
+        </div>
+        <div class="landBtn1" onclick="javascript:location.href='./homePage.html'">
+            <h1>
+                前台
+            </h1>
+        </div>
+        <div class="landBtn2" onclick="javascript:location.href='./backLogin_page.html'">
+        <!-- <div class="landBtn2" onclick="javascript:location.href='./orderManage.html'"> -->
+            <h1>
+               後台
+            </h1>
+        </div>
+        <!-- <section class="loginAndRegiPage">
+            <div class="container">
+                <div class="component_zone">
+                    <div class="img_area">
+                        <img src="./images/loginAndRegi_page-01.jpg" alt="" />
+                    </div>
+                    <div class="form_area">
+                        <div class="title_dist">
+                            <h2>管理員登入</h2>
+                        </div>
+                        <div class="form_dist">
+                            <div class="form_region">
+                                <div class="form_group">
+                                    <label for="account"><p>帳號</p></label>
+                                    <input type="email" id="account"  v-model="user.email" name="uEmail"/>
+                                </div>
+                                <div class="form_group">
+                                    <label for="psw"><p>密碼</p></label>
+                                    <input type="password" id="psw" v-model="user.password" name="uPsw"/>
+                                </div>
+                            </div>
+                            <div class="btn_region">
+                                <button @click="fetchAllDate()" class="submit_btn">登入</button>
+                            </div>
+                        </div>	
+                    </div>
+                </div>
+            </div>
+        </section> -->
+        <!-- <div class="manager-login">
+            <div class="container">
+                <h2>管理員登入</h2><span>X</span>
+                <label for="acc">管理員編號:</label>
+                <input type="text"><br>
+                <label for="psw">管理員密碼:</label>
+                <input type="text">
+                <button>登入</button>
+            </div> -->
 
-					<div class="raka-index-product">
-						<h3>精選商品</h3>
-						<div class="raka-index-product-item-list">
-							<div class="raka-index-product-item col-4">
-								<div class="raka-index-product-item-pic">
-									<img src="./images/indexw01.png" alt="" />
-								</div>
-								<a href="product_page.html?id=1">
-									<span class="raka-index-product-name">
-										formula 1 x indy 500
-									</span>
-								</a>
-							</div>
-
-							<div class="raka-index-product-item col-4">
-								<div class="raka-index-product-item-pic">
-									<img src="./images/indexw02.png" alt="" />
-								</div>
-								<a href="product_page.html?id=2">
-									<span class="raka-index-product-name">
-										formula 1 x indy 500
-									</span>
-								</a>
-							</div>
-							<div class="raka-index-product-item col-4">
-								<div class="raka-index-product-item-pic">
-									<img src="./images/indexw03.png" alt="" />
-								</div>
-								<a href="product_page.html?id=3">
-									<span class="raka-index-product-name">
-										formula 1 x indy 500
-									</span>
-								</a>
-							</div>
-
-							<div class="raka-index-product-item col-4">
-								<div class="raka-index-product-item-pic">
-									<img src="./images/indexw04.png" alt="" />
-								</div>
-								<a href="product_page.html?id=4">
-									<span class="raka-index-product-name">
-										formula 1 x indy 500
-									</span>
-								</a>
-							</div>
-							<div class="raka-index-product-item col-4">
-								<div class="raka-index-product-item-pic">
-									<img src="./images/indexw05.png" alt="" />
-								</div>
-								<a href="product_page.html?id=5">
-									<span class="raka-index-product-name">
-										formula 1 x indy 500
-									</span>
-								</a>
-							</div>
-							<div class="raka-index-product-item col-4">
-								<div class="raka-index-product-item-pic">
-									<img src="./images/indexw06.png" alt="" />
-								</div>
-								<a href="product_page.html?id=6">
-									<span class="raka-index-product-name">
-										formula 1 x indy 500
-									</span>
-								</a>
-							</div>
-							<a href="productList_page.html">
-								<button>更多商品</button>
-							</a>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section class="raka-index-special-watch">
-				<div class="raka-index-special-watch-text">
-					<h2>持久清晰</h2>
-					<h1>夜光</h1>
-					<a href="productList_page.html">詳細功能</a>
-				</div>
-				<div class="raka-index-night-watch_pic">
-					<img src="./images/watch02.jfif" alt="" />
-				</div>
-			</section>
-
-			<section class="raka-index-customize">
-				<div class="raka-index-customize_pic">
-					<img src="./images/watch03cut.png" alt="" />
-				</div>
-				<div class="raka-index-customize-text">
-					<h2>專屬於您</h2>
-					<h1>客製化</h1>
-					<a href="vuecuzi.html">開始設計</a>
-				</div>
-			</section>
-			<div class="raka-index-dec-watch_pic">
-				<img src="./images/watch04.jpg" alt="" />
-			</div>
-			<div class="chatboxButton">
-				@@include('./layout/chatbox.html')
-				<button class="raka_chatbox">
-					<img src="./images/logorob.png" alt="" />
-				</button>
-			</div>
-			<script src="./js/chatbox.js"></script>
-
-			@@include('./layout/footer.html')
-		</div>
-		<script>
-			function addAnI() {
-				let eleList = document.querySelectorAll(".raka-index-detail_pic");
-				eleList.forEach((v) => {
-					v.classList.add("active");
-				});
-			}
-			function removeAnI() {
-				let eleList = document.querySelectorAll(".raka-index-detail_pic");
-				eleList.forEach((v) => {
-					v.classList.remove("active");
-				});
-			}
-			function scrollWatch() {
-				let rakaWatch = document.querySelector(".raka-index-pic_watch img");
-				let rakaIndexPicHeight =
-					document.querySelector(".raka-index-pic").offsetHeight;
-				let varHeight = document.querySelector(
-					".raka-index-pic_watch img"
-				).offsetHeight;
-				let waveHeight = document.querySelector(".wave").offsetHeight;
-				let varTop =
-					rakaIndexPicHeight -
-					(rakaIndexPicHeight - varHeight) / 2 +
-					waveHeight;
-				let fixHeight = (rakaIndexPicHeight - varHeight) / 2 + 77;
-
-				if (document.documentElement.scrollTop > varTop) {
-					rakaWatch.classList.add("bubbleWathch");
-					rakaWatch.style.top = `${varTop}px`;
-					addAnI();
-				} else {
-					rakaWatch.classList.remove("bubbleWathch");
-					rakaWatch.style.top = `${fixHeight}px`;
-					removeAnI();
-				}
-			}
-
-			function init() {
-				document.body.onscroll = scrollWatch;
-				document.body.addEventListener("scroll", scrollWatch);
-			}
-			$(document).ready(function () {
-				$("#chatbox").slideToggle();
-				$(".raka_chatbox").click(function () {
-					$("#chatbox").slideToggle();
-				});
-				$(".close").click(function () {
-					$("#chatbox").slideToggle();
-				});
-			});
-			window.addEventListener("load", init, false);
-
-			const text = document.querySelector(".logo p");
-			text.innerHTML = text.innerText
-				.split("")
-				.map(
-					(char, i) =>
-						`<span style="transform:rotate(${i * 20}deg)">${char}</span>`
-				)
-				.join("");
-		</script>
-	</body>
+        </div>
+    </section>
+</body>
 </html>
